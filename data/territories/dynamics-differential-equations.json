@@ -6,8 +6,8 @@
       "name": "Exponential Growth & Decay",
       "aka": ["dy/dt = ky", "Exponential model", "Half-life / doubling time"],
       "intuition_gloss": "When a quantity grows or shrinks in proportion to its current size — compound interest, bacteria, radioactive decay — it traces the exponential curve.",
-      "formal_gloss": "The solution y(t) = y_0 e^{kt} of the linear ODE dy/dt = ky, growing without bound for k > 0 and decaying to zero for k < 0.",
-      "level": 3,
+      "formal_gloss": "The solution y(t) = y_0 e^{kt} of the linear ODE dy/dt = ky; for y_0 ≠ 0 it grows without bound in magnitude when k > 0 and decays to zero when k < 0.",
+      "level": 4,
       "prereqs": ["derivative", "function"],
       "cross_links": ["differential-equation", "population-dynamics", "analysis:exponential-function"],
       "resources": [
@@ -22,9 +22,9 @@
       "aka": ["Direction field", "Vector field of an ODE"],
       "intuition_gloss": "Draw a tiny arrow at every point showing which way the rule pushes; solutions are the paths that go with the flow of the arrows.",
       "formal_gloss": "A plot assigning to each point (t, y) the slope f(t, y) prescribed by y' = f(t, y); solution curves are exactly the curves everywhere tangent to the field.",
-      "level": 3,
+      "level": 4,
       "prereqs": ["differential-equation", "derivative"],
-      "cross_links": ["phase-portrait", "flow", "numerical-solution-of-odes"],
+      "cross_links": ["phase-portrait", "flow", "numerical-solution-of-odes", "vector-field"],
       "resources": [
         {"title": "GeoGebra — Slope field plotter", "url": "https://www.geogebra.org/m/W7dAdgqc", "type": "tool"},
         {"title": "3Blue1Brown — Differential equations, a tourist's guide", "url": "https://www.youtube.com/watch?v=p_di4Zn4wz4", "type": "video"}
@@ -84,7 +84,7 @@
       "formal_gloss": "The linear second-order ODE x'' + 2ζω x' + ω²x = F(t), with sinusoidal solutions, exponentially damped envelopes, and resonance under periodic forcing near ω.",
       "level": 4,
       "prereqs": ["linear-ode", "complex-numbers"],
-      "cross_links": ["wave-equation", "hamiltonian-system", "analysis:fourier-series"],
+      "cross_links": ["wave-equation", "hamiltonian-system", "analysis:fourier-analysis", "laplace-transform"],
       "resources": [
         {"title": "myPhysicsLab — Single spring simulation", "url": "https://www.myphysicslab.com/springs/single-spring-en.html", "type": "tool"},
         {"title": "MIT OCW 18.03SC — Differential Equations", "url": "https://ocw.mit.edu/courses/18-03sc-differential-equations-fall-2011/", "type": "text"}
@@ -129,7 +129,7 @@
       "formal_gloss": "A one-parameter family of maps φ_t on a state space with φ_0 = id and φ_{s+t} = φ_s ∘ φ_t, generated in the smooth case by integrating a vector field.",
       "level": 5,
       "prereqs": ["function", "initial-value-problem"],
-      "cross_links": ["group", "manifold", "iterated-map", "ergodic-theory"],
+      "cross_links": ["group", "manifold", "iterated-map", "ergodic-theory", "vector-field"],
       "resources": [
         {"title": "Scholarpedia — Dynamical systems", "url": "http://www.scholarpedia.org/article/Dynamical_systems", "type": "text"},
         {"title": "Strogatz — Nonlinear Dynamics and Chaos (Cornell lectures)", "url": "https://www.youtube.com/playlist?list=PLbN57C5Zdl6j_qJA-pARJnKsmROzPnO9V", "type": "video"}
@@ -154,7 +154,7 @@
     {
       "id": "stability",
       "name": "Stability & Lyapunov Functions",
-      "aka": ["Lyapunov stability", "Asymptotic stability", "Basin of attraction"],
+      "aka": ["Lyapunov stability", "Asymptotic stability"],
       "intuition_gloss": "Nudge a marble in a bowl and it settles back; nudge it on a dome and it flees — stability asks which kind of resting point you have.",
       "formal_gloss": "An equilibrium is Lyapunov stable if nearby trajectories stay nearby and asymptotically stable if they also converge; a function decreasing along trajectories (a Lyapunov function) certifies stability without solving the equations.",
       "level": 5,
@@ -186,7 +186,7 @@
       "name": "Limit Cycle",
       "aka": ["Periodic orbit", "Self-sustained oscillation", "Poincaré–Bendixson theorem"],
       "intuition_gloss": "An isolated closed loop the system settles into — the mathematical heartbeat behind clocks, neurons, and predator-prey cycles.",
-      "formal_gloss": "An isolated closed orbit of a flow; in the plane, the Poincaré–Bendixson theorem guarantees one inside any trapping region containing no equilibria.",
+      "formal_gloss": "An isolated closed orbit of a flow; in the plane, the Poincaré–Bendixson theorem guarantees a closed orbit (not necessarily isolated) inside any trapping region containing no equilibria.",
       "level": 5,
       "prereqs": ["phase-portrait", "stability"],
       "cross_links": ["population-dynamics", "bifurcation", "poincare-map"],
@@ -221,7 +221,7 @@
       "prereqs": ["function", "sequence"],
       "cross_links": ["logistic-map", "poincare-map", "algorithm", "numerical-solution-of-odes"],
       "resources": [
-        {"title": "Complexity Explorer — Introduction to Dynamical Systems and Chaos (Feldman)", "url": "https://www.complexityexplorer.org/courses/144-introduction-to-dynamical-systems-and-chaos", "type": "text"},
+        {"title": "Complexity Explorer — Introduction to Dynamical Systems and Chaos (Feldman)", "url": "https://www.complexityexplorer.org/courses/186-introduction-to-dynamical-systems-and-chaos", "type": "text"},
         {"title": "Wikipedia — Dynamical system (maps)", "url": "https://en.wikipedia.org/wiki/Dynamical_system", "type": "text"}
       ],
       "sources": ["Devaney, An Introduction to Chaotic Dynamical Systems", "Complexity Explorer course structure"]
@@ -260,11 +260,11 @@
       "id": "lyapunov-exponent",
       "name": "Lyapunov Exponent",
       "aka": ["Exponential divergence rate"],
-      "intuition_gloss": "The speedometer of chaos — how fast two almost-identical starting points fly apart, measured in doublings per unit time.",
+      "intuition_gloss": "The speedometer of chaos — how fast two almost-identical starting points fly apart, their gap stretching by a fixed factor with every tick of the clock.",
       "formal_gloss": "The asymptotic exponential growth rate λ = lim_{t→∞} (1/t) ln(|δx(t)|/|δx(0)|) of infinitesimal perturbations; a positive largest exponent is the standard quantitative signature of chaos.",
       "level": 6,
-      "prereqs": ["chaos", "limit"],
-      "cross_links": ["ergodic-theory", "numerical-solution-of-odes"],
+      "prereqs": ["flow", "limit"],
+      "cross_links": ["chaos", "ergodic-theory", "numerical-solution-of-odes"],
       "resources": [
         {"title": "Wikipedia — Lyapunov exponent", "url": "https://en.wikipedia.org/wiki/Lyapunov_exponent", "type": "text"},
         {"title": "Strogatz — Nonlinear Dynamics and Chaos (Cornell lectures)", "url": "https://www.youtube.com/playlist?list=PLbN57C5Zdl6j_qJA-pARJnKsmROzPnO9V", "type": "video"}
@@ -279,7 +279,7 @@
       "formal_gloss": "A compact invariant set that attracts all orbits from a neighborhood; strange attractors carry fractal structure and chaotic dynamics, the Lorenz system being the canonical example.",
       "level": 6,
       "prereqs": ["phase-portrait", "stability", "chaos"],
-      "cross_links": ["limit-cycle", "geometry:fractal", "lyapunov-exponent"],
+      "cross_links": ["limit-cycle", "geometry:fractal-geometry", "lyapunov-exponent"],
       "resources": [
         {"title": "Wikipedia — Lorenz system", "url": "https://en.wikipedia.org/wiki/Lorenz_system", "type": "text"},
         {"title": "Strogatz — Nonlinear Dynamics and Chaos (Cornell lectures)", "url": "https://www.youtube.com/playlist?list=PLbN57C5Zdl6j_qJA-pARJnKsmROzPnO9V", "type": "video"}
@@ -308,8 +308,8 @@
       "intuition_gloss": "Frictionless physics as geometry: energy is a landscape, and motion follows its contour lines, never compressing the cloud of possible states.",
       "formal_gloss": "Dynamics q' = ∂H/∂p, p' = −∂H/∂q generated by a Hamiltonian function H; the flow conserves H and preserves phase-space volume (Liouville's theorem).",
       "level": 6,
-      "prereqs": ["system-of-odes", "analysis:multivariable-calculus"],
-      "cross_links": ["symmetry", "manifold", "ergodic-theory", "poincare-map", "geometry:symplectic-geometry"],
+      "prereqs": ["system-of-odes", "analysis:partial-derivative"],
+      "cross_links": ["symmetry", "manifold", "ergodic-theory", "poincare-map"],
       "resources": [
         {"title": "Susskind — The Theoretical Minimum: Classical Mechanics", "url": "https://theoreticalminimum.com/courses/classical-mechanics/2011/fall", "type": "video"},
         {"title": "Wikipedia — Hamiltonian mechanics", "url": "https://en.wikipedia.org/wiki/Hamiltonian_mechanics", "type": "text"}
@@ -324,7 +324,7 @@
       "formal_gloss": "The study of measure-preserving transformations; Birkhoff's theorem states that for ergodic systems, time averages along almost every orbit equal the space average against the invariant measure.",
       "level": 7,
       "prereqs": ["flow", "probability-space"],
-      "cross_links": ["chaos", "lyapunov-exponent", "probability-statistics:law-of-large-numbers", "number-theory:equidistribution"],
+      "cross_links": ["chaos", "lyapunov-exponent", "probability-statistics:law-of-large-numbers"],
       "resources": [
         {"title": "Wikipedia — Ergodic theory", "url": "https://en.wikipedia.org/wiki/Ergodic_theory", "type": "text"},
         {"title": "Scholarpedia — Dynamical systems", "url": "http://www.scholarpedia.org/article/Dynamical_systems", "type": "text"}
@@ -338,8 +338,8 @@
       "intuition_gloss": "When a quantity varies across space and time — heat in a rod, waves on water — its law of change relates rates in several directions at once.",
       "formal_gloss": "An equation relating an unknown function of several variables to its partial derivatives; second-order linear PDEs are classified as elliptic, parabolic, or hyperbolic, each with its own theory.",
       "level": 5,
-      "prereqs": ["differential-equation", "analysis:multivariable-calculus"],
-      "cross_links": ["heat-equation", "wave-equation", "mathematical-model", "analysis:fourier-series"],
+      "prereqs": ["differential-equation", "analysis:partial-derivative"],
+      "cross_links": ["heat-equation", "wave-equation", "laplace-equation", "mathematical-model", "analysis:fourier-analysis"],
       "resources": [
         {"title": "3Blue1Brown — But what is a partial differential equation?", "url": "https://www.youtube.com/watch?v=ly4S0oi3Yz8", "type": "video"},
         {"title": "Wikipedia — Partial differential equation", "url": "https://en.wikipedia.org/wiki/Partial_differential_equation", "type": "text"}
@@ -354,7 +354,7 @@
       "formal_gloss": "The parabolic PDE u_t = α∇²u, solved on bounded domains by separation of variables and Fourier series, with instant smoothing and maximum-principle behavior.",
       "level": 5,
       "prereqs": ["partial-differential-equation", "separation-of-variables"],
-      "cross_links": ["analysis:fourier-series", "probability-statistics:brownian-motion", "stochastic-differential-equation"],
+      "cross_links": ["analysis:fourier-analysis", "probability-statistics:brownian-motion", "stochastic-differential-equation", "laplace-equation"],
       "resources": [
         {"title": "3Blue1Brown — Solving the heat equation", "url": "https://www.youtube.com/watch?v=ToIXSwZ1pJU", "type": "video"},
         {"title": "Wikipedia — Heat equation", "url": "https://en.wikipedia.org/wiki/Heat_equation", "type": "text"}
@@ -369,7 +369,7 @@
       "formal_gloss": "The hyperbolic PDE u_tt = c²∇²u, with traveling-wave solutions f(x − ct) + g(x + ct) by d'Alembert's formula and standing-wave normal modes on bounded domains.",
       "level": 5,
       "prereqs": ["partial-differential-equation", "harmonic-oscillator"],
-      "cross_links": ["heat-equation", "analysis:fourier-series"],
+      "cross_links": ["heat-equation", "laplace-equation", "analysis:fourier-analysis"],
       "resources": [
         {"title": "Falstad — Loaded string simulation", "url": "https://www.falstad.com/loadedstring/", "type": "tool"},
         {"title": "Wikipedia — Wave equation", "url": "https://en.wikipedia.org/wiki/Wave_equation", "type": "text"}
@@ -383,8 +383,8 @@
       "intuition_gloss": "When formulas fail, take tiny time-steps: nudge the state along the arrows over and over and let a computer trace the trajectory.",
       "formal_gloss": "Discrete-time approximation schemes x_{n+1} = x_n + h·Φ(x_n, h) for initial value problems, from first-order Euler to the fourth-order Runge–Kutta family, with accuracy and stability governed by the step size and the method's order.",
       "level": 4,
-      "prereqs": ["initial-value-problem", "algorithm"],
-      "cross_links": ["iterated-map", "slope-field", "applied-computational:numerical-analysis", "chaos"],
+      "prereqs": ["differential-equation", "algorithm"],
+      "cross_links": ["iterated-map", "slope-field", "initial-value-problem", "applied-computational:numerical-stability", "chaos"],
       "resources": [
         {"title": "Wikipedia — Runge–Kutta methods", "url": "https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods", "type": "text"},
         {"title": "MIT OCW 18.03SC — Differential Equations", "url": "https://ocw.mit.edu/courses/18-03sc-differential-equations-fall-2011/", "type": "text"}
@@ -414,12 +414,57 @@
       "formal_gloss": "An equation dX_t = μ(X_t)dt + σ(X_t)dW_t driven by Brownian motion, given rigorous meaning by the Itô (or Stratonovich) stochastic integral.",
       "level": 7,
       "prereqs": ["initial-value-problem", "random-variable", "probability-statistics:brownian-motion"],
-      "cross_links": ["heat-equation", "expectation", "applied-computational:mathematical-finance"],
+      "cross_links": ["heat-equation", "expectation"],
       "resources": [
         {"title": "Øksendal — Stochastic Differential Equations (Springer)", "url": "https://link.springer.com/book/10.1007/978-3-642-14394-6", "type": "text"},
         {"title": "Wikipedia — Stochastic differential equation", "url": "https://en.wikipedia.org/wiki/Stochastic_differential_equation", "type": "text"}
       ],
       "sources": ["MSC 60H (stochastic analysis)", "Øksendal chapter structure", "Princeton Companion IV.24 (Probabilistic Models...) context"]
+    },
+    {
+      "id": "laplace-transform",
+      "name": "Laplace Transform",
+      "aka": ["s-domain methods", "Operational calculus", "Transfer function"],
+      "intuition_gloss": "Feed the whole time-history of a signal through a prism that turns calculus into algebra — derivatives become multiplications by s, you solve with ordinary arithmetic, then translate back.",
+      "formal_gloss": "The integral transform F(s) = ∫_0^∞ f(t) e^{-st} dt, which converts linear constant-coefficient ODEs with initial conditions into algebraic equations in s; the poles of the transformed solution govern stability and response, making it the standard engineering route to transfer functions.",
+      "level": 5,
+      "prereqs": ["linear-ode", "integral"],
+      "cross_links": ["harmonic-oscillator", "initial-value-problem", "applied-computational:control-theory", "analysis:fourier-analysis"],
+      "resources": [
+        {"title": "MIT OCW 18.03SC — Differential Equations", "url": "https://ocw.mit.edu/courses/18-03sc-differential-equations-fall-2011/", "type": "text"},
+        {"title": "Wikipedia — Laplace transform", "url": "https://en.wikipedia.org/wiki/Laplace_transform", "type": "text"}
+      ],
+      "sources": ["MIT OCW 18.03 Laplace transform unit", "Boyce & DiPrima chapter structure", "MSC 44A10 (Laplace transform)"]
+    },
+    {
+      "id": "laplace-equation",
+      "name": "Laplace's Equation & Harmonic Functions",
+      "aka": ["∇²u = 0", "Harmonic function", "Potential theory", "Dirichlet problem"],
+      "intuition_gloss": "The equation of perfect balance — a stretched soap film or a temperature map that has stopped changing, where every point sits exactly at the average of its neighbors.",
+      "formal_gloss": "The elliptic PDE ∇²u = 0; its solutions, harmonic functions, satisfy the mean value property and the maximum principle, describe steady states of the heat equation, and model electrostatic and gravitational potentials.",
+      "level": 5,
+      "prereqs": ["partial-differential-equation"],
+      "cross_links": ["heat-equation", "wave-equation", "analysis:holomorphic-function"],
+      "resources": [
+        {"title": "Wikipedia — Laplace's equation", "url": "https://en.wikipedia.org/wiki/Laplace%27s_equation", "type": "text"},
+        {"title": "Wikipedia — Harmonic function", "url": "https://en.wikipedia.org/wiki/Harmonic_function", "type": "text"}
+      ],
+      "sources": ["MSC 31 (Potential theory) / 35J (elliptic equations)", "Evans, Partial Differential Equations", "standard PDE curricula"]
+    },
+    {
+      "id": "vector-field",
+      "name": "Vector Field",
+      "aka": ["Field of arrows", "Velocity field"],
+      "intuition_gloss": "Attach an arrow to every point of space — like wind on a weather map — and you have a complete picture of motion everywhere at once.",
+      "formal_gloss": "An assignment x ↦ v(x) of a vector to each point of a region (or manifold); smooth vector fields are the right-hand sides of autonomous ODEs x' = v(x) and generate flows by integration.",
+      "level": 4,
+      "prereqs": ["vector", "function", "derivative"],
+      "cross_links": ["slope-field", "flow", "phase-portrait", "analysis:stokes-theorem"],
+      "resources": [
+        {"title": "3Blue1Brown — Divergence and curl: The language of Maxwell's equations, fluid flow, and more", "url": "https://www.youtube.com/watch?v=rB83DpBJQsE", "type": "video"},
+        {"title": "Wikipedia — Vector field", "url": "https://en.wikipedia.org/wiki/Vector_field", "type": "text"}
+      ],
+      "sources": ["standard multivariable calculus curricula", "Strogatz, Nonlinear Dynamics and Chaos (vector fields on the line and plane)", "MSC 37C10 (vector fields, flows)"]
     }
   ]
 }

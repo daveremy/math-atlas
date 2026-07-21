@@ -69,7 +69,7 @@
       "name": "Prime Number",
       "territory": "number-theory",
       "intuition_gloss": "The atoms of the integers — numbers that refuse to be broken into smaller factors.",
-      "formal_gloss": "An integer greater than 1 whose only positive divisors are 1 and itself; every integer greater than 1 factors uniquely into primes.",
+      "formal_gloss": "An integer greater than 1 whose only positive divisors are 1 and itself.",
       "level": 1
     },
     {

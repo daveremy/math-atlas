@@ -5,7 +5,7 @@
       "id": "elementary-probability",
       "name": "Probability of an Event",
       "aka": ["classical probability", "chance"],
-      "intuition_gloss": "A number between 0 and 1 measuring how likely something is — the fraction of equally likely worlds where it happens.",
+      "intuition_gloss": "The fraction of equally likely worlds where something happens — a number between 0 and 1 grading events from impossible to certain.",
       "formal_gloss": "For an event A in a finite equiprobable sample space, P(A) = |A|/|Ω|; in general, a normalized additive measure of likelihood assigned to events.",
       "level": 1,
       "prereqs": ["counting-principles", "rational-numbers", "set"],
@@ -19,7 +19,7 @@
     {
       "id": "descriptive-statistics",
       "name": "Descriptive Statistics",
-      "aka": ["summary statistics", "mean, median, mode", "data visualization"],
+      "aka": ["summary statistics", "mean, median, mode"],
       "intuition_gloss": "Boiling a pile of numbers down to a few honest headlines — a typical value, a spread, and a picture of the data's shape.",
       "formal_gloss": "Numerical and graphical summaries of a dataset — measures of center (mean, median), dispersion (range, standard deviation, quantiles), and shape (histograms, skewness).",
       "level": 1,
@@ -39,7 +39,7 @@
       "formal_gloss": "Selecting observations from a population so each unit has a known probability of inclusion; i.i.d. samples model observations as independent draws from a common distribution.",
       "level": 2,
       "prereqs": ["elementary-probability", "descriptive-statistics"],
-      "cross_links": ["experimental-design", "sampling-distribution", "monte-carlo"],
+      "cross_links": ["experimental-design", "sampling-distribution", "applied-computational:monte-carlo-method"],
       "resources": [
         {"title": "OpenIntro Statistics — Data collection", "url": "https://www.openintro.org/book/os/", "type": "text"},
         {"title": "Khan Academy — Study design and sampling", "url": "https://www.khanacademy.org/math/statistics-probability", "type": "course"}
@@ -127,7 +127,7 @@
       "aka": ["second moment", "spread"],
       "intuition_gloss": "How widely a random quantity scatters around its average — the typical size of its surprise.",
       "formal_gloss": "Var(X) = E[(X - E[X])²] = E[X²] - (E[X])²; the standard deviation is its square root, in the units of X.",
-      "level": 3,
+      "level": 4,
       "prereqs": ["expectation"],
       "cross_links": ["covariance-correlation", "central-limit-theorem", "descriptive-statistics"],
       "resources": [
@@ -141,8 +141,8 @@
       "name": "Normal (Gaussian) Distribution",
       "aka": ["bell curve", "Gaussian"],
       "intuition_gloss": "The bell-shaped curve that shows up whenever many small independent effects add together — nature's default histogram.",
-      "formal_gloss": "The continuous distribution with density f(x) = (1/(σ√(2π))) exp(-(x-μ)²/(2σ²)), closed under linear combinations and the unique fixed point of the central limit theorem.",
-      "level": 3,
+      "formal_gloss": "The continuous distribution with density f(x) = (1/(σ√(2π))) exp(-(x-μ)²/(2σ²)), closed under linear combinations and the unique finite-variance fixed point of the central limit theorem.",
+      "level": 4,
       "prereqs": ["probability-distribution", "variance"],
       "cross_links": ["central-limit-theorem", "integral", "linear-regression", "brownian-motion"],
       "resources": [
@@ -160,12 +160,42 @@
       "formal_gloss": "The Poisson(λ) distribution P(X = k) = e^(-λ)λ^k/k! arises as the limit of binomials with np → λ; the Poisson process is a counting process with independent, stationary increments of this law.",
       "level": 4,
       "prereqs": ["bernoulli-binomial", "limit", "expectation"],
-      "cross_links": ["stochastic-process", "mathematical-model"],
+      "cross_links": ["stochastic-process", "common-distributions", "mathematical-model"],
       "resources": [
         {"title": "Wikipedia — Poisson distribution", "url": "https://en.wikipedia.org/wiki/Poisson_distribution", "type": "text"},
         {"title": "Random (Virtual Laboratories in Probability) — Poisson process", "url": "https://www.randomservices.org/random/", "type": "tool"}
       ],
       "sources": ["Blitzstein & Hwang ch. 4 and 13", "Feller vol. 1 ch. VI", "MSC 2020 60G55"]
+    },
+    {
+      "id": "common-distributions",
+      "name": "Uniform, Exponential & Geometric Distributions",
+      "aka": ["memoryless distributions", "workhorse distributions"],
+      "intuition_gloss": "The other stock characters of randomness: the uniform (a spinner where every value is equally likely — the raw material of all simulation), the geometric (coin flips until the first success), and the exponential (the wait for a random arrival, which never remembers how long you've already waited).",
+      "formal_gloss": "Uniform(a,b) has constant density 1/(b-a); Geometric(p) has P(X = k) = (1-p)^(k-1) p; Exponential(λ) has density λe^(-λx), is the unique memoryless continuous distribution, and is the interarrival-time law of the Poisson process.",
+      "level": 4,
+      "prereqs": ["probability-distribution", "bernoulli-binomial"],
+      "cross_links": ["poisson-process", "normal-distribution", "applied-computational:monte-carlo-method"],
+      "resources": [
+        {"title": "Distribution Explorer (interactive catalog of distributions)", "url": "https://distribution-explorer.github.io/", "type": "tool"},
+        {"title": "Wikipedia — Exponential distribution", "url": "https://en.wikipedia.org/wiki/Exponential_distribution", "type": "text"}
+      ],
+      "sources": ["Blitzstein & Hwang ch. 4-5", "Feller vol. 1 ch. VI and XVII", "MIT OCW 18.05 unit 2"]
+    },
+    {
+      "id": "joint-distributions",
+      "name": "Joint, Marginal & Conditional Distributions",
+      "aka": ["multivariate distribution", "joint density"],
+      "intuition_gloss": "The full weather map for several random quantities at once — a surface showing where the pairs land together; read along one edge to recover each variable alone, or slice through a fixed value to see how one behaves given the other.",
+      "formal_gloss": "The distribution of a random vector (X,Y,...), specified by a joint PMF or density; marginals arise by summing or integrating out the other variables, and conditionals by slicing: f_{X|Y}(x|y) = f_{X,Y}(x,y)/f_Y(y).",
+      "level": 4,
+      "prereqs": ["probability-distribution", "conditional-probability", "random-variable"],
+      "cross_links": ["independence", "covariance-correlation", "conditional-expectation", "stochastic-process"],
+      "resources": [
+        {"title": "Wikipedia — Joint probability distribution", "url": "https://en.wikipedia.org/wiki/Joint_probability_distribution", "type": "text"},
+        {"title": "MIT OCW 18.05 — Introduction to Probability and Statistics", "url": "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/", "type": "course"}
+      ],
+      "sources": ["Blitzstein & Hwang ch. 7", "Casella & Berger ch. 4", "MIT OCW 18.05 unit 2"]
     },
     {
       "id": "covariance-correlation",
@@ -174,8 +204,8 @@
       "intuition_gloss": "A single number capturing whether two quantities tend to move together, apart, or ignore each other.",
       "formal_gloss": "Cov(X,Y) = E[(X-E[X])(Y-E[Y])]; correlation ρ = Cov(X,Y)/(σ_X σ_Y) ∈ [-1,1] measures the strength of linear association.",
       "level": 4,
-      "prereqs": ["variance", "expectation", "independence"],
-      "cross_links": ["linear-regression", "dot-product", "experimental-design"],
+      "prereqs": ["variance", "expectation", "independence", "joint-distributions"],
+      "cross_links": ["linear-regression", "linear-algebra:dot-product", "experimental-design"],
       "resources": [
         {"title": "Seeing Theory — Correlation (interactive)", "url": "https://seeing-theory.brown.edu/", "type": "tool"},
         {"title": "Wikipedia — Covariance and correlation", "url": "https://en.wikipedia.org/wiki/Covariance_and_correlation", "type": "text"}
@@ -190,7 +220,7 @@
       "formal_gloss": "For i.i.d. random variables with finite mean μ, the sample average X̄_n converges to μ (in probability — weak law; almost surely — strong law) as n → ∞.",
       "level": 4,
       "prereqs": ["expectation", "independence", "sequence", "limit"],
-      "cross_links": ["monte-carlo", "elementary-probability", "central-limit-theorem"],
+      "cross_links": ["applied-computational:monte-carlo-method", "elementary-probability", "central-limit-theorem"],
       "resources": [
         {"title": "Seeing Theory — Law of Large Numbers (interactive)", "url": "https://seeing-theory.brown.edu/", "type": "tool"},
         {"title": "Wikipedia — Law of large numbers", "url": "https://en.wikipedia.org/wiki/Law_of_large_numbers", "type": "text"}
@@ -295,7 +325,7 @@
       "formal_gloss": "Inference placing a prior distribution π(θ) on parameters and computing the posterior π(θ|x) ∝ L(θ; x)π(θ), from which estimates and credible intervals are derived.",
       "level": 5,
       "prereqs": ["bayes-theorem", "probability-distribution", "statistical-inference"],
-      "cross_links": ["maximum-likelihood", "monte-carlo", "applied-computational:machine-learning"],
+      "cross_links": ["maximum-likelihood", "applied-computational:monte-carlo-method", "conditional-expectation", "applied-computational:machine-learning"],
       "resources": [
         {"title": "Seeing Theory — Bayesian Inference (interactive)", "url": "https://seeing-theory.brown.edu/", "type": "tool"},
         {"title": "Wikipedia — Bayesian inference", "url": "https://en.wikipedia.org/wiki/Bayesian_inference", "type": "text"}
@@ -310,7 +340,7 @@
       "formal_gloss": "Modeling E[Y|X] = β₀ + β₁X (or Xβ in matrix form) with coefficients chosen to minimize the sum of squared residuals; geometrically, an orthogonal projection onto the column space of X.",
       "level": 4,
       "prereqs": ["covariance-correlation", "descriptive-statistics", "matrix"],
-      "cross_links": ["least-squares", "orthogonal-projection", "optimization", "applied-computational:machine-learning"],
+      "cross_links": ["linear-algebra:least-squares", "linear-algebra:orthogonal-projection", "optimization", "applied-computational:machine-learning"],
       "resources": [
         {"title": "Seeing Theory — Regression Analysis (interactive)", "url": "https://seeing-theory.brown.edu/", "type": "tool"},
         {"title": "James, Witten, Hastie & Tibshirani — An Introduction to Statistical Learning", "url": "https://www.statlearning.com/", "type": "text"}
@@ -339,7 +369,7 @@
       "intuition_gloss": "When you can't resurvey the world, resample your own data with replacement thousands of times and watch how the answer wobbles.",
       "formal_gloss": "Estimating the sampling distribution of a statistic by drawing repeated samples with replacement from the empirical distribution, yielding standard errors and confidence intervals without closed-form theory.",
       "level": 5,
-      "prereqs": ["sampling-distribution", "monte-carlo"],
+      "prereqs": ["sampling-distribution", "applied-computational:monte-carlo-method"],
       "cross_links": ["confidence-interval", "algorithm"],
       "resources": [
         {"title": "Wikipedia — Bootstrapping (statistics)", "url": "https://en.wikipedia.org/wiki/Bootstrapping_(statistics)", "type": "text"},
@@ -348,29 +378,14 @@
       "sources": ["Efron & Tibshirani, An Introduction to the Bootstrap", "Wasserman ch. 8", "MIT OCW 18.05 bootstrap unit"]
     },
     {
-      "id": "monte-carlo",
-      "name": "Monte Carlo Methods",
-      "aka": ["stochastic simulation"],
-      "intuition_gloss": "Answer a hard deterministic question by playing dice with it — simulate randomness many times and average what you see.",
-      "formal_gloss": "Numerical methods estimating quantities (integrals, expectations, probabilities) as sample averages of random simulations, with error O(1/√n) guaranteed by the law of large numbers and CLT.",
-      "level": 5,
-      "prereqs": ["law-of-large-numbers", "random-sampling", "algorithm"],
-      "cross_links": ["markov-chain", "integral", "bayesian-inference", "mathematical-model"],
-      "resources": [
-        {"title": "Wikipedia — Monte Carlo method", "url": "https://en.wikipedia.org/wiki/Monte_Carlo_method", "type": "text"},
-        {"title": "Random (Virtual Laboratories in Probability) — simulation apps", "url": "https://www.randomservices.org/random/", "type": "tool"}
-      ],
-      "sources": ["Metropolis & Ulam (historical origin)", "Robert & Casella, Monte Carlo Statistical Methods", "MIT OCW 18.05 simulation studios"]
-    },
-    {
       "id": "stochastic-process",
       "name": "Stochastic Process",
       "aka": ["random process"],
       "intuition_gloss": "Randomness unfolding in time — a whole movie of random values rather than a single random snapshot.",
       "formal_gloss": "A collection of random variables {X_t} indexed by time (discrete or continuous) on a common probability space, characterized by its joint finite-dimensional distributions.",
       "level": 5,
-      "prereqs": ["random-variable", "probability-distribution", "sequence"],
-      "cross_links": ["markov-chain", "brownian-motion", "poisson-process", "dynamics-differential-equations:dynamical-system"],
+      "prereqs": ["random-variable", "probability-distribution", "joint-distributions", "sequence"],
+      "cross_links": ["markov-chain", "brownian-motion", "poisson-process", "dynamics-differential-equations:flow"],
       "resources": [
         {"title": "Random (Virtual Laboratories in Probability)", "url": "https://www.randomservices.org/random/", "type": "tool"},
         {"title": "Wikipedia — Stochastic process", "url": "https://en.wikipedia.org/wiki/Stochastic_process", "type": "text"}
@@ -385,7 +400,7 @@
       "formal_gloss": "A stochastic process with P(X_{n+1} = j | X_n = i, past) = P(X_{n+1} = j | X_n = i), encoded by a transition matrix whose long-run behavior is governed by its stationary distribution.",
       "level": 5,
       "prereqs": ["stochastic-process", "conditional-probability", "matrix"],
-      "cross_links": ["eigenvalue-eigenvector", "monte-carlo", "algorithm", "graph"],
+      "cross_links": ["eigenvalue-eigenvector", "applied-computational:monte-carlo-method", "algorithm", "graph"],
       "resources": [
         {"title": "Setosa — Markov Chains, Explained Visually", "url": "https://setosa.io/ev/markov-chains/", "type": "tool"},
         {"title": "Wikipedia — Markov chain", "url": "https://en.wikipedia.org/wiki/Markov_chain", "type": "text"}
@@ -400,7 +415,7 @@
       "formal_gloss": "The continuous-time process with B₀ = 0, independent stationary Gaussian increments B_t - B_s ~ N(0, t-s), and continuous but nowhere-differentiable sample paths.",
       "level": 7,
       "prereqs": ["stochastic-process", "central-limit-theorem", "continuity", "probability-space"],
-      "cross_links": ["martingale", "differential-equation", "manifold"],
+      "cross_links": ["martingale", "differential-equation", "dynamics-differential-equations:stochastic-differential-equation"],
       "resources": [
         {"title": "Wikipedia — Wiener process", "url": "https://en.wikipedia.org/wiki/Wiener_process", "type": "text"},
         {"title": "Random (Virtual Laboratories in Probability) — Brownian motion", "url": "https://www.randomservices.org/random/", "type": "tool"}
@@ -408,16 +423,32 @@
       "sources": ["Mörters & Peres, Brownian Motion ch. 1", "Einstein 1905 / Wiener 1923 (historical)", "MSC 2020 60J65"]
     },
     {
+      "id": "conditional-expectation",
+      "name": "Conditional Expectation",
+      "aka": ["E[X|Y]", "conditional mean"],
+      "intuition_gloss": "Your best guess of one random quantity after seeing another — an average taken inside each slice of what you know, which is itself random because the slice you land in is.",
+      "formal_gloss": "E[X|Y] is the random variable g(Y) with g(y) = E[X | Y = y]; measure-theoretically, E[X|F] is the F-measurable random variable satisfying ∫_A E[X|F] dP = ∫_A X dP for all A ∈ F — equivalently, the orthogonal projection of X onto L²(F). The tower property E[E[X|F]] = E[X] makes it the workhorse of modern probability.",
+      "level": 6,
+      "prereqs": ["expectation", "joint-distributions", "probability-space"],
+      "cross_links": ["martingale", "brownian-motion", "bayesian-inference", "linear-algebra:orthogonal-projection"],
+      "resources": [
+        {"title": "Wikipedia — Conditional expectation", "url": "https://en.wikipedia.org/wiki/Conditional_expectation", "type": "text"},
+        {"title": "MIT OCW 18.175 — Theory of Probability (Spring 2014)", "url": "https://ocw.mit.edu/courses/18-175-theory-of-probability-spring-2014/", "type": "course"}
+      ],
+      "sources": ["Blitzstein & Hwang ch. 9", "Williams, Probability with Martingales ch. 9", "Durrett, Probability: Theory and Examples ch. 4"]
+    },
+    {
       "id": "martingale",
       "name": "Martingale",
-      "aka": ["fair game process", "conditional expectation"],
+      "aka": ["fair game process"],
       "intuition_gloss": "A fair game over time: given everything that's happened so far, your expected fortune tomorrow equals your fortune today.",
       "formal_gloss": "A process {X_n} adapted to a filtration with E[|X_n|] < ∞ and E[X_{n+1} | F_n] = X_n; optional stopping and convergence theorems make it a central proof tool of modern probability.",
       "level": 7,
-      "prereqs": ["stochastic-process", "expectation", "conditional-probability", "probability-space"],
+      "prereqs": ["stochastic-process", "conditional-expectation", "conditional-probability", "probability-space"],
       "cross_links": ["brownian-motion", "law-of-large-numbers"],
       "resources": [
-        {"title": "Wikipedia — Martingale (probability theory)", "url": "https://en.wikipedia.org/wiki/Martingale_(probability_theory)", "type": "text"}
+        {"title": "Wikipedia — Martingale (probability theory)", "url": "https://en.wikipedia.org/wiki/Martingale_(probability_theory)", "type": "text"},
+        {"title": "MIT OCW 18.175 — Theory of Probability (Spring 2014)", "url": "https://ocw.mit.edu/courses/18-175-theory-of-probability-spring-2014/", "type": "course"}
       ],
       "sources": ["Williams, Probability with Martingales", "Durrett, Probability: Theory and Examples ch. 4", "MSC 2020 60G42/60G44"]
     },
@@ -429,7 +460,7 @@
       "formal_gloss": "H(X) = -Σ p(x) log p(x), the expected log-loss of a distribution; relative entropy (KL divergence) D(p‖q) measures the inefficiency of assuming q when the truth is p.",
       "level": 5,
       "prereqs": ["probability-distribution", "expectation"],
-      "cross_links": ["maximum-likelihood", "bayes-theorem", "applied-computational:machine-learning", "algorithm"],
+      "cross_links": ["maximum-likelihood", "bayes-theorem", "applied-computational:information-theory", "applied-computational:machine-learning", "algorithm"],
       "resources": [
         {"title": "Chris Olah — Visual Information Theory", "url": "https://colah.github.io/posts/2015-09-Visual-Information/", "type": "text"},
         {"title": "Wikipedia — Entropy (information theory)", "url": "https://en.wikipedia.org/wiki/Entropy_(information_theory)", "type": "text"}

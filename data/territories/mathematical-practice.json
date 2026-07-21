@@ -5,7 +5,7 @@
       "id": "mathematical-definition",
       "name": "Mathematical Definition",
       "aka": ["Precise definition", "Definition-unpacking"],
-      "intuition_gloss": "The exact wording of what a term means is the whole game — a definition is a contract you must be able to unfold on demand.",
+      "intuition_gloss": "A definition is a contract you must be able to unfold on demand — the exact wording of what a term means is the whole game.",
       "formal_gloss": "A stipulation introducing a new term as an abbreviation for a precise condition, so every use of the term can be replaced by that condition in proofs.",
       "level": 2,
       "prereqs": ["set", "axiom"],
@@ -78,7 +78,7 @@
     {
       "id": "proof-by-contrapositive",
       "name": "Proof by Contrapositive",
-      "aka": ["Contraposition", "Indirect proof"],
+      "aka": ["Contraposition"],
       "intuition_gloss": "Instead of proving 'if it rains, the ground gets wet', prove 'if the ground is dry, it didn't rain' — the same claim attacked from the other end.",
       "formal_gloss": "A proof of P implies Q obtained by directly proving the logically equivalent statement not-Q implies not-P.",
       "level": 3,
@@ -123,7 +123,7 @@
       "id": "without-loss-of-generality",
       "name": "Without Loss of Generality",
       "aka": ["WLOG", "Symmetry reduction in proofs"],
-      "intuition_gloss": "When several scenarios are mirror images of each other, prove just one and let symmetry stamp the result onto the rest.",
+      "intuition_gloss": "When several scenarios are mirror images of each other, prove just one and let symmetry stamp the result onto the rest — this is the proof-writing move, while exploiting symmetry is the wider discovery strategy behind it.",
       "formal_gloss": "A proof step restricting attention to one case among several that are equivalent under a symmetry of the problem, the other cases following by the same argument mutatis mutandis.",
       "level": 4,
       "prereqs": ["proof-by-cases"],
@@ -216,7 +216,7 @@
       "prereqs": ["polya-problem-solving", "function"],
       "cross_links": ["algorithm", "isomorphism", "coordinate-system", "multiple-representations"],
       "resources": [
-        {"title": "Reduction (mathematics) — Wikipedia", "url": "https://en.wikipedia.org/wiki/Reduction_(mathematics)", "type": "text"},
+        {"title": "Reduction (complexity) — Wikipedia (the formal analogue: transforming one problem into another)", "url": "https://en.wikipedia.org/wiki/Reduction_(complexity)", "type": "text"},
         {"title": "How to Solve It (Polya) — Wikipedia", "url": "https://en.wikipedia.org/wiki/How_to_Solve_It", "type": "text"}
       ],
       "sources": ["Polya, How to Solve It (auxiliary problems)", "computational reduction as formal analogue (MSC 68Q)"]
@@ -229,7 +229,7 @@
       "formal_gloss": "A quantity or property preserved (invariant) or monotonically changed (monovariant) by every permitted operation, used to prove impossibility or termination.",
       "level": 3,
       "prereqs": ["direct-proof", "function"],
-      "cross_links": ["induction", "symmetry", "modular-arithmetic", "graph"],
+      "cross_links": ["induction", "symmetry", "modular-arithmetic", "graph", "extremal-principle", "discrete-combinatorics:pigeonhole-principle"],
       "resources": [
         {"title": "Invariant (mathematics) — Wikipedia", "url": "https://en.wikipedia.org/wiki/Invariant_(mathematics)", "type": "text"},
         {"title": "Problem-Solving Strategies (Engel), ch. 1: The Invariance Principle", "url": "https://link.springer.com/book/10.1007/b97682", "type": "text"}
@@ -242,9 +242,9 @@
       "aka": ["Extreme principle", "Consider the largest/smallest"],
       "intuition_gloss": "Grab the biggest, smallest, or closest object in the problem — extremes are cornered animals, and their special position forces conclusions.",
       "formal_gloss": "The heuristic of examining an element that is extremal with respect to some ordering, whose maximality or minimality yields constraints, often combined with well-ordering or contradiction.",
-      "level": 4,
-      "prereqs": ["proof-by-contradiction", "invariant"],
-      "cross_links": ["foundations:well-ordering", "optimization", "induction"],
+      "level": 3,
+      "prereqs": ["proof-by-contradiction"],
+      "cross_links": ["foundations:well-ordering", "optimization", "induction", "invariant", "discrete-combinatorics:pigeonhole-principle"],
       "resources": [
         {"title": "Problem-Solving Strategies (Engel), ch. 3: The Extremal Principle", "url": "https://link.springer.com/book/10.1007/b97682", "type": "text"}
       ],
@@ -254,7 +254,7 @@
       "id": "exploiting-symmetry",
       "name": "Exploiting Symmetry",
       "aka": ["Symmetry arguments", "Symmetrization"],
-      "intuition_gloss": "When a problem looks the same after a swap, rotation, or relabeling, that sameness is free information — use it to halve the work or force equalities.",
+      "intuition_gloss": "When a problem looks the same after a swap, rotation, or relabeling, that sameness is free information — use it to halve the work or force equalities; this is the discovery-side strategy whose proof-writing counterpart is WLOG.",
       "formal_gloss": "The strategy of using a problem's automorphisms — transformations preserving its data — to reduce cases, constrain solutions, or average over orbits.",
       "level": 3,
       "prereqs": ["polya-problem-solving"],
@@ -357,7 +357,7 @@
       "id": "rigor-and-intuition",
       "name": "Rigor & Intuition",
       "aka": ["Pre-rigorous/rigorous/post-rigorous", "Formal vs. informal reasoning"],
-      "intuition_gloss": "Mathematicians run on fast intuition checked by slow rigor — mastery is when the two agree, and your gut speaks fluent epsilon-delta.",
+      "intuition_gloss": "Mathematicians run on fast intuition checked by slow rigor — mastery is when the two agree, and your gut instantly senses what a careful proof would confirm.",
       "formal_gloss": "The interplay between informal heuristic understanding and formal deductive verification, often described as Tao's three stages: pre-rigorous, rigorous, and post-rigorous practice.",
       "level": 4,
       "prereqs": ["reading-writing-proofs", "visual-reasoning"],
@@ -383,6 +383,36 @@
         {"title": "The Natural Number Game", "url": "https://adam.math.hhu.de/", "type": "tool"}
       ],
       "sources": ["Lean mathlib project (atlas primary source)", "MSC 2020 03B35 / 68V (formalized mathematics)", "atlas maintenance principle 5 (formalization at scale)"]
+    },
+    {
+      "id": "biconditional-set-equality-uniqueness-proofs",
+      "name": "Biconditional, Set-Equality & Uniqueness Proofs",
+      "aka": ["Iff proofs", "Double inclusion", "Existence and uniqueness"],
+      "intuition_gloss": "Some claims are two-way streets: prove 'iff' by walking both directions, prove two sets equal by showing each fits inside the other, and prove uniqueness by supposing two winners and forcing them to be the same.",
+      "formal_gloss": "Standard proof patterns for non-conditional statements: P iff Q via the two implications P implies Q and Q implies P; A = B via the double inclusion A subset of B and B subset of A; and existence-and-uniqueness via exhibiting a witness and showing any two witnesses coincide.",
+      "level": 3,
+      "prereqs": ["direct-proof", "foundations:propositional-logic", "set"],
+      "cross_links": ["proof-by-cases", "reading-writing-proofs", "mathematical-definition", "equivalence-relation"],
+      "resources": [
+        {"title": "If and only if — Wikipedia (proving biconditionals)", "url": "https://en.wikipedia.org/wiki/If_and_only_if", "type": "text"},
+        {"title": "Book of Proof (Hammack), chs. 7-8 (non-conditional statements, proofs involving sets)", "url": "https://richardhammack.github.io/BookOfProof/", "type": "text"}
+      ],
+      "sources": ["Book of Proof chs. 7-8", "Velleman, How to Prove It (biconditional and uniqueness proof strategies)"]
+    },
+    {
+      "id": "strong-induction",
+      "name": "Strong Induction & Induction Variants",
+      "aka": ["Complete induction", "Well-ordering-based induction", "Structural induction"],
+      "intuition_gloss": "Ordinary induction climbs a ladder one rung at a time; strong induction lets you stand on every rung below you at once — assume the claim for all smaller cases, not just the previous one.",
+      "formal_gloss": "Variants of the induction principle: complete (strong) induction assumes the statement for all values below n to prove it at n; well-ordering arguments take a minimal counterexample and derive a contradiction; structural induction extends the scheme to recursively defined objects.",
+      "level": 3,
+      "prereqs": ["induction"],
+      "cross_links": ["foundations:well-ordering", "extremal-principle", "proof-by-contradiction", "algorithm"],
+      "resources": [
+        {"title": "Mathematical induction — Wikipedia (complete/strong induction, well-ordering)", "url": "https://en.wikipedia.org/wiki/Mathematical_induction", "type": "text"},
+        {"title": "Book of Proof (Hammack), ch. 10 (strong induction)", "url": "https://richardhammack.github.io/BookOfProof/", "type": "text"}
+      ],
+      "sources": ["Book of Proof ch. 10", "Velleman, How to Prove It", "standard transition-to-proof curricula"]
     }
   ]
 }

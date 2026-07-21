@@ -12,7 +12,7 @@
       "cross_links": ["axiom", "coordinate-system"],
       "resources": [
         {"title": "Euclid's Elements (David Joyce's annotated edition)", "url": "https://mathcs.clarku.edu/~djoyce/java/elements/elements.html", "type": "text"},
-        {"title": "Khan Academy: Geometry", "url": "https://www.khanacademy.org/math/geometry", "type": "course"}
+        {"title": "Khan Academy: Geometry foundations (unit)", "url": "https://www.khanacademy.org/math/geometry/hs-geo-foundations", "type": "course"}
       ],
       "sources": ["Euclid, Elements Book I (definitions and postulates)", "Hilbert, Foundations of Geometry (incidence axioms)", "standard elementary curriculum (Common Core Geometry)"]
     },
@@ -26,7 +26,7 @@
       "prereqs": ["point-line-plane"],
       "cross_links": ["circle", "trigonometry"],
       "resources": [
-        {"title": "Khan Academy: Geometry (angles units)", "url": "https://www.khanacademy.org/math/geometry", "type": "course"},
+        {"title": "Khan Academy: Measuring angles (unit)", "url": "https://www.khanacademy.org/math/basic-geo/basic-geo-angle", "type": "course"},
         {"title": "GeoGebra Geometry tool", "url": "https://www.geogebra.org/geometry", "type": "tool"}
       ],
       "sources": ["Euclid, Elements Book I", "standard K-8 curriculum"]
@@ -36,30 +36,30 @@
       "name": "Congruence",
       "aka": ["congruent figures"],
       "intuition_gloss": "Two shapes are congruent if you could pick one up and set it down exactly on top of the other.",
-      "formal_gloss": "Two figures are congruent iff some isometry maps one onto the other; for triangles, the SSS, SAS, and ASA criteria are equivalent tests.",
+      "formal_gloss": "Two figures are congruent iff there is a correspondence between them under which all corresponding lengths and angle measures are equal — one figure can be superposed exactly on the other; for triangles, the SSS, SAS, and ASA criteria are equivalent tests.",
       "level": 1,
       "prereqs": ["point-line-plane", "angle"],
       "cross_links": ["isometry", "equivalence-relation", "symmetry"],
       "resources": [
         {"title": "Wikipedia: Congruence (geometry)", "url": "https://en.wikipedia.org/wiki/Congruence_(geometry)", "type": "text"},
-        {"title": "Khan Academy: Geometry (congruence unit)", "url": "https://www.khanacademy.org/math/geometry", "type": "course"}
+        {"title": "Khan Academy: Congruence (unit)", "url": "https://www.khanacademy.org/math/geometry/hs-geo-congruence", "type": "course"}
       ],
-      "sources": ["Euclid, Elements Book I (Propositions 4, 8, 26)", "Common Core high-school geometry (transformational definition of congruence)"]
+      "sources": ["Euclid, Elements Book I (Propositions 4, 8, 26)", "Common Core high-school geometry (the transformational definition via rigid motions is formalized later, at isometry)"]
     },
     {
       "id": "similarity",
       "name": "Similarity",
       "aka": ["similar figures", "scaling"],
       "intuition_gloss": "Same shape, different size — one figure is a photographic enlargement of the other.",
-      "formal_gloss": "Two figures are similar iff one is the image of the other under a similarity transformation (an isometry composed with a uniform dilation), giving equal angles and proportional lengths.",
-      "level": 1,
-      "prereqs": ["congruence", "rational-numbers"],
+      "formal_gloss": "Two figures are similar iff one is the image of the other under a similarity transformation (an isometry composed with a uniform dilation), giving equal angles and proportional lengths; the ratios involved are generically irrational, so the theory lives in the real numbers.",
+      "level": 2,
+      "prereqs": ["congruence", "real-numbers"],
       "cross_links": ["trigonometry", "fractal-geometry", "linear-transformation"],
       "resources": [
         {"title": "Wikipedia: Similarity (geometry)", "url": "https://en.wikipedia.org/wiki/Similarity_(geometry)", "type": "text"},
-        {"title": "Khan Academy: Geometry (similarity unit)", "url": "https://www.khanacademy.org/math/geometry", "type": "course"}
+        {"title": "Khan Academy: Similarity (unit)", "url": "https://www.khanacademy.org/math/geometry/hs-geo-similarity", "type": "course"}
       ],
-      "sources": ["Euclid, Elements Book VI", "Common Core high-school geometry"]
+      "sources": ["Euclid, Elements Book VI", "Common Core high-school geometry", "incommensurability of the square's diagonal (why ratios need R, not Q)"]
     },
     {
       "id": "area-volume",
@@ -72,16 +72,16 @@
       "cross_links": ["integral", "pythagorean-theorem", "probability-space"],
       "resources": [
         {"title": "But why is a sphere's surface area four times its shadow? (3Blue1Brown)", "url": "https://www.youtube.com/watch?v=GNcFjFmqEc8", "type": "video"},
-        {"title": "Khan Academy: Geometry (area and volume units)", "url": "https://www.khanacademy.org/math/geometry", "type": "course"}
+        {"title": "Khan Academy: Solid geometry (unit)", "url": "https://www.khanacademy.org/math/geometry/hs-geo-solids", "type": "course"}
       ],
       "sources": ["Euclid, Elements Books I-II, XII (method of exhaustion)", "standard K-8 curriculum", "Hilbert's third problem (limits of dissection) as depth marker"]
     },
     {
       "id": "circle",
       "name": "Circle",
-      "aka": ["disk", "circumference"],
+      "aka": ["circumference"],
       "intuition_gloss": "All the points at one fixed distance from a center — the roundest shape, with the number pi hiding in its measurements.",
-      "formal_gloss": "The locus {P : d(P, O) = r} for a center O and radius r, with circumference 2πr and enclosed area πr².",
+      "formal_gloss": "The locus {P : d(P, O) = r} for a center O and radius r — the boundary curve, of circumference 2πr, of the disk (the filled region) whose area is πr².",
       "level": 1,
       "prereqs": ["point-line-plane"],
       "cross_links": ["conic-sections", "trigonometry", "real-numbers"],
@@ -117,7 +117,7 @@
       "cross_links": ["metric-space", "trigonometry", "vector", "real-numbers"],
       "resources": [
         {"title": "Wikipedia: Pythagorean theorem", "url": "https://en.wikipedia.org/wiki/Pythagorean_theorem", "type": "text"},
-        {"title": "Khan Academy: Geometry (Pythagorean theorem unit)", "url": "https://www.khanacademy.org/math/geometry", "type": "course"}
+        {"title": "Khan Academy: Pythagorean theorem (lesson, Right triangles & trigonometry unit)", "url": "https://www.khanacademy.org/math/geometry/hs-geo-trig/hs-geo-pyth-theorem", "type": "course"}
       ],
       "sources": ["Euclid, Elements I.47", "leverage: underlies Euclidean distance, norms, and inner products across the map"]
     },
@@ -158,8 +158,8 @@
       "intuition_gloss": "Ratios in right triangles become functions that encode every rotation and every repeating wave.",
       "formal_gloss": "The study of sine, cosine, and tangent, defined on the unit circle as coordinates of a rotated point, satisfying identities such as sin²θ + cos²θ = 1.",
       "level": 2,
-      "prereqs": ["similarity", "circle", "angle", "pythagorean-theorem", "coordinate-system"],
-      "cross_links": ["complex-numbers", "analysis:fourier-series", "dynamics-differential-equations:oscillation"],
+      "prereqs": ["similarity", "circle", "angle", "pythagorean-theorem", "coordinate-system", "function"],
+      "cross_links": ["complex-numbers", "analysis:fourier-analysis", "dynamics-differential-equations:harmonic-oscillator"],
       "resources": [
         {"title": "Khan Academy: Trigonometry", "url": "https://www.khanacademy.org/math/trigonometry", "type": "course"},
         {"title": "GeoGebra Geometry tool", "url": "https://www.geogebra.org/geometry", "type": "tool"}
@@ -174,7 +174,7 @@
       "formal_gloss": "A covering of the plane by non-overlapping tiles; periodic tilings are classified by the 17 wallpaper groups, while aperiodic tile sets (Penrose) tile only without repetition.",
       "level": 2,
       "prereqs": ["polygons-polyhedra", "congruence", "symmetry"],
-      "cross_links": ["group", "non-euclidean-geometry", "discrete-combinatorics:lattice"],
+      "cross_links": ["group", "non-euclidean-geometry", "discrete-combinatorics:poset"],
       "resources": [
         {"title": "Wikipedia: Tessellation", "url": "https://en.wikipedia.org/wiki/Tessellation", "type": "text"},
         {"title": "GeoGebra Geometry tool", "url": "https://www.geogebra.org/geometry", "type": "tool"}
@@ -186,13 +186,13 @@
       "name": "Isometry (Rigid Motion)",
       "aka": ["rigid transformation", "congruence transformation"],
       "intuition_gloss": "Every way to move a shape without distorting it — slides, turns, and flips — and nothing else.",
-      "formal_gloss": "A distance-preserving bijection of a metric space; the isometries of the Euclidean plane are exactly translations, rotations, reflections, and glide reflections, and they form a group.",
+      "formal_gloss": "A distance-preserving bijection of a metric space; the isometries of the Euclidean plane are exactly translations, rotations, reflections, and glide reflections, and they form a group. Congruence, defined informally earlier, is made precise here: two figures are congruent exactly when some isometry maps one onto the other.",
       "level": 3,
       "prereqs": ["congruence", "symmetry", "function"],
       "cross_links": ["group", "metric-space", "erlangen-program", "linear-transformation"],
       "resources": [
         {"title": "Wikipedia: Isometry", "url": "https://en.wikipedia.org/wiki/Isometry", "type": "text"},
-        {"title": "Khan Academy: Geometry (transformations unit)", "url": "https://www.khanacademy.org/math/geometry", "type": "course"}
+        {"title": "Khan Academy: Performing transformations (unit)", "url": "https://www.khanacademy.org/math/geometry/hs-geo-transformations", "type": "course"}
       ],
       "sources": ["Common Core transformational geometry", "classification of plane isometries (standard undergraduate result)", "leverage: makes congruence precise and connects geometry to group theory"]
     },
@@ -201,10 +201,10 @@
       "name": "Conic Sections",
       "aka": ["ellipse, parabola, hyperbola", "quadratic curves"],
       "intuition_gloss": "Slice a cone at different angles and you get circles, ellipses, parabolas, and hyperbolas — the paths traced by planets and cannonballs.",
-      "formal_gloss": "The plane curves defined by degree-2 polynomial equations, classified up to isometry as ellipses, parabolas, and hyperbolas (plus degenerate cases).",
+      "formal_gloss": "The plane curves defined by degree-2 polynomial equations, classified by type — ellipse, parabola, or hyperbola (plus degenerate cases) — up to affine equivalence.",
       "level": 3,
       "prereqs": ["circle", "coordinate-system", "polynomial"],
-      "cross_links": ["projective-geometry", "eigenvalue-eigenvector", "dynamics-differential-equations:orbital-mechanics"],
+      "cross_links": ["projective-geometry", "eigenvalue-eigenvector", "affine-geometry"],
       "resources": [
         {"title": "Wikipedia: Conic section", "url": "https://en.wikipedia.org/wiki/Conic_section", "type": "text"},
         {"title": "GeoGebra Geometry tool", "url": "https://www.geogebra.org/geometry", "type": "tool"}
@@ -212,19 +212,19 @@
       "sources": ["Apollonius, Conics", "standard precalculus/analytic-geometry curriculum", "Kepler-Newton orbits as historical leverage"]
     },
     {
-      "id": "dimension",
+      "id": "geometric-dimension",
       "name": "Dimension",
       "aka": ["n-dimensional space", "degrees of freedom"],
       "intuition_gloss": "How many independent directions a space offers — a line has one, a tabletop two, our world three, and mathematics keeps climbing without stopping.",
-      "formal_gloss": "The number of coordinates needed to specify a point; for vector spaces the cardinality of a basis, with topological and fractal (Hausdorff) generalizations.",
+      "formal_gloss": "The minimum number of coordinates needed to specify a point of a space; sharper notions — basis cardinality for vector spaces, Hausdorff dimension for fractals — refine this count and are developed under their own concepts.",
       "level": 3,
       "prereqs": ["coordinate-system"],
-      "cross_links": ["vector-space", "manifold", "fractal-geometry", "applied-computational:curse-of-dimensionality"],
+      "cross_links": ["vector-space", "manifold", "fractal-geometry", "linear-algebra:dimension"],
       "resources": [
         {"title": "Wikipedia: Dimension", "url": "https://en.wikipedia.org/wiki/Dimension", "type": "text"},
         {"title": "Flatland: A Romance of Many Dimensions (Abbott, Project Gutenberg)", "url": "https://www.gutenberg.org/ebooks/201", "type": "text"}
       ],
-      "sources": ["linear-algebra dimension theorem", "Princeton Companion (dimension as organizing idea)", "Hausdorff 1918 (fractional dimension)"]
+      "sources": ["linear-algebra dimension theorem", "Princeton Companion (dimension as organizing idea)"]
     },
     {
       "id": "non-euclidean-geometry",
@@ -242,6 +242,21 @@
       "sources": ["Bolyai, Lobachevsky, Gauss (1820s-30s)", "Beltrami/Poincaré models (relative consistency)", "leverage: historic proof that axioms are choices, feeding into modern logic and Riemannian geometry"]
     },
     {
+      "id": "affine-geometry",
+      "name": "Affine Geometry",
+      "aka": ["affine transformation", "affine space"],
+      "intuition_gloss": "The geometry of shadows cast by a distant sun: parallel lines stay parallel and midpoints stay midpoints, but lengths and angles are free to change.",
+      "formal_gloss": "The study of properties invariant under affine transformations x ↦ Ax + b with A invertible — collinearity, parallelism, and ratios of lengths along parallel lines are preserved, while distances and angles are not; the middle rung between Euclidean and projective geometry.",
+      "level": 4,
+      "prereqs": ["isometry", "coordinate-system", "linear-transformation"],
+      "cross_links": ["projective-geometry", "erlangen-program", "similarity", "conic-sections"],
+      "resources": [
+        {"title": "Wikipedia: Affine geometry", "url": "https://en.wikipedia.org/wiki/Affine_geometry", "type": "text"},
+        {"title": "Wikipedia: Affine transformation", "url": "https://en.wikipedia.org/wiki/Affine_transformation", "type": "text"}
+      ],
+      "sources": ["Klein, Erlangen program (1872) — the middle term of Euclidean ⊂ affine ⊂ projective", "Coxeter, Introduction to Geometry", "MSC 2020: 51N10 Affine analytic geometry"]
+    },
+    {
       "id": "convexity",
       "name": "Convexity",
       "aka": ["convex set", "convex body"],
@@ -249,12 +264,27 @@
       "formal_gloss": "A set C in a real vector space is convex if tx + (1−t)y ∈ C for all x, y ∈ C and t ∈ [0,1], supporting separation, Helly, and extreme-point theorems.",
       "level": 4,
       "prereqs": ["point-line-plane", "vector"],
-      "cross_links": ["optimization", "polygons-polyhedra", "expectation"],
+      "cross_links": ["optimization", "polygons-polyhedra", "expectation", "computational-geometry"],
       "resources": [
         {"title": "Wikipedia: Convex set", "url": "https://en.wikipedia.org/wiki/Convex_set", "type": "text"},
         {"title": "Boyd & Vandenberghe, Convex Optimization (free book)", "url": "https://web.stanford.edu/~boyd/cvxbook/", "type": "text"}
       ],
       "sources": ["Minkowski's geometry of numbers", "Boyd & Vandenberghe, Convex Optimization", "leverage: the dividing line between tractable and intractable optimization"]
+    },
+    {
+      "id": "computational-geometry",
+      "name": "Computational Geometry",
+      "aka": ["convex hull algorithms", "Voronoi diagram", "Delaunay triangulation"],
+      "intuition_gloss": "Teaching a computer to see shape: step-by-step recipes that stretch a rubber band around a point cloud, carve a map into nearest-neighbor cells, or mesh a region with well-shaped triangles.",
+      "formal_gloss": "The design and analysis of algorithms for geometric input — convex hulls, Voronoi diagrams and Delaunay triangulations, intersection and proximity queries — with running time measured in the size of the point set (e.g., O(n log n) convex hulls).",
+      "level": 4,
+      "prereqs": ["convexity", "polygons-polyhedra", "coordinate-system", "algorithm"],
+      "cross_links": ["applied-computational:computational-complexity", "tessellation"],
+      "resources": [
+        {"title": "Wikipedia: Computational geometry", "url": "https://en.wikipedia.org/wiki/Computational_geometry", "type": "text"},
+        {"title": "de Berg, Cheong, van Kreveld & Overmars, Computational Geometry: Algorithms and Applications (3rd ed., Springer)", "type": "text"}
+      ],
+      "sources": ["Shamos, Computational Geometry (1978 thesis — founding document)", "de Berg, Cheong, van Kreveld & Overmars, Computational Geometry: Algorithms and Applications", "MSC 2020: 68U05, 52C45"]
     },
     {
       "id": "fractal-geometry",
@@ -263,7 +293,7 @@
       "intuition_gloss": "Shapes that stay rough at every zoom level — coastlines and snowflakes whose detail never bottoms out, with dimensions that are not whole numbers.",
       "formal_gloss": "The study of sets exhibiting self-similarity and non-integer Hausdorff dimension, often arising as attractors of iterated function systems.",
       "level": 4,
-      "prereqs": ["dimension", "similarity", "limit"],
+      "prereqs": ["geometric-dimension", "similarity", "limit"],
       "cross_links": ["dynamics-differential-equations:chaos", "metric-space", "complex-numbers"],
       "resources": [
         {"title": "Wikipedia: Fractal", "url": "https://en.wikipedia.org/wiki/Fractal", "type": "text"},
@@ -279,7 +309,7 @@
       "formal_gloss": "The study of properties invariant under projection, on the projective space obtained by adjoining points at infinity; formally, the space of lines through the origin of a vector space.",
       "level": 5,
       "prereqs": ["euclidean-geometry", "coordinate-system", "vector-space"],
-      "cross_links": ["conic-sections", "algebraic-geometry", "erlangen-program", "applied-computational:computer-graphics"],
+      "cross_links": ["conic-sections", "algebraic-geometry", "erlangen-program", "affine-geometry"],
       "resources": [
         {"title": "Wikipedia: Projective geometry", "url": "https://en.wikipedia.org/wiki/Projective_geometry", "type": "text"}
       ],
@@ -292,7 +322,7 @@
       "intuition_gloss": "Klein's big idea: a geometry is defined not by its objects but by the moves you are allowed to make — study whatever the moves leave unchanged.",
       "formal_gloss": "Klein's 1872 organizing principle classifying geometries as the study of invariants of a transformation group acting on a space, ordering Euclidean ⊂ affine ⊂ projective by group inclusion.",
       "level": 5,
-      "prereqs": ["group", "isometry", "projective-geometry", "symmetry"],
+      "prereqs": ["group", "isometry", "affine-geometry", "projective-geometry", "symmetry"],
       "cross_links": ["isomorphism", "non-euclidean-geometry", "topology:topological-invariant", "manifold"],
       "resources": [
         {"title": "Wikipedia: Erlangen program", "url": "https://en.wikipedia.org/wiki/Erlangen_program", "type": "text"}
@@ -321,7 +351,7 @@
       "formal_gloss": "For curves, the rate of turning of the tangent per unit arc length; for surfaces, Gaussian curvature, which Gauss's Theorema Egregium shows is intrinsic — detectable by measurements within the surface alone.",
       "level": 5,
       "prereqs": ["curves-and-surfaces", "derivative"],
-      "cross_links": ["non-euclidean-geometry", "riemannian-geometry", "topology:euler-characteristic", "mathematical-model"],
+      "cross_links": ["non-euclidean-geometry", "riemannian-geometry", "gauss-bonnet-theorem", "topology:euler-characteristic", "mathematical-model"],
       "resources": [
         {"title": "Wikipedia: Gaussian curvature", "url": "https://en.wikipedia.org/wiki/Gaussian_curvature", "type": "text"},
         {"title": "But why is a sphere's surface area four times its shadow? (3Blue1Brown)", "url": "https://www.youtube.com/watch?v=GNcFjFmqEc8", "type": "video"}
@@ -343,6 +373,34 @@
       "sources": ["do Carmo, Differential Geometry of Curves and Surfaces", "calculus of variations tradition (Euler, Jacobi)", "great-circle navigation as canonical example"]
     },
     {
+      "id": "differential-form",
+      "name": "Differential Forms & Exterior Calculus",
+      "aka": ["k-form", "exterior derivative", "wedge product"],
+      "intuition_gloss": "The things calculus integrates, packaged to be coordinate-free: tiny oriented lengths, areas, and volumes you can add up along curves, over surfaces, and beyond.",
+      "formal_gloss": "Antisymmetric multilinear fields (k-forms) equipped with the wedge product and the exterior derivative d; they are the natural integrands over oriented k-dimensional regions, d unifies gradient, curl, and divergence, and the generalized Stokes theorem reads ∫_∂M ω = ∫_M dω.",
+      "level": 6,
+      "prereqs": ["curves-and-surfaces", "integral", "vector-space", "geometric-dimension"],
+      "cross_links": ["analysis:stokes-theorem", "linear-algebra:dual-space", "riemannian-geometry", "manifold", "gauss-bonnet-theorem"],
+      "resources": [
+        {"title": "Wikipedia: Differential form", "url": "https://en.wikipedia.org/wiki/Differential_form", "type": "text"}
+      ],
+      "sources": ["Élie Cartan (exterior calculus, 1899)", "Spivak, Calculus on Manifolds", "do Carmo, Differential Forms and Applications", "leverage: the floor under Stokes' theorem, de Rham cohomology, and integration on manifolds"]
+    },
+    {
+      "id": "gauss-bonnet-theorem",
+      "name": "Gauss–Bonnet Theorem",
+      "aka": ["total curvature", "angle defect"],
+      "intuition_gloss": "Add up all the bending over a closed surface and the answer ignores every dent and bulge — it is fixed by the number of holes alone.",
+      "formal_gloss": "For a compact surface S without boundary, ∫_S K dA = 2πχ(S): total Gaussian curvature equals 2π times the Euler characteristic; for regions with boundary, geodesic curvature and exterior angles join the tally.",
+      "level": 6,
+      "prereqs": ["curvature", "geodesic", "integral"],
+      "cross_links": ["topology:euler-characteristic", "riemannian-geometry", "differential-form", "polygons-polyhedra"],
+      "resources": [
+        {"title": "Wikipedia: Gauss–Bonnet theorem", "url": "https://en.wikipedia.org/wiki/Gauss%E2%80%93Bonnet_theorem", "type": "text"}
+      ],
+      "sources": ["Gauss, Disquisitiones generales circa superficies curvas (1827)", "Bonnet 1848", "do Carmo, Differential Geometry of Curves and Surfaces, ch. 4", "leverage: the crown-jewel bridge from local curvature to global topology"]
+    },
+    {
       "id": "riemannian-geometry",
       "name": "Riemannian Geometry",
       "aka": ["Riemannian manifold", "metric tensor"],
@@ -350,7 +408,7 @@
       "formal_gloss": "The study of smooth manifolds equipped with a Riemannian metric — a smoothly varying inner product on tangent spaces — yielding lengths, geodesics, and curvature tensors.",
       "level": 7,
       "prereqs": ["manifold", "curvature", "geodesic", "vector-space"],
-      "cross_links": ["metric-space", "non-euclidean-geometry", "mathematical-model", "dynamics-differential-equations:general-relativity"],
+      "cross_links": ["metric-space", "non-euclidean-geometry", "mathematical-model", "differential-form", "gauss-bonnet-theorem"],
       "resources": [
         {"title": "Wikipedia: Riemannian geometry", "url": "https://en.wikipedia.org/wiki/Riemannian_geometry", "type": "text"}
       ],

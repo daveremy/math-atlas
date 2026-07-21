@@ -17,8 +17,7 @@
           "type": "text"
         },
         {
-          "title": "Burton, Elementary Number Theory, ch. 2",
-          "url": "https://en.wikipedia.org/wiki/David_M._Burton",
+          "title": "Burton, Elementary Number Theory, ch. 2 (McGraw-Hill)",
           "type": "text"
         }
       ],
@@ -91,7 +90,7 @@
     {
       "id": "bezout-identity",
       "name": "Bézout's Identity",
-      "aka": ["extended Euclidean algorithm", "linear Diophantine equations"],
+      "aka": ["extended Euclidean algorithm"],
       "intuition_gloss": "The gcd of two numbers can always be built by adding and subtracting whole-number multiples of them.",
       "formal_gloss": "For integers a and b, there exist integers x and y with ax + by = gcd(a,b); ax + by = c is solvable iff gcd(a,b) divides c.",
       "level": 3,
@@ -112,9 +111,9 @@
       "aka": ["unique prime factorization"],
       "intuition_gloss": "Every whole number is built from primes in exactly one way, like a chemical compound from its elements.",
       "formal_gloss": "Every integer greater than 1 is a product of primes, and this factorization is unique up to the order of the factors.",
-      "level": 2,
+      "level": 3,
       "prereqs": ["prime-number", "divisibility", "bezout-identity", "induction"],
-      "cross_links": ["arithmetic-functions", "algebraic-number-field", "algebra:unique-factorization-domain"],
+      "cross_links": ["arithmetic-functions", "algebraic-number-field", "algebra:unique-factorization"],
       "resources": [
         {
           "title": "Fundamental theorem of arithmetic — Wikipedia",
@@ -122,8 +121,7 @@
           "type": "text"
         },
         {
-          "title": "Hardy & Wright, An Introduction to the Theory of Numbers, ch. 1-2",
-          "url": "https://en.wikipedia.org/wiki/An_Introduction_to_the_Theory_of_Numbers",
+          "title": "Hardy & Wright, An Introduction to the Theory of Numbers, ch. 1-2 (Oxford UP)",
           "type": "text"
         }
       ],
@@ -156,7 +154,7 @@
       "id": "fermats-little-theorem",
       "name": "Fermat's Little Theorem",
       "aka": [],
-      "intuition_gloss": "Raise any number to a prime power on a clock with a prime number of hours, and it cycles back to where it started.",
+      "intuition_gloss": "Take any number on a clock with a prime number of hours and raise it to the clock-size power — it lands right back where it started.",
       "formal_gloss": "If p is prime and p does not divide a, then a^(p-1) ≡ 1 (mod p); equivalently a^p ≡ a (mod p) for all integers a.",
       "level": 3,
       "prereqs": ["modular-arithmetic", "prime-number"],
@@ -251,7 +249,7 @@
         },
         {
           "title": "Ireland & Rosen, A Classical Introduction to Modern Number Theory, ch. 5",
-          "url": "https://en.wikipedia.org/wiki/A_Classical_Introduction_to_Modern_Number_Theory",
+          "url": "https://link.springer.com/book/10.1007/978-1-4757-2103-4",
           "type": "text"
         }
       ],
@@ -274,7 +272,7 @@
         },
         {
           "title": "Apostol, Introduction to Analytic Number Theory, ch. 2",
-          "url": "https://en.wikipedia.org/wiki/Introduction_to_Analytic_Number_Theory",
+          "url": "https://link.springer.com/book/10.1007/978-1-4757-5579-4",
           "type": "text"
         }
       ],
@@ -288,7 +286,7 @@
       "formal_gloss": "Polynomial equations over Z whose integer (or rational) solutions are sought; Hilbert's tenth problem — a general decision algorithm — is unsolvable (Matiyasevich, 1970).",
       "level": 3,
       "prereqs": ["integers", "polynomial", "divisibility"],
-      "cross_links": ["pythagorean-triples", "pell-equation", "fermats-last-theorem", "elliptic-curve", "foundations:computability"],
+      "cross_links": ["pythagorean-triples", "pell-equation", "fermats-last-theorem", "elliptic-curve", "foundations:decidability"],
       "resources": [
         {
           "title": "Diophantine equation — Wikipedia",
@@ -305,8 +303,8 @@
       "intuition_gloss": "Whole-number right triangles like 3-4-5 — and a complete recipe that generates every one of them.",
       "formal_gloss": "Integer solutions of a^2 + b^2 = c^2; every primitive triple is (m^2 - n^2, 2mn, m^2 + n^2) for coprime m > n of opposite parity.",
       "level": 2,
-      "prereqs": ["diophantine-equation", "greatest-common-divisor"],
-      "cross_links": ["geometry:pythagorean-theorem", "fermats-last-theorem", "gaussian-integers"],
+      "prereqs": ["integers", "greatest-common-divisor"],
+      "cross_links": ["diophantine-equation", "geometry:pythagorean-theorem", "fermats-last-theorem", "gaussian-integers"],
       "resources": [
         {
           "title": "Pythagorean triple — Wikipedia",
@@ -325,7 +323,7 @@
       "id": "pell-equation",
       "name": "Pell's Equation",
       "aka": ["Pell-Fermat equation"],
-      "intuition_gloss": "Hunting whole-number points on the hyperbola x² − D·y² = 1 — the solutions form an endless ladder generated by a single fundamental step.",
+      "intuition_gloss": "Find one magic pair of whole numbers and a simple combining rule climbs from it forever — an endless ladder of ever-larger solutions, every rung built from the single fundamental step below it.",
       "formal_gloss": "The equation x^2 - Dy^2 = 1 for nonsquare D, whose solutions form an infinite cyclic group generated by the fundamental solution, found via the continued fraction of sqrt(D).",
       "level": 5,
       "prereqs": ["diophantine-equation", "continued-fractions"],
@@ -355,8 +353,7 @@
           "type": "text"
         },
         {
-          "title": "Khinchin, Continued Fractions",
-          "url": "https://en.wikipedia.org/wiki/Aleksandr_Khinchin",
+          "title": "Khinchin, Continued Fractions (Dover reprint)",
           "type": "text"
         }
       ],
@@ -401,9 +398,9 @@
           "type": "text"
         },
         {
-          "title": "BBC Horizon: Fermat's Last Theorem (Simon Singh documentary)",
+          "title": "Singh, Fermat's Last Theorem (popular account of the Wiles proof)",
           "url": "https://en.wikipedia.org/wiki/Fermat%27s_Last_Theorem_(book)",
-          "type": "video"
+          "type": "text"
         }
       ],
       "sources": ["Wiles 1995 Annals paper (historical anchor)", "Princeton Companion V — theorem as landmark", "statement is elementary; placement reflects its role connecting territories"]
@@ -415,8 +412,8 @@
       "intuition_gloss": "Primes look random up close but obey a smooth global law — near N, roughly one number in every ln(N) is prime.",
       "formal_gloss": "π(x) ~ x/ln(x) (the prime number theorem, Hadamard & de la Vallée Poussin 1896); Dirichlet's theorem gives infinitely many primes in every arithmetic progression a mod n with gcd(a,n) = 1.",
       "level": 5,
-      "prereqs": ["prime-number", "sieve-of-eratosthenes", "limit"],
-      "cross_links": ["riemann-zeta-function", "arithmetic-functions", "probability-statistics:probabilistic-heuristics"],
+      "prereqs": ["prime-number", "euclid-infinitude-of-primes", "sieve-of-eratosthenes", "limit"],
+      "cross_links": ["riemann-zeta-function", "arithmetic-functions"],
       "resources": [
         {
           "title": "Prime number theorem — Wikipedia",
@@ -438,8 +435,8 @@
       "intuition_gloss": "A single smooth function whose hidden zeros conduct the rhythm of the primes — and the million-dollar conjecture that they all line up on one vertical line.",
       "formal_gloss": "ζ(s) = Σ n^(-s) = Π_p (1 - p^(-s))^(-1) for Re(s) > 1, continued analytically to C \\ {1}; the Riemann hypothesis asserts all nontrivial zeros have real part 1/2.",
       "level": 7,
-      "prereqs": ["prime-distribution", "arithmetic-functions", "analysis:complex-analysis", "analysis:infinite-series"],
-      "cross_links": ["complex-numbers", "probability-statistics:random-matrix-theory", "modular-forms"],
+      "prereqs": ["prime-distribution", "arithmetic-functions", "analysis:holomorphic-function", "analysis:cauchy-integral-theorem", "analysis:infinite-series"],
+      "cross_links": ["complex-numbers", "modular-forms"],
       "resources": [
         {
           "title": "3Blue1Brown: Visualizing the Riemann zeta function and analytic continuation",
@@ -490,7 +487,7 @@
       "formal_gloss": "The problem of computing the prime factorization of n; best known classical algorithms (general number field sieve) are subexponential, while Shor's quantum algorithm factors in polynomial time.",
       "level": 4,
       "prereqs": ["fundamental-theorem-of-arithmetic", "primality-testing"],
-      "cross_links": ["rsa-cryptosystem", "applied-computational:computational-complexity", "applied-computational:quantum-computing"],
+      "cross_links": ["rsa-cryptosystem", "applied-computational:computational-complexity"],
       "resources": [
         {
           "title": "Integer factorization — Wikipedia",
@@ -508,7 +505,7 @@
       "formal_gloss": "RSA encrypts by c = m^e mod n for n = pq and decrypts by m = c^d mod n where ed ≡ 1 (mod φ(n)); security rests on the hardness of factoring n, and Diffie-Hellman analogously on discrete logarithms.",
       "level": 4,
       "prereqs": ["eulers-totient-function", "chinese-remainder-theorem", "integer-factorization"],
-      "cross_links": ["multiplicative-order", "elliptic-curve", "applied-computational:cryptography"],
+      "cross_links": ["multiplicative-order", "elliptic-curve", "applied-computational:computational-complexity"],
       "resources": [
         {
           "title": "Khan Academy: Cryptography (Journey into cryptography)",
@@ -540,7 +537,7 @@
         },
         {
           "title": "Ireland & Rosen, ch. 1 (unique factorization in Z[i])",
-          "url": "https://en.wikipedia.org/wiki/A_Classical_Introduction_to_Modern_Number_Theory",
+          "url": "https://link.springer.com/book/10.1007/978-1-4757-2103-4",
           "type": "text"
         }
       ],
@@ -629,11 +626,11 @@
       "id": "modular-forms",
       "name": "Modular Forms",
       "aka": ["automorphic forms (entry point)", "modularity theorem", "Langlands program (gateway)"],
-      "intuition_gloss": "Functions on the upper half-plane with an outrageous amount of symmetry, whose coefficient sequences mysteriously encode deep arithmetic — the 'fifth operation of arithmetic'.",
+      "intuition_gloss": "Functions with an outrageous amount of symmetry — so much that only a rigid, precious few survive — whose coefficient lists mysteriously encode deep arithmetic; Eichler called them the 'fifth operation of arithmetic'.",
       "formal_gloss": "Holomorphic functions f on the upper half-plane satisfying f((az+b)/(cz+d)) = (cz+d)^k f(z) for matrices in a congruence subgroup of SL2(Z), plus growth conditions; the modularity theorem attaches one to every rational elliptic curve.",
       "level": 8,
-      "prereqs": ["elliptic-curve", "analysis:complex-analysis", "group"],
-      "cross_links": ["fermats-last-theorem", "riemann-zeta-function", "algebraic-number-field", "algebra:representation-theory"],
+      "prereqs": ["elliptic-curve", "analysis:holomorphic-function", "group"],
+      "cross_links": ["fermats-last-theorem", "riemann-zeta-function", "algebraic-number-field", "algebra:group-representation"],
       "resources": [
         {
           "title": "Modular form — Wikipedia",
@@ -652,6 +649,113 @@
         }
       ],
       "sources": ["Diamond & Shurman (standard graduate text)", "Princeton Companion IV (Langlands program framing)", "Eichler's 'fifth operation' quip; research-edge placement"]
+    },
+    {
+      "id": "euclid-infinitude-of-primes",
+      "name": "Euclid's Infinitude of Primes",
+      "aka": ["Euclid's theorem", "infinitely many primes"],
+      "intuition_gloss": "Multiply any finite list of primes together and add 1 — the result dodges every prime on the list, so no list of primes can ever be complete.",
+      "formal_gloss": "There are infinitely many primes: given any finite set of primes p1,...,pk, every prime divisor of p1*p2*...*pk + 1 lies outside the set (Euclid, Elements IX.20).",
+      "level": 2,
+      "prereqs": ["prime-number", "divisibility"],
+      "cross_links": ["proof-by-contradiction", "sieve-of-eratosthenes", "prime-distribution", "riemann-zeta-function"],
+      "resources": [
+        {
+          "title": "Euclid's theorem — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Euclid%27s_theorem",
+          "type": "text"
+        },
+        {
+          "title": "Silverman, A Friendly Introduction to Number Theory (free chapters)",
+          "url": "https://www.math.brown.edu/johsilve/frint.html",
+          "type": "text"
+        }
+      ],
+      "sources": ["Euclid Elements IX.20", "Hardy & Wright ch. 1", "the level-2 on-ramp to prime-distribution promised by its sources note"]
+    },
+    {
+      "id": "wilsons-theorem",
+      "name": "Wilson's Theorem",
+      "aka": [],
+      "intuition_gloss": "Multiply together every hour on a prime-sized clock and you always land exactly one step before the top — and that only happens when the clock size is prime.",
+      "formal_gloss": "(n-1)! ≡ -1 (mod n) if and only if n is prime; a complete characterization of primality, though useless as a practical test since factorials grow too fast.",
+      "level": 3,
+      "prereqs": ["modular-arithmetic", "prime-number"],
+      "cross_links": ["fermats-little-theorem", "primality-testing"],
+      "resources": [
+        {
+          "title": "Wilson's theorem — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Wilson%27s_theorem",
+          "type": "text"
+        }
+      ],
+      "sources": ["Burton ch. 5 (alongside Fermat's little theorem)", "standard elementary NT syllabi", "MSC 11A"]
+    },
+    {
+      "id": "additive-number-theory",
+      "name": "Additive Number Theory",
+      "aka": ["Goldbach's conjecture", "twin prime conjecture", "Waring's problem", "sums of squares"],
+      "intuition_gloss": "Instead of asking how numbers multiply, ask what you can build by adding: is every even number two primes? Every number four squares? Questions a child can pose that have resisted proof for centuries.",
+      "formal_gloss": "The study of representing integers as sums from special sets (MSC 11P): Fermat's two-square and Lagrange's four-square theorems, Waring's problem on kth powers, and the open Goldbach and twin prime conjectures.",
+      "level": 5,
+      "prereqs": ["prime-number", "modular-arithmetic", "fundamental-theorem-of-arithmetic"],
+      "cross_links": ["gaussian-integers", "prime-distribution", "geometry-of-numbers", "discrete-combinatorics:integer-partition"],
+      "resources": [
+        {
+          "title": "Additive number theory — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Additive_number_theory",
+          "type": "text"
+        },
+        {
+          "title": "Nathanson, Additive Number Theory: The Classical Bases (Springer GTM 164)",
+          "type": "text"
+        }
+      ],
+      "sources": ["Nathanson GTM 164", "Hardy & Wright ch. 20-21 (sums of squares, Waring)", "MSC 11P"]
+    },
+    {
+      "id": "binary-quadratic-forms",
+      "name": "Binary Quadratic Forms",
+      "aka": ["Gauss composition", "discriminant", "class number (classical)"],
+      "intuition_gloss": "Which whole numbers can a two-variable recipe like x² + 5y² produce? Gauss sorted these recipes into families and found the families themselves can be multiplied — a hidden group counting how badly unique factorization fails.",
+      "formal_gloss": "Forms ax^2 + bxy + cy^2 with discriminant b^2 - 4ac; SL2(Z)-equivalence classes of a fixed discriminant form a finite abelian group under Gauss composition, isomorphic to the ideal class group of the corresponding quadratic order.",
+      "level": 5,
+      "prereqs": ["quadratic-reciprocity", "modular-arithmetic"],
+      "cross_links": ["gaussian-integers", "algebraic-number-field", "additive-number-theory"],
+      "resources": [
+        {
+          "title": "Binary quadratic form — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Binary_quadratic_form",
+          "type": "text"
+        },
+        {
+          "title": "Cox, Primes of the Form x² + ny² (Wiley)",
+          "type": "text"
+        }
+      ],
+      "sources": ["Gauss Disquisitiones Arithmeticae (its central topic)", "Cox, Primes of the Form x²+ny²", "the classical road to class numbers, MSC 11E"]
+    },
+    {
+      "id": "geometry-of-numbers",
+      "name": "Geometry of Numbers",
+      "aka": ["Minkowski's theorem", "lattice points"],
+      "intuition_gloss": "Draw a symmetric blob around the origin of a grid; make it big enough and it must swallow a grid point — a purely geometric squeeze that forces number-theoretic conclusions.",
+      "formal_gloss": "Minkowski's theorem: a convex, centrally symmetric region of volume > 2^n det(L) contains a nonzero point of the lattice L; the method yields finiteness of the class number, Dirichlet's unit theorem, and the four-square theorem (MSC 11H).",
+      "level": 6,
+      "prereqs": ["integers", "vector-space"],
+      "cross_links": ["algebraic-number-field", "pell-equation", "continued-fractions", "additive-number-theory", "geometry:convexity"],
+      "resources": [
+        {
+          "title": "Geometry of numbers — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Geometry_of_numbers",
+          "type": "text"
+        },
+        {
+          "title": "Cassels, An Introduction to the Geometry of Numbers (Springer)",
+          "type": "text"
+        }
+      ],
+      "sources": ["Minkowski, Geometrie der Zahlen (1896)", "Cassels' standard monograph", "bridge between convex geometry and algebraic number theory, MSC 11H"]
     }
   ]
 }

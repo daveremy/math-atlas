@@ -6,12 +6,12 @@
       "name": "Computational Complexity",
       "aka": ["big-O analysis", "complexity theory"],
       "intuition_gloss": "Measuring how the cost of a recipe explodes as the problem gets bigger — some recipes scale gracefully, others become hopeless fast.",
-      "formal_gloss": "The classification of problems by the asymptotic resources (time, space) required by the best algorithm solving them, expressed in O-notation and complexity classes such as P, NP, and PSPACE.",
+      "formal_gloss": "The classification of problems by the asymptotic resources (time, space) sufficient to solve them, expressed in O-notation and complexity classes such as P, NP, and PSPACE.",
       "level": 4,
       "prereqs": ["algorithm", "counting-principles"],
       "cross_links": ["p-vs-np", "analysis:asymptotic-analysis", "foundations:decidability"],
       "resources": [
-        {"title": "Sipser, Introduction to the Theory of Computation", "url": "https://en.wikipedia.org/wiki/Introduction_to_the_Theory_of_Computation", "type": "text"},
+        {"title": "Wikipedia — about Sipser's Introduction to the Theory of Computation (the standard text)", "url": "https://en.wikipedia.org/wiki/Introduction_to_the_Theory_of_Computation", "type": "text"},
         {"title": "MIT OCW 6.006 Introduction to Algorithms", "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/", "type": "course"},
         {"title": "Big-O Cheat Sheet", "url": "https://www.bigocheatsheet.com/", "type": "tool"}
       ],
@@ -66,8 +66,8 @@
       "id": "root-finding",
       "name": "Root-Finding & Newton's Method",
       "aka": ["Newton-Raphson", "bisection method", "fixed-point iteration"],
-      "intuition_gloss": "To solve an equation numerically, make a guess, slide down the tangent line to a better guess, and repeat — each step roughly doubles your correct digits.",
-      "formal_gloss": "Iterative schemes for solving f(x) = 0, canonically Newton's iteration x_{n+1} = x_n - f(x_n)/f'(x_n), which converges quadratically near a simple root.",
+      "intuition_gloss": "To solve an equation numerically, either trap the answer in a bracket and keep halving it, or slide down the tangent line to a better guess — Newton's tangent trick roughly doubles your correct digits at each step near the answer.",
+      "formal_gloss": "Iterative schemes for solving f(x) = 0: bisection (halving a sign-change bracket, gaining one bit per step), fixed-point iteration, and canonically Newton's iteration x_{n+1} = x_n - f(x_n)/f'(x_n), which converges quadratically near a simple root.",
       "level": 4,
       "prereqs": ["function", "derivative", "sequence"],
       "cross_links": ["analysis:contraction-mapping", "gradient-descent", "analysis:taylor-series"],
@@ -116,27 +116,12 @@
       "formal_gloss": "Approximating a definite integral by a weighted sum of function values at nodes, with rules (Newton-Cotes, Gaussian quadrature) chosen so the formula is exact on polynomials up to a given degree.",
       "level": 4,
       "prereqs": ["integral", "interpolation"],
-      "cross_links": ["monte-carlo-method", "numerical-ode"],
+      "cross_links": ["monte-carlo-method", "dynamics-differential-equations:numerical-solution-of-odes"],
       "resources": [
         {"title": "Wikipedia — Numerical integration", "url": "https://en.wikipedia.org/wiki/Numerical_integration", "type": "text"},
         {"title": "MIT OCW 18.335J Introduction to Numerical Methods", "url": "https://ocw.mit.edu/courses/18-335j-introduction-to-numerical-methods-spring-2019/", "type": "course"}
       ],
       "sources": ["standard numerical analysis curricula (Burden & Faires ch. 4)", "Süli & Mayers ch. 7", "MSC 2020 65D30"]
-    },
-    {
-      "id": "numerical-ode",
-      "name": "Numerical ODE Solvers",
-      "aka": ["Euler's method", "Runge-Kutta methods", "stiff solvers"],
-      "intuition_gloss": "March a differential equation forward through time in tiny steps, using the current slope (or a smart blend of slopes) to predict the next position.",
-      "formal_gloss": "Time-stepping schemes approximating solutions of y' = f(t,y), from the first-order Euler method to higher-order Runge-Kutta and multistep methods, characterized by order of accuracy and stability region.",
-      "level": 5,
-      "prereqs": ["differential-equation", "derivative", "discretization"],
-      "cross_links": ["numerical-stability", "dynamics-differential-equations:stability-theory", "numerical-pde"],
-      "resources": [
-        {"title": "Wikipedia — Runge-Kutta methods", "url": "https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods", "type": "text"},
-        {"title": "Numerical Recipes (ch. 17, Integration of ODEs)", "url": "https://numerical.recipes/", "type": "text"}
-      ],
-      "sources": ["standard numerical analysis curricula (Burden & Faires ch. 5)", "Hairer, Nørsett & Wanner, Solving Ordinary Differential Equations", "MSC 2020 65L"]
     },
     {
       "id": "discretization",
@@ -146,7 +131,7 @@
       "formal_gloss": "The replacement of a continuous problem by a finite-dimensional one — derivatives by difference quotients, domains by meshes, functions by sample vectors — with error that vanishes as the mesh is refined (consistency plus stability yielding convergence).",
       "level": 4,
       "prereqs": ["limit", "sequence", "mathematical-model"],
-      "cross_links": ["floating-point-arithmetic", "numerical-ode", "numerical-pde", "interpolation"],
+      "cross_links": ["floating-point-arithmetic", "dynamics-differential-equations:numerical-solution-of-odes", "numerical-pde", "interpolation"],
       "resources": [
         {"title": "Wikipedia — Discretization", "url": "https://en.wikipedia.org/wiki/Discretization", "type": "text"},
         {"title": "MIT OCW 18.085 Computational Science and Engineering I (Strang)", "url": "https://ocw.mit.edu/courses/18-085-computational-science-and-engineering-i-fall-2008/", "type": "course"}
@@ -160,8 +145,8 @@
       "intuition_gloss": "Simulate heat spreading, fluids flowing, or structures bending by carving space into a mesh of tiny cells and enforcing the physics on each cell.",
       "formal_gloss": "Discretizations of partial differential equations — finite differences on grids, finite elements via weak forms on meshes, spectral expansions in global bases — reducing the PDE to a large sparse algebraic system.",
       "level": 6,
-      "prereqs": ["discretization", "differential-equation", "analysis:partial-derivative", "linear-algebra:linear-system"],
-      "cross_links": ["iterative-methods", "mathematical-model", "inverse-problems"],
+      "prereqs": ["discretization", "differential-equation", "dynamics-differential-equations:partial-differential-equation", "analysis:partial-derivative", "linear-algebra:linear-system"],
+      "cross_links": ["iterative-methods", "mathematical-model", "inverse-problems", "dynamics-differential-equations:numerical-solution-of-odes", "dynamics-differential-equations:heat-equation"],
       "resources": [
         {"title": "MIT OCW 18.085 Computational Science and Engineering I (Strang)", "url": "https://ocw.mit.edu/courses/18-085-computational-science-and-engineering-i-fall-2008/", "type": "course"},
         {"title": "Wikipedia — Finite element method", "url": "https://en.wikipedia.org/wiki/Finite_element_method", "type": "text"}
@@ -176,7 +161,7 @@
       "formal_gloss": "An O(n log n) algorithm computing the discrete Fourier transform (evaluation of a polynomial at the n-th roots of unity) by recursively splitting into even and odd indices.",
       "level": 5,
       "prereqs": ["complex-numbers", "algorithm", "polynomial"],
-      "cross_links": ["analysis:fourier-analysis", "computational-complexity", "interpolation"],
+      "cross_links": ["analysis:fourier-analysis", "computational-complexity", "interpolation", "divide-and-conquer"],
       "resources": [
         {"title": "3Blue1Brown — But what is the Fourier Transform?", "url": "https://www.3blue1brown.com/lessons/fourier-transforms", "type": "video"},
         {"title": "Wikipedia — Fast Fourier transform", "url": "https://en.wikipedia.org/wiki/Fast_Fourier_transform", "type": "text"}
@@ -202,7 +187,7 @@
       "id": "linear-programming",
       "name": "Linear Programming",
       "aka": ["LP", "simplex method", "linear optimization"],
-      "intuition_gloss": "Optimize a linear goal — profit, cost, throughput — over a region fenced in by linear constraints; the best point always sits at a corner of the fence.",
+      "intuition_gloss": "Optimize a linear goal — profit, cost, throughput — over a region fenced in by linear constraints; if there's a best point, one always sits at a corner of the fence.",
       "formal_gloss": "Minimizing a linear objective c·x subject to linear constraints Ax ≤ b, x ≥ 0, over a polyhedral feasible set; solvable by the simplex method or polynomial-time interior-point methods, with a symmetric dual problem attaining the same optimum.",
       "level": 4,
       "prereqs": ["linear-algebra:linear-system", "optimization", "vector"],
@@ -263,10 +248,10 @@
       "name": "Graph Algorithms",
       "aka": ["shortest paths", "Dijkstra's algorithm", "spanning trees", "network flow"],
       "intuition_gloss": "The standard toolkit for questions about networks — fastest route, cheapest wiring, maximum throughput — each answered by systematically exploring dots and lines.",
-      "formal_gloss": "Algorithms on graphs including traversal (BFS/DFS), single-source shortest paths (Dijkstra, Bellman-Ford), minimum spanning trees (Kruskal, Prim), and maximum flow (Ford-Fulkerson, max-flow min-cut duality).",
+      "formal_gloss": "Algorithms on graphs including traversal (BFS/DFS), single-source shortest paths (Dijkstra, Bellman-Ford), minimum spanning trees (Kruskal, Prim), and maximum-flow computation (Ford-Fulkerson) — the algorithmic counterpart of the flow and matching theory (max-flow min-cut duality) owned by the discrete-combinatorics territory.",
       "level": 4,
       "prereqs": ["graph", "algorithm"],
-      "cross_links": ["computational-complexity", "dynamic-programming", "linear-programming", "p-vs-np"],
+      "cross_links": ["computational-complexity", "dynamic-programming", "linear-programming", "p-vs-np", "greedy-algorithms", "discrete-combinatorics:network-flow", "discrete-combinatorics:tree", "discrete-combinatorics:matching", "discrete-combinatorics:graph-connectivity"],
       "resources": [
         {"title": "MIT OCW 6.006 Introduction to Algorithms", "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/", "type": "course"},
         {"title": "VisuAlgo (animated graph algorithms)", "url": "https://visualgo.net/", "type": "tool"}
@@ -295,8 +280,8 @@
       "intuition_gloss": "Stack many layers of simple weighted sums and squashes, then tune millions of knobs by passing error signals backwards — a trainable universal function machine.",
       "formal_gloss": "Compositions of affine maps and nonlinear activations forming parametric function approximators, dense in continuous functions on compacta (universal approximation), trained by gradient descent with gradients computed via the chain rule (backpropagation).",
       "level": 5,
-      "prereqs": ["linear-transformation", "derivative", "gradient-descent", "function"],
-      "cross_links": ["machine-learning", "interpolation", "analysis:partial-derivative"],
+      "prereqs": ["linear-transformation", "derivative", "analysis:partial-derivative", "gradient-descent", "function"],
+      "cross_links": ["machine-learning", "interpolation"],
       "resources": [
         {"title": "3Blue1Brown — Neural networks series", "url": "https://www.3blue1brown.com/topics/neural-networks", "type": "video"},
         {"title": "Goodfellow, Bengio & Courville — Deep Learning (free book)", "url": "https://www.deeplearningbook.org/", "type": "text"},
@@ -306,16 +291,16 @@
     },
     {
       "id": "information-theory",
-      "name": "Information Theory & Entropy",
-      "aka": ["Shannon entropy", "channel capacity", "coding theory"],
-      "intuition_gloss": "Information is measurable surprise — entropy counts the minimum bits needed to describe a source, and sets hard limits on compression and communication.",
-      "formal_gloss": "Shannon's framework quantifying information via entropy H(X) = -Σ p log p, with the source coding theorem bounding compression by entropy and the noisy-channel coding theorem giving each channel a capacity below which reliable transmission is achievable.",
+      "name": "Information Theory",
+      "aka": ["channel capacity", "source coding", "coding theory"],
+      "intuition_gloss": "Once you can measure a source's surprise, hard limits follow — how far its messages can be squeezed, and how fast they can cross a noisy line and still arrive intact.",
+      "formal_gloss": "Shannon's framework for communication built on entropy (the quantity itself lives in probability-statistics): the source coding theorem shows a source cannot be losslessly compressed below its entropy rate, and the noisy-channel coding theorem gives each channel a capacity below which arbitrarily reliable transmission is achievable.",
       "level": 5,
-      "prereqs": ["random-variable", "expectation", "probability-space"],
-      "cross_links": ["machine-learning", "statistical-inference", "number-theory:rsa-cryptosystem", "monte-carlo-method"],
+      "prereqs": ["probability-statistics:entropy", "random-variable", "expectation", "probability-space"],
+      "cross_links": ["machine-learning", "statistical-inference", "number-theory:rsa-cryptosystem", "monte-carlo-method", "error-correcting-codes"],
       "resources": [
         {"title": "Shannon — A Mathematical Theory of Communication (1948)", "url": "https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf", "type": "text"},
-        {"title": "Cover & Thomas — Elements of Information Theory", "url": "https://en.wikipedia.org/wiki/Elements_of_Information_Theory", "type": "text"}
+        {"title": "Wikipedia — about Cover & Thomas, Elements of Information Theory (the standard text)", "url": "https://en.wikipedia.org/wiki/Elements_of_Information_Theory", "type": "text"}
       ],
       "sources": ["Shannon 1948", "Princeton Companion to Mathematics §VII.6 (Reliable Transmission of Information)", "MSC 2020 94A"]
     },
@@ -327,7 +312,7 @@
       "formal_gloss": "The study of dynamical systems with inputs, dx/dt = f(x,u), addressing stabilization, controllability, and observability — canonically via feedback laws u = -Kx placing the eigenvalues of the closed-loop linear system.",
       "level": 6,
       "prereqs": ["differential-equation", "matrix", "eigenvalue-eigenvector"],
-      "cross_links": ["dynamics-differential-equations:stability-theory", "convex-optimization", "dynamic-programming", "machine-learning"],
+      "cross_links": ["dynamics-differential-equations:stability", "convex-optimization", "dynamic-programming", "machine-learning"],
       "resources": [
         {"title": "Brunton & Kutz — Data-Driven Science and Engineering (control chapters + video lectures)", "url": "https://databookuw.com/", "type": "course"},
         {"title": "Wikipedia — Control theory", "url": "https://en.wikipedia.org/wiki/Control_theory", "type": "text"}
@@ -363,6 +348,96 @@
         {"title": "Wikipedia — Tikhonov regularization (ridge regression)", "url": "https://en.wikipedia.org/wiki/Ridge_regression", "type": "text"}
       ],
       "sources": ["Hadamard well-posedness", "Engl, Hanke & Neubauer, Regularization of Inverse Problems", "MSC 2020 65J22, 47A52"]
+    },
+    {
+      "id": "divide-and-conquer",
+      "name": "Divide and Conquer",
+      "aka": ["recursive splitting", "master theorem", "merge sort paradigm"],
+      "intuition_gloss": "Split a big problem into a few smaller copies of itself, solve those the same way, and stitch the answers back together — the recursion does the heavy lifting.",
+      "formal_gloss": "An algorithm design paradigm that recursively partitions a problem into subproblems of smaller size, solves them independently, and combines the results, with running time governed by recurrences such as T(n) = aT(n/b) + f(n) analyzed via the master theorem.",
+      "level": 4,
+      "prereqs": ["algorithm", "foundations:recursive-definition", "induction"],
+      "cross_links": ["fast-fourier-transform", "computational-complexity", "dynamic-programming", "discrete-combinatorics:recurrence-relation"],
+      "resources": [
+        {"title": "MIT OCW 6.006 Introduction to Algorithms", "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/", "type": "course"},
+        {"title": "Wikipedia — Divide-and-conquer algorithm", "url": "https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm", "type": "text"}
+      ],
+      "sources": ["CLRS ch. 4 (Divide-and-Conquer)", "Kleinberg & Tardos, Algorithm Design ch. 5", "MSC 2020 68W40"]
+    },
+    {
+      "id": "greedy-algorithms",
+      "name": "Greedy Algorithms",
+      "aka": ["greedy paradigm", "exchange argument", "matroid optimization"],
+      "intuition_gloss": "Always grab the option that looks best right now and never look back — surprisingly, for some problems this shortsighted strategy is provably perfect.",
+      "formal_gloss": "An algorithm design paradigm making the locally optimal choice at each step, correct exactly when the problem has the greedy-choice property (provable by exchange arguments, and characterized in general by matroid structure) — as in Dijkstra, Kruskal, Prim, and Huffman coding.",
+      "level": 4,
+      "prereqs": ["algorithm", "optimization"],
+      "cross_links": ["graph-algorithms", "dynamic-programming", "combinatorial-optimization", "discrete-combinatorics:tree"],
+      "resources": [
+        {"title": "MIT OCW 6.006 Introduction to Algorithms", "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/", "type": "course"},
+        {"title": "Wikipedia — Greedy algorithm", "url": "https://en.wikipedia.org/wiki/Greedy_algorithm", "type": "text"}
+      ],
+      "sources": ["CLRS ch. 15 (Greedy Algorithms)", "Kleinberg & Tardos, Algorithm Design ch. 4", "MSC 2020 68W40, 90C27"]
+    },
+    {
+      "id": "combinatorial-optimization",
+      "name": "Integer & Combinatorial Optimization",
+      "aka": ["integer programming", "branch and bound", "LP relaxation"],
+      "intuition_gloss": "Optimization where the choices snap to whole units — assign this truck or don't, visit this city or skip it — so you can't slide smoothly downhill and must search a huge but finite set of options cleverly.",
+      "formal_gloss": "Optimization over discrete feasible sets, canonically integer linear programming (Ax ≤ b, x integral), solved by branch and bound, cutting planes, and LP relaxations whose gap measures the problem's difficulty; many NP-hard problems (TSP, scheduling, knapsack) are combinatorial optimization problems.",
+      "level": 5,
+      "prereqs": ["linear-programming", "graph-algorithms", "optimization"],
+      "cross_links": ["p-vs-np", "greedy-algorithms", "dynamic-programming", "discrete-combinatorics:network-flow", "discrete-combinatorics:matching"],
+      "resources": [
+        {"title": "Wikipedia — Combinatorial optimization", "url": "https://en.wikipedia.org/wiki/Combinatorial_optimization", "type": "text"},
+        {"title": "Wikipedia — Integer programming", "url": "https://en.wikipedia.org/wiki/Integer_programming", "type": "text"}
+      ],
+      "sources": ["Schrijver, Combinatorial Optimization: Polyhedra and Efficiency", "Papadimitriou & Steiglitz, Combinatorial Optimization", "MSC 2020 90C10, 90C27"]
+    },
+    {
+      "id": "error-correcting-codes",
+      "name": "Error-Correcting Codes",
+      "aka": ["coding theory", "Hamming codes", "Reed-Solomon codes"],
+      "intuition_gloss": "Sprinkle carefully chosen redundancy into a message so that even after noise flips some bits, the receiver can spot the damage and repair it — how CDs survive scratches and probes phone home from deep space.",
+      "formal_gloss": "Subsets of strings (codes) whose elements are pairwise far apart in Hamming distance, so that a code of minimum distance d corrects up to (d-1)/2 errors; linear codes (Hamming, Reed-Solomon, LDPC) achieve this via linear algebra over finite fields, approaching the channel capacity promised by Shannon's noisy-channel theorem.",
+      "level": 5,
+      "prereqs": ["matrix", "modular-arithmetic", "information-theory"],
+      "cross_links": ["discrete-combinatorics:combinatorial-design", "linear-algebra:linear-subspace", "cryptography", "probability-statistics:entropy"],
+      "resources": [
+        {"title": "3Blue1Brown — Hamming codes and error correction", "url": "https://www.3blue1brown.com/lessons/hamming-codes", "type": "video"},
+        {"title": "Wikipedia — Error correction code", "url": "https://en.wikipedia.org/wiki/Error_correction_code", "type": "text"}
+      ],
+      "sources": ["Hamming 1950", "Princeton Companion to Mathematics §VII.6 (Reliable Transmission of Information)", "MacWilliams & Sloane, The Theory of Error-Correcting Codes", "MSC 2020 94B"]
+    },
+    {
+      "id": "principal-component-analysis",
+      "name": "Principal Component Analysis",
+      "aka": ["PCA", "dimensionality reduction", "Karhunen-Loeve transform"],
+      "intuition_gloss": "Rotate your cloud of data points until you're looking at it from the angle that shows the most spread — the few directions that matter most — and flatten away the rest.",
+      "formal_gloss": "The orthogonal change of basis diagonalizing a dataset's covariance matrix, ordering directions (principal components) by variance explained; computed via the eigendecomposition of the covariance matrix or, equivalently and more stably, the singular value decomposition of the centered data matrix.",
+      "level": 5,
+      "prereqs": ["eigenvalue-eigenvector", "probability-statistics:covariance-correlation", "matrix"],
+      "cross_links": ["linear-algebra:singular-value-decomposition", "machine-learning", "statistical-inference", "inverse-problems"],
+      "resources": [
+        {"title": "Setosa — Principal Component Analysis explained visually", "url": "https://setosa.io/ev/principal-component-analysis/", "type": "tool"},
+        {"title": "Wikipedia — Principal component analysis", "url": "https://en.wikipedia.org/wiki/Principal_component_analysis", "type": "text"}
+      ],
+      "sources": ["Pearson 1901 / Hotelling 1933", "Jolliffe, Principal Component Analysis", "Hastie et al., Elements of Statistical Learning §14.5", "MSC 2020 62H25"]
+    },
+    {
+      "id": "cryptography",
+      "name": "Cryptography Basics",
+      "aka": ["public-key cryptography", "symmetric ciphers", "key exchange"],
+      "intuition_gloss": "Locks made of pure mathematics: scramble a message so that undoing the scramble is easy with a secret key but computationally hopeless without it — even when the eavesdropper knows exactly how the lock works.",
+      "formal_gloss": "The design of encryption schemes whose security rests on computational hardness: symmetric ciphers share a secret key, while public-key systems (Diffie-Hellman, RSA) let strangers communicate securely because inverting the public operation — e.g. factoring or computing discrete logarithms — is believed intractable.",
+      "level": 4,
+      "prereqs": ["modular-arithmetic", "algorithm", "prime-number"],
+      "cross_links": ["number-theory:rsa-cryptosystem", "number-theory:integer-factorization", "computational-complexity", "information-theory", "error-correcting-codes"],
+      "resources": [
+        {"title": "Crypto 101 — free introductory cryptography course", "url": "https://www.crypto101.io/", "type": "text"},
+        {"title": "Wikipedia — Public-key cryptography", "url": "https://en.wikipedia.org/wiki/Public-key_cryptography", "type": "text"}
+      ],
+      "sources": ["Diffie & Hellman 1976", "Princeton Companion to Mathematics §VII.7 (Mathematics and Cryptography)", "Katz & Lindell, Introduction to Modern Cryptography", "MSC 2020 94A60"]
     }
   ]
 }

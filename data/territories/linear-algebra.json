@@ -6,13 +6,13 @@
       "name": "System of Linear Equations",
       "aka": ["simultaneous equations", "linear system"],
       "intuition_gloss": "Several straight-line conditions that must all hold at once — the solution is where all the lines (or planes) cross.",
-      "formal_gloss": "A set of equations of the form Ax = b for a matrix A and vector b; the solution set is an affine subspace, empty, a point, or infinite.",
+      "formal_gloss": "A finite set of equations, each linear in the unknowns; the solution set — where all equations hold simultaneously — is empty, a single point, or an infinite family. The later matrix view writes the system as Ax = b, making the solution set an affine subspace.",
       "level": 2,
-      "prereqs": ["vector", "matrix"],
-      "cross_links": ["optimization", "mathematical-model"],
+      "prereqs": [],
+      "cross_links": ["matrix", "vector", "optimization", "mathematical-model"],
       "resources": [
         {"title": "Khan Academy — Systems of equations", "url": "https://www.khanacademy.org/math/algebra/x2f8bb11595b61c86:systems-of-equations", "type": "course"},
-        {"title": "MIT OCW 18.06 Linear Algebra (Strang), Lecture 1: The Geometry of Linear Equations", "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/", "type": "course"}
+        {"title": "MIT OCW 18.06 Linear Algebra (Strang), Lecture 1: The Geometry of Linear Equations", "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-1-the-geometry-of-linear-equations/", "type": "course"}
       ],
       "sources": ["MIT OCW 18.06 lecture 1", "Strang, Introduction to Linear Algebra ch. 2", "standard secondary-school algebra curricula"]
     },
@@ -26,7 +26,7 @@
       "prereqs": ["linear-system", "matrix"],
       "cross_links": ["algorithm", "matrix-factorization", "rank"],
       "resources": [
-        {"title": "MIT OCW 18.06, Lecture 2: Elimination with Matrices", "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/", "type": "course"},
+        {"title": "MIT OCW 18.06, Lecture 2: Elimination with Matrices", "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-2-elimination-with-matrices/", "type": "course"},
         {"title": "Wikipedia — Gaussian elimination", "url": "https://en.wikipedia.org/wiki/Gaussian_elimination", "type": "text"},
         {"title": "Matrix Calculator (step-by-step row reduction)", "url": "https://matrixcalc.org/", "type": "tool"}
       ],
@@ -102,7 +102,7 @@
       "prereqs": ["vector-space"],
       "cross_links": ["span", "kernel-image", "orthogonal-projection"],
       "resources": [
-        {"title": "MIT OCW 18.06, Lecture 5-6: Vector spaces and subspaces", "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/", "type": "course"},
+        {"title": "MIT OCW 18.06 video lectures (see Lectures 5-6: vector spaces and subspaces)", "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/video_galleries/video-lectures/", "type": "course"},
         {"title": "Axler, Linear Algebra Done Right, ch. 1", "url": "https://linear.axler.net/", "type": "text"}
       ],
       "sources": ["MIT OCW 18.06 lectures 5-6", "Axler LADR ch. 1"]
@@ -115,7 +115,7 @@
       "formal_gloss": "For u, v in R^n, u·v = Σ u_i v_i = |u||v|cos θ; the standard inner product on R^n.",
       "level": 2,
       "prereqs": ["vector"],
-      "cross_links": ["norm", "orthogonality", "inner-product-space"],
+      "cross_links": ["norm", "orthogonality", "inner-product-space", "cross-product"],
       "resources": [
         {"title": "3Blue1Brown — Dot products and duality", "url": "https://www.3blue1brown.com/lessons/dot-products", "type": "video"},
         {"title": "Khan Academy — Vectors and spaces", "url": "https://www.khanacademy.org/math/linear-algebra/vectors-and-spaces", "type": "course"}
@@ -123,14 +123,29 @@
       "sources": ["3Blue1Brown Essence of Linear Algebra ch. 9", "high-school physics/precalculus curricula"]
     },
     {
+      "id": "cross-product",
+      "name": "Cross Product",
+      "aka": ["vector product"],
+      "intuition_gloss": "From two arrows in 3D, build a third one at right angles to both, whose length is the area of the parallelogram the two trace out.",
+      "formal_gloss": "The bilinear operation on R³ with u × v orthogonal to both u and v, |u × v| = |u||v|sin θ, and direction given by the right-hand rule; componentwise it is the formal determinant with rows (i, j, k), u, v.",
+      "level": 3,
+      "prereqs": ["vector", "dot-product"],
+      "cross_links": ["determinant", "orthogonality", "geometry:area-volume"],
+      "resources": [
+        {"title": "3Blue1Brown — Cross products", "url": "https://www.3blue1brown.com/lessons/cross-products", "type": "video"},
+        {"title": "Wikipedia — Cross product", "url": "https://en.wikipedia.org/wiki/Cross_product", "type": "text"}
+      ],
+      "sources": ["3Blue1Brown Essence of Linear Algebra ch. 10", "standard calculus III and intro linear algebra curricula"]
+    },
+    {
       "id": "norm",
       "name": "Norm & Distance",
       "aka": ["vector length", "magnitude"],
       "intuition_gloss": "The length of an arrow — and with it, a ruler for measuring how far apart two vectors are.",
-      "formal_gloss": "A function ||·|| on a vector space satisfying positivity, homogeneity ||cv|| = |c|·||v||, and the triangle inequality; the Euclidean norm is ||v|| = √(v·v).",
+      "formal_gloss": "The Euclidean length ||v|| = √(v·v) of a vector in R^n, satisfying positivity, homogeneity ||cv|| = |c|·||v||, and the triangle inequality; these three properties, taken as axioms on a general vector space, define the abstract norms studied via inner-product and Banach spaces.",
       "level": 3,
-      "prereqs": ["dot-product", "vector-space"],
-      "cross_links": ["metric-space", "least-squares", "ANALYSIS:banach-space"],
+      "prereqs": ["vector", "dot-product"],
+      "cross_links": ["metric-space", "least-squares", "inner-product-space", "analysis:banach-space"],
       "resources": [
         {"title": "Wikipedia — Norm (mathematics)", "url": "https://en.wikipedia.org/wiki/Norm_(mathematics)", "type": "text"},
         {"title": "3Blue1Brown — Vectors", "url": "https://www.3blue1brown.com/lessons/vectors", "type": "video"}
@@ -145,9 +160,9 @@
       "formal_gloss": "Vectors u and v are orthogonal when their inner product is zero; orthogonal complements decompose a space into perpendicular parts.",
       "level": 4,
       "prereqs": ["dot-product", "linear-subspace"],
-      "cross_links": ["orthogonal-projection", "gram-schmidt", "PROBABILITY-STATISTICS:uncorrelated"],
+      "cross_links": ["orthogonal-projection", "gram-schmidt", "probability-statistics:covariance-correlation"],
       "resources": [
-        {"title": "MIT OCW 18.06, Lecture 14: Orthogonal vectors and subspaces", "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/", "type": "course"},
+        {"title": "MIT OCW 18.06, Lecture 14: Orthogonal vectors and subspaces", "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-14-orthogonal-vectors-and-subspaces/", "type": "course"},
         {"title": "Axler, Linear Algebra Done Right, ch. 6", "url": "https://linear.axler.net/", "type": "text"}
       ],
       "sources": ["MIT OCW 18.06 lectures 14-17", "Axler LADR ch. 6", "Strang's 'four fundamental subspaces' picture"]
@@ -157,10 +172,10 @@
       "name": "Inner Product Space",
       "aka": ["pre-Hilbert space"],
       "intuition_gloss": "Any vector world — including spaces of functions or signals — given its own version of angle and length.",
-      "formal_gloss": "A vector space with a positive-definite (conjugate-)symmetric bilinear form ⟨u,v⟩, generalizing the dot product; completing it yields a Hilbert space.",
+      "formal_gloss": "A vector space with a positive-definite form ⟨u,v⟩ that is symmetric and bilinear in the real case, and conjugate-symmetric and sesquilinear in the complex case, generalizing the dot product; completing it yields a Hilbert space.",
       "level": 5,
       "prereqs": ["vector-space", "dot-product", "norm"],
-      "cross_links": ["ANALYSIS:hilbert-space", "ANALYSIS:fourier-series", "expectation"],
+      "cross_links": ["analysis:hilbert-space", "analysis:fourier-analysis", "expectation"],
       "resources": [
         {"title": "Axler, Linear Algebra Done Right, ch. 6", "url": "https://linear.axler.net/", "type": "text"},
         {"title": "Wikipedia — Inner product space", "url": "https://en.wikipedia.org/wiki/Inner_product_space", "type": "text"}
@@ -175,9 +190,9 @@
       "formal_gloss": "The linear map P onto a subspace W along its orthogonal complement, satisfying P² = P = P*; Pv is the unique nearest point of W to v.",
       "level": 4,
       "prereqs": ["orthogonality", "linear-subspace", "linear-transformation"],
-      "cross_links": ["least-squares", "PROBABILITY-STATISTICS:conditional-expectation", "gram-schmidt"],
+      "cross_links": ["least-squares", "probability-statistics:conditional-expectation", "gram-schmidt"],
       "resources": [
-        {"title": "MIT OCW 18.06, Lecture 15: Projections onto subspaces", "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/", "type": "course"},
+        {"title": "MIT OCW 18.06, Lecture 15: Projections onto subspaces", "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-15-projections-onto-subspaces/", "type": "course"},
         {"title": "Khan Academy — Orthogonal projections (Alternate coordinate systems)", "url": "https://www.khanacademy.org/math/linear-algebra/alternate-bases", "type": "course"}
       ],
       "sources": ["MIT OCW 18.06 lectures 15-16", "Axler LADR ch. 6"]
@@ -187,12 +202,12 @@
       "name": "Gram–Schmidt Process",
       "aka": ["orthonormalization"],
       "intuition_gloss": "Straighten a skewed set of arrows one at a time — subtract each one's shadow on the previous ones, then rescale to length one.",
-      "formal_gloss": "An algorithm converting a linearly independent list into an orthonormal list with the same span, by successive orthogonal projection and normalization; matrix form is the QR factorization.",
+      "formal_gloss": "An algorithm converting a linearly independent list into an orthonormal list with the same span, by successive orthogonal projection and normalization; it is the algorithm underlying the QR factorization (see matrix-factorization).",
       "level": 5,
       "prereqs": ["orthogonal-projection", "basis"],
       "cross_links": ["matrix-factorization", "algorithm"],
       "resources": [
-        {"title": "MIT OCW 18.06, Lecture 17: Orthogonal matrices and Gram-Schmidt", "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/", "type": "course"},
+        {"title": "MIT OCW 18.06, Lecture 17: Orthogonal matrices and Gram-Schmidt", "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-17-orthogonal-matrices-and-gram-schmidt/", "type": "course"},
         {"title": "Wikipedia — Gram–Schmidt process", "url": "https://en.wikipedia.org/wiki/Gram%E2%80%93Schmidt_process", "type": "text"}
       ],
       "sources": ["MIT OCW 18.06 lecture 17", "Trefethen & Bau lectures 7-8"]
@@ -205,10 +220,10 @@
       "formal_gloss": "The unique alternating multilinear function of a square matrix's columns with det(I) = 1; nonzero iff the matrix is invertible, and det(AB) = det(A)det(B).",
       "level": 4,
       "prereqs": ["matrix", "linear-transformation"],
-      "cross_links": ["matrix-inverse", "eigenvalue-eigenvector", "GEOMETRY:volume", "ANALYSIS:jacobian"],
+      "cross_links": ["matrix-inverse", "eigenvalue-eigenvector", "characteristic-polynomial", "geometry:area-volume", "analysis:partial-derivative"],
       "resources": [
         {"title": "3Blue1Brown — The determinant", "url": "https://www.3blue1brown.com/lessons/determinant", "type": "video"},
-        {"title": "MIT OCW 18.06, Lectures 18-20: Determinants", "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/", "type": "course"}
+        {"title": "MIT OCW 18.06, Lecture 18: Properties of determinants", "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-18-properties-of-determinants/", "type": "course"}
       ],
       "sources": ["3Blue1Brown Essence of Linear Algebra ch. 6", "MIT OCW 18.06 lectures 18-20", "Princeton Companion §III.15"]
     },
@@ -220,12 +235,27 @@
       "formal_gloss": "For square A, the matrix A⁻¹ with AA⁻¹ = A⁻¹A = I; it exists iff det(A) ≠ 0, iff A has full rank.",
       "level": 3,
       "prereqs": ["matrix", "gaussian-elimination"],
-      "cross_links": ["determinant", "group", "linear-system"],
+      "cross_links": ["determinant", "group", "linear-system", "moore-penrose-pseudoinverse"],
       "resources": [
         {"title": "3Blue1Brown — Inverse matrices, column space and null space", "url": "https://www.3blue1brown.com/lessons/inverse-matrices", "type": "video"},
         {"title": "Matrix Calculator", "url": "https://matrixcalc.org/", "type": "tool"}
       ],
       "sources": ["3Blue1Brown Essence of Linear Algebra ch. 7", "MIT OCW 18.06 lecture 3", "invertible matrix theorem in standard texts (Lay, Strang)"]
+    },
+    {
+      "id": "trace",
+      "name": "Trace",
+      "aka": [],
+      "intuition_gloss": "Add up a matrix's diagonal and you get a number that doesn't care which coordinates you drew — the combined total of its stretch factors.",
+      "formal_gloss": "The sum of the diagonal entries of a square matrix; basis-invariant (tr(P⁻¹AP) = tr A), satisfies tr(AB) = tr(BA), and equals the sum of the eigenvalues counted with algebraic multiplicity.",
+      "level": 4,
+      "prereqs": ["matrix"],
+      "cross_links": ["eigenvalue-eigenvector", "characteristic-polynomial", "determinant", "change-of-basis"],
+      "resources": [
+        {"title": "Wikipedia — Trace (linear algebra)", "url": "https://en.wikipedia.org/wiki/Trace_(linear_algebra)", "type": "text"},
+        {"title": "Axler, Linear Algebra Done Right, ch. 8", "url": "https://linear.axler.net/", "type": "text"}
+      ],
+      "sources": ["Axler LADR ch. 8", "standard first-course texts (Strang, Lay)"]
     },
     {
       "id": "rank",
@@ -237,7 +267,7 @@
       "prereqs": ["dimension", "gaussian-elimination", "linear-subspace"],
       "cross_links": ["rank-nullity", "singular-value-decomposition", "linear-system"],
       "resources": [
-        {"title": "MIT OCW 18.06, Lecture 7-8: Solving Ax=b, rank", "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/", "type": "course"},
+        {"title": "MIT OCW 18.06 video lectures (see Lectures 7-8: solving Ax = 0 and Ax = b, rank)", "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/video_galleries/video-lectures/", "type": "course"},
         {"title": "Wikipedia — Rank (linear algebra)", "url": "https://en.wikipedia.org/wiki/Rank_(linear_algebra)", "type": "text"}
       ],
       "sources": ["MIT OCW 18.06 lectures 7-10", "Strang, Introduction to Linear Algebra ch. 3"]
@@ -250,7 +280,7 @@
       "formal_gloss": "For linear T: V → W, ker T = {v : Tv = 0} is a subspace of V and im T = {Tv : v ∈ V} is a subspace of W.",
       "level": 4,
       "prereqs": ["linear-transformation", "linear-subspace"],
-      "cross_links": ["rank-nullity", "isomorphism", "ALGEBRA:quotient-structure", "ALGEBRA:homomorphism"],
+      "cross_links": ["rank-nullity", "isomorphism", "algebra:quotient-group", "algebra:homomorphism"],
       "resources": [
         {"title": "3Blue1Brown — Inverse matrices, column space and null space", "url": "https://www.3blue1brown.com/lessons/inverse-matrices", "type": "video"},
         {"title": "Axler, Linear Algebra Done Right, ch. 3", "url": "https://linear.axler.net/", "type": "text"}
@@ -261,11 +291,11 @@
       "id": "rank-nullity",
       "name": "Rank–Nullity Theorem",
       "aka": ["fundamental theorem of linear maps", "dimension theorem"],
-      "intuition_gloss": "A conservation law for dimensions: whatever directions a map doesn't crush must survive in its output — nothing is lost to bookkeeping.",
+      "intuition_gloss": "A conservation law for dimensions: the directions a map crushes plus the directions that survive in its output always add back up to the space you started with.",
       "formal_gloss": "For a linear map T on a finite-dimensional space V, dim ker T + dim im T = dim V.",
       "level": 4,
       "prereqs": ["kernel-image", "rank", "dimension"],
-      "cross_links": ["isomorphism", "ALGEBRA:first-isomorphism-theorem"],
+      "cross_links": ["isomorphism", "algebra:quotient-group"],
       "resources": [
         {"title": "Axler, Linear Algebra Done Right, ch. 3", "url": "https://linear.axler.net/", "type": "text"},
         {"title": "Wikipedia — Rank–nullity theorem", "url": "https://en.wikipedia.org/wiki/Rank%E2%80%93nullity_theorem", "type": "text"}
@@ -283,9 +313,24 @@
       "cross_links": ["coordinate-system", "diagonalization", "isomorphism"],
       "resources": [
         {"title": "3Blue1Brown — Change of basis", "url": "https://www.3blue1brown.com/lessons/change-of-basis", "type": "video"},
-        {"title": "MIT OCW 18.06, Lecture 31: Change of basis", "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/", "type": "course"}
+        {"title": "MIT OCW 18.06, Lecture 31: Change of basis; image compression", "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-31-change-of-basis-image-compression/", "type": "course"}
       ],
       "sources": ["3Blue1Brown Essence of Linear Algebra ch. 13", "MIT OCW 18.06 lecture 31"]
+    },
+    {
+      "id": "characteristic-polynomial",
+      "name": "Characteristic Polynomial",
+      "aka": ["characteristic equation"],
+      "intuition_gloss": "Ask 'for which stretch factors does the matrix crush some direction flat?' — the answers come packaged as the roots of a single polynomial.",
+      "formal_gloss": "The polynomial det(A − λI) of a square matrix A; its roots are exactly the eigenvalues of A, and the multiplicity of each root is that eigenvalue's algebraic multiplicity (versus the geometric multiplicity, the dimension of its eigenspace).",
+      "level": 5,
+      "prereqs": ["determinant", "eigenvalue-eigenvector", "polynomial"],
+      "cross_links": ["diagonalization", "cayley-hamilton", "trace", "jordan-normal-form"],
+      "resources": [
+        {"title": "MIT OCW 18.06, Lecture 21: Eigenvalues and eigenvectors", "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-21-eigenvalues-and-eigenvectors/", "type": "course"},
+        {"title": "Wikipedia — Characteristic polynomial", "url": "https://en.wikipedia.org/wiki/Characteristic_polynomial", "type": "text"}
+      ],
+      "sources": ["MIT OCW 18.06 lecture 21", "Strang, Introduction to Linear Algebra ch. 6", "standard first-course syllabi"]
     },
     {
       "id": "diagonalization",
@@ -294,11 +339,11 @@
       "intuition_gloss": "Rotate your viewpoint to the transformation's own special directions, and it becomes nothing but independent stretches.",
       "formal_gloss": "A = PDP⁻¹ with D diagonal, possible iff A has a basis of eigenvectors; D's entries are the eigenvalues.",
       "level": 5,
-      "prereqs": ["eigenvalue-eigenvector", "change-of-basis", "determinant"],
-      "cross_links": ["spectral-theorem", "jordan-normal-form", "DYNAMICS-DIFFERENTIAL-EQUATIONS:linear-ode-systems", "DISCRETE-COMBINATORICS:recurrence-relation"],
+      "prereqs": ["eigenvalue-eigenvector", "change-of-basis", "characteristic-polynomial"],
+      "cross_links": ["spectral-theorem", "jordan-normal-form", "dynamics-differential-equations:system-of-odes", "discrete-combinatorics:recurrence-relation"],
       "resources": [
         {"title": "3Blue1Brown — Eigenvectors and eigenvalues", "url": "https://www.3blue1brown.com/lessons/eigenvalues", "type": "video"},
-        {"title": "MIT OCW 18.06, Lecture 22: Diagonalization and powers of A", "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/", "type": "course"}
+        {"title": "MIT OCW 18.06, Lecture 22: Diagonalization and powers of A", "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-22-diagonalization-and-powers-of-a/", "type": "course"}
       ],
       "sources": ["MIT OCW 18.06 lectures 21-23", "3Blue1Brown Essence of Linear Algebra ch. 14", "Axler LADR ch. 5"]
     },
@@ -310,9 +355,9 @@
       "formal_gloss": "A real matrix Q with QᵀQ = I (complex: U*U = I), i.e. one preserving inner products; such matrices form the groups O(n) and U(n).",
       "level": 5,
       "prereqs": ["orthogonality", "matrix-inverse", "inner-product-space"],
-      "cross_links": ["group", "symmetry", "singular-value-decomposition", "GEOMETRY:isometry"],
+      "cross_links": ["group", "symmetry", "singular-value-decomposition", "geometry:isometry"],
       "resources": [
-        {"title": "MIT OCW 18.06, Lecture 17: Orthogonal matrices and Gram-Schmidt", "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/", "type": "course"},
+        {"title": "MIT OCW 18.06, Lecture 17: Orthogonal matrices and Gram-Schmidt", "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-17-orthogonal-matrices-and-gram-schmidt/", "type": "course"},
         {"title": "Wikipedia — Orthogonal matrix", "url": "https://en.wikipedia.org/wiki/Orthogonal_matrix", "type": "text"}
       ],
       "sources": ["MIT OCW 18.06 lecture 17", "Trefethen & Bau lecture 2", "Princeton Companion §III.48 (Lie groups context)"]
@@ -325,10 +370,10 @@
       "formal_gloss": "A real symmetric (complex self-adjoint) operator has an orthonormal basis of eigenvectors with real eigenvalues: A = QΛQᵀ with Q orthogonal, Λ diagonal.",
       "level": 6,
       "prereqs": ["diagonalization", "orthogonal-matrix", "inner-product-space"],
-      "cross_links": ["quadratic-form", "singular-value-decomposition", "ANALYSIS:spectral-theory", "PROBABILITY-STATISTICS:covariance-matrix"],
+      "cross_links": ["quadratic-form", "singular-value-decomposition", "analysis:hilbert-space", "probability-statistics:covariance-correlation"],
       "resources": [
         {"title": "Axler, Linear Algebra Done Right, ch. 7", "url": "https://linear.axler.net/", "type": "text"},
-        {"title": "MIT OCW 18.06, Lecture 25: Symmetric matrices and positive definiteness", "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/", "type": "course"}
+        {"title": "MIT OCW 18.06, Lecture 25: Symmetric matrices and positive definiteness", "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-25-symmetric-matrices-and-positive-definiteness/", "type": "course"}
       ],
       "sources": ["Axler LADR ch. 7", "MIT OCW 18.06 lecture 25", "Princeton Companion §III.50 (spectral theorem)"]
     },
@@ -340,9 +385,9 @@
       "formal_gloss": "Every m×n matrix factors as A = UΣVᵀ with U, V orthogonal and Σ diagonal with nonnegative singular values; the rank-k truncation is the best rank-k approximation in the 2- and Frobenius norms.",
       "level": 6,
       "prereqs": ["spectral-theorem", "orthogonal-matrix", "rank"],
-      "cross_links": ["least-squares", "APPLIED-COMPUTATIONAL:principal-component-analysis", "APPLIED-COMPUTATIONAL:data-compression", "optimization"],
+      "cross_links": ["least-squares", "moore-penrose-pseudoinverse", "applied-computational:principal-component-analysis", "optimization"],
       "resources": [
-        {"title": "MIT OCW 18.06, Lecture 29: Singular value decomposition", "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/", "type": "course"},
+        {"title": "MIT OCW 18.06, Lecture 29: Singular value decomposition", "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-29-singular-value-decomposition/", "type": "course"},
         {"title": "Steve Brunton — Singular Value Decomposition (SVD) series", "url": "https://www.youtube.com/playlist?list=PLMrJAkhIeNNSVjnsviglFoY2nXildDCcv", "type": "video"},
         {"title": "Wikipedia — Singular value decomposition", "url": "https://en.wikipedia.org/wiki/Singular_value_decomposition", "type": "text"}
       ],
@@ -356,9 +401,9 @@
       "formal_gloss": "The minimizer of ||Ax − b||² over x, characterized by the normal equations AᵀAx = Aᵀb, i.e. projecting b orthogonally onto the column space of A.",
       "level": 5,
       "prereqs": ["orthogonal-projection", "linear-system", "norm"],
-      "cross_links": ["statistical-inference", "optimization", "singular-value-decomposition", "PROBABILITY-STATISTICS:regression"],
+      "cross_links": ["statistical-inference", "optimization", "singular-value-decomposition", "moore-penrose-pseudoinverse", "probability-statistics:linear-regression"],
       "resources": [
-        {"title": "MIT OCW 18.06, Lecture 16: Projection matrices and least squares", "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/", "type": "course"},
+        {"title": "MIT OCW 18.06, Lecture 16: Projection matrices and least squares", "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-16-projection-matrices-and-least-squares/", "type": "course"},
         {"title": "Wikipedia — Least squares", "url": "https://en.wikipedia.org/wiki/Least_squares", "type": "text"}
       ],
       "sources": ["MIT OCW 18.06 lecture 16", "Trefethen & Bau lecture 11", "Strang, Introduction to Linear Algebra ch. 4"]
@@ -370,10 +415,10 @@
       "intuition_gloss": "The bowl-or-saddle shapes you get from squaring and mixing coordinates — positive definite means a true bowl with a single bottom.",
       "formal_gloss": "A function q(x) = xᵀAx for symmetric A; A is positive definite when q(x) > 0 for all x ≠ 0, equivalently all eigenvalues are positive.",
       "level": 5,
-      "prereqs": ["spectral-theorem", "dot-product"],
-      "cross_links": ["optimization", "PROBABILITY-STATISTICS:covariance-matrix", "GEOMETRY:conic-sections", "ANALYSIS:second-derivative-test"],
+      "prereqs": ["eigenvalue-eigenvector", "dot-product"],
+      "cross_links": ["spectral-theorem", "optimization", "probability-statistics:covariance-correlation", "geometry:conic-sections", "analysis:convex-function"],
       "resources": [
-        {"title": "MIT OCW 18.06, Lecture 27: Positive definite matrices and minima", "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/", "type": "course"},
+        {"title": "MIT OCW 18.06, Lecture 27: Positive definite matrices and minima", "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-27-positive-definite-matrices-and-minima/", "type": "course"},
         {"title": "Wikipedia — Definite matrix", "url": "https://en.wikipedia.org/wiki/Definite_matrix", "type": "text"}
       ],
       "sources": ["MIT OCW 18.06 lectures 27-28", "Boyd & Vandenberghe, Convex Optimization appendix A", "Princeton Companion §III.73 (quadratic forms)"]
@@ -386,13 +431,28 @@
       "formal_gloss": "Standard decompositions A = LU (elimination), A = QR (orthogonalization), A = LLᵀ (Cholesky, for positive definite A) underpinning practical solution of linear systems.",
       "level": 5,
       "prereqs": ["gaussian-elimination", "gram-schmidt", "quadratic-form"],
-      "cross_links": ["algorithm", "APPLIED-COMPUTATIONAL:numerical-stability", "singular-value-decomposition"],
+      "cross_links": ["algorithm", "applied-computational:numerical-stability", "singular-value-decomposition"],
       "resources": [
-        {"title": "MIT OCW 18.06, Lecture 4: Factorization into A = LU", "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/", "type": "course"},
+        {"title": "MIT OCW 18.06, Lecture 4: Factorization into A = LU", "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-4-factorization-into-a-lu/", "type": "course"},
         {"title": "Trefethen & Bau, Numerical Linear Algebra", "url": "https://people.maths.ox.ac.uk/trefethen/text.html", "type": "text"},
         {"title": "NumPy linalg documentation", "url": "https://numpy.org/doc/stable/reference/routines.linalg.html", "type": "tool"}
       ],
       "sources": ["Trefethen & Bau lectures 7-23", "MIT OCW 18.06 lecture 4", "Golub & Van Loan, Matrix Computations"]
+    },
+    {
+      "id": "moore-penrose-pseudoinverse",
+      "name": "Moore–Penrose Pseudoinverse",
+      "aka": ["pseudoinverse", "generalized inverse"],
+      "intuition_gloss": "The best stand-in for an inverse when a true one doesn't exist — undo what the matrix did wherever possible, and land on the closest answer where it isn't.",
+      "formal_gloss": "The unique matrix A⁺ satisfying the four Penrose conditions; computed from the SVD as A⁺ = VΣ⁺Uᵀ, it yields the minimum-norm least-squares solution x = A⁺b of Ax = b.",
+      "level": 6,
+      "prereqs": ["singular-value-decomposition", "least-squares", "matrix-inverse"],
+      "cross_links": ["rank", "applied-computational:numerical-stability"],
+      "resources": [
+        {"title": "Wikipedia — Moore–Penrose inverse", "url": "https://en.wikipedia.org/wiki/Moore%E2%80%93Penrose_inverse", "type": "text"},
+        {"title": "Trefethen & Bau, Numerical Linear Algebra", "url": "https://people.maths.ox.ac.uk/trefethen/text.html", "type": "text"}
+      ],
+      "sources": ["Trefethen & Bau lecture 11", "Golub & Van Loan, Matrix Computations", "Penrose, 'A generalized inverse for matrices' (1955)"]
     },
     {
       "id": "dual-space",
@@ -402,7 +462,7 @@
       "formal_gloss": "The space V* of linear maps V → F; finite-dimensional V is isomorphic to V*, and an inner product identifies them canonically (Riesz representation).",
       "level": 6,
       "prereqs": ["vector-space", "linear-transformation", "basis"],
-      "cross_links": ["tensor", "ANALYSIS:distribution-theory", "GEOMETRY:differential-form", "dot-product"],
+      "cross_links": ["tensor", "geometry:differential-form", "dot-product"],
       "resources": [
         {"title": "Axler, Linear Algebra Done Right, ch. 3F", "url": "https://linear.axler.net/", "type": "text"},
         {"title": "Wikipedia — Dual space", "url": "https://en.wikipedia.org/wiki/Dual_space", "type": "text"}
@@ -417,12 +477,27 @@
       "formal_gloss": "Elements of tensor product spaces V ⊗ W, equivalently multilinear maps; type-(p,q) tensors transform predictably under change of basis.",
       "level": 6,
       "prereqs": ["dual-space", "change-of-basis"],
-      "cross_links": ["GEOMETRY:riemannian-metric", "manifold", "APPLIED-COMPUTATIONAL:deep-learning", "determinant"],
+      "cross_links": ["geometry:riemannian-geometry", "manifold", "applied-computational:neural-network", "determinant"],
       "resources": [
         {"title": "Wikipedia — Tensor", "url": "https://en.wikipedia.org/wiki/Tensor", "type": "text"},
         {"title": "Eigenchris — Tensors for Beginners (video series)", "url": "https://www.youtube.com/playlist?list=PLJHszsWbB6hrkmmq57lX8BV-o-YIOFsiG", "type": "video"}
       ],
       "sources": ["Princeton Companion §III.89 (tensor products)", "standard multilinear algebra chapters (Roman, Advanced Linear Algebra)"]
+    },
+    {
+      "id": "cayley-hamilton",
+      "name": "Cayley–Hamilton Theorem & Minimal Polynomial",
+      "aka": ["minimal polynomial"],
+      "intuition_gloss": "Feed a matrix into its own characteristic polynomial and you get zero — every transformation obeys the very equation its stretch factors solve.",
+      "formal_gloss": "Every square matrix A satisfies p(A) = 0 where p is its characteristic polynomial; the minimal polynomial of A is the monic polynomial of least degree annihilating A, and it divides the characteristic polynomial.",
+      "level": 6,
+      "prereqs": ["characteristic-polynomial", "polynomial"],
+      "cross_links": ["jordan-normal-form", "diagonalization", "algebra:module"],
+      "resources": [
+        {"title": "Wikipedia — Cayley–Hamilton theorem", "url": "https://en.wikipedia.org/wiki/Cayley%E2%80%93Hamilton_theorem", "type": "text"},
+        {"title": "Axler, Linear Algebra Done Right, ch. 8", "url": "https://linear.axler.net/", "type": "text"}
+      ],
+      "sources": ["Axler LADR ch. 8", "Princeton Companion §III.43", "second-course linear algebra syllabi"]
     },
     {
       "id": "jordan-normal-form",
@@ -431,8 +506,8 @@
       "intuition_gloss": "The honest portrait of a transformation that can't be fully diagonalized — stretches plus unavoidable little shears, arranged in blocks.",
       "formal_gloss": "Over an algebraically closed field, every square matrix is similar to a unique (up to order) block-diagonal matrix of Jordan blocks, classifying operators up to similarity.",
       "level": 6,
-      "prereqs": ["diagonalization", "kernel-image", "complex-numbers"],
-      "cross_links": ["DYNAMICS-DIFFERENTIAL-EQUATIONS:linear-ode-systems", "ALGEBRA:module", "polynomial"],
+      "prereqs": ["diagonalization", "kernel-image", "characteristic-polynomial", "complex-numbers"],
+      "cross_links": ["dynamics-differential-equations:system-of-odes", "algebra:module", "polynomial", "cayley-hamilton"],
       "resources": [
         {"title": "Axler, Linear Algebra Done Right, ch. 8", "url": "https://linear.axler.net/", "type": "text"},
         {"title": "Wikipedia — Jordan normal form", "url": "https://en.wikipedia.org/wiki/Jordan_normal_form", "type": "text"}

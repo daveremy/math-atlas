@@ -32,7 +32,7 @@
       "formal_gloss": "C(n,k) = n!/(k!(n-k)!) counts k-subsets of an n-set, satisfies Pascal's recurrence C(n,k) = C(n-1,k-1) + C(n-1,k), and gives (x+y)^n = sum of C(n,k) x^k y^(n-k).",
       "level": 2,
       "prereqs": ["counting-principles", "natural-numbers"],
-      "cross_links": ["polynomial", "generating-function", "bijective-proof", "probability-statistics:binomial-distribution"],
+      "cross_links": ["polynomial", "generating-function", "bijective-proof", "catalan-numbers", "probability-statistics:bernoulli-binomial"],
       "resources": [
         {
           "title": "Binomial coefficient — Wikipedia",
@@ -40,8 +40,7 @@
           "type": "text"
         },
         {
-          "title": "Graham, Knuth & Patashnik, Concrete Mathematics, ch. 5",
-          "url": "https://en.wikipedia.org/wiki/Concrete_Mathematics",
+          "title": "Graham, Knuth & Patashnik, Concrete Mathematics, 2nd ed., ch. 5 (Addison-Wesley)",
           "type": "text"
         },
         {
@@ -60,7 +59,7 @@
       "formal_gloss": "A bijection from a finite set to itself; the n! permutations of an n-set form the symmetric group S_n, and each factors uniquely into disjoint cycles.",
       "level": 3,
       "prereqs": ["counting-principles", "function"],
-      "cross_links": ["group", "polya-enumeration", "matrix", "algebra:symmetric-group"],
+      "cross_links": ["group", "polya-enumeration", "matrix", "algebra:permutation-group"],
       "resources": [
         {
           "title": "Permutation — Wikipedia",
@@ -83,7 +82,7 @@
       "formal_gloss": "|A_1 ∪ ... ∪ A_n| equals the alternating sum over nonempty index subsets S of (-1)^(|S|+1) |intersection of A_i for i in S|.",
       "level": 3,
       "prereqs": ["counting-principles", "set"],
-      "cross_links": ["binomial-coefficient", "generating-function", "number-theory:euler-totient", "poset"],
+      "cross_links": ["binomial-coefficient", "generating-function", "number-theory:eulers-totient-function", "poset"],
       "resources": [
         {
           "title": "Inclusion–exclusion principle — Wikipedia",
@@ -106,7 +105,7 @@
       "formal_gloss": "A proof that |A| = |B| by exhibiting an explicit bijection A → B, or that two expressions agree by showing both enumerate the same set.",
       "level": 3,
       "prereqs": ["counting-principles", "function", "binomial-coefficient"],
-      "cross_links": ["proof", "cardinality", "integer-partition", "mathematical-practice:proof-techniques"],
+      "cross_links": ["proof", "cardinality", "integer-partition", "catalan-numbers", "mathematical-practice:direct-proof"],
       "resources": [
         {
           "title": "Bijective proof — Wikipedia",
@@ -114,8 +113,7 @@
           "type": "text"
         },
         {
-          "title": "Benjamin & Quinn, Proofs that Really Count",
-          "url": "https://en.wikipedia.org/wiki/Proofs_That_Really_Count",
+          "title": "Benjamin & Quinn, Proofs that Really Count (MAA)",
           "type": "text"
         }
       ],
@@ -129,7 +127,7 @@
       "formal_gloss": "An equation expressing a_n in terms of earlier terms; linear recurrences with constant coefficients are solved via characteristic roots or generating functions.",
       "level": 3,
       "prereqs": ["sequence", "induction", "counting-principles"],
-      "cross_links": ["generating-function", "eigenvalue-eigenvector", "differential-equation", "algorithm", "applied-computational:algorithm-analysis"],
+      "cross_links": ["generating-function", "eigenvalue-eigenvector", "differential-equation", "algorithm", "catalan-numbers", "applied-computational:computational-complexity"],
       "resources": [
         {
           "title": "Recurrence relation — Wikipedia",
@@ -137,8 +135,7 @@
           "type": "text"
         },
         {
-          "title": "Graham, Knuth & Patashnik, Concrete Mathematics, ch. 1-2",
-          "url": "https://en.wikipedia.org/wiki/Concrete_Mathematics",
+          "title": "Graham, Knuth & Patashnik, Concrete Mathematics, 2nd ed., ch. 1-2 (Addison-Wesley)",
           "type": "text"
         }
       ],
@@ -150,9 +147,9 @@
       "aka": ["formal power series", "OGF/EGF"],
       "intuition_gloss": "A clothesline that hangs an entire infinite sequence on a single algebraic expression, so multiplying expressions does the counting for you.",
       "formal_gloss": "The formal power series A(x) = sum of a_n x^n encoding a sequence (a_n); products and functional operations on series correspond to combinatorial constructions on the counted objects.",
-      "level": 5,
+      "level": 4,
       "prereqs": ["recurrence-relation", "binomial-coefficient", "polynomial", "sequence"],
-      "cross_links": ["integer-partition", "analysis:power-series", "probability-statistics:moment-generating-function", "applied-computational:analytic-combinatorics"],
+      "cross_links": ["integer-partition", "catalan-numbers", "set-partitions-stirling-numbers", "analysis:power-series"],
       "resources": [
         {
           "title": "Wilf, generatingfunctionology (free full text)",
@@ -174,8 +171,8 @@
       "intuition_gloss": "The ways to break a whole number into a sum of smaller pieces — drawn as staircases of dots that reveal surprising symmetries.",
       "formal_gloss": "A partition of n is a weakly decreasing sequence of positive integers summing to n; p(n) counts them, with Euler's product formula giving the generating function 1/product(1-x^k).",
       "level": 4,
-      "prereqs": ["counting-principles", "bijective-proof", "generating-function"],
-      "cross_links": ["number-theory:partition-congruences", "algebra:representation-theory", "poset"],
+      "prereqs": ["counting-principles", "bijective-proof"],
+      "cross_links": ["generating-function", "set-partitions-stirling-numbers", "algebra:group-representation", "poset"],
       "resources": [
         {
           "title": "Integer partition — Wikipedia",
@@ -183,8 +180,7 @@
           "type": "text"
         },
         {
-          "title": "Andrews & Eriksson, Integer Partitions",
-          "url": "https://en.wikipedia.org/wiki/George_Andrews_(mathematician)",
+          "title": "Andrews & Eriksson, Integer Partitions (Cambridge University Press)",
           "type": "text"
         }
       ],
@@ -198,7 +194,7 @@
       "formal_gloss": "A graph is connected if every vertex pair is joined by a path; k-connectivity measures the minimum vertices (or edges) whose removal disconnects it, with Menger's theorem equating this to disjoint-path counts.",
       "level": 3,
       "prereqs": ["graph"],
-      "cross_links": ["tree", "network-flow", "topology:connectedness", "applied-computational:graph-search"],
+      "cross_links": ["tree", "network-flow", "topology:connectedness", "applied-computational:graph-algorithms"],
       "resources": [
         {
           "title": "Connectivity (graph theory) — Wikipedia",
@@ -221,7 +217,7 @@
       "formal_gloss": "A connected acyclic graph on n vertices, equivalently a graph with exactly n-1 edges and a unique path between every pair; Cayley's formula counts n^(n-2) labeled trees on n vertices.",
       "level": 3,
       "prereqs": ["graph", "graph-connectivity", "induction"],
-      "cross_links": ["algorithm", "applied-computational:data-structures", "optimization", "network-flow"],
+      "cross_links": ["algorithm", "applied-computational:graph-algorithms", "optimization", "network-flow", "catalan-numbers"],
       "resources": [
         {
           "title": "Tree (graph theory) — Wikipedia",
@@ -244,7 +240,7 @@
       "formal_gloss": "A connected graph has an Eulerian circuit iff every vertex has even degree; deciding Hamiltonicity (a cycle through every vertex) is NP-complete, with only sufficient conditions like Dirac's theorem known.",
       "level": 3,
       "prereqs": ["graph", "graph-connectivity"],
-      "cross_links": ["applied-computational:computational-complexity", "applied-computational:traveling-salesman", "planar-graph"],
+      "cross_links": ["applied-computational:computational-complexity", "applied-computational:graph-algorithms", "planar-graph"],
       "resources": [
         {
           "title": "Eulerian path — Wikipedia",
@@ -267,7 +263,7 @@
       "formal_gloss": "A graph embeddable in the plane with no edge crossings; connected planar graphs satisfy V - E + F = 2, and Kuratowski's theorem characterizes planarity by forbidden K5 and K3,3 subdivisions.",
       "level": 4,
       "prereqs": ["graph", "graph-connectivity"],
-      "cross_links": ["graph-coloring", "topology:euler-characteristic", "geometry:polyhedra", "topology:surfaces"],
+      "cross_links": ["graph-coloring", "topology:euler-characteristic", "geometry:polygons-polyhedra", "topology:surface"],
       "resources": [
         {
           "title": "Planar graph — Wikipedia",
@@ -289,8 +285,8 @@
       "intuition_gloss": "Paint the dots of a network so no wire joins two dots of the same color, using as few colors as possible — maps only ever need four.",
       "formal_gloss": "A proper k-coloring assigns k colors to vertices so adjacent vertices differ; the chromatic number χ(G) is the minimum such k, and the Four Color Theorem states χ ≤ 4 for planar graphs.",
       "level": 4,
-      "prereqs": ["graph", "planar-graph"],
-      "cross_links": ["ramsey-theory", "applied-computational:constraint-satisfaction", "applied-computational:computational-complexity", "polynomial"],
+      "prereqs": ["graph"],
+      "cross_links": ["planar-graph", "ramsey-theory", "applied-computational:computational-complexity", "polynomial"],
       "resources": [
         {
           "title": "Graph coloring — Wikipedia",
@@ -311,9 +307,9 @@
       "aka": ["bipartite matching", "marriage theorem", "perfect matching"],
       "intuition_gloss": "Pair up two groups — applicants to jobs, say — so nobody is doubled up; Hall's condition tells you exactly when everyone can be matched.",
       "formal_gloss": "A matching is a set of pairwise non-adjacent edges; Hall's theorem states a bipartite graph has a matching saturating side A iff every subset S of A has at least |S| neighbors.",
-      "level": 5,
+      "level": 4,
       "prereqs": ["graph", "graph-connectivity", "pigeonhole-principle"],
-      "cross_links": ["network-flow", "poset", "applied-computational:assignment-problem", "probability-statistics:stable-matching"],
+      "cross_links": ["network-flow", "poset", "applied-computational:linear-programming"],
       "resources": [
         {
           "title": "Hall's marriage theorem — Wikipedia",
@@ -344,22 +340,21 @@
           "type": "text"
         },
         {
-          "title": "CLRS, Introduction to Algorithms (flow networks chapter)",
-          "url": "https://en.wikipedia.org/wiki/Introduction_to_Algorithms",
+          "title": "Cormen, Leiserson, Rivest & Stein, Introduction to Algorithms, 4th ed., flow networks chapter (MIT Press)",
           "type": "text"
         }
       ],
-      "sources": ["CLRS ch. 24 (flows)", "LP duality exemplar", "unifies Menger, König, Hall — high structural leverage"]
+      "sources": ["CLRS ch. 24 (flows; 4th ed. — ch. 26 in 3rd ed.)", "LP duality exemplar", "unifies Menger, König, Hall — high structural leverage"]
     },
     {
       "id": "poset",
       "name": "Partially Ordered Sets & Lattices",
-      "aka": ["posets", "Hasse diagrams", "Dilworth's theorem", "Möbius function of a poset"],
+      "aka": ["partial order", "partially ordered set", "posets", "Hasse diagrams", "Dilworth's theorem", "Möbius function of a poset"],
       "intuition_gloss": "Rankings where some pairs simply can't be compared — like tasks with prerequisites — drawn as layered diagrams of who-comes-before-whom.",
       "formal_gloss": "A set with a reflexive, antisymmetric, transitive relation; chains and antichains structure it (Dilworth's theorem), and its Möbius function generalizes inclusion-exclusion.",
       "level": 4,
       "prereqs": ["set", "equivalence-relation", "graph"],
-      "cross_links": ["inclusion-exclusion", "foundations:order-theory", "matching", "foundations:zorns-lemma"],
+      "cross_links": ["inclusion-exclusion", "matching", "foundations:axiom-of-choice", "set-partitions-stirling-numbers"],
       "resources": [
         {
           "title": "Partially ordered set — Wikipedia",
@@ -405,7 +400,7 @@
       "formal_gloss": "For all k, l there exists R(k,l) such that every 2-coloring of the edges of a complete graph on R(k,l) vertices contains a monochromatic K_k or K_l; generalizations pervade combinatorics.",
       "level": 6,
       "prereqs": ["graph", "pigeonhole-principle", "graph-coloring"],
-      "cross_links": ["probabilistic-method", "extremal-combinatorics", "number-theory:szemeredi-theorem", "foundations:infinite-ramsey"],
+      "cross_links": ["probabilistic-method", "extremal-combinatorics", "number-theory:additive-number-theory"],
       "resources": [
         {
           "title": "Ramsey's theorem — Wikipedia",
@@ -413,8 +408,7 @@
           "type": "text"
         },
         {
-          "title": "Graham, Rothschild & Spencer, Ramsey Theory",
-          "url": "https://en.wikipedia.org/wiki/Ramsey_theory",
+          "title": "Graham, Rothschild & Spencer, Ramsey Theory, 2nd ed. (Wiley)",
           "type": "text"
         }
       ],
@@ -428,7 +422,7 @@
       "formal_gloss": "The study of maximum or minimum sizes of set systems or graphs avoiding a given substructure; Turán's theorem gives the maximum edges in a K_r-free graph, with Szemerédi's regularity lemma as the deep modern tool.",
       "level": 6,
       "prereqs": ["graph", "graph-coloring", "binomial-coefficient"],
-      "cross_links": ["ramsey-theory", "probabilistic-method", "number-theory:additive-combinatorics", "poset"],
+      "cross_links": ["ramsey-theory", "probabilistic-method", "number-theory:additive-number-theory", "poset"],
       "resources": [
         {
           "title": "Extremal graph theory — Wikipedia",
@@ -450,8 +444,8 @@
       "intuition_gloss": "To prove a needle exists in the haystack, show a random grab finds one with nonzero probability — no need to ever point at it.",
       "formal_gloss": "Prove an object with property P exists by showing a suitable random construction has P with positive probability; refinements include linearity of expectation, alteration, and the Lovász Local Lemma.",
       "level": 6,
-      "prereqs": ["counting-principles", "expectation", "graph", "ramsey-theory"],
-      "cross_links": ["random-graph", "extremal-combinatorics", "probability-space", "applied-computational:randomized-algorithms"],
+      "prereqs": ["counting-principles", "expectation", "graph"],
+      "cross_links": ["ramsey-theory", "random-graph", "extremal-combinatorics", "probability-space"],
       "resources": [
         {
           "title": "Probabilistic method — Wikipedia",
@@ -459,8 +453,7 @@
           "type": "text"
         },
         {
-          "title": "Alon & Spencer, The Probabilistic Method",
-          "url": "https://en.wikipedia.org/wiki/The_Probabilistic_Method",
+          "title": "Alon & Spencer, The Probabilistic Method, 4th ed. (Wiley)",
           "type": "text"
         }
       ],
@@ -474,7 +467,7 @@
       "formal_gloss": "The G(n,p) model includes each of the C(n,2) edges independently with probability p; properties like connectivity appear at sharp thresholds, e.g. the giant component emerges at p ≈ 1/n.",
       "level": 6,
       "prereqs": ["graph", "probability-space", "expectation", "probabilistic-method"],
-      "cross_links": ["graph-connectivity", "applied-computational:network-science", "probability-statistics:percolation", "dynamics-differential-equations:phase-transition"],
+      "cross_links": ["graph-connectivity", "extremal-combinatorics"],
       "resources": [
         {
           "title": "Erdős–Rényi model — Wikipedia",
@@ -482,8 +475,7 @@
           "type": "text"
         },
         {
-          "title": "Bollobás, Random Graphs",
-          "url": "https://en.wikipedia.org/wiki/Random_graph",
+          "title": "Bollobás, Random Graphs, 2nd ed. (Cambridge University Press)",
           "type": "text"
         }
       ],
@@ -497,7 +489,7 @@
       "formal_gloss": "A t-(v,k,λ) design is a family of k-subsets (blocks) of a v-set in which every t-subset lies in exactly λ blocks; Latin squares are n×n arrays with each symbol once per row and column.",
       "level": 6,
       "prereqs": ["counting-principles", "binomial-coefficient", "modular-arithmetic"],
-      "cross_links": ["applied-computational:error-correcting-codes", "field", "polya-enumeration", "geometry:finite-projective-planes"],
+      "cross_links": ["applied-computational:error-correcting-codes", "field", "polya-enumeration"],
       "resources": [
         {
           "title": "Block design — Wikipedia",
@@ -511,6 +503,57 @@
         }
       ],
       "sources": ["Fisher's experimental-design origins", "van Lint & Wilson, A Course in Combinatorics", "MSC 05B", "Keevash 2014 existence-of-designs breakthrough"]
+    },
+    {
+      "id": "catalan-numbers",
+      "name": "Catalan Numbers",
+      "aka": ["C_n", "Dyck paths", "ballot problem", "1, 1, 2, 5, 14, 42, ..."],
+      "intuition_gloss": "One sequence — 1, 1, 2, 5, 14, 42 — keeps turning up wherever you count balanced parentheses, mountain-shaped lattice paths, triangulated polygons, or binary trees.",
+      "formal_gloss": "C_n = C(2n,n)/(n+1) counts Dyck paths of length 2n, triangulations of an (n+2)-gon, binary trees with n internal nodes, and hundreds of other families; it satisfies the convolution recurrence C_(n+1) = sum of C_i C_(n-i) with generating function (1 - sqrt(1-4x))/(2x).",
+      "level": 3,
+      "prereqs": ["counting-principles", "binomial-coefficient", "recurrence-relation"],
+      "cross_links": ["bijective-proof", "generating-function", "tree"],
+      "resources": [
+        {
+          "title": "Catalan number — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Catalan_number",
+          "type": "text"
+        },
+        {
+          "title": "Stanley, Enumerative Combinatorics (free online editions; Catalan interpretations in vol. 2 / the Catalan addendum)",
+          "url": "https://math.mit.edu/~rstan/ec/",
+          "type": "text"
+        }
+      ],
+      "sources": ["Stanley, Catalan Numbers (CUP 2015 — 200+ interpretations)", "Stanley EC2 exercise 6.19 and the Catalan addendum", "MSC 05A15", "the most famous counted family in combinatorics"]
+    },
+    {
+      "id": "set-partitions-stirling-numbers",
+      "name": "Set Partitions, Stirling & Bell Numbers",
+      "aka": ["partition of a set", "Stirling numbers of the second kind", "Bell numbers", "twelvefold way"],
+      "intuition_gloss": "Count the ways to split a group of people into unlabeled teams — Stirling numbers count the splits into exactly k teams, Bell numbers count all possible splits at once.",
+      "formal_gloss": "A set partition of an n-set is a family of disjoint nonempty blocks covering it (equivalently, an equivalence relation); S(n,k) counts partitions into k blocks via S(n,k) = k*S(n-1,k) + S(n-1,k-1), the Bell number B_n = sum over k of S(n,k), and the twelvefold way organizes balls-in-boxes counting by labeled/unlabeled and injective/surjective constraints.",
+      "level": 3,
+      "prereqs": ["counting-principles", "binomial-coefficient", "equivalence-relation"],
+      "cross_links": ["integer-partition", "generating-function", "inclusion-exclusion", "poset"],
+      "resources": [
+        {
+          "title": "Partition of a set — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Partition_of_a_set",
+          "type": "text"
+        },
+        {
+          "title": "Stirling numbers of the second kind — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Stirling_numbers_of_the_second_kind",
+          "type": "text"
+        },
+        {
+          "title": "Bogart, Combinatorics Through Guided Discovery",
+          "url": "https://bogart.openmathbooks.org/",
+          "type": "text"
+        }
+      ],
+      "sources": ["Stanley EC1 ch. 1 (the twelvefold way)", "Concrete Mathematics ch. 6 (Stirling numbers)", "MSC 05A18", "companion to integer partitions: partitioning a set rather than a number"]
     }
   ]
 }
