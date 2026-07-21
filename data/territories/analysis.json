@@ -1,0 +1,380 @@
+{
+  "territory": "analysis",
+  "concepts": [
+    {
+      "id": "completeness-of-reals",
+      "name": "Completeness of the Real Numbers",
+      "aka": ["Least Upper Bound Property", "Supremum Property", "Dedekind Completeness"],
+      "intuition_gloss": "The number line has no pinholes — any collection of reals with a ceiling has a single lowest ceiling actually sitting on the line.",
+      "formal_gloss": "Every nonempty subset of R that is bounded above has a least upper bound (supremum) in R, the axiom distinguishing R from Q.",
+      "level": 4,
+      "prereqs": ["real-numbers", "set"],
+      "cross_links": ["cauchy-sequence", "intermediate-value-theorem", "topology:compactness"],
+      "resources": [
+        {"title": "Understanding Analysis (Abbott), Ch. 1", "url": "https://link.springer.com/book/10.1007/978-1-4939-2712-8", "type": "text"},
+        {"title": "Wikipedia: Least-upper-bound property", "url": "https://en.wikipedia.org/wiki/Least-upper-bound_property", "type": "text"}
+      ],
+      "sources": ["MSC 2020 26A (real functions)", "Abbott, Understanding Analysis Ch. 1", "MIT OCW 18.100A syllabus"]
+    },
+    {
+      "id": "cauchy-sequence",
+      "name": "Cauchy Sequence",
+      "aka": ["Cauchy Criterion"],
+      "intuition_gloss": "A sequence whose terms huddle ever closer to each other — you can tell it's settling down without knowing where it's headed.",
+      "formal_gloss": "A sequence (a_n) such that for every ε > 0 there exists N with |a_m - a_n| < ε for all m, n > N; in R, Cauchy is equivalent to convergent.",
+      "level": 4,
+      "prereqs": ["sequence", "limit"],
+      "cross_links": ["completeness-of-reals", "metric-space", "banach-space"],
+      "resources": [
+        {"title": "MIT OCW 18.100A Real Analysis", "url": "https://ocw.mit.edu/courses/18-100a-real-analysis-fall-2020/", "type": "course"},
+        {"title": "Wikipedia: Cauchy sequence", "url": "https://en.wikipedia.org/wiki/Cauchy_sequence", "type": "text"}
+      ],
+      "sources": ["MIT OCW 18.100A", "Rudin, Principles of Mathematical Analysis Ch. 3"]
+    },
+    {
+      "id": "infinite-series",
+      "name": "Infinite Series",
+      "aka": ["Series", "Convergence of Series"],
+      "intuition_gloss": "Adding up infinitely many numbers one after another and asking whether the running total settles on a finite answer.",
+      "formal_gloss": "The limit of the partial sums s_n = a_1 + ... + a_n of a sequence; convergence is decided by tests such as comparison, ratio, and integral tests.",
+      "level": 3,
+      "prereqs": ["sequence", "limit"],
+      "cross_links": ["power-series", "fourier-analysis", "discrete-combinatorics:generating-function"],
+      "resources": [
+        {"title": "Khan Academy: Infinite sequences and series", "url": "https://www.khanacademy.org/math/ap-calculus-bc/bc-series-new", "type": "course"},
+        {"title": "Paul's Online Math Notes", "url": "https://tutorial.math.lamar.edu/", "type": "text"}
+      ],
+      "sources": ["AP Calculus BC curriculum", "MIT OCW 18.01", "Wikipedia outline of calculus"]
+    },
+    {
+      "id": "intermediate-value-theorem",
+      "name": "Intermediate Value Theorem",
+      "aka": ["IVT"],
+      "intuition_gloss": "A continuous path from below a level to above it must cross that level somewhere — you can't get across a river without touching the water.",
+      "formal_gloss": "If f is continuous on [a,b] and y lies between f(a) and f(b), then f(c) = y for some c in [a,b]; a consequence of the connectedness of intervals.",
+      "level": 3,
+      "prereqs": ["continuity", "completeness-of-reals"],
+      "cross_links": ["topology:connectedness", "applied-computational:root-finding"],
+      "resources": [
+        {"title": "MIT OCW 18.01 Single Variable Calculus", "url": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/", "type": "course"},
+        {"title": "Wikipedia: Intermediate value theorem", "url": "https://en.wikipedia.org/wiki/Intermediate_value_theorem", "type": "text"}
+      ],
+      "sources": ["Standard first-year calculus curricula", "Abbott Ch. 4"]
+    },
+    {
+      "id": "extreme-value-theorem",
+      "name": "Extreme Value Theorem",
+      "aka": ["EVT"],
+      "intuition_gloss": "A continuous function on a closed, bounded stretch must actually reach a highest and a lowest point — no peak forever just out of reach.",
+      "formal_gloss": "A continuous real-valued function on a compact set attains its maximum and minimum; on R, compact means closed and bounded (Heine–Borel).",
+      "level": 4,
+      "prereqs": ["continuity", "completeness-of-reals"],
+      "cross_links": ["topology:compactness", "optimization", "mean-value-theorem"],
+      "resources": [
+        {"title": "Understanding Analysis (Abbott), Ch. 4", "url": "https://link.springer.com/book/10.1007/978-1-4939-2712-8", "type": "text"},
+        {"title": "Wikipedia: Extreme value theorem", "url": "https://en.wikipedia.org/wiki/Extreme_value_theorem", "type": "text"}
+      ],
+      "sources": ["Abbott Ch. 4", "MIT OCW 18.100A", "Princeton Companion III (compactness)"]
+    },
+    {
+      "id": "mean-value-theorem",
+      "name": "Mean Value Theorem",
+      "aka": ["MVT", "Lagrange Mean Value Theorem", "Rolle's Theorem"],
+      "intuition_gloss": "On any smooth trip, there is an instant when your speedometer reads exactly your average speed for the whole trip.",
+      "formal_gloss": "If f is continuous on [a,b] and differentiable on (a,b), there exists c with f'(c) = (f(b) - f(a))/(b - a); the bridge from local derivative facts to global behavior.",
+      "level": 4,
+      "prereqs": ["derivative", "continuity", "extreme-value-theorem"],
+      "cross_links": ["taylor-series", "fundamental-theorem-of-calculus"],
+      "resources": [
+        {"title": "MIT OCW 18.01 Single Variable Calculus", "url": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/", "type": "course"},
+        {"title": "Wikipedia: Mean value theorem", "url": "https://en.wikipedia.org/wiki/Mean_value_theorem", "type": "text"}
+      ],
+      "sources": ["Standard calculus and real analysis curricula", "Rudin Ch. 5"]
+    },
+    {
+      "id": "fundamental-theorem-of-calculus",
+      "name": "Fundamental Theorem of Calculus",
+      "aka": ["FTC"],
+      "intuition_gloss": "Accumulating a quantity and measuring its rate of change are inverse operations — area under a rate curve is total change.",
+      "formal_gloss": "If f is continuous on [a,b], then F(x) = ∫_a^x f(t)dt satisfies F' = f, and ∫_a^b f = G(b) - G(a) for any antiderivative G of f.",
+      "level": 3,
+      "prereqs": ["derivative", "integral", "continuity"],
+      "cross_links": ["stokes-theorem", "mean-value-theorem", "differential-equation"],
+      "resources": [
+        {"title": "3Blue1Brown: Essence of Calculus", "url": "https://www.3blue1brown.com/topics/calculus", "type": "video"},
+        {"title": "MIT OCW 18.01 Single Variable Calculus", "url": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/", "type": "course"}
+      ],
+      "sources": ["Every standard calculus curriculum", "Princeton Companion I.3", "Wikipedia outline of calculus"]
+    },
+    {
+      "id": "power-series",
+      "name": "Power Series",
+      "aka": ["Radius of Convergence"],
+      "intuition_gloss": "An infinitely long polynomial — a recipe that builds functions like sine and exponential out of nothing but powers of x.",
+      "formal_gloss": "A series of the form Σ c_n (x - a)^n, converging absolutely inside a radius of convergence R and defining an analytic function there.",
+      "level": 4,
+      "prereqs": ["infinite-series", "polynomial"],
+      "cross_links": ["taylor-series", "holomorphic-function", "discrete-combinatorics:generating-function"],
+      "resources": [
+        {"title": "Paul's Online Math Notes", "url": "https://tutorial.math.lamar.edu/", "type": "text"},
+        {"title": "Wikipedia: Power series", "url": "https://en.wikipedia.org/wiki/Power_series", "type": "text"}
+      ],
+      "sources": ["MSC 2020 40A (sequences and series)", "MIT OCW 18.01", "Rudin Ch. 3 and 8"]
+    },
+    {
+      "id": "taylor-series",
+      "name": "Taylor Series",
+      "aka": ["Taylor Expansion", "Taylor Polynomial", "Maclaurin Series"],
+      "intuition_gloss": "Cloning a function near a point using only its derivatives there — better and better polynomial impressions of the real thing.",
+      "formal_gloss": "The series Σ f^(n)(a)(x-a)^n / n!, which represents f near a when the remainder term tends to zero.",
+      "level": 4,
+      "prereqs": ["derivative", "power-series", "mean-value-theorem"],
+      "cross_links": ["asymptotic-analysis", "holomorphic-function", "applied-computational:numerical-approximation"],
+      "resources": [
+        {"title": "3Blue1Brown: Taylor series", "url": "https://www.3blue1brown.com/lessons/taylor-series", "type": "video"},
+        {"title": "MIT OCW 18.01 Single Variable Calculus", "url": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/", "type": "course"}
+      ],
+      "sources": ["Standard calculus curricula", "3Blue1Brown Essence of Calculus", "Princeton Companion III"]
+    },
+    {
+      "id": "uniform-convergence",
+      "name": "Uniform Convergence",
+      "aka": ["Pointwise vs Uniform Convergence"],
+      "intuition_gloss": "A sequence of functions closing in on a target curve everywhere at the same speed, so good properties like continuity survive the limit.",
+      "formal_gloss": "f_n → f uniformly if sup_x |f_n(x) - f(x)| → 0; uniform limits preserve continuity and allow interchange of limit with integral.",
+      "level": 5,
+      "prereqs": ["limit", "continuity", "infinite-series"],
+      "cross_links": ["power-series", "fourier-analysis", "banach-space"],
+      "resources": [
+        {"title": "Understanding Analysis (Abbott), Ch. 6", "url": "https://link.springer.com/book/10.1007/978-1-4939-2712-8", "type": "text"},
+        {"title": "Wikipedia: Uniform convergence", "url": "https://en.wikipedia.org/wiki/Uniform_convergence", "type": "text"}
+      ],
+      "sources": ["Abbott Ch. 6", "Rudin Ch. 7", "MIT OCW 18.100A"]
+    },
+    {
+      "id": "partial-derivative",
+      "name": "Partial Derivative & Jacobian",
+      "aka": ["Total Derivative", "Jacobian Matrix", "Multivariable Differentiation"],
+      "intuition_gloss": "The slope of a landscape measured along one compass direction at a time — and the matrix that bundles all directions into one linear snapshot.",
+      "formal_gloss": "∂f/∂x_i is the derivative of f with the other variables held fixed; a differentiable map's Jacobian matrix of partials is its best linear approximation.",
+      "level": 4,
+      "prereqs": ["derivative", "vector", "matrix"],
+      "cross_links": ["gradient", "linear-transformation", "implicit-function-theorem"],
+      "resources": [
+        {"title": "MIT OCW 18.02 Multivariable Calculus", "url": "https://ocw.mit.edu/courses/18-02sc-multivariable-calculus-fall-2010/", "type": "course"},
+        {"title": "Khan Academy: Multivariable calculus", "url": "https://www.khanacademy.org/math/calculus-1", "type": "course"}
+      ],
+      "sources": ["MIT OCW 18.02", "Standard multivariable calculus curricula"]
+    },
+    {
+      "id": "gradient",
+      "name": "Gradient",
+      "aka": ["Directional Derivative", "Grad"],
+      "intuition_gloss": "The arrow that points straight uphill on a landscape, with length telling you how steep the climb is.",
+      "formal_gloss": "∇f, the vector of partial derivatives of a scalar field; the direction of steepest ascent, satisfying D_v f = ∇f · v.",
+      "level": 4,
+      "prereqs": ["partial-derivative", "vector"],
+      "cross_links": ["optimization", "applied-computational:gradient-descent", "stokes-theorem"],
+      "resources": [
+        {"title": "MIT OCW 18.02 Multivariable Calculus", "url": "https://ocw.mit.edu/courses/18-02sc-multivariable-calculus-fall-2010/", "type": "course"},
+        {"title": "Wikipedia: Gradient", "url": "https://en.wikipedia.org/wiki/Gradient", "type": "text"}
+      ],
+      "sources": ["MIT OCW 18.02", "Ubiquity in optimization/ML gives high leverage score"]
+    },
+    {
+      "id": "multiple-integral",
+      "name": "Multiple Integral",
+      "aka": ["Double Integral", "Triple Integral", "Iterated Integral", "Fubini's Theorem"],
+      "intuition_gloss": "Adding up a quantity spread over an area or volume by slicing the region into tiny tiles or bricks.",
+      "formal_gloss": "The integral of f over a region in R^n, computable as iterated one-variable integrals when Fubini's theorem applies, with change of variables governed by the Jacobian determinant.",
+      "level": 4,
+      "prereqs": ["integral", "partial-derivative"],
+      "cross_links": ["lebesgue-integral", "expectation", "stokes-theorem"],
+      "resources": [
+        {"title": "MIT OCW 18.02 Multivariable Calculus", "url": "https://ocw.mit.edu/courses/18-02sc-multivariable-calculus-fall-2010/", "type": "course"},
+        {"title": "Paul's Online Math Notes", "url": "https://tutorial.math.lamar.edu/", "type": "text"}
+      ],
+      "sources": ["MIT OCW 18.02", "Standard multivariable curricula"]
+    },
+    {
+      "id": "stokes-theorem",
+      "name": "Vector Calculus & Stokes' Theorem",
+      "aka": ["Green's Theorem", "Divergence Theorem", "Curl", "Line and Surface Integrals", "Generalized Stokes Theorem"],
+      "intuition_gloss": "What flows out through a boundary equals what is generated inside — the fundamental theorem of calculus scaled up to curves, surfaces, and volumes.",
+      "formal_gloss": "∫_∂M ω = ∫_M dω: the integral of a differential form over the boundary of an oriented manifold equals the integral of its exterior derivative over the interior, unifying Green's, divergence, and classical Stokes theorems.",
+      "level": 5,
+      "prereqs": ["multiple-integral", "gradient", "fundamental-theorem-of-calculus"],
+      "cross_links": ["manifold", "geometry:differential-form", "dynamics-differential-equations:vector-field"],
+      "resources": [
+        {"title": "3Blue1Brown: Divergence and curl", "url": "https://www.3blue1brown.com/lessons/divergence-and-curl", "type": "video"},
+        {"title": "MIT OCW 18.02 Multivariable Calculus", "url": "https://ocw.mit.edu/courses/18-02sc-multivariable-calculus-fall-2010/", "type": "course"}
+      ],
+      "sources": ["MIT OCW 18.02", "Princeton Companion III (differential forms)", "Spivak, Calculus on Manifolds"]
+    },
+    {
+      "id": "implicit-function-theorem",
+      "name": "Inverse & Implicit Function Theorems",
+      "aka": ["Inverse Function Theorem", "IFT"],
+      "intuition_gloss": "If the linear snapshot of a map is invertible at a point, the map itself is locally invertible there — and equations can locally be solved for some variables in terms of the others.",
+      "formal_gloss": "A C^1 map with invertible Jacobian at a point is a local diffeomorphism; correspondingly, F(x,y) = 0 with invertible ∂F/∂y locally defines y as a C^1 function of x.",
+      "level": 5,
+      "prereqs": ["partial-derivative", "continuity", "linear-transformation"],
+      "cross_links": ["manifold", "optimization", "contraction-mapping"],
+      "resources": [
+        {"title": "Wikipedia: Implicit function theorem", "url": "https://en.wikipedia.org/wiki/Implicit_function_theorem", "type": "text"},
+        {"title": "MIT OCW 18.100A Real Analysis", "url": "https://ocw.mit.edu/courses/18-100a-real-analysis-fall-2020/", "type": "course"}
+      ],
+      "sources": ["Rudin Ch. 9", "Prerequisite for manifold theory (Lean mathlib dependency structure)"]
+    },
+    {
+      "id": "contraction-mapping",
+      "name": "Banach Fixed-Point Theorem",
+      "aka": ["Contraction Mapping Principle"],
+      "intuition_gloss": "Keep applying a map that always shrinks distances and everything spirals into one inevitable fixed point.",
+      "formal_gloss": "A contraction on a complete metric space has a unique fixed point, obtained as the limit of iterating the map from any starting point.",
+      "level": 5,
+      "prereqs": ["metric-space", "cauchy-sequence"],
+      "cross_links": ["differential-equation", "implicit-function-theorem", "applied-computational:iterative-methods"],
+      "resources": [
+        {"title": "Wikipedia: Banach fixed-point theorem", "url": "https://en.wikipedia.org/wiki/Banach_fixed-point_theorem", "type": "text"},
+        {"title": "MIT OCW 18.100A Real Analysis", "url": "https://ocw.mit.edu/courses/18-100a-real-analysis-fall-2020/", "type": "course"}
+      ],
+      "sources": ["Powers Picard existence theorem for ODEs and inverse function theorem — high leverage", "MSC 2020 47H10"]
+    },
+    {
+      "id": "asymptotic-analysis",
+      "name": "Asymptotics & Big-O Notation",
+      "aka": ["Big-O", "Order of Growth", "Asymptotic Expansion", "little-o"],
+      "intuition_gloss": "Comparing how fast functions grow or shrink in the long run, ignoring constants and small-fry terms.",
+      "formal_gloss": "f = O(g) if |f(x)| ≤ C|g(x)| for large x; the calculus of dominant behavior of functions as an argument tends to a limit.",
+      "level": 4,
+      "prereqs": ["limit", "function"],
+      "cross_links": ["algorithm", "taylor-series", "number-theory:prime-number-theorem"],
+      "resources": [
+        {"title": "Wikipedia: Big O notation", "url": "https://en.wikipedia.org/wiki/Big_O_notation", "type": "text"},
+        {"title": "Khan Academy: Calculus", "url": "https://www.khanacademy.org/math/calculus-1", "type": "course"}
+      ],
+      "sources": ["Bridges analysis to computer science and analytic number theory", "Graham/Knuth/Patashnik, Concrete Mathematics Ch. 9"]
+    },
+    {
+      "id": "convex-function",
+      "name": "Convexity",
+      "aka": ["Convex Function", "Convex Set", "Jensen's Inequality"],
+      "intuition_gloss": "A bowl-shaped function — every chord lies above the graph, so any local bottom is the global bottom.",
+      "formal_gloss": "f is convex if f(tx + (1-t)y) ≤ tf(x) + (1-t)f(y) for t in [0,1]; for twice-differentiable f, equivalent to f'' ≥ 0.",
+      "level": 4,
+      "prereqs": ["function", "derivative"],
+      "cross_links": ["optimization", "expectation", "geometry:convex-geometry"],
+      "resources": [
+        {"title": "Wikipedia: Convex function", "url": "https://en.wikipedia.org/wiki/Convex_function", "type": "text"},
+        {"title": "Boyd & Vandenberghe, Convex Optimization (free book)", "url": "https://web.stanford.edu/~boyd/cvxbook/", "type": "text"}
+      ],
+      "sources": ["Central to optimization and inequalities (Jensen) — high cross-territory leverage", "Princeton Companion III"]
+    },
+    {
+      "id": "lebesgue-measure",
+      "name": "Measure & Lebesgue Measure",
+      "aka": ["Measure Theory", "Sigma-algebra", "Measurable Set"],
+      "intuition_gloss": "A rigorous notion of length, area, and volume robust enough to size up wildly irregular sets — with the surprise that some sets cannot be measured at all.",
+      "formal_gloss": "A countably additive nonnegative function on a σ-algebra of subsets; Lebesgue measure extends length from intervals to all Borel (and Lebesgue-measurable) subsets of R.",
+      "level": 6,
+      "prereqs": ["set", "real-numbers", "cardinality", "infinite-series"],
+      "cross_links": ["probability-space", "lebesgue-integral", "foundations:axiom-of-choice"],
+      "resources": [
+        {"title": "Terence Tao, An Introduction to Measure Theory", "url": "https://terrytao.wordpress.com/books/an-introduction-to-measure-theory/", "type": "text"},
+        {"title": "Wikipedia: Lebesgue measure", "url": "https://en.wikipedia.org/wiki/Lebesgue_measure", "type": "text"}
+      ],
+      "sources": ["MSC 2020 28 (measure and integration)", "Tao, Introduction to Measure Theory", "Foundation of modern probability (Kolmogorov)"]
+    },
+    {
+      "id": "lebesgue-integral",
+      "name": "Lebesgue Integral",
+      "aka": ["Lebesgue Integration", "Dominated Convergence Theorem"],
+      "intuition_gloss": "Instead of slicing the ground under a curve into vertical strips, slice by height and ask how much ground sits at each level — an integral that survives limits gracefully.",
+      "formal_gloss": "The integral built from measures of level sets of measurable functions, extending the Riemann integral and satisfying the monotone and dominated convergence theorems.",
+      "level": 6,
+      "prereqs": ["lebesgue-measure", "integral", "limit"],
+      "cross_links": ["expectation", "hilbert-space", "fourier-analysis"],
+      "resources": [
+        {"title": "Terence Tao, An Introduction to Measure Theory", "url": "https://terrytao.wordpress.com/books/an-introduction-to-measure-theory/", "type": "text"},
+        {"title": "Wikipedia: Lebesgue integration", "url": "https://en.wikipedia.org/wiki/Lebesgue_integration", "type": "text"}
+      ],
+      "sources": ["MSC 2020 28A25", "Rudin, Real and Complex Analysis Ch. 1", "Princeton Companion III.55"]
+    },
+    {
+      "id": "banach-space",
+      "name": "Normed & Banach Spaces",
+      "aka": ["Normed Vector Space", "Complete Normed Space", "Functional Analysis"],
+      "intuition_gloss": "Treat entire functions as single points in an infinite-dimensional space with a notion of length, where analysis and linear algebra fuse.",
+      "formal_gloss": "A vector space with a norm inducing a complete metric; the setting of functional analysis, where linear operators between such spaces are studied.",
+      "level": 6,
+      "prereqs": ["vector-space", "metric-space", "cauchy-sequence", "uniform-convergence"],
+      "cross_links": ["hilbert-space", "contraction-mapping", "linear-transformation"],
+      "resources": [
+        {"title": "Wikipedia: Banach space", "url": "https://en.wikipedia.org/wiki/Banach_space", "type": "text"},
+        {"title": "MIT OCW 18.102 Introduction to Functional Analysis", "url": "https://ocw.mit.edu/courses/18-102-introduction-to-functional-analysis-spring-2021/", "type": "course"}
+      ],
+      "sources": ["MSC 2020 46 (functional analysis)", "Princeton Companion III.62", "Kreyszig as standard entry text"]
+    },
+    {
+      "id": "hilbert-space",
+      "name": "Hilbert Space",
+      "aka": ["Inner Product Space", "Orthonormal Basis"],
+      "intuition_gloss": "An infinite-dimensional space that still has angles and perpendicularity, so geometry's intuition — projections, Pythagoras — works on functions.",
+      "formal_gloss": "A complete inner product space; every element expands uniquely against an orthonormal basis, generalizing Euclidean geometry to infinitely many dimensions.",
+      "level": 6,
+      "prereqs": ["banach-space", "vector-space"],
+      "cross_links": ["fourier-analysis", "eigenvalue-eigenvector", "applied-computational:quantum-computing"],
+      "resources": [
+        {"title": "Wikipedia: Hilbert space", "url": "https://en.wikipedia.org/wiki/Hilbert_space", "type": "text"},
+        {"title": "MIT OCW 18.102 Introduction to Functional Analysis", "url": "https://ocw.mit.edu/courses/18-102-introduction-to-functional-analysis-spring-2021/", "type": "course"}
+      ],
+      "sources": ["MSC 2020 46C", "Princeton Companion III.37", "Mathematical foundation of quantum mechanics — high leverage"]
+    },
+    {
+      "id": "fourier-analysis",
+      "name": "Fourier Series & Transform",
+      "aka": ["Harmonic Analysis", "Fourier Transform", "Frequency Domain"],
+      "intuition_gloss": "Any signal, however jagged, is secretly a sum of pure sine waves — Fourier analysis is the prism that splits it into them.",
+      "formal_gloss": "Decomposition of functions into orthogonal trigonometric (or complex exponential) components: series Σ c_n e^{inx} on periodic domains, and the integral transform f̂(ξ) = ∫ f(x)e^{-2πixξ}dx on R.",
+      "level": 5,
+      "prereqs": ["integral", "infinite-series", "complex-numbers", "uniform-convergence"],
+      "cross_links": ["hilbert-space", "differential-equation", "applied-computational:fast-fourier-transform", "probability-statistics:central-limit-theorem"],
+      "resources": [
+        {"title": "3Blue1Brown: Fourier series", "url": "https://www.3blue1brown.com/lessons/fourier-series", "type": "video"},
+        {"title": "Stein & Shakarchi, Fourier Analysis: An Introduction", "url": "https://press.princeton.edu/books/hardcover/9780691113845/fourier-analysis", "type": "text"}
+      ],
+      "sources": ["MSC 2020 42 (harmonic analysis)", "Princeton Companion III.27", "Stein & Shakarchi Princeton Lectures I"]
+    },
+    {
+      "id": "holomorphic-function",
+      "name": "Holomorphic Function",
+      "aka": ["Complex Differentiability", "Analytic Function", "Cauchy-Riemann Equations"],
+      "intuition_gloss": "A function of a complex variable that is differentiable in every direction at once — a condition so rigid it forces the function to be infinitely smooth and locally a power series.",
+      "formal_gloss": "A function f: C → C complex-differentiable on an open set, equivalently satisfying the Cauchy–Riemann equations; holomorphic implies analytic.",
+      "level": 6,
+      "prereqs": ["complex-numbers", "derivative", "power-series"],
+      "cross_links": ["cauchy-integral-theorem", "number-theory:riemann-zeta-function", "geometry:conformal-map"],
+      "resources": [
+        {"title": "Coursera: Introduction to Complex Analysis (Wesleyan)", "url": "https://www.coursera.org/learn/complex-analysis", "type": "course"},
+        {"title": "Wikipedia: Holomorphic function", "url": "https://en.wikipedia.org/wiki/Holomorphic_function", "type": "text"}
+      ],
+      "sources": ["MSC 2020 30 (functions of a complex variable)", "Princeton Companion I.3 and III", "Needham, Visual Complex Analysis"]
+    },
+    {
+      "id": "cauchy-integral-theorem",
+      "name": "Cauchy's Integral Theorem & Residues",
+      "aka": ["Residue Theorem", "Contour Integration", "Cauchy Integral Formula"],
+      "intuition_gloss": "Integrating a well-behaved complex function around a closed loop gives zero — unless the loop encircles singularities, whose 'residues' alone determine the answer.",
+      "formal_gloss": "∮ f dz = 0 for f holomorphic on a simply connected domain; more generally the integral equals 2πi times the sum of residues at enclosed poles, weighted by winding numbers.",
+      "level": 6,
+      "prereqs": ["holomorphic-function", "integral"],
+      "cross_links": ["topology:winding-number", "fundamental-theorem-of-calculus", "number-theory:prime-number-theorem"],
+      "resources": [
+        {"title": "Coursera: Introduction to Complex Analysis (Wesleyan)", "url": "https://www.coursera.org/learn/complex-analysis", "type": "course"},
+        {"title": "Wikipedia: Residue theorem", "url": "https://en.wikipedia.org/wiki/Residue_theorem", "type": "text"}
+      ],
+      "sources": ["MSC 2020 30E20", "Ahlfors, Complex Analysis", "Powers analytic number theory — high leverage"]
+    }
+  ]
+}

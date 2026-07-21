@@ -1,0 +1,368 @@
+{
+  "territory": "applied-computational",
+  "concepts": [
+    {
+      "id": "computational-complexity",
+      "name": "Computational Complexity",
+      "aka": ["big-O analysis", "complexity theory"],
+      "intuition_gloss": "Measuring how the cost of a recipe explodes as the problem gets bigger — some recipes scale gracefully, others become hopeless fast.",
+      "formal_gloss": "The classification of problems by the asymptotic resources (time, space) required by the best algorithm solving them, expressed in O-notation and complexity classes such as P, NP, and PSPACE.",
+      "level": 4,
+      "prereqs": ["algorithm", "counting-principles"],
+      "cross_links": ["p-vs-np", "analysis:asymptotic-analysis", "foundations:decidability"],
+      "resources": [
+        {"title": "Sipser, Introduction to the Theory of Computation", "url": "https://en.wikipedia.org/wiki/Introduction_to_the_Theory_of_Computation", "type": "text"},
+        {"title": "MIT OCW 6.006 Introduction to Algorithms", "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/", "type": "course"},
+        {"title": "Big-O Cheat Sheet", "url": "https://www.bigocheatsheet.com/", "type": "tool"}
+      ],
+      "sources": ["Princeton Companion to Mathematics §IV.20 (Computational Complexity)", "MSC 2020 68Q", "Sipser, Introduction to the Theory of Computation"]
+    },
+    {
+      "id": "p-vs-np",
+      "name": "P vs NP & NP-Completeness",
+      "aka": ["NP-hard problems", "Cook-Levin theorem"],
+      "intuition_gloss": "The million-dollar question: if you can quickly check a solved puzzle, can you always quickly solve it from scratch?",
+      "formal_gloss": "The open question whether every problem whose solutions are verifiable in polynomial time (NP) is also solvable in polynomial time (P); NP-complete problems are the hardest in NP, all polynomial-time reducible to one another.",
+      "level": 6,
+      "prereqs": ["computational-complexity"],
+      "cross_links": ["foundations:decidability", "graph-algorithms", "number-theory:integer-factorization"],
+      "resources": [
+        {"title": "Clay Mathematics Institute — P vs NP Millennium Problem", "url": "https://www.claymath.org/millennium/p-vs-np/", "type": "text"},
+        {"title": "Wikipedia — P versus NP problem", "url": "https://en.wikipedia.org/wiki/P_versus_NP_problem", "type": "text"}
+      ],
+      "sources": ["Princeton Companion to Mathematics §IV.20 and §V.24 (The P versus NP Problem)", "Clay Millennium Problems", "Garey & Johnson, Computers and Intractability"]
+    },
+    {
+      "id": "floating-point-arithmetic",
+      "name": "Floating-Point Arithmetic",
+      "aka": ["machine numbers", "IEEE 754", "roundoff error"],
+      "intuition_gloss": "Computers store only finitely many digits, so every real number gets snapped to the nearest representable one — and the tiny snapping errors can pile up.",
+      "formal_gloss": "The IEEE 754 representation of reals as sign, exponent, and significand of fixed width, with each arithmetic operation correctly rounded to relative precision machine-epsilon.",
+      "level": 3,
+      "prereqs": ["real-numbers", "algorithm"],
+      "cross_links": ["numerical-stability", "discretization"],
+      "resources": [
+        {"title": "Goldberg — What Every Computer Scientist Should Know About Floating-Point Arithmetic", "url": "https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html", "type": "text"},
+        {"title": "float.exposed (interactive bit-level float explorer)", "url": "https://float.exposed/", "type": "tool"}
+      ],
+      "sources": ["IEEE 754 standard", "Trefethen & Bau, Numerical Linear Algebra lecture 13", "Higham, Accuracy and Stability of Numerical Algorithms"]
+    },
+    {
+      "id": "numerical-stability",
+      "name": "Conditioning & Numerical Stability",
+      "aka": ["condition number", "error analysis", "well-posedness"],
+      "intuition_gloss": "Some problems amplify tiny input wobbles into huge answer swings, and some algorithms add wobbles of their own — telling these apart is the heart of trustworthy computation.",
+      "formal_gloss": "Conditioning measures a problem's intrinsic sensitivity (the condition number bounds relative output change per relative input change); an algorithm is backward stable if its computed answer is exact for a nearby input.",
+      "level": 5,
+      "prereqs": ["floating-point-arithmetic", "matrix", "limit"],
+      "cross_links": ["linear-algebra:singular-value-decomposition", "iterative-methods", "inverse-problems"],
+      "resources": [
+        {"title": "Wikipedia — Condition number", "url": "https://en.wikipedia.org/wiki/Condition_number", "type": "text"},
+        {"title": "MIT OCW 18.335J Introduction to Numerical Methods", "url": "https://ocw.mit.edu/courses/18-335j-introduction-to-numerical-methods-spring-2019/", "type": "course"}
+      ],
+      "sources": ["Princeton Companion to Mathematics §IV.21 (Numerical Analysis, Trefethen)", "Trefethen & Bau lectures 12-15", "MSC 2020 65F35"]
+    },
+    {
+      "id": "root-finding",
+      "name": "Root-Finding & Newton's Method",
+      "aka": ["Newton-Raphson", "bisection method", "fixed-point iteration"],
+      "intuition_gloss": "To solve an equation numerically, make a guess, slide down the tangent line to a better guess, and repeat — each step roughly doubles your correct digits.",
+      "formal_gloss": "Iterative schemes for solving f(x) = 0, canonically Newton's iteration x_{n+1} = x_n - f(x_n)/f'(x_n), which converges quadratically near a simple root.",
+      "level": 4,
+      "prereqs": ["function", "derivative", "sequence"],
+      "cross_links": ["analysis:contraction-mapping", "gradient-descent", "analysis:taylor-series"],
+      "resources": [
+        {"title": "3Blue1Brown — Newton's method and fractals", "url": "https://www.3blue1brown.com/lessons/newtons-fractal", "type": "video"},
+        {"title": "Wikipedia — Newton's method", "url": "https://en.wikipedia.org/wiki/Newton%27s_method", "type": "text"}
+      ],
+      "sources": ["standard numerical analysis first courses (Burden & Faires ch. 2)", "Süli & Mayers, An Introduction to Numerical Analysis ch. 1", "MSC 2020 65H05"]
+    },
+    {
+      "id": "iterative-methods",
+      "name": "Iterative Methods for Linear Systems",
+      "aka": ["Krylov subspace methods", "conjugate gradient", "Jacobi and Gauss-Seidel"],
+      "intuition_gloss": "When a linear system is too enormous to solve head-on, start with a guess and repeatedly nudge it toward the answer, stopping when it's close enough.",
+      "formal_gloss": "Methods solving Ax = b by generating a convergent sequence of approximations — classically via matrix splittings (Jacobi, Gauss-Seidel) or Krylov subspaces (conjugate gradient, GMRES) — with convergence governed by the spectrum of A.",
+      "level": 6,
+      "prereqs": ["matrix", "linear-algebra:gaussian-elimination", "eigenvalue-eigenvector", "numerical-stability"],
+      "cross_links": ["linear-algebra:matrix-factorization", "numerical-pde", "discretization"],
+      "resources": [
+        {"title": "Wikipedia — Conjugate gradient method", "url": "https://en.wikipedia.org/wiki/Conjugate_gradient_method", "type": "text"},
+        {"title": "Shewchuk — An Introduction to the Conjugate Gradient Method Without the Agonizing Pain", "url": "https://www.cs.cmu.edu/~quake-papers/painless-conjugate-gradient.pdf", "type": "text"}
+      ],
+      "sources": ["Princeton Companion to Mathematics §IV.21", "Trefethen & Bau part VI", "MSC 2020 65F10"]
+    },
+    {
+      "id": "interpolation",
+      "name": "Interpolation & Approximation",
+      "aka": ["polynomial interpolation", "splines", "Chebyshev approximation"],
+      "intuition_gloss": "Given a handful of sample points, thread a smooth curve exactly through them — or find the simple curve that hugs a complicated function as closely as possible.",
+      "formal_gloss": "Constructing a function from a simple class (polynomials, piecewise polynomials, trigonometric sums) that matches given data exactly (interpolation) or minimizes a norm of the error (approximation), e.g. the unique degree-n polynomial through n+1 points.",
+      "level": 4,
+      "prereqs": ["polynomial", "function"],
+      "cross_links": ["analysis:taylor-series", "linear-algebra:least-squares", "discretization"],
+      "resources": [
+        {"title": "Trefethen — Approximation Theory and Approximation Practice", "url": "https://people.maths.ox.ac.uk/trefethen/ATAP/", "type": "text"},
+        {"title": "Chebfun (computing with functions via Chebyshev interpolation)", "url": "https://www.chebfun.org/", "type": "tool"},
+        {"title": "Wikipedia — Polynomial interpolation", "url": "https://en.wikipedia.org/wiki/Polynomial_interpolation", "type": "text"}
+      ],
+      "sources": ["Trefethen, Approximation Theory and Approximation Practice", "standard numerical analysis curricula (Burden & Faires ch. 3)", "MSC 2020 65D05, 41A"]
+    },
+    {
+      "id": "numerical-integration",
+      "name": "Numerical Integration",
+      "aka": ["quadrature", "trapezoidal rule", "Simpson's rule", "Gaussian quadrature"],
+      "intuition_gloss": "Estimate an area you can't compute exactly by sampling the curve at a few well-chosen points and taking a clever weighted sum.",
+      "formal_gloss": "Approximating a definite integral by a weighted sum of function values at nodes, with rules (Newton-Cotes, Gaussian quadrature) chosen so the formula is exact on polynomials up to a given degree.",
+      "level": 4,
+      "prereqs": ["integral", "interpolation"],
+      "cross_links": ["monte-carlo-method", "numerical-ode"],
+      "resources": [
+        {"title": "Wikipedia — Numerical integration", "url": "https://en.wikipedia.org/wiki/Numerical_integration", "type": "text"},
+        {"title": "MIT OCW 18.335J Introduction to Numerical Methods", "url": "https://ocw.mit.edu/courses/18-335j-introduction-to-numerical-methods-spring-2019/", "type": "course"}
+      ],
+      "sources": ["standard numerical analysis curricula (Burden & Faires ch. 4)", "Süli & Mayers ch. 7", "MSC 2020 65D30"]
+    },
+    {
+      "id": "numerical-ode",
+      "name": "Numerical ODE Solvers",
+      "aka": ["Euler's method", "Runge-Kutta methods", "stiff solvers"],
+      "intuition_gloss": "March a differential equation forward through time in tiny steps, using the current slope (or a smart blend of slopes) to predict the next position.",
+      "formal_gloss": "Time-stepping schemes approximating solutions of y' = f(t,y), from the first-order Euler method to higher-order Runge-Kutta and multistep methods, characterized by order of accuracy and stability region.",
+      "level": 5,
+      "prereqs": ["differential-equation", "derivative", "discretization"],
+      "cross_links": ["numerical-stability", "dynamics-differential-equations:stability-theory", "numerical-pde"],
+      "resources": [
+        {"title": "Wikipedia — Runge-Kutta methods", "url": "https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods", "type": "text"},
+        {"title": "Numerical Recipes (ch. 17, Integration of ODEs)", "url": "https://numerical.recipes/", "type": "text"}
+      ],
+      "sources": ["standard numerical analysis curricula (Burden & Faires ch. 5)", "Hairer, Nørsett & Wanner, Solving Ordinary Differential Equations", "MSC 2020 65L"]
+    },
+    {
+      "id": "discretization",
+      "name": "Discretization",
+      "aka": ["meshing", "finite differences", "continuous-to-discrete"],
+      "intuition_gloss": "Chop the smooth, continuous world into a finite grid of points a computer can handle, accepting a controlled error for the ability to compute at all.",
+      "formal_gloss": "The replacement of a continuous problem by a finite-dimensional one — derivatives by difference quotients, domains by meshes, functions by sample vectors — with error that vanishes as the mesh is refined (consistency plus stability yielding convergence).",
+      "level": 4,
+      "prereqs": ["limit", "sequence", "mathematical-model"],
+      "cross_links": ["floating-point-arithmetic", "numerical-ode", "numerical-pde", "interpolation"],
+      "resources": [
+        {"title": "Wikipedia — Discretization", "url": "https://en.wikipedia.org/wiki/Discretization", "type": "text"},
+        {"title": "MIT OCW 18.085 Computational Science and Engineering I (Strang)", "url": "https://ocw.mit.edu/courses/18-085-computational-science-and-engineering-i-fall-2008/", "type": "course"}
+      ],
+      "sources": ["Princeton Companion to Mathematics §IV.21", "Strang, Computational Science and Engineering", "Lax equivalence theorem literature"]
+    },
+    {
+      "id": "numerical-pde",
+      "name": "Numerical PDE Methods",
+      "aka": ["finite difference method", "finite element method", "spectral methods"],
+      "intuition_gloss": "Simulate heat spreading, fluids flowing, or structures bending by carving space into a mesh of tiny cells and enforcing the physics on each cell.",
+      "formal_gloss": "Discretizations of partial differential equations — finite differences on grids, finite elements via weak forms on meshes, spectral expansions in global bases — reducing the PDE to a large sparse algebraic system.",
+      "level": 6,
+      "prereqs": ["discretization", "differential-equation", "analysis:partial-derivative", "linear-algebra:linear-system"],
+      "cross_links": ["iterative-methods", "mathematical-model", "inverse-problems"],
+      "resources": [
+        {"title": "MIT OCW 18.085 Computational Science and Engineering I (Strang)", "url": "https://ocw.mit.edu/courses/18-085-computational-science-and-engineering-i-fall-2008/", "type": "course"},
+        {"title": "Wikipedia — Finite element method", "url": "https://en.wikipedia.org/wiki/Finite_element_method", "type": "text"}
+      ],
+      "sources": ["Princeton Companion to Mathematics §IV.21", "Strang & Fix, An Analysis of the Finite Element Method", "MSC 2020 65M/65N"]
+    },
+    {
+      "id": "fast-fourier-transform",
+      "name": "Fast Fourier Transform",
+      "aka": ["FFT", "discrete Fourier transform", "Cooley-Tukey algorithm"],
+      "intuition_gloss": "A divide-and-conquer trick that decomposes a signal into its constituent frequencies thousands of times faster than the obvious way — arguably the most-run algorithm on Earth.",
+      "formal_gloss": "An O(n log n) algorithm computing the discrete Fourier transform (evaluation of a polynomial at the n-th roots of unity) by recursively splitting into even and odd indices.",
+      "level": 5,
+      "prereqs": ["complex-numbers", "algorithm", "polynomial"],
+      "cross_links": ["analysis:fourier-analysis", "computational-complexity", "interpolation"],
+      "resources": [
+        {"title": "3Blue1Brown — But what is the Fourier Transform?", "url": "https://www.3blue1brown.com/lessons/fourier-transforms", "type": "video"},
+        {"title": "Wikipedia — Fast Fourier transform", "url": "https://en.wikipedia.org/wiki/Fast_Fourier_transform", "type": "text"}
+      ],
+      "sources": ["Princeton Companion to Mathematics §III.26 (The Fast Fourier Transform)", "Cooley & Tukey 1965", "CLRS ch. 30"]
+    },
+    {
+      "id": "monte-carlo-method",
+      "name": "Monte Carlo Methods",
+      "aka": ["stochastic simulation", "random sampling methods"],
+      "intuition_gloss": "When a problem is too tangled to compute directly, throw random darts at it and let the law of averages reveal the answer.",
+      "formal_gloss": "Algorithms estimating deterministic quantities as expectations of random variables, with error decreasing as 1/sqrt(N) in the sample count by the law of large numbers and central limit theorem.",
+      "level": 4,
+      "prereqs": ["random-variable", "expectation", "algorithm"],
+      "cross_links": ["numerical-integration", "probability-statistics:law-of-large-numbers", "probability-statistics:markov-chain", "machine-learning"],
+      "resources": [
+        {"title": "Wikipedia — Monte Carlo method", "url": "https://en.wikipedia.org/wiki/Monte_Carlo_method", "type": "text"},
+        {"title": "MIT OCW 6.0002 Introduction to Computational Thinking and Data Science (Monte Carlo lectures)", "url": "https://ocw.mit.edu/courses/6-0002-introduction-to-computational-thinking-and-data-science-fall-2016/", "type": "course"}
+      ],
+      "sources": ["Metropolis & Ulam 1949", "Princeton Companion to Mathematics §IV.21 and §VII", "MSC 2020 65C05"]
+    },
+    {
+      "id": "linear-programming",
+      "name": "Linear Programming",
+      "aka": ["LP", "simplex method", "linear optimization"],
+      "intuition_gloss": "Optimize a linear goal — profit, cost, throughput — over a region fenced in by linear constraints; the best point always sits at a corner of the fence.",
+      "formal_gloss": "Minimizing a linear objective c·x subject to linear constraints Ax ≤ b, x ≥ 0, over a polyhedral feasible set; solvable by the simplex method or polynomial-time interior-point methods, with a symmetric dual problem attaining the same optimum.",
+      "level": 4,
+      "prereqs": ["linear-algebra:linear-system", "optimization", "vector"],
+      "cross_links": ["convex-optimization", "game-theory", "graph-algorithms"],
+      "resources": [
+        {"title": "Wikipedia — Linear programming", "url": "https://en.wikipedia.org/wiki/Linear_programming", "type": "text"},
+        {"title": "Wikipedia — Simplex algorithm", "url": "https://en.wikipedia.org/wiki/Simplex_algorithm", "type": "text"}
+      ],
+      "sources": ["Dantzig, Linear Programming and Extensions", "Princeton Companion to Mathematics §III.84 (The Simplex Algorithm)", "MSC 2020 90C05"]
+    },
+    {
+      "id": "convex-optimization",
+      "name": "Convex Optimization",
+      "aka": ["convex programming", "Lagrangian duality", "KKT conditions"],
+      "intuition_gloss": "In a bowl-shaped landscape there are no false valleys — any local bottom is the global bottom, which is why these problems are the ones we can reliably solve at scale.",
+      "formal_gloss": "Minimization of a convex function over a convex feasible set, where every local minimum is global, first-order (KKT) conditions certify optimality, and Lagrangian duality gives computable bounds.",
+      "level": 6,
+      "prereqs": ["optimization", "analysis:convex-function", "analysis:gradient", "linear-programming"],
+      "cross_links": ["machine-learning", "gradient-descent", "inverse-problems", "control-theory"],
+      "resources": [
+        {"title": "Boyd & Vandenberghe, Convex Optimization (free book)", "url": "https://web.stanford.edu/~boyd/cvxbook/", "type": "text"},
+        {"title": "Stanford EE364a Convex Optimization I", "url": "https://web.stanford.edu/class/ee364a/", "type": "course"}
+      ],
+      "sources": ["Boyd & Vandenberghe, Convex Optimization", "Princeton Companion to Mathematics §IV.11 (part, optimization)", "MSC 2020 90C25"]
+    },
+    {
+      "id": "gradient-descent",
+      "name": "Gradient Descent",
+      "aka": ["steepest descent", "stochastic gradient descent", "SGD"],
+      "intuition_gloss": "Standing on a foggy hillside, repeatedly step in the direction of steepest downhill — the simple idea that trains nearly every modern AI model.",
+      "formal_gloss": "The iteration x_{k+1} = x_k - η∇f(x_k) minimizing a differentiable f, with step size η controlling the trade-off between progress and overshoot; stochastic variants replace the gradient by an unbiased sample estimate.",
+      "level": 4,
+      "prereqs": ["analysis:gradient", "optimization", "sequence"],
+      "cross_links": ["neural-network", "convex-optimization", "root-finding", "machine-learning"],
+      "resources": [
+        {"title": "3Blue1Brown — Gradient descent, how neural networks learn", "url": "https://www.3blue1brown.com/lessons/gradient-descent", "type": "video"},
+        {"title": "Boyd & Vandenberghe, Convex Optimization ch. 9", "url": "https://web.stanford.edu/~boyd/cvxbook/", "type": "text"}
+      ],
+      "sources": ["Cauchy 1847 (steepest descent)", "Boyd & Vandenberghe ch. 9", "deep learning curricula (Goodfellow et al. ch. 4, 8)"]
+    },
+    {
+      "id": "dynamic-programming",
+      "name": "Dynamic Programming",
+      "aka": ["Bellman equation", "memoization", "optimal substructure"],
+      "intuition_gloss": "Solve a big problem by solving each small subproblem exactly once, writing the answers in a table, and never repeating work.",
+      "formal_gloss": "An algorithmic technique for problems with optimal substructure and overlapping subproblems, expressing the optimal value via a Bellman recurrence and computing it bottom-up or with memoization.",
+      "level": 4,
+      "prereqs": ["algorithm", "foundations:recursive-definition", "induction"],
+      "cross_links": ["graph-algorithms", "control-theory", "optimization"],
+      "resources": [
+        {"title": "MIT OCW 6.006 Introduction to Algorithms (dynamic programming lectures)", "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/", "type": "course"},
+        {"title": "Wikipedia — Dynamic programming", "url": "https://en.wikipedia.org/wiki/Dynamic_programming", "type": "text"}
+      ],
+      "sources": ["Bellman, Dynamic Programming (1957)", "CLRS ch. 14", "MIT 6.006 syllabus"]
+    },
+    {
+      "id": "graph-algorithms",
+      "name": "Graph Algorithms",
+      "aka": ["shortest paths", "Dijkstra's algorithm", "spanning trees", "network flow"],
+      "intuition_gloss": "The standard toolkit for questions about networks — fastest route, cheapest wiring, maximum throughput — each answered by systematically exploring dots and lines.",
+      "formal_gloss": "Algorithms on graphs including traversal (BFS/DFS), single-source shortest paths (Dijkstra, Bellman-Ford), minimum spanning trees (Kruskal, Prim), and maximum flow (Ford-Fulkerson, max-flow min-cut duality).",
+      "level": 4,
+      "prereqs": ["graph", "algorithm"],
+      "cross_links": ["computational-complexity", "dynamic-programming", "linear-programming", "p-vs-np"],
+      "resources": [
+        {"title": "MIT OCW 6.006 Introduction to Algorithms", "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/", "type": "course"},
+        {"title": "VisuAlgo (animated graph algorithms)", "url": "https://visualgo.net/", "type": "tool"}
+      ],
+      "sources": ["CLRS parts VI", "MIT 6.006 syllabus", "Princeton Companion to Mathematics §III (algorithms entries)"]
+    },
+    {
+      "id": "machine-learning",
+      "name": "Machine Learning & Statistical Learning",
+      "aka": ["supervised learning", "statistical learning theory", "generalization"],
+      "intuition_gloss": "Instead of programming the rules, show the machine examples and let it fit a function that predicts well on cases it has never seen.",
+      "formal_gloss": "The problem of choosing, from a hypothesis class, a function minimizing expected loss on an unknown data distribution given a finite sample, balancing fit against complexity (bias-variance trade-off, regularization, generalization bounds).",
+      "level": 5,
+      "prereqs": ["statistical-inference", "optimization", "linear-algebra:least-squares", "random-variable"],
+      "cross_links": ["neural-network", "gradient-descent", "information-theory", "convex-optimization"],
+      "resources": [
+        {"title": "Hastie, Tibshirani & Friedman — The Elements of Statistical Learning (free book)", "url": "https://hastie.su.domains/ElemStatLearn/", "type": "text"},
+        {"title": "Brunton & Kutz — Data-Driven Science and Engineering (book + video lectures)", "url": "https://databookuw.com/", "type": "course"}
+      ],
+      "sources": ["Hastie et al., Elements of Statistical Learning", "Vapnik, statistical learning theory", "MSC 2020 68T05"]
+    },
+    {
+      "id": "neural-network",
+      "name": "Neural Networks & Backpropagation",
+      "aka": ["deep learning", "multilayer perceptron", "universal approximation"],
+      "intuition_gloss": "Stack many layers of simple weighted sums and squashes, then tune millions of knobs by passing error signals backwards — a trainable universal function machine.",
+      "formal_gloss": "Compositions of affine maps and nonlinear activations forming parametric function approximators, dense in continuous functions on compacta (universal approximation), trained by gradient descent with gradients computed via the chain rule (backpropagation).",
+      "level": 5,
+      "prereqs": ["linear-transformation", "derivative", "gradient-descent", "function"],
+      "cross_links": ["machine-learning", "interpolation", "analysis:partial-derivative"],
+      "resources": [
+        {"title": "3Blue1Brown — Neural networks series", "url": "https://www.3blue1brown.com/topics/neural-networks", "type": "video"},
+        {"title": "Goodfellow, Bengio & Courville — Deep Learning (free book)", "url": "https://www.deeplearningbook.org/", "type": "text"},
+        {"title": "TensorFlow Playground (interactive neural net)", "url": "https://playground.tensorflow.org/", "type": "tool"}
+      ],
+      "sources": ["Rumelhart, Hinton & Williams 1986 (backpropagation)", "Cybenko 1989 / Hornik 1991 (universal approximation)", "Goodfellow et al., Deep Learning"]
+    },
+    {
+      "id": "information-theory",
+      "name": "Information Theory & Entropy",
+      "aka": ["Shannon entropy", "channel capacity", "coding theory"],
+      "intuition_gloss": "Information is measurable surprise — entropy counts the minimum bits needed to describe a source, and sets hard limits on compression and communication.",
+      "formal_gloss": "Shannon's framework quantifying information via entropy H(X) = -Σ p log p, with the source coding theorem bounding compression by entropy and the noisy-channel coding theorem giving each channel a capacity below which reliable transmission is achievable.",
+      "level": 5,
+      "prereqs": ["random-variable", "expectation", "probability-space"],
+      "cross_links": ["machine-learning", "statistical-inference", "number-theory:rsa-cryptosystem", "monte-carlo-method"],
+      "resources": [
+        {"title": "Shannon — A Mathematical Theory of Communication (1948)", "url": "https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf", "type": "text"},
+        {"title": "Cover & Thomas — Elements of Information Theory", "url": "https://en.wikipedia.org/wiki/Elements_of_Information_Theory", "type": "text"}
+      ],
+      "sources": ["Shannon 1948", "Princeton Companion to Mathematics §VII.6 (Reliable Transmission of Information)", "MSC 2020 94A"]
+    },
+    {
+      "id": "control-theory",
+      "name": "Control Theory",
+      "aka": ["feedback control", "PID control", "linear systems and stability"],
+      "intuition_gloss": "Steering a system by continuously measuring where it is and nudging it toward where you want it — the mathematics behind thermostats, autopilots, and cruise control.",
+      "formal_gloss": "The study of dynamical systems with inputs, dx/dt = f(x,u), addressing stabilization, controllability, and observability — canonically via feedback laws u = -Kx placing the eigenvalues of the closed-loop linear system.",
+      "level": 6,
+      "prereqs": ["differential-equation", "matrix", "eigenvalue-eigenvector"],
+      "cross_links": ["dynamics-differential-equations:stability-theory", "convex-optimization", "dynamic-programming", "machine-learning"],
+      "resources": [
+        {"title": "Brunton & Kutz — Data-Driven Science and Engineering (control chapters + video lectures)", "url": "https://databookuw.com/", "type": "course"},
+        {"title": "Wikipedia — Control theory", "url": "https://en.wikipedia.org/wiki/Control_theory", "type": "text"}
+      ],
+      "sources": ["Princeton Companion to Mathematics §VII (applications)", "Åström & Murray, Feedback Systems", "MSC 2020 93"]
+    },
+    {
+      "id": "game-theory",
+      "name": "Game Theory",
+      "aka": ["Nash equilibrium", "zero-sum games", "strategic interaction"],
+      "intuition_gloss": "The mathematics of strategy when your best move depends on what everyone else does — and the stable standoffs where nobody gains by deviating alone.",
+      "formal_gloss": "The study of strategic interaction among rational players, centered on the Nash equilibrium — a strategy profile where each player's strategy is a best response to the others' — which exists in mixed strategies for every finite game.",
+      "level": 4,
+      "prereqs": ["optimization", "expectation", "mathematical-model"],
+      "cross_links": ["linear-programming", "topology:brouwer-fixed-point", "probability-statistics:bayesian-inference"],
+      "resources": [
+        {"title": "Yale Open Courses — ECON 159 Game Theory (Ben Polak)", "url": "https://oyc.yale.edu/economics/econ-159", "type": "course"},
+        {"title": "Wikipedia — Game theory", "url": "https://en.wikipedia.org/wiki/Game_theory", "type": "text"}
+      ],
+      "sources": ["von Neumann & Morgenstern, Theory of Games and Economic Behavior", "Nash 1950", "Princeton Companion to Mathematics §VII.8 (Mathematics and Economic Reasoning)"]
+    },
+    {
+      "id": "inverse-problems",
+      "name": "Inverse Problems & Regularization",
+      "aka": ["ill-posed problems", "Tikhonov regularization", "tomography"],
+      "intuition_gloss": "Reasoning from effects back to causes — reconstructing the inside of a body from X-ray shadows — where naive inversion amplifies noise and must be tamed by penalizing wild answers.",
+      "formal_gloss": "Estimating model parameters m from indirect observations d = G(m) + noise when the forward map is ill-conditioned or non-injective, stabilized by regularization such as minimizing ||G(m)-d||² + λ||m||².",
+      "level": 7,
+      "prereqs": ["linear-algebra:least-squares", "mathematical-model", "numerical-stability"],
+      "cross_links": ["machine-learning", "numerical-pde", "statistical-inference", "convex-optimization"],
+      "resources": [
+        {"title": "Wikipedia — Inverse problem", "url": "https://en.wikipedia.org/wiki/Inverse_problem", "type": "text"},
+        {"title": "Wikipedia — Tikhonov regularization (ridge regression)", "url": "https://en.wikipedia.org/wiki/Ridge_regression", "type": "text"}
+      ],
+      "sources": ["Hadamard well-posedness", "Engl, Hanke & Neubauer, Regularization of Inverse Problems", "MSC 2020 65J22, 47A52"]
+    }
+  ]
+}

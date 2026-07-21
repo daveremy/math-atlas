@@ -1,0 +1,516 @@
+{
+  "territory": "discrete-combinatorics",
+  "concepts": [
+    {
+      "id": "pigeonhole-principle",
+      "name": "Pigeonhole Principle",
+      "aka": ["Dirichlet's box principle", "drawer principle"],
+      "intuition_gloss": "If you stuff more pigeons than holes, some hole must hold at least two pigeons — an obvious fact with astonishing consequences.",
+      "formal_gloss": "If n objects are placed into m boxes with n > m, then some box contains at least ceil(n/m) objects; formally, no injection exists from a larger finite set into a smaller one.",
+      "level": 2,
+      "prereqs": ["set", "function", "natural-numbers"],
+      "cross_links": ["ramsey-theory", "cardinality", "bijective-proof"],
+      "resources": [
+        {
+          "title": "Pigeonhole principle — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Pigeonhole_principle",
+          "type": "text"
+        },
+        {
+          "title": "MIT OCW 6.042J Mathematics for Computer Science",
+          "url": "https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-spring-2015/",
+          "type": "course"
+        }
+      ],
+      "sources": ["MIT 6.042J (Lehman-Leighton-Meyer) counting unit", "Engel, Problem-Solving Strategies ch. 4", "gateway existence argument in every combinatorics curriculum"]
+    },
+    {
+      "id": "binomial-coefficient",
+      "name": "Binomial Coefficients & Pascal's Triangle",
+      "aka": ["n choose k", "binomial theorem", "Pascal's triangle"],
+      "intuition_gloss": "The numbers in Pascal's triangle count how many ways to pick a handful from a pile, and they secretly run the expansion of (x+y)^n.",
+      "formal_gloss": "C(n,k) = n!/(k!(n-k)!) counts k-subsets of an n-set, satisfies Pascal's recurrence C(n,k) = C(n-1,k-1) + C(n-1,k), and gives (x+y)^n = sum of C(n,k) x^k y^(n-k).",
+      "level": 2,
+      "prereqs": ["counting-principles", "natural-numbers"],
+      "cross_links": ["polynomial", "generating-function", "bijective-proof", "probability-statistics:binomial-distribution"],
+      "resources": [
+        {
+          "title": "Binomial coefficient — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Binomial_coefficient",
+          "type": "text"
+        },
+        {
+          "title": "Graham, Knuth & Patashnik, Concrete Mathematics, ch. 5",
+          "url": "https://en.wikipedia.org/wiki/Concrete_Mathematics",
+          "type": "text"
+        },
+        {
+          "title": "Khan Academy: Combinations and the binomial theorem",
+          "url": "https://www.khanacademy.org/math/precalculus/x9e81a4f98389efdf:prob-comb",
+          "type": "video"
+        }
+      ],
+      "sources": ["Concrete Mathematics ch. 5 (its longest chapter)", "MSC 05A10", "Khan Academy knowledge map (precalculus)"]
+    },
+    {
+      "id": "permutation",
+      "name": "Permutation",
+      "aka": ["rearrangement", "cycle notation", "symmetric group element"],
+      "intuition_gloss": "A shuffle of a finite set — every rearrangement decomposes into little loops that chase each other around.",
+      "formal_gloss": "A bijection from a finite set to itself; the n! permutations of an n-set form the symmetric group S_n, and each factors uniquely into disjoint cycles.",
+      "level": 3,
+      "prereqs": ["counting-principles", "function"],
+      "cross_links": ["group", "polya-enumeration", "matrix", "algebra:symmetric-group"],
+      "resources": [
+        {
+          "title": "Permutation — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Permutation",
+          "type": "text"
+        },
+        {
+          "title": "Bogart, Combinatorics Through Guided Discovery",
+          "url": "https://bogart.openmathbooks.org/",
+          "type": "text"
+        }
+      ],
+      "sources": ["Stanley, Enumerative Combinatorics vol. 1 ch. 1", "bridge object between counting and group theory", "MSC 05A05"]
+    },
+    {
+      "id": "inclusion-exclusion",
+      "name": "Inclusion–Exclusion Principle",
+      "aka": ["sieve principle", "PIE"],
+      "intuition_gloss": "To count things in overlapping groups, add the groups up, subtract the double-counted overlaps, add back the triple overlaps, and so on.",
+      "formal_gloss": "|A_1 ∪ ... ∪ A_n| equals the alternating sum over nonempty index subsets S of (-1)^(|S|+1) |intersection of A_i for i in S|.",
+      "level": 3,
+      "prereqs": ["counting-principles", "set"],
+      "cross_links": ["binomial-coefficient", "generating-function", "number-theory:euler-totient", "poset"],
+      "resources": [
+        {
+          "title": "Inclusion–exclusion principle — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Inclusion%E2%80%93exclusion_principle",
+          "type": "text"
+        },
+        {
+          "title": "MIT OCW 6.042J Mathematics for Computer Science",
+          "url": "https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-spring-2015/",
+          "type": "course"
+        }
+      ],
+      "sources": ["Rosen, Discrete Mathematics and Its Applications ch. 8", "Stanley EC1 ch. 2 (sieve methods)", "derangements as canonical application"]
+    },
+    {
+      "id": "bijective-proof",
+      "name": "Bijective & Double-Counting Proof",
+      "aka": ["combinatorial proof", "counting in two ways"],
+      "intuition_gloss": "Prove two counts are equal by pairing the objects off one-to-one, or by counting the same pile from two different directions.",
+      "formal_gloss": "A proof that |A| = |B| by exhibiting an explicit bijection A → B, or that two expressions agree by showing both enumerate the same set.",
+      "level": 3,
+      "prereqs": ["counting-principles", "function", "binomial-coefficient"],
+      "cross_links": ["proof", "cardinality", "integer-partition", "mathematical-practice:proof-techniques"],
+      "resources": [
+        {
+          "title": "Bijective proof — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Bijective_proof",
+          "type": "text"
+        },
+        {
+          "title": "Benjamin & Quinn, Proofs that Really Count",
+          "url": "https://en.wikipedia.org/wiki/Proofs_That_Really_Count",
+          "type": "text"
+        }
+      ],
+      "sources": ["Benjamin & Quinn (MAA, devoted entirely to the technique)", "Stanley EC1 ch. 1", "the signature proof style of enumerative combinatorics"]
+    },
+    {
+      "id": "recurrence-relation",
+      "name": "Recurrence Relations",
+      "aka": ["difference equations", "recursive sequences", "Fibonacci-type sequences"],
+      "intuition_gloss": "Define each term of a sequence from the ones before it — like Fibonacci's rabbits — then hunt for a closed-form shortcut.",
+      "formal_gloss": "An equation expressing a_n in terms of earlier terms; linear recurrences with constant coefficients are solved via characteristic roots or generating functions.",
+      "level": 3,
+      "prereqs": ["sequence", "induction", "counting-principles"],
+      "cross_links": ["generating-function", "eigenvalue-eigenvector", "differential-equation", "algorithm", "applied-computational:algorithm-analysis"],
+      "resources": [
+        {
+          "title": "Recurrence relation — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Recurrence_relation",
+          "type": "text"
+        },
+        {
+          "title": "Graham, Knuth & Patashnik, Concrete Mathematics, ch. 1-2",
+          "url": "https://en.wikipedia.org/wiki/Concrete_Mathematics",
+          "type": "text"
+        }
+      ],
+      "sources": ["Concrete Mathematics ch. 1 (Tower of Hanoi opener)", "Rosen ch. 8", "discrete mirror of differential equations — high leverage into CS"]
+    },
+    {
+      "id": "generating-function",
+      "name": "Generating Functions",
+      "aka": ["formal power series", "OGF/EGF"],
+      "intuition_gloss": "A clothesline that hangs an entire infinite sequence on a single algebraic expression, so multiplying expressions does the counting for you.",
+      "formal_gloss": "The formal power series A(x) = sum of a_n x^n encoding a sequence (a_n); products and functional operations on series correspond to combinatorial constructions on the counted objects.",
+      "level": 5,
+      "prereqs": ["recurrence-relation", "binomial-coefficient", "polynomial", "sequence"],
+      "cross_links": ["integer-partition", "analysis:power-series", "probability-statistics:moment-generating-function", "applied-computational:analytic-combinatorics"],
+      "resources": [
+        {
+          "title": "Wilf, generatingfunctionology (free full text)",
+          "url": "https://www2.math.upenn.edu/~wilf/gfology2.pdf",
+          "type": "text"
+        },
+        {
+          "title": "Generating function — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Generating_function",
+          "type": "text"
+        }
+      ],
+      "sources": ["Wilf, generatingfunctionology ('a clothesline on which we hang up a sequence')", "Stanley EC1 ch. 1", "Flajolet & Sedgewick, Analytic Combinatorics", "Princeton Companion IV: enumerative methods"]
+    },
+    {
+      "id": "integer-partition",
+      "name": "Integer Partitions & Compositions",
+      "aka": ["partition function p(n)", "Young diagrams", "Ferrers diagrams"],
+      "intuition_gloss": "The ways to break a whole number into a sum of smaller pieces — drawn as staircases of dots that reveal surprising symmetries.",
+      "formal_gloss": "A partition of n is a weakly decreasing sequence of positive integers summing to n; p(n) counts them, with Euler's product formula giving the generating function 1/product(1-x^k).",
+      "level": 4,
+      "prereqs": ["counting-principles", "bijective-proof", "generating-function"],
+      "cross_links": ["number-theory:partition-congruences", "algebra:representation-theory", "poset"],
+      "resources": [
+        {
+          "title": "Integer partition — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Integer_partition",
+          "type": "text"
+        },
+        {
+          "title": "Andrews & Eriksson, Integer Partitions",
+          "url": "https://en.wikipedia.org/wiki/George_Andrews_(mathematician)",
+          "type": "text"
+        }
+      ],
+      "sources": ["Andrews, The Theory of Partitions", "MSC 05A17 / 11P", "canonical meeting point of combinatorics and number theory (Euler, Ramanujan)"]
+    },
+    {
+      "id": "graph-connectivity",
+      "name": "Paths, Cycles & Connectivity",
+      "aka": ["walks", "connected components", "distance in graphs"],
+      "intuition_gloss": "Whether and how you can travel through a network — which dots are reachable from which, and how many cuts it takes to break the network apart.",
+      "formal_gloss": "A graph is connected if every vertex pair is joined by a path; k-connectivity measures the minimum vertices (or edges) whose removal disconnects it, with Menger's theorem equating this to disjoint-path counts.",
+      "level": 3,
+      "prereqs": ["graph"],
+      "cross_links": ["tree", "network-flow", "topology:connectedness", "applied-computational:graph-search"],
+      "resources": [
+        {
+          "title": "Connectivity (graph theory) — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Connectivity_(graph_theory)",
+          "type": "text"
+        },
+        {
+          "title": "Diestel, Graph Theory (free online edition)",
+          "url": "https://diestel-graph-theory.com/",
+          "type": "text"
+        }
+      ],
+      "sources": ["Diestel ch. 1 & 3", "West, Introduction to Graph Theory ch. 4", "Menger's theorem as structural anchor"]
+    },
+    {
+      "id": "tree",
+      "name": "Trees & Spanning Trees",
+      "aka": ["acyclic connected graph", "rooted tree", "minimum spanning tree"],
+      "intuition_gloss": "A network with no loops — the leanest possible way to connect everything, from family trees to file systems.",
+      "formal_gloss": "A connected acyclic graph on n vertices, equivalently a graph with exactly n-1 edges and a unique path between every pair; Cayley's formula counts n^(n-2) labeled trees on n vertices.",
+      "level": 3,
+      "prereqs": ["graph", "graph-connectivity", "induction"],
+      "cross_links": ["algorithm", "applied-computational:data-structures", "optimization", "network-flow"],
+      "resources": [
+        {
+          "title": "Tree (graph theory) — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Tree_(graph_theory)",
+          "type": "text"
+        },
+        {
+          "title": "Diestel, Graph Theory (free online edition)",
+          "url": "https://diestel-graph-theory.com/",
+          "type": "text"
+        }
+      ],
+      "sources": ["Diestel ch. 1.5", "Cayley's formula (Stanley EC2)", "ubiquitous data structure — high leverage into computation"]
+    },
+    {
+      "id": "eulerian-hamiltonian",
+      "name": "Eulerian Circuits & Hamiltonian Cycles",
+      "aka": ["Seven Bridges of Königsberg", "traveling salesman ancestor"],
+      "intuition_gloss": "Two famous tours of a network — trace every bridge exactly once (easy to check), or visit every city exactly once (famously hard).",
+      "formal_gloss": "A connected graph has an Eulerian circuit iff every vertex has even degree; deciding Hamiltonicity (a cycle through every vertex) is NP-complete, with only sufficient conditions like Dirac's theorem known.",
+      "level": 3,
+      "prereqs": ["graph", "graph-connectivity"],
+      "cross_links": ["applied-computational:computational-complexity", "applied-computational:traveling-salesman", "planar-graph"],
+      "resources": [
+        {
+          "title": "Eulerian path — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Eulerian_path",
+          "type": "text"
+        },
+        {
+          "title": "Hamiltonian path — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Hamiltonian_path",
+          "type": "text"
+        }
+      ],
+      "sources": ["Euler 1736 (Königsberg — the founding problem of graph theory)", "West ch. 1 & 7", "canonical easy/hard contrast in complexity"]
+    },
+    {
+      "id": "planar-graph",
+      "name": "Planar Graphs & Euler's Formula",
+      "aka": ["planarity", "V - E + F = 2", "Kuratowski's theorem"],
+      "intuition_gloss": "Networks you can draw on paper without wires crossing — and the magic count vertices minus edges plus faces always equals two.",
+      "formal_gloss": "A graph embeddable in the plane with no edge crossings; connected planar graphs satisfy V - E + F = 2, and Kuratowski's theorem characterizes planarity by forbidden K5 and K3,3 subdivisions.",
+      "level": 4,
+      "prereqs": ["graph", "graph-connectivity"],
+      "cross_links": ["graph-coloring", "topology:euler-characteristic", "geometry:polyhedra", "topology:surfaces"],
+      "resources": [
+        {
+          "title": "Planar graph — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Planar_graph",
+          "type": "text"
+        },
+        {
+          "title": "Diestel, Graph Theory, ch. 4 (free online edition)",
+          "url": "https://diestel-graph-theory.com/",
+          "type": "text"
+        }
+      ],
+      "sources": ["Diestel ch. 4", "Euler's polyhedron formula lineage (Princeton Companion)", "gateway from graphs to topology"]
+    },
+    {
+      "id": "graph-coloring",
+      "name": "Graph Coloring",
+      "aka": ["chromatic number", "four color theorem"],
+      "intuition_gloss": "Paint the dots of a network so no wire joins two dots of the same color, using as few colors as possible — maps only ever need four.",
+      "formal_gloss": "A proper k-coloring assigns k colors to vertices so adjacent vertices differ; the chromatic number χ(G) is the minimum such k, and the Four Color Theorem states χ ≤ 4 for planar graphs.",
+      "level": 4,
+      "prereqs": ["graph", "planar-graph"],
+      "cross_links": ["ramsey-theory", "applied-computational:constraint-satisfaction", "applied-computational:computational-complexity", "polynomial"],
+      "resources": [
+        {
+          "title": "Graph coloring — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Graph_coloring",
+          "type": "text"
+        },
+        {
+          "title": "Four color theorem — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Four_color_theorem",
+          "type": "text"
+        }
+      ],
+      "sources": ["Diestel ch. 5", "Four Color Theorem (first major computer-assisted proof, 1976)", "scheduling/register-allocation applications — MSC 05C15"]
+    },
+    {
+      "id": "matching",
+      "name": "Matchings & Hall's Theorem",
+      "aka": ["bipartite matching", "marriage theorem", "perfect matching"],
+      "intuition_gloss": "Pair up two groups — applicants to jobs, say — so nobody is doubled up; Hall's condition tells you exactly when everyone can be matched.",
+      "formal_gloss": "A matching is a set of pairwise non-adjacent edges; Hall's theorem states a bipartite graph has a matching saturating side A iff every subset S of A has at least |S| neighbors.",
+      "level": 5,
+      "prereqs": ["graph", "graph-connectivity", "pigeonhole-principle"],
+      "cross_links": ["network-flow", "poset", "applied-computational:assignment-problem", "probability-statistics:stable-matching"],
+      "resources": [
+        {
+          "title": "Hall's marriage theorem — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Hall%27s_marriage_theorem",
+          "type": "text"
+        },
+        {
+          "title": "Diestel, Graph Theory, ch. 2 (free online edition)",
+          "url": "https://diestel-graph-theory.com/",
+          "type": "text"
+        }
+      ],
+      "sources": ["Diestel ch. 2", "Hall 1935", "König's theorem / LP duality connection — Princeton Companion combinatorics chapters"]
+    },
+    {
+      "id": "network-flow",
+      "name": "Network Flows & Max-Flow Min-Cut",
+      "aka": ["Ford-Fulkerson", "max-flow min-cut theorem"],
+      "intuition_gloss": "Push as much water as possible through a network of pipes — the bottleneck is always the tightest cut separating source from sink.",
+      "formal_gloss": "In a capacitated directed graph, the maximum value of a source-to-sink flow equals the minimum capacity of an edge cut separating them (Ford-Fulkerson, 1956).",
+      "level": 5,
+      "prereqs": ["graph", "graph-connectivity", "algorithm"],
+      "cross_links": ["matching", "optimization", "applied-computational:linear-programming", "graph-connectivity"],
+      "resources": [
+        {
+          "title": "Max-flow min-cut theorem — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Max-flow_min-cut_theorem",
+          "type": "text"
+        },
+        {
+          "title": "CLRS, Introduction to Algorithms (flow networks chapter)",
+          "url": "https://en.wikipedia.org/wiki/Introduction_to_Algorithms",
+          "type": "text"
+        }
+      ],
+      "sources": ["CLRS ch. 24 (flows)", "LP duality exemplar", "unifies Menger, König, Hall — high structural leverage"]
+    },
+    {
+      "id": "poset",
+      "name": "Partially Ordered Sets & Lattices",
+      "aka": ["posets", "Hasse diagrams", "Dilworth's theorem", "Möbius function of a poset"],
+      "intuition_gloss": "Rankings where some pairs simply can't be compared — like tasks with prerequisites — drawn as layered diagrams of who-comes-before-whom.",
+      "formal_gloss": "A set with a reflexive, antisymmetric, transitive relation; chains and antichains structure it (Dilworth's theorem), and its Möbius function generalizes inclusion-exclusion.",
+      "level": 4,
+      "prereqs": ["set", "equivalence-relation", "graph"],
+      "cross_links": ["inclusion-exclusion", "foundations:order-theory", "matching", "foundations:zorns-lemma"],
+      "resources": [
+        {
+          "title": "Partially ordered set — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Partially_ordered_set",
+          "type": "text"
+        },
+        {
+          "title": "Stanley, Enumerative Combinatorics, vol. 1, ch. 3",
+          "url": "https://math.mit.edu/~rstan/ec/",
+          "type": "text"
+        }
+      ],
+      "sources": ["Stanley EC1 ch. 3 (the standard treatment)", "Dilworth/Mirsky duality", "MSC 06A"]
+    },
+    {
+      "id": "polya-enumeration",
+      "name": "Counting under Symmetry (Burnside & Pólya)",
+      "aka": ["Burnside's lemma", "Pólya enumeration theorem", "orbit counting"],
+      "intuition_gloss": "How many truly different necklaces can you bead, when rotating one doesn't make it new? Average the counts fixed by each symmetry.",
+      "formal_gloss": "The number of orbits of a finite group G acting on a set equals the average number of fixed points of its elements; Pólya's theorem refines this with cycle-index generating functions.",
+      "level": 5,
+      "prereqs": ["counting-principles", "permutation", "group"],
+      "cross_links": ["symmetry", "generating-function", "algebra:group-action", "combinatorial-design"],
+      "resources": [
+        {
+          "title": "Burnside's lemma — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Burnside%27s_lemma",
+          "type": "text"
+        },
+        {
+          "title": "Pólya enumeration theorem — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/P%C3%B3lya_enumeration_theorem",
+          "type": "text"
+        }
+      ],
+      "sources": ["Pólya 1937 (chemical isomer counting)", "van Lint & Wilson, A Course in Combinatorics ch. 35", "the canonical bridge from group theory into counting"]
+    },
+    {
+      "id": "ramsey-theory",
+      "name": "Ramsey Theory",
+      "aka": ["Ramsey numbers", "party problem", "unavoidable order"],
+      "intuition_gloss": "Complete disorder is impossible — any party of six people must contain three mutual friends or three mutual strangers.",
+      "formal_gloss": "For all k, l there exists R(k,l) such that every 2-coloring of the edges of a complete graph on R(k,l) vertices contains a monochromatic K_k or K_l; generalizations pervade combinatorics.",
+      "level": 6,
+      "prereqs": ["graph", "pigeonhole-principle", "graph-coloring"],
+      "cross_links": ["probabilistic-method", "extremal-combinatorics", "number-theory:szemeredi-theorem", "foundations:infinite-ramsey"],
+      "resources": [
+        {
+          "title": "Ramsey's theorem — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Ramsey%27s_theorem",
+          "type": "text"
+        },
+        {
+          "title": "Graham, Rothschild & Spencer, Ramsey Theory",
+          "url": "https://en.wikipedia.org/wiki/Ramsey_theory",
+          "type": "text"
+        }
+      ],
+      "sources": ["Ramsey 1930 / Erdős-Szekeres 1935", "Princeton Companion IV.19 (extremal & probabilistic combinatorics)", "R(5,5) still unknown — live research edge"]
+    },
+    {
+      "id": "extremal-combinatorics",
+      "name": "Extremal Combinatorics",
+      "aka": ["Turán's theorem", "extremal graph theory", "forbidden configurations"],
+      "intuition_gloss": "How big can a structure get before it's forced to contain a forbidden pattern — how many wires before a triangle must appear?",
+      "formal_gloss": "The study of maximum or minimum sizes of set systems or graphs avoiding a given substructure; Turán's theorem gives the maximum edges in a K_r-free graph, with Szemerédi's regularity lemma as the deep modern tool.",
+      "level": 6,
+      "prereqs": ["graph", "graph-coloring", "binomial-coefficient"],
+      "cross_links": ["ramsey-theory", "probabilistic-method", "number-theory:additive-combinatorics", "poset"],
+      "resources": [
+        {
+          "title": "Extremal graph theory — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Extremal_graph_theory",
+          "type": "text"
+        },
+        {
+          "title": "Diestel, Graph Theory, ch. 7 (free online edition)",
+          "url": "https://diestel-graph-theory.com/",
+          "type": "text"
+        }
+      ],
+      "sources": ["Turán 1941, Mantel 1907", "Diestel ch. 7", "Princeton Companion IV.19", "Bollobás, Extremal Graph Theory"]
+    },
+    {
+      "id": "probabilistic-method",
+      "name": "The Probabilistic Method",
+      "aka": ["Erdős's method", "nonconstructive existence via randomness"],
+      "intuition_gloss": "To prove a needle exists in the haystack, show a random grab finds one with nonzero probability — no need to ever point at it.",
+      "formal_gloss": "Prove an object with property P exists by showing a suitable random construction has P with positive probability; refinements include linearity of expectation, alteration, and the Lovász Local Lemma.",
+      "level": 6,
+      "prereqs": ["counting-principles", "expectation", "graph", "ramsey-theory"],
+      "cross_links": ["random-graph", "extremal-combinatorics", "probability-space", "applied-computational:randomized-algorithms"],
+      "resources": [
+        {
+          "title": "Probabilistic method — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Probabilistic_method",
+          "type": "text"
+        },
+        {
+          "title": "Alon & Spencer, The Probabilistic Method",
+          "url": "https://en.wikipedia.org/wiki/The_Probabilistic_Method",
+          "type": "text"
+        }
+      ],
+      "sources": ["Erdős 1947 (Ramsey lower bound — the founding application)", "Alon & Spencer (the standard text)", "Princeton Companion IV.19"]
+    },
+    {
+      "id": "random-graph",
+      "name": "Random Graphs",
+      "aka": ["Erdős–Rényi model", "G(n,p)", "phase transitions in networks"],
+      "intuition_gloss": "Flip a coin for every possible wire in a network and watch structure crystallize — a giant connected blob suddenly emerges at a sharp threshold.",
+      "formal_gloss": "The G(n,p) model includes each of the C(n,2) edges independently with probability p; properties like connectivity appear at sharp thresholds, e.g. the giant component emerges at p ≈ 1/n.",
+      "level": 6,
+      "prereqs": ["graph", "probability-space", "expectation", "probabilistic-method"],
+      "cross_links": ["graph-connectivity", "applied-computational:network-science", "probability-statistics:percolation", "dynamics-differential-equations:phase-transition"],
+      "resources": [
+        {
+          "title": "Erdős–Rényi model — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Erd%C5%91s%E2%80%93R%C3%A9nyi_model",
+          "type": "text"
+        },
+        {
+          "title": "Bollobás, Random Graphs",
+          "url": "https://en.wikipedia.org/wiki/Random_graph",
+          "type": "text"
+        }
+      ],
+      "sources": ["Erdős & Rényi 1959-60", "Bollobás, Random Graphs", "foundation of modern network science (territory tagline: 'networks everywhere')"]
+    },
+    {
+      "id": "combinatorial-design",
+      "name": "Combinatorial Designs & Latin Squares",
+      "aka": ["block designs", "Steiner systems", "Latin squares"],
+      "intuition_gloss": "Arrange elements into groups so every pair meets equally often — the hidden math behind tournament schedules, sudoku, and error-correcting codes.",
+      "formal_gloss": "A t-(v,k,λ) design is a family of k-subsets (blocks) of a v-set in which every t-subset lies in exactly λ blocks; Latin squares are n×n arrays with each symbol once per row and column.",
+      "level": 6,
+      "prereqs": ["counting-principles", "binomial-coefficient", "modular-arithmetic"],
+      "cross_links": ["applied-computational:error-correcting-codes", "field", "polya-enumeration", "geometry:finite-projective-planes"],
+      "resources": [
+        {
+          "title": "Block design — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Block_design",
+          "type": "text"
+        },
+        {
+          "title": "Latin square — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Latin_square",
+          "type": "text"
+        }
+      ],
+      "sources": ["Fisher's experimental-design origins", "van Lint & Wilson, A Course in Combinatorics", "MSC 05B", "Keevash 2014 existence-of-designs breakthrough"]
+    }
+  ]
+}

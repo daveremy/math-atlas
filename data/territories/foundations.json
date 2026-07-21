@@ -1,0 +1,368 @@
+{
+  "territory": "foundations",
+  "concepts": [
+    {
+      "id": "propositional-logic",
+      "name": "Propositional Logic",
+      "aka": ["Sentential logic", "Propositional calculus", "Boolean logic"],
+      "intuition_gloss": "The rules for gluing whole statements together with 'and', 'or', 'not', and 'if...then' so their truth can be computed mechanically.",
+      "formal_gloss": "The formal system of propositional variables combined by truth-functional connectives, with validity determined by truth tables or a deductive calculus.",
+      "level": 2,
+      "prereqs": [],
+      "cross_links": ["proof", "boolean-algebra", "algorithm"],
+      "resources": [
+        {"title": "forall x: Calgary (open logic textbook)", "url": "https://forallx.openlogicproject.org/", "type": "text"},
+        {"title": "Propositional calculus — Wikipedia", "url": "https://en.wikipedia.org/wiki/Propositional_calculus", "type": "text"}
+      ],
+      "sources": ["MSC 2020 03B05", "standard intro-logic and discrete-math curricula (Book of Proof ch. 2)"]
+    },
+    {
+      "id": "first-order-logic",
+      "name": "First-Order Logic",
+      "aka": ["Predicate logic", "Quantifier logic", "FOL"],
+      "intuition_gloss": "Logic upgraded with 'for all' and 'there exists', so you can talk about every object in a universe and pin down what statements about them mean.",
+      "formal_gloss": "The formal language extending propositional logic with quantifiers, variables, predicates, and function symbols, interpreted over a domain of discourse.",
+      "level": 4,
+      "prereqs": ["propositional-logic", "set"],
+      "cross_links": ["model-theory", "zfc", "peano-axioms"],
+      "resources": [
+        {"title": "First-order logic — Wikipedia", "url": "https://en.wikipedia.org/wiki/First-order_logic", "type": "text"},
+        {"title": "Classical Logic — Stanford Encyclopedia of Philosophy", "url": "https://plato.stanford.edu/entries/logic-classical/", "type": "text"}
+      ],
+      "sources": ["MSC 2020 03B10", "Princeton Companion IV.23 (Set Theory) & IV.22 (Logic)", "Open Logic Project chapter structure"]
+    },
+    {
+      "id": "set-operations",
+      "name": "Set Operations",
+      "aka": ["Algebra of sets", "Union, intersection, complement"],
+      "intuition_gloss": "Combining bags of things — merge them, keep only the overlap, or take everything outside one — pictured perfectly by Venn diagrams.",
+      "formal_gloss": "The operations of union, intersection, difference, and complement on sets, obeying laws (distributivity, De Morgan) that mirror logical connectives.",
+      "level": 1,
+      "prereqs": ["set"],
+      "cross_links": ["propositional-logic", "boolean-algebra", "probability-space"],
+      "resources": [
+        {"title": "Book of Proof (Hammack), ch. 1", "url": "https://richardhammack.github.io/BookOfProof/", "type": "text"},
+        {"title": "Algebra of sets — Wikipedia", "url": "https://en.wikipedia.org/wiki/Algebra_of_sets", "type": "text"}
+      ],
+      "sources": ["elementary/discrete curricula (Khan Academy, Book of Proof ch. 1)"]
+    },
+    {
+      "id": "subset-and-power-set",
+      "name": "Subset & Power Set",
+      "aka": ["Powerset", "P(A)", "Set of all subsets"],
+      "intuition_gloss": "From any bag of things you can form the bag of all possible sub-bags — and that new bag is always strictly bigger.",
+      "formal_gloss": "A is a subset of B iff every element of A is in B; the power set P(A) is the set of all subsets of A, with |P(A)| = 2^|A| for finite A.",
+      "level": 2,
+      "prereqs": ["set", "set-operations"],
+      "cross_links": ["diagonalization", "boolean-algebra", "partial-order", "counting-principles"],
+      "resources": [
+        {"title": "Power set — Wikipedia", "url": "https://en.wikipedia.org/wiki/Power_set", "type": "text"}
+      ],
+      "sources": ["Book of Proof ch. 1", "standard transition-to-proof curricula"]
+    },
+    {
+      "id": "cartesian-product",
+      "name": "Ordered Pair & Cartesian Product",
+      "aka": ["Product set", "A × B", "Tuples"],
+      "intuition_gloss": "Pair up every item from one bag with every item from another, like all (row, column) squares on a chessboard.",
+      "formal_gloss": "A × B is the set of ordered pairs (a, b) with a in A and b in B; the ordered pair is codable in pure set theory as {{a},{a,b}} (Kuratowski).",
+      "level": 2,
+      "prereqs": ["set"],
+      "cross_links": ["function", "binary-relation", "coordinate-system", "vector"],
+      "resources": [
+        {"title": "Cartesian product — Wikipedia", "url": "https://en.wikipedia.org/wiki/Cartesian_product", "type": "text"}
+      ],
+      "sources": ["Book of Proof ch. 1", "Halmos, Naive Set Theory"]
+    },
+    {
+      "id": "binary-relation",
+      "name": "Relation",
+      "aka": ["Binary relation"],
+      "intuition_gloss": "Any way of connecting some things to other things — 'is taller than', 'divides', 'is a friend of' — recorded as a set of pairs.",
+      "formal_gloss": "A binary relation from A to B is a subset of A × B; functions, orders, and equivalences are relations with extra properties.",
+      "level": 3,
+      "prereqs": ["cartesian-product", "subset-and-power-set"],
+      "cross_links": ["equivalence-relation", "function", "partial-order", "graph"],
+      "resources": [
+        {"title": "Binary relation — Wikipedia", "url": "https://en.wikipedia.org/wiki/Binary_relation", "type": "text"},
+        {"title": "Book of Proof (Hammack), ch. 11", "url": "https://richardhammack.github.io/BookOfProof/", "type": "text"}
+      ],
+      "sources": ["standard discrete/transition curricula (Book of Proof ch. 11)"]
+    },
+    {
+      "id": "partial-order",
+      "name": "Partial Order",
+      "aka": ["Poset", "Partially ordered set", "Order relation"],
+      "intuition_gloss": "A ranking where some pairs are comparable and others simply aren't — like tasks where some must precede others but many are independent.",
+      "formal_gloss": "A binary relation that is reflexive, antisymmetric, and transitive; a set with such a relation is a poset, totally ordered if every pair is comparable.",
+      "level": 4,
+      "prereqs": ["binary-relation"],
+      "cross_links": ["well-ordering", "boolean-algebra", "axiom-of-choice", "graph"],
+      "resources": [
+        {"title": "Partially ordered set — Wikipedia", "url": "https://en.wikipedia.org/wiki/Partially_ordered_set", "type": "text"}
+      ],
+      "sources": ["MSC 2020 06A", "undergraduate set theory / discrete math curricula"]
+    },
+    {
+      "id": "injection-surjection-bijection",
+      "name": "Injection, Surjection & Bijection",
+      "aka": ["One-to-one", "Onto", "One-to-one correspondence", "Invertible map"],
+      "intuition_gloss": "The three ways a matching between two bags can be honest: no two inputs share an output, every target gets hit, or both at once — a perfect pairing.",
+      "formal_gloss": "f: A → B is injective if f(x)=f(y) implies x=y, surjective if every b in B has a preimage, and bijective (hence invertible) if both.",
+      "level": 3,
+      "prereqs": ["function"],
+      "cross_links": ["cardinality", "isomorphism", "counting-principles"],
+      "resources": [
+        {"title": "Bijection — Wikipedia", "url": "https://en.wikipedia.org/wiki/Bijection", "type": "text"},
+        {"title": "Book of Proof (Hammack), ch. 12", "url": "https://richardhammack.github.io/BookOfProof/", "type": "text"}
+      ],
+      "sources": ["Book of Proof ch. 12", "standard transition-to-proof curricula"]
+    },
+    {
+      "id": "countability",
+      "name": "Countable & Uncountable Sets",
+      "aka": ["Countability", "Denumerable sets", "Hilbert's Hotel"],
+      "intuition_gloss": "Some infinite collections can be lined up in a single unending list and some cannot — the rationals can, the real number line cannot.",
+      "formal_gloss": "A set is countable if it injects into N (equivalently, is finite or in bijection with N); Q is countable while R is uncountable.",
+      "level": 4,
+      "prereqs": ["cardinality", "injection-surjection-bijection", "natural-numbers"],
+      "cross_links": ["real-numbers", "diagonalization", "rational-numbers", "sequence"],
+      "resources": [
+        {"title": "Veritasium — How an Infinite Hotel Ran Out of Room", "url": "https://www.youtube.com/watch?v=OxGsU8oIWjY", "type": "video"},
+        {"title": "Countable set — Wikipedia", "url": "https://en.wikipedia.org/wiki/Countable_set", "type": "text"}
+      ],
+      "sources": ["Princeton Companion IV.23", "standard real-analysis entry material (Rudin ch. 2, Book of Proof ch. 13)"]
+    },
+    {
+      "id": "diagonalization",
+      "name": "Diagonalization & Cantor's Theorem",
+      "aka": ["Cantor's diagonal argument", "Cantor's theorem"],
+      "intuition_gloss": "Walk down the diagonal of any claimed complete list and flip each entry — you build something the list provably missed, so no list was complete.",
+      "formal_gloss": "The self-referential technique proving R uncountable and Cantor's theorem that |A| < |P(A)| for every set A, yielding an endless hierarchy of infinities.",
+      "level": 5,
+      "prereqs": ["countability", "subset-and-power-set", "proof-by-contradiction"],
+      "cross_links": ["godel-incompleteness", "decidability", "russells-paradox", "continuum-hypothesis"],
+      "resources": [
+        {"title": "Numberphile — Infinity is bigger than you think", "url": "https://www.youtube.com/watch?v=elvOZm0d4H0", "type": "video"},
+        {"title": "Cantor's diagonal argument — Wikipedia", "url": "https://en.wikipedia.org/wiki/Cantor%27s_diagonal_argument", "type": "text"}
+      ],
+      "sources": ["Princeton Companion IV.23", "Gowers' emphasis on diagonalization as a master technique"]
+    },
+    {
+      "id": "russells-paradox",
+      "name": "Russell's Paradox",
+      "aka": ["Russell's antinomy", "The set of all sets that don't contain themselves"],
+      "intuition_gloss": "Ask whether the catalog of all catalogs that don't list themselves lists itself — either answer explodes, so 'any describable collection is a set' can't be right.",
+      "formal_gloss": "The set R = {x : x ∉ x} satisfies R ∈ R iff R ∉ R, refuting unrestricted comprehension and motivating axiomatic set theory.",
+      "level": 4,
+      "prereqs": ["set", "propositional-logic", "proof-by-contradiction"],
+      "cross_links": ["zfc", "type-theory", "diagonalization"],
+      "resources": [
+        {"title": "Russell's Paradox — Stanford Encyclopedia of Philosophy", "url": "https://plato.stanford.edu/entries/russell-paradox/", "type": "text"}
+      ],
+      "sources": ["SEP entry", "Princeton Companion — the crises of foundations narrative"]
+    },
+    {
+      "id": "zfc",
+      "name": "Zermelo–Fraenkel Set Theory (ZFC)",
+      "aka": ["ZF", "ZFC axioms", "Axiomatic set theory"],
+      "intuition_gloss": "The rulebook modern mathematics runs on: a short list of safe set-building moves that dodge the paradoxes while still constructing everything from numbers to function spaces.",
+      "formal_gloss": "The first-order axiom system (extensionality, pairing, union, power set, infinity, separation, replacement, foundation, choice) serving as the standard foundation of mathematics.",
+      "level": 6,
+      "prereqs": ["axiom", "first-order-logic", "russells-paradox", "subset-and-power-set"],
+      "cross_links": ["axiom-of-choice", "continuum-hypothesis", "ordinals", "type-theory"],
+      "resources": [
+        {"title": "Set Theory — Stanford Encyclopedia of Philosophy", "url": "https://plato.stanford.edu/entries/set-theory/", "type": "text"},
+        {"title": "Zermelo–Fraenkel set theory — Wikipedia", "url": "https://en.wikipedia.org/wiki/Zermelo%E2%80%93Fraenkel_set_theory", "type": "text"}
+      ],
+      "sources": ["MSC 2020 03E30", "Princeton Companion IV.23", "Jech / Kunen standard graduate texts"]
+    },
+    {
+      "id": "axiom-of-choice",
+      "name": "Axiom of Choice",
+      "aka": ["AC", "Zorn's lemma", "Well-ordering theorem"],
+      "intuition_gloss": "The claim that from infinitely many nonempty bins you can always pick one item from each, even with no rule for choosing — harmless-sounding, wildly powerful.",
+      "formal_gloss": "For every family of nonempty sets there exists a choice function selecting one element from each; equivalent to Zorn's lemma and the well-ordering theorem, and independent of ZF.",
+      "level": 6,
+      "prereqs": ["zfc", "function", "partial-order"],
+      "cross_links": ["well-ordering", "vector-space", "cardinality", "continuum-hypothesis"],
+      "resources": [
+        {"title": "The Axiom of Choice — Stanford Encyclopedia of Philosophy", "url": "https://plato.stanford.edu/entries/axiom-choice/", "type": "text"}
+      ],
+      "sources": ["MSC 2020 03E25", "SEP entry", "Princeton Companion III.1 (The Axiom of Choice)"]
+    },
+    {
+      "id": "well-ordering",
+      "name": "Well-Ordering",
+      "aka": ["Well-order", "Well-ordering principle"],
+      "intuition_gloss": "An ordering with no bottomless descents: every nonempty collection has a definite least member, which is exactly what makes induction-style arguments land.",
+      "formal_gloss": "A total order in which every nonempty subset has a least element; N is well-ordered, and this property underwrites induction and minimal-counterexample proofs.",
+      "level": 5,
+      "prereqs": ["partial-order", "natural-numbers"],
+      "cross_links": ["induction", "ordinals", "axiom-of-choice"],
+      "resources": [
+        {"title": "Well-order — Wikipedia", "url": "https://en.wikipedia.org/wiki/Well-order", "type": "text"}
+      ],
+      "sources": ["standard set theory curricula (Enderton, Halmos)"]
+    },
+    {
+      "id": "ordinals",
+      "name": "Ordinal Numbers & Transfinite Induction",
+      "aka": ["Ordinals", "Transfinite recursion", "ω, ω+1, ..."],
+      "intuition_gloss": "Counting continued past infinity — after all the finite numbers comes ω, then ω+1, and the domino argument of induction still works along the entire transfinite line.",
+      "formal_gloss": "The canonical representatives of well-order types (von Neumann: each ordinal is the set of all smaller ordinals), supporting definitions and proofs by transfinite induction and recursion.",
+      "level": 6,
+      "prereqs": ["well-ordering", "zfc", "induction"],
+      "cross_links": ["cardinality", "axiom-of-choice", "recursive-definition"],
+      "resources": [
+        {"title": "Vsauce — How To Count Past Infinity", "url": "https://www.youtube.com/watch?v=SrU9YDoXE88", "type": "video"},
+        {"title": "Ordinal number — Wikipedia", "url": "https://en.wikipedia.org/wiki/Ordinal_number", "type": "text"}
+      ],
+      "sources": ["MSC 2020 03E10", "Jech, Set Theory", "Princeton Companion IV.23"]
+    },
+    {
+      "id": "continuum-hypothesis",
+      "name": "Continuum Hypothesis & Independence",
+      "aka": ["CH", "Forcing", "Independence results"],
+      "intuition_gloss": "Is there an infinity strictly between the counting numbers and the number line? Our standard rulebook provably cannot answer — the question is independent of the axioms.",
+      "formal_gloss": "The statement that no cardinal lies strictly between |N| and |R|; Gödel (1940) and Cohen (1963, via forcing) showed CH is neither refutable nor provable from ZFC.",
+      "level": 7,
+      "prereqs": ["cardinality", "countability", "zfc", "diagonalization"],
+      "cross_links": ["godel-incompleteness", "axiom-of-choice", "model-theory", "real-numbers"],
+      "resources": [
+        {"title": "The Continuum Hypothesis — Stanford Encyclopedia of Philosophy", "url": "https://plato.stanford.edu/entries/continuum-hypothesis/", "type": "text"}
+      ],
+      "sources": ["MSC 2020 03E50/03E35", "SEP entry", "Princeton Companion IV.22–23"]
+    },
+    {
+      "id": "peano-axioms",
+      "name": "Peano Axioms",
+      "aka": ["Peano arithmetic", "PA", "Axioms of arithmetic"],
+      "intuition_gloss": "Five simple rules — zero exists, every number has a successor, and induction — that completely capture what the counting numbers are.",
+      "formal_gloss": "The axiomatization of N via zero, an injective successor function whose range omits zero, and the induction schema; first-order PA is the standard formal theory of arithmetic.",
+      "level": 4,
+      "prereqs": ["axiom", "natural-numbers", "induction", "first-order-logic"],
+      "cross_links": ["godel-incompleteness", "recursive-definition", "zfc", "model-theory"],
+      "resources": [
+        {"title": "Peano axioms — Wikipedia", "url": "https://en.wikipedia.org/wiki/Peano_axioms", "type": "text"},
+        {"title": "The Natural Number Game (Lean)", "url": "https://adam.math.hhu.de/", "type": "tool"}
+      ],
+      "sources": ["MSC 2020 03F30", "standard foundations curricula (Enderton, Open Logic Project)"]
+    },
+    {
+      "id": "formal-system",
+      "name": "Formal Language & Formal System",
+      "aka": ["Syntax vs. semantics", "Formal proof system", "Deductive system"],
+      "intuition_gloss": "Treat mathematics itself as a game of symbols: precise rules for which strings are well-formed and which moves count as proofs, so correctness can be checked without understanding meaning.",
+      "formal_gloss": "A formal language of symbols and formation rules together with axioms and inference rules generating derivable theorems, kept sharply distinct from any semantic interpretation.",
+      "level": 5,
+      "prereqs": ["propositional-logic", "axiom", "proof"],
+      "cross_links": ["model-theory", "godel-incompleteness", "decidability", "type-theory", "algorithm"],
+      "resources": [
+        {"title": "Open Logic Project", "url": "https://openlogicproject.org/", "type": "text"}
+      ],
+      "sources": ["MSC 2020 03B/03F", "Open Logic Project chapter structure", "Hilbert's program narrative in Princeton Companion"]
+    },
+    {
+      "id": "model-theory",
+      "name": "Models & Interpretations",
+      "aka": ["Model theory", "Structures", "Satisfaction", "Soundness & completeness"],
+      "intuition_gloss": "A model is a concrete universe where a set of axioms comes true — and the same axioms often describe wildly different universes, which is how independence gets proven.",
+      "formal_gloss": "A structure assigning meaning to a formal language so that a theory's sentences hold; Gödel's completeness theorem equates semantic consequence with formal provability in first-order logic.",
+      "level": 6,
+      "prereqs": ["first-order-logic", "formal-system", "set"],
+      "cross_links": ["zfc", "continuum-hypothesis", "isomorphism", "peano-axioms", "godel-incompleteness"],
+      "resources": [
+        {"title": "Model Theory — Stanford Encyclopedia of Philosophy", "url": "https://plato.stanford.edu/entries/model-theory/", "type": "text"}
+      ],
+      "sources": ["MSC 2020 03C", "Princeton Companion IV.24 (Model Theory)"]
+    },
+    {
+      "id": "godel-incompleteness",
+      "name": "Gödel's Incompleteness Theorems",
+      "aka": ["Incompleteness", "Gödel numbering", "Second incompleteness theorem"],
+      "intuition_gloss": "Any rulebook rich enough for arithmetic contains true statements it can never prove — including, fatally, its own consistency.",
+      "formal_gloss": "Every consistent, effectively axiomatized theory extending basic arithmetic is incomplete (some sentence is neither provable nor refutable), and no such theory proves its own consistency.",
+      "level": 6,
+      "prereqs": ["formal-system", "peano-axioms", "diagonalization"],
+      "cross_links": ["decidability", "continuum-hypothesis", "model-theory", "proof"],
+      "resources": [
+        {"title": "Veritasium — Math's Fundamental Flaw", "url": "https://www.youtube.com/watch?v=HeQX2HjkcNo", "type": "video"},
+        {"title": "Gödel's Incompleteness Theorems — Stanford Encyclopedia of Philosophy", "url": "https://plato.stanford.edu/entries/goedel-incompleteness/", "type": "text"}
+      ],
+      "sources": ["MSC 2020 03F40", "SEP entry", "Princeton Companion V.15"]
+    },
+    {
+      "id": "decidability",
+      "name": "Decidability & the Halting Problem",
+      "aka": ["Computability", "Entscheidungsproblem", "Undecidability", "Church–Turing thesis"],
+      "intuition_gloss": "Some yes/no questions no possible program can answer for every input — most famously, whether an arbitrary program will ever finish running.",
+      "formal_gloss": "A problem is decidable if a Turing machine computes its answer on every input; the halting problem and first-order validity (Church–Turing, 1936) are undecidable.",
+      "level": 5,
+      "prereqs": ["algorithm", "formal-system", "diagonalization"],
+      "cross_links": ["godel-incompleteness", "first-order-logic", "recursive-definition"],
+      "resources": [
+        {"title": "Turing Machines — Stanford Encyclopedia of Philosophy", "url": "https://plato.stanford.edu/entries/turing-machine/", "type": "text"},
+        {"title": "Halting problem — Wikipedia", "url": "https://en.wikipedia.org/wiki/Halting_problem", "type": "text"}
+      ],
+      "sources": ["MSC 2020 03D", "Princeton Companion IV.20 (Computational Complexity) & V.20", "Sipser, Introduction to the Theory of Computation"]
+    },
+    {
+      "id": "recursive-definition",
+      "name": "Recursive Definition",
+      "aka": ["Recursion", "Inductive definition", "Definition by recursion"],
+      "intuition_gloss": "Define a thing by how it's built from smaller versions of itself — factorial, Fibonacci, and every syntax tree are made this way.",
+      "formal_gloss": "Specifying a function or set by base cases and rules generating new values from prior ones, justified by the recursion theorem on well-founded structures.",
+      "level": 3,
+      "prereqs": ["natural-numbers", "function", "induction"],
+      "cross_links": ["algorithm", "sequence", "peano-axioms", "ordinals"],
+      "resources": [
+        {"title": "Recursive definition — Wikipedia", "url": "https://en.wikipedia.org/wiki/Recursive_definition", "type": "text"}
+      ],
+      "sources": ["standard discrete math curricula (Rosen)", "close pairing with induction in Book of Proof"]
+    },
+    {
+      "id": "boolean-algebra",
+      "name": "Boolean Algebra",
+      "aka": ["Boolean logic", "Logic gates algebra"],
+      "intuition_gloss": "The two-valued arithmetic of true and false, where the same laws govern logic connectives, set operations, and the circuits inside every computer.",
+      "formal_gloss": "An algebraic structure with meet, join, and complement satisfying distributive and complementation laws, of which propositional logic and power-set algebras are canonical instances.",
+      "level": 3,
+      "prereqs": ["propositional-logic", "set-operations"],
+      "cross_links": ["ring", "partial-order", "algorithm", "subset-and-power-set"],
+      "resources": [
+        {"title": "Boolean algebra — Wikipedia", "url": "https://en.wikipedia.org/wiki/Boolean_algebra", "type": "text"}
+      ],
+      "sources": ["MSC 2020 06E", "bridge role noted in Princeton Companion and CS curricula"]
+    },
+    {
+      "id": "type-theory",
+      "name": "Type Theory",
+      "aka": ["Dependent type theory", "Curry–Howard correspondence", "Homotopy type theory (HoTT)"],
+      "intuition_gloss": "An alternative bedrock where every object carries a type like a units label, and a proof literally is a program — the foundation running inside Lean and Coq.",
+      "formal_gloss": "A foundational framework of typed terms and dependent types in which propositions are types and proofs are their inhabitants, underlying modern proof assistants.",
+      "level": 8,
+      "prereqs": ["formal-system", "first-order-logic", "function", "russells-paradox"],
+      "cross_links": ["category-theory", "zfc", "proof", "algorithm", "decidability"],
+      "resources": [
+        {"title": "Type Theory — Stanford Encyclopedia of Philosophy", "url": "https://plato.stanford.edu/entries/type-theory/", "type": "text"},
+        {"title": "Lean game server (interactive theorem proving)", "url": "https://adam.math.hhu.de/", "type": "tool"}
+      ],
+      "sources": ["MSC 2020 03B38", "Lean mathlib foundations", "atlas README's formalization-at-scale emphasis"]
+    },
+    {
+      "id": "category-theory",
+      "name": "Category Theory",
+      "aka": ["Categories, functors, natural transformations", "Abstract nonsense"],
+      "intuition_gloss": "Study objects purely by the arrows between them — forget what things are made of and track only how they map to each other, revealing the same patterns across all of mathematics.",
+      "formal_gloss": "The theory of categories (objects and composable morphisms), functors between them, and natural transformations, providing a structural alternative language for foundations.",
+      "level": 7,
+      "prereqs": ["function", "set", "isomorphism"],
+      "cross_links": ["type-theory", "group", "topological-space", "vector-space", "zfc"],
+      "resources": [
+        {"title": "Category Theory — Stanford Encyclopedia of Philosophy", "url": "https://plato.stanford.edu/entries/category-theory/", "type": "text"}
+      ],
+      "sources": ["MSC 2020 18-XX", "Princeton Companion III.8", "contested placement: also claimed by algebra; flagged per house rules"]
+    }
+  ]
+}

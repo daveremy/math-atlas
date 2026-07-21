@@ -1,0 +1,440 @@
+{
+  "territory": "probability-statistics",
+  "concepts": [
+    {
+      "id": "elementary-probability",
+      "name": "Probability of an Event",
+      "aka": ["classical probability", "chance"],
+      "intuition_gloss": "A number between 0 and 1 measuring how likely something is — the fraction of equally likely worlds where it happens.",
+      "formal_gloss": "For an event A in a finite equiprobable sample space, P(A) = |A|/|Ω|; in general, a normalized additive measure of likelihood assigned to events.",
+      "level": 1,
+      "prereqs": ["counting-principles", "rational-numbers", "set"],
+      "cross_links": ["probability-space", "law-of-large-numbers"],
+      "resources": [
+        {"title": "Khan Academy — Statistics and Probability", "url": "https://www.khanacademy.org/math/statistics-probability", "type": "course"},
+        {"title": "Seeing Theory — Basic Probability (interactive)", "url": "https://seeing-theory.brown.edu/", "type": "tool"}
+      ],
+      "sources": ["Khan Academy K-12 probability strand", "MIT OCW 18.05 unit 1", "Blitzstein & Hwang, Introduction to Probability ch. 1"]
+    },
+    {
+      "id": "descriptive-statistics",
+      "name": "Descriptive Statistics",
+      "aka": ["summary statistics", "mean, median, mode", "data visualization"],
+      "intuition_gloss": "Boiling a pile of numbers down to a few honest headlines — a typical value, a spread, and a picture of the data's shape.",
+      "formal_gloss": "Numerical and graphical summaries of a dataset — measures of center (mean, median), dispersion (range, standard deviation, quantiles), and shape (histograms, skewness).",
+      "level": 1,
+      "prereqs": ["rational-numbers"],
+      "cross_links": ["expectation", "variance", "random-sampling"],
+      "resources": [
+        {"title": "Khan Academy — Statistics and Probability", "url": "https://www.khanacademy.org/math/statistics-probability", "type": "course"},
+        {"title": "OpenIntro Statistics (free textbook)", "url": "https://www.openintro.org/book/os/", "type": "text"}
+      ],
+      "sources": ["OpenIntro Statistics ch. 1-2", "Khan Academy statistics strand", "AP Statistics curriculum framework"]
+    },
+    {
+      "id": "random-sampling",
+      "name": "Random Sampling",
+      "aka": ["sample vs population", "sampling bias"],
+      "intuition_gloss": "Tasting a well-stirred spoonful to judge the whole pot — and understanding when the spoonful can mislead you.",
+      "formal_gloss": "Selecting observations from a population so each unit has a known probability of inclusion; i.i.d. samples model observations as independent draws from a common distribution.",
+      "level": 2,
+      "prereqs": ["elementary-probability", "descriptive-statistics"],
+      "cross_links": ["experimental-design", "sampling-distribution", "monte-carlo"],
+      "resources": [
+        {"title": "OpenIntro Statistics — Data collection", "url": "https://www.openintro.org/book/os/", "type": "text"},
+        {"title": "Khan Academy — Study design and sampling", "url": "https://www.khanacademy.org/math/statistics-probability", "type": "course"}
+      ],
+      "sources": ["OpenIntro Statistics ch. 1", "Freedman, Pisani & Purves, Statistics ch. 19-20", "AP Statistics curriculum"]
+    },
+    {
+      "id": "conditional-probability",
+      "name": "Conditional Probability",
+      "aka": [],
+      "intuition_gloss": "How your odds shift once you learn something — probability recomputed inside the smaller world where the clue is true.",
+      "formal_gloss": "P(A|B) = P(A ∩ B)/P(B) for P(B) > 0: the probability of A within the restricted sample space where B has occurred.",
+      "level": 3,
+      "prereqs": ["elementary-probability"],
+      "cross_links": ["bayes-theorem", "independence", "markov-chain"],
+      "resources": [
+        {"title": "Seeing Theory — Compound Probability (interactive)", "url": "https://seeing-theory.brown.edu/", "type": "tool"},
+        {"title": "MIT OCW 18.05 — Introduction to Probability and Statistics", "url": "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/", "type": "course"}
+      ],
+      "sources": ["Blitzstein & Hwang, Introduction to Probability ch. 2", "MIT OCW 18.05 unit 1", "Harvard Stat 110 lectures 4-6"]
+    },
+    {
+      "id": "independence",
+      "name": "Independence",
+      "aka": ["statistical independence"],
+      "intuition_gloss": "Two events are independent when learning one tells you nothing about the other — the coin has no memory.",
+      "formal_gloss": "Events A and B are independent iff P(A ∩ B) = P(A)P(B); random variables are independent iff their joint distribution factors into the product of marginals.",
+      "level": 3,
+      "prereqs": ["conditional-probability"],
+      "cross_links": ["law-of-large-numbers", "covariance-correlation", "central-limit-theorem"],
+      "resources": [
+        {"title": "MIT OCW 18.05 — Introduction to Probability and Statistics", "url": "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/", "type": "course"},
+        {"title": "Wikipedia — Independence (probability theory)", "url": "https://en.wikipedia.org/wiki/Independence_(probability_theory)", "type": "text"}
+      ],
+      "sources": ["Blitzstein & Hwang ch. 2", "Feller, An Introduction to Probability Theory vol. 1 ch. V", "MIT OCW 18.05"]
+    },
+    {
+      "id": "bayes-theorem",
+      "name": "Bayes' Theorem",
+      "aka": ["Bayes' rule"],
+      "intuition_gloss": "The rule for updating a belief when evidence arrives — flip 'probability of evidence given cause' into 'probability of cause given evidence'.",
+      "formal_gloss": "P(A|B) = P(B|A)P(A)/P(B), decomposing a posterior probability into likelihood times prior over marginal evidence.",
+      "level": 3,
+      "prereqs": ["conditional-probability"],
+      "cross_links": ["bayesian-inference", "entropy"],
+      "resources": [
+        {"title": "3Blue1Brown — Bayes' theorem", "url": "https://www.3blue1brown.com/lessons/bayes-theorem", "type": "video"},
+        {"title": "MIT OCW 18.05 — Introduction to Probability and Statistics", "url": "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/", "type": "course"}
+      ],
+      "sources": ["3Blue1Brown probability series", "Blitzstein & Hwang ch. 2", "MIT OCW 18.05 unit 1"]
+    },
+    {
+      "id": "probability-distribution",
+      "name": "Probability Distribution",
+      "aka": ["PMF", "PDF", "CDF", "law of a random variable"],
+      "intuition_gloss": "The full profile of a random quantity — a curve or bar chart showing where its values land and how often.",
+      "formal_gloss": "The measure a random variable induces on the reals, described by a probability mass function (discrete), density function (continuous), or cumulative distribution function F(x) = P(X ≤ x).",
+      "level": 4,
+      "prereqs": ["random-variable", "elementary-probability", "integral"],
+      "cross_links": ["expectation", "normal-distribution", "probability-space"],
+      "resources": [
+        {"title": "Distribution Explorer (interactive catalog of distributions)", "url": "https://distribution-explorer.github.io/", "type": "tool"},
+        {"title": "Wikipedia — Probability distribution", "url": "https://en.wikipedia.org/wiki/Probability_distribution", "type": "text"}
+      ],
+      "sources": ["Blitzstein & Hwang ch. 3-5", "Princeton Companion to Mathematics, probability distributions entry", "MIT OCW 18.05 unit 2"]
+    },
+    {
+      "id": "bernoulli-binomial",
+      "name": "Bernoulli Trials & Binomial Distribution",
+      "aka": ["coin-flip model", "Bernoulli distribution"],
+      "intuition_gloss": "Repeated independent yes/no experiments, and the resulting counts of successes — the fruit-fly of probability.",
+      "formal_gloss": "For n independent trials with success probability p, the number of successes X satisfies P(X = k) = C(n,k) p^k (1-p)^(n-k).",
+      "level": 3,
+      "prereqs": ["elementary-probability", "independence", "counting-principles"],
+      "cross_links": ["normal-distribution", "central-limit-theorem", "poisson-process"],
+      "resources": [
+        {"title": "3Blue1Brown — Binomial distributions", "url": "https://www.3blue1brown.com/lessons/binomial-distributions", "type": "video"},
+        {"title": "Distribution Explorer — Binomial", "url": "https://distribution-explorer.github.io/", "type": "tool"}
+      ],
+      "sources": ["Blitzstein & Hwang ch. 3", "Feller vol. 1 ch. VI", "MIT OCW 18.05"]
+    },
+    {
+      "id": "variance",
+      "name": "Variance & Standard Deviation",
+      "aka": ["second moment", "spread"],
+      "intuition_gloss": "How widely a random quantity scatters around its average — the typical size of its surprise.",
+      "formal_gloss": "Var(X) = E[(X - E[X])²] = E[X²] - (E[X])²; the standard deviation is its square root, in the units of X.",
+      "level": 3,
+      "prereqs": ["expectation"],
+      "cross_links": ["covariance-correlation", "central-limit-theorem", "descriptive-statistics"],
+      "resources": [
+        {"title": "Khan Academy — Variance and standard deviation", "url": "https://www.khanacademy.org/math/statistics-probability", "type": "course"},
+        {"title": "Wikipedia — Variance", "url": "https://en.wikipedia.org/wiki/Variance", "type": "text"}
+      ],
+      "sources": ["Blitzstein & Hwang ch. 4", "MIT OCW 18.05 unit 2", "standard intro-stats syllabi"]
+    },
+    {
+      "id": "normal-distribution",
+      "name": "Normal (Gaussian) Distribution",
+      "aka": ["bell curve", "Gaussian"],
+      "intuition_gloss": "The bell-shaped curve that shows up whenever many small independent effects add together — nature's default histogram.",
+      "formal_gloss": "The continuous distribution with density f(x) = (1/(σ√(2π))) exp(-(x-μ)²/(2σ²)), closed under linear combinations and the unique fixed point of the central limit theorem.",
+      "level": 3,
+      "prereqs": ["probability-distribution", "variance"],
+      "cross_links": ["central-limit-theorem", "integral", "linear-regression", "brownian-motion"],
+      "resources": [
+        {"title": "3Blue1Brown — But what is the Central Limit Theorem?", "url": "https://www.3blue1brown.com/lessons/clt", "type": "video"},
+        {"title": "Wikipedia — Normal distribution", "url": "https://en.wikipedia.org/wiki/Normal_distribution", "type": "text"},
+        {"title": "Distribution Explorer — Normal", "url": "https://distribution-explorer.github.io/", "type": "tool"}
+      ],
+      "sources": ["Blitzstein & Hwang ch. 5", "Feller vol. 1 ch. VII", "Princeton Companion probability articles"]
+    },
+    {
+      "id": "poisson-process",
+      "name": "Poisson Distribution & Process",
+      "aka": ["law of rare events"],
+      "intuition_gloss": "The mathematics of random arrivals — raindrops, emails, radioactive decays — when events strike independently at a steady average rate.",
+      "formal_gloss": "The Poisson(λ) distribution P(X = k) = e^(-λ)λ^k/k! arises as the limit of binomials with np → λ; the Poisson process is a counting process with independent, stationary increments of this law.",
+      "level": 4,
+      "prereqs": ["bernoulli-binomial", "limit", "expectation"],
+      "cross_links": ["stochastic-process", "mathematical-model"],
+      "resources": [
+        {"title": "Wikipedia — Poisson distribution", "url": "https://en.wikipedia.org/wiki/Poisson_distribution", "type": "text"},
+        {"title": "Random (Virtual Laboratories in Probability) — Poisson process", "url": "https://www.randomservices.org/random/", "type": "tool"}
+      ],
+      "sources": ["Blitzstein & Hwang ch. 4 and 13", "Feller vol. 1 ch. VI", "MSC 2020 60G55"]
+    },
+    {
+      "id": "covariance-correlation",
+      "name": "Covariance & Correlation",
+      "aka": ["Pearson correlation coefficient"],
+      "intuition_gloss": "A single number capturing whether two quantities tend to move together, apart, or ignore each other.",
+      "formal_gloss": "Cov(X,Y) = E[(X-E[X])(Y-E[Y])]; correlation ρ = Cov(X,Y)/(σ_X σ_Y) ∈ [-1,1] measures the strength of linear association.",
+      "level": 4,
+      "prereqs": ["variance", "expectation", "independence"],
+      "cross_links": ["linear-regression", "dot-product", "experimental-design"],
+      "resources": [
+        {"title": "Seeing Theory — Correlation (interactive)", "url": "https://seeing-theory.brown.edu/", "type": "tool"},
+        {"title": "Wikipedia — Covariance and correlation", "url": "https://en.wikipedia.org/wiki/Covariance_and_correlation", "type": "text"}
+      ],
+      "sources": ["Blitzstein & Hwang ch. 7", "OpenIntro Statistics ch. 8", "MIT OCW 18.05"]
+    },
+    {
+      "id": "law-of-large-numbers",
+      "name": "Law of Large Numbers",
+      "aka": ["LLN"],
+      "intuition_gloss": "Flip a fair coin long enough and the fraction of heads is squeezed toward one half — averages of many trials settle onto the true mean.",
+      "formal_gloss": "For i.i.d. random variables with finite mean μ, the sample average X̄_n converges to μ (in probability — weak law; almost surely — strong law) as n → ∞.",
+      "level": 4,
+      "prereqs": ["expectation", "independence", "sequence", "limit"],
+      "cross_links": ["monte-carlo", "elementary-probability", "central-limit-theorem"],
+      "resources": [
+        {"title": "Seeing Theory — Law of Large Numbers (interactive)", "url": "https://seeing-theory.brown.edu/", "type": "tool"},
+        {"title": "Wikipedia — Law of large numbers", "url": "https://en.wikipedia.org/wiki/Law_of_large_numbers", "type": "text"}
+      ],
+      "sources": ["Blitzstein & Hwang ch. 10", "Feller vol. 1 ch. X", "Princeton Companion probability articles"]
+    },
+    {
+      "id": "central-limit-theorem",
+      "name": "Central Limit Theorem",
+      "aka": ["CLT"],
+      "intuition_gloss": "Add up enough independent random nudges — whatever their individual shape — and the total's distribution morphs into the bell curve.",
+      "formal_gloss": "For i.i.d. X_i with mean μ and finite variance σ², (X̄_n - μ)√n/σ converges in distribution to the standard normal as n → ∞.",
+      "level": 4,
+      "prereqs": ["variance", "independence", "normal-distribution", "law-of-large-numbers"],
+      "cross_links": ["sampling-distribution", "confidence-interval", "brownian-motion"],
+      "resources": [
+        {"title": "3Blue1Brown — But what is the Central Limit Theorem?", "url": "https://www.3blue1brown.com/lessons/clt", "type": "video"},
+        {"title": "Seeing Theory — Central Limit Theorem (interactive)", "url": "https://seeing-theory.brown.edu/", "type": "tool"}
+      ],
+      "sources": ["3Blue1Brown 2023 CLT video", "Blitzstein & Hwang ch. 10", "Feller vol. 1 ch. X", "Princeton Companion probability articles"]
+    },
+    {
+      "id": "sampling-distribution",
+      "name": "Sampling Distribution",
+      "aka": ["distribution of a statistic", "standard error"],
+      "intuition_gloss": "Imagine redoing your whole survey a thousand times — the spread of the answers you'd get is itself a distribution, and it's what error bars measure.",
+      "formal_gloss": "The probability distribution of a statistic (e.g. the sample mean) viewed as a random variable across repeated samples; its standard deviation is the standard error.",
+      "level": 4,
+      "prereqs": ["random-sampling", "probability-distribution", "variance"],
+      "cross_links": ["central-limit-theorem", "confidence-interval", "bootstrap"],
+      "resources": [
+        {"title": "Seeing Theory — Frequentist Inference (interactive)", "url": "https://seeing-theory.brown.edu/", "type": "tool"},
+        {"title": "OpenIntro Statistics — Foundations for inference", "url": "https://www.openintro.org/book/os/", "type": "text"}
+      ],
+      "sources": ["OpenIntro Statistics ch. 5", "MIT OCW 18.05 unit 3", "AP Statistics curriculum"]
+    },
+    {
+      "id": "point-estimation",
+      "name": "Point Estimation & Estimators",
+      "aka": ["bias", "consistency", "efficiency"],
+      "intuition_gloss": "Guessing a hidden number from noisy data with a formula — and judging the formula by how it behaves over many imagined repetitions.",
+      "formal_gloss": "An estimator is a statistic θ̂(X₁..Xₙ) targeting a parameter θ, evaluated by bias E[θ̂] - θ, variance, mean squared error, and consistency as n → ∞.",
+      "level": 4,
+      "prereqs": ["sampling-distribution", "statistical-inference"],
+      "cross_links": ["maximum-likelihood", "confidence-interval", "optimization"],
+      "resources": [
+        {"title": "MIT OCW 18.05 — Introduction to Probability and Statistics", "url": "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/", "type": "course"},
+        {"title": "Wikipedia — Estimator", "url": "https://en.wikipedia.org/wiki/Estimator", "type": "text"}
+      ],
+      "sources": ["Casella & Berger, Statistical Inference ch. 7", "Wasserman, All of Statistics ch. 6", "MIT OCW 18.05"]
+    },
+    {
+      "id": "maximum-likelihood",
+      "name": "Maximum Likelihood Estimation",
+      "aka": ["MLE", "likelihood function"],
+      "intuition_gloss": "Pick the parameter value under which the data you actually saw would have been least surprising.",
+      "formal_gloss": "θ̂_MLE = argmax_θ L(θ; x) where L is the joint density of the data as a function of θ; under regularity conditions MLEs are consistent, asymptotically normal, and efficient.",
+      "level": 5,
+      "prereqs": ["point-estimation", "probability-distribution", "derivative"],
+      "cross_links": ["bayesian-inference", "entropy", "optimization"],
+      "resources": [
+        {"title": "Wikipedia — Maximum likelihood estimation", "url": "https://en.wikipedia.org/wiki/Maximum_likelihood_estimation", "type": "text"},
+        {"title": "MIT OCW 18.05 — Introduction to Probability and Statistics", "url": "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/", "type": "course"}
+      ],
+      "sources": ["Casella & Berger ch. 7", "Wasserman, All of Statistics ch. 9", "Fisher's foundational papers (historical)"]
+    },
+    {
+      "id": "confidence-interval",
+      "name": "Confidence Interval",
+      "aka": ["interval estimate", "margin of error"],
+      "intuition_gloss": "An honest range around your estimate, built so that the recipe traps the true value a stated fraction of the time.",
+      "formal_gloss": "A data-dependent interval [L(X), U(X)] with P(L ≤ θ ≤ U) ≥ 1 - α under repeated sampling, for confidence level 1 - α.",
+      "level": 4,
+      "prereqs": ["sampling-distribution", "central-limit-theorem", "point-estimation"],
+      "cross_links": ["hypothesis-testing", "bootstrap"],
+      "resources": [
+        {"title": "Seeing Theory — Confidence Intervals (interactive)", "url": "https://seeing-theory.brown.edu/", "type": "tool"},
+        {"title": "OpenIntro Statistics — Foundations for inference", "url": "https://www.openintro.org/book/os/", "type": "text"}
+      ],
+      "sources": ["OpenIntro Statistics ch. 5", "Wasserman ch. 6", "MIT OCW 18.05 unit 3"]
+    },
+    {
+      "id": "hypothesis-testing",
+      "name": "Hypothesis Testing",
+      "aka": ["significance testing", "p-value", "null hypothesis"],
+      "intuition_gloss": "Assume the boring explanation, compute how surprising your data would be under it, and reject the boring story only if the surprise is extreme.",
+      "formal_gloss": "A decision rule for a null hypothesis H₀ versus alternative H₁ controlling Type I error at level α; the p-value is the probability, under H₀, of data at least as extreme as observed.",
+      "level": 4,
+      "prereqs": ["sampling-distribution", "statistical-inference"],
+      "cross_links": ["confidence-interval", "experimental-design", "bayesian-inference"],
+      "resources": [
+        {"title": "MIT OCW 18.05 — Introduction to Probability and Statistics", "url": "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/", "type": "course"},
+        {"title": "Wikipedia — Statistical hypothesis test", "url": "https://en.wikipedia.org/wiki/Statistical_hypothesis_test", "type": "text"}
+      ],
+      "sources": ["OpenIntro Statistics ch. 5-6", "Casella & Berger ch. 8", "ASA statement on p-values (2016)"]
+    },
+    {
+      "id": "bayesian-inference",
+      "name": "Bayesian Inference",
+      "aka": ["prior", "posterior", "credible interval"],
+      "intuition_gloss": "Treat the unknown itself as uncertain: start with a belief, let each datapoint reshape it via Bayes' rule, and read answers off the updated belief.",
+      "formal_gloss": "Inference placing a prior distribution π(θ) on parameters and computing the posterior π(θ|x) ∝ L(θ; x)π(θ), from which estimates and credible intervals are derived.",
+      "level": 5,
+      "prereqs": ["bayes-theorem", "probability-distribution", "statistical-inference"],
+      "cross_links": ["maximum-likelihood", "monte-carlo", "applied-computational:machine-learning"],
+      "resources": [
+        {"title": "Seeing Theory — Bayesian Inference (interactive)", "url": "https://seeing-theory.brown.edu/", "type": "tool"},
+        {"title": "Wikipedia — Bayesian inference", "url": "https://en.wikipedia.org/wiki/Bayesian_inference", "type": "text"}
+      ],
+      "sources": ["Gelman et al., Bayesian Data Analysis ch. 1-2", "MIT OCW 18.05 unit 3", "Wasserman ch. 11"]
+    },
+    {
+      "id": "linear-regression",
+      "name": "Regression & Least Squares",
+      "aka": ["linear regression", "line of best fit", "OLS"],
+      "intuition_gloss": "Draw the straight line through a cloud of points that misses them least, then use it to predict one quantity from another.",
+      "formal_gloss": "Modeling E[Y|X] = β₀ + β₁X (or Xβ in matrix form) with coefficients chosen to minimize the sum of squared residuals; geometrically, an orthogonal projection onto the column space of X.",
+      "level": 4,
+      "prereqs": ["covariance-correlation", "descriptive-statistics", "matrix"],
+      "cross_links": ["least-squares", "orthogonal-projection", "optimization", "applied-computational:machine-learning"],
+      "resources": [
+        {"title": "Seeing Theory — Regression Analysis (interactive)", "url": "https://seeing-theory.brown.edu/", "type": "tool"},
+        {"title": "James, Witten, Hastie & Tibshirani — An Introduction to Statistical Learning", "url": "https://www.statlearning.com/", "type": "text"}
+      ],
+      "sources": ["ISLR ch. 3", "OpenIntro Statistics ch. 8-9", "MIT OCW 18.06 (projections and least squares)"]
+    },
+    {
+      "id": "experimental-design",
+      "name": "Experimental Design & Causal Inference",
+      "aka": ["randomized controlled trial", "A/B testing", "confounding"],
+      "intuition_gloss": "Randomly splitting subjects into treated and untreated groups so that any systematic difference in outcomes can only be blamed on the treatment.",
+      "formal_gloss": "The design of data collection — randomization, control, replication, blocking — that licenses causal rather than merely associational conclusions; correlation alone does not identify causation.",
+      "level": 3,
+      "prereqs": ["random-sampling"],
+      "cross_links": ["hypothesis-testing", "linear-regression", "covariance-correlation", "mathematical-model"],
+      "resources": [
+        {"title": "OpenIntro Statistics — Data collection principles", "url": "https://www.openintro.org/book/os/", "type": "text"},
+        {"title": "Wikipedia — Design of experiments", "url": "https://en.wikipedia.org/wiki/Design_of_experiments", "type": "text"}
+      ],
+      "sources": ["Fisher, The Design of Experiments (historical)", "OpenIntro Statistics ch. 1", "Freedman, Pisani & Purves, Statistics part I"]
+    },
+    {
+      "id": "bootstrap",
+      "name": "Bootstrap & Resampling",
+      "aka": ["resampling methods", "permutation tests"],
+      "intuition_gloss": "When you can't resurvey the world, resample your own data with replacement thousands of times and watch how the answer wobbles.",
+      "formal_gloss": "Estimating the sampling distribution of a statistic by drawing repeated samples with replacement from the empirical distribution, yielding standard errors and confidence intervals without closed-form theory.",
+      "level": 5,
+      "prereqs": ["sampling-distribution", "monte-carlo"],
+      "cross_links": ["confidence-interval", "algorithm"],
+      "resources": [
+        {"title": "Wikipedia — Bootstrapping (statistics)", "url": "https://en.wikipedia.org/wiki/Bootstrapping_(statistics)", "type": "text"},
+        {"title": "MIT OCW 18.05 — Introduction to Probability and Statistics", "url": "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/", "type": "course"}
+      ],
+      "sources": ["Efron & Tibshirani, An Introduction to the Bootstrap", "Wasserman ch. 8", "MIT OCW 18.05 bootstrap unit"]
+    },
+    {
+      "id": "monte-carlo",
+      "name": "Monte Carlo Methods",
+      "aka": ["stochastic simulation"],
+      "intuition_gloss": "Answer a hard deterministic question by playing dice with it — simulate randomness many times and average what you see.",
+      "formal_gloss": "Numerical methods estimating quantities (integrals, expectations, probabilities) as sample averages of random simulations, with error O(1/√n) guaranteed by the law of large numbers and CLT.",
+      "level": 5,
+      "prereqs": ["law-of-large-numbers", "random-sampling", "algorithm"],
+      "cross_links": ["markov-chain", "integral", "bayesian-inference", "mathematical-model"],
+      "resources": [
+        {"title": "Wikipedia — Monte Carlo method", "url": "https://en.wikipedia.org/wiki/Monte_Carlo_method", "type": "text"},
+        {"title": "Random (Virtual Laboratories in Probability) — simulation apps", "url": "https://www.randomservices.org/random/", "type": "tool"}
+      ],
+      "sources": ["Metropolis & Ulam (historical origin)", "Robert & Casella, Monte Carlo Statistical Methods", "MIT OCW 18.05 simulation studios"]
+    },
+    {
+      "id": "stochastic-process",
+      "name": "Stochastic Process",
+      "aka": ["random process"],
+      "intuition_gloss": "Randomness unfolding in time — a whole movie of random values rather than a single random snapshot.",
+      "formal_gloss": "A collection of random variables {X_t} indexed by time (discrete or continuous) on a common probability space, characterized by its joint finite-dimensional distributions.",
+      "level": 5,
+      "prereqs": ["random-variable", "probability-distribution", "sequence"],
+      "cross_links": ["markov-chain", "brownian-motion", "poisson-process", "dynamics-differential-equations:dynamical-system"],
+      "resources": [
+        {"title": "Random (Virtual Laboratories in Probability)", "url": "https://www.randomservices.org/random/", "type": "tool"},
+        {"title": "Wikipedia — Stochastic process", "url": "https://en.wikipedia.org/wiki/Stochastic_process", "type": "text"}
+      ],
+      "sources": ["MSC 2020 60G (stochastic processes)", "Ross, Introduction to Probability Models", "Princeton Companion probability articles"]
+    },
+    {
+      "id": "markov-chain",
+      "name": "Markov Chain",
+      "aka": ["Markov process", "stationary distribution"],
+      "intuition_gloss": "A memoryless random walk between states: where you go next depends only on where you stand now, not how you got there.",
+      "formal_gloss": "A stochastic process with P(X_{n+1} = j | X_n = i, past) = P(X_{n+1} = j | X_n = i), encoded by a transition matrix whose long-run behavior is governed by its stationary distribution.",
+      "level": 5,
+      "prereqs": ["stochastic-process", "conditional-probability", "matrix"],
+      "cross_links": ["eigenvalue-eigenvector", "monte-carlo", "algorithm", "graph"],
+      "resources": [
+        {"title": "Setosa — Markov Chains, Explained Visually", "url": "https://setosa.io/ev/markov-chains/", "type": "tool"},
+        {"title": "Wikipedia — Markov chain", "url": "https://en.wikipedia.org/wiki/Markov_chain", "type": "text"}
+      ],
+      "sources": ["Norris, Markov Chains ch. 1", "Ross, Introduction to Probability Models ch. 4", "PageRank as canonical application (Brin & Page)"]
+    },
+    {
+      "id": "brownian-motion",
+      "name": "Brownian Motion",
+      "aka": ["Wiener process"],
+      "intuition_gloss": "The jittery path of a pollen grain kicked by invisible molecules — pure continuous randomness, the limiting shape of ever-finer random walks.",
+      "formal_gloss": "The continuous-time process with B₀ = 0, independent stationary Gaussian increments B_t - B_s ~ N(0, t-s), and continuous but nowhere-differentiable sample paths.",
+      "level": 7,
+      "prereqs": ["stochastic-process", "central-limit-theorem", "continuity", "probability-space"],
+      "cross_links": ["martingale", "differential-equation", "manifold"],
+      "resources": [
+        {"title": "Wikipedia — Wiener process", "url": "https://en.wikipedia.org/wiki/Wiener_process", "type": "text"},
+        {"title": "Random (Virtual Laboratories in Probability) — Brownian motion", "url": "https://www.randomservices.org/random/", "type": "tool"}
+      ],
+      "sources": ["Mörters & Peres, Brownian Motion ch. 1", "Einstein 1905 / Wiener 1923 (historical)", "MSC 2020 60J65"]
+    },
+    {
+      "id": "martingale",
+      "name": "Martingale",
+      "aka": ["fair game process", "conditional expectation"],
+      "intuition_gloss": "A fair game over time: given everything that's happened so far, your expected fortune tomorrow equals your fortune today.",
+      "formal_gloss": "A process {X_n} adapted to a filtration with E[|X_n|] < ∞ and E[X_{n+1} | F_n] = X_n; optional stopping and convergence theorems make it a central proof tool of modern probability.",
+      "level": 7,
+      "prereqs": ["stochastic-process", "expectation", "conditional-probability", "probability-space"],
+      "cross_links": ["brownian-motion", "law-of-large-numbers"],
+      "resources": [
+        {"title": "Wikipedia — Martingale (probability theory)", "url": "https://en.wikipedia.org/wiki/Martingale_(probability_theory)", "type": "text"}
+      ],
+      "sources": ["Williams, Probability with Martingales", "Durrett, Probability: Theory and Examples ch. 4", "MSC 2020 60G42/60G44"]
+    },
+    {
+      "id": "entropy",
+      "name": "Entropy & Information",
+      "aka": ["Shannon entropy", "information theory", "KL divergence"],
+      "intuition_gloss": "A measure of surprise: how many yes/no questions, on average, it takes to pin down the outcome of a random source.",
+      "formal_gloss": "H(X) = -Σ p(x) log p(x), the expected log-loss of a distribution; relative entropy (KL divergence) D(p‖q) measures the inefficiency of assuming q when the truth is p.",
+      "level": 5,
+      "prereqs": ["probability-distribution", "expectation"],
+      "cross_links": ["maximum-likelihood", "bayes-theorem", "applied-computational:machine-learning", "algorithm"],
+      "resources": [
+        {"title": "Chris Olah — Visual Information Theory", "url": "https://colah.github.io/posts/2015-09-Visual-Information/", "type": "text"},
+        {"title": "Wikipedia — Entropy (information theory)", "url": "https://en.wikipedia.org/wiki/Entropy_(information_theory)", "type": "text"}
+      ],
+      "sources": ["Shannon, A Mathematical Theory of Communication (1948)", "Cover & Thomas, Elements of Information Theory ch. 2", "MSC 2020 94A17"]
+    }
+  ]
+}

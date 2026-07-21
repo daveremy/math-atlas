@@ -1,0 +1,364 @@
+{
+  "concepts": [
+    {
+      "id": "set",
+      "name": "Set",
+      "territory": "foundations",
+      "intuition_gloss": "A bag of distinct things, where all that matters is what's in the bag.",
+      "formal_gloss": "A collection of distinct objects, itself treated as a single object, with membership as the primitive relation.",
+      "level": 1
+    },
+    {
+      "id": "function",
+      "name": "Function",
+      "territory": "foundations",
+      "intuition_gloss": "A machine that takes an input and reliably returns exactly one output.",
+      "formal_gloss": "A relation f from set A to set B assigning to each element of A exactly one element of B.",
+      "level": 1
+    },
+    {
+      "id": "equivalence-relation",
+      "name": "Equivalence Relation",
+      "territory": "foundations",
+      "intuition_gloss": "A principled way of saying two different things count as 'the same', which sorts everything into non-overlapping buckets.",
+      "formal_gloss": "A binary relation that is reflexive, symmetric, and transitive, partitioning its domain into equivalence classes.",
+      "level": 3
+    },
+    {
+      "id": "axiom",
+      "name": "Axiom & Axiomatic System",
+      "territory": "foundations",
+      "intuition_gloss": "The agreed starting rules of the game, from which everything else must be derived.",
+      "formal_gloss": "A statement accepted without proof within a formal system, from which theorems are derived by rules of inference.",
+      "level": 2
+    },
+    {
+      "id": "cardinality",
+      "name": "Cardinality",
+      "territory": "foundations",
+      "intuition_gloss": "The size of a set measured by pairing-up, revealing that some infinities are bigger than others.",
+      "formal_gloss": "The equivalence class of a set under bijection; two sets have equal cardinality iff a bijection exists between them.",
+      "level": 4
+    },
+    {
+      "id": "natural-numbers",
+      "name": "Natural Numbers (N)",
+      "territory": "number-theory",
+      "intuition_gloss": "The counting numbers 0, 1, 2, 3, ... — the raw material of arithmetic.",
+      "formal_gloss": "The smallest set containing 0 and closed under successor, as characterized by the Peano axioms.",
+      "level": 0
+    },
+    {
+      "id": "integers",
+      "name": "Integers (Z)",
+      "territory": "number-theory",
+      "intuition_gloss": "The whole numbers extended with negatives, so every subtraction has an answer.",
+      "formal_gloss": "The ring obtained from N by adjoining additive inverses; formally, equivalence classes of pairs of naturals under (a,b) ~ (c,d) iff a+d = b+c.",
+      "level": 1
+    },
+    {
+      "id": "rational-numbers",
+      "name": "Rational Numbers (Q)",
+      "territory": "number-theory",
+      "intuition_gloss": "All fractions — the numbers you can name with a ratio of two integers.",
+      "formal_gloss": "The field of fractions of Z: equivalence classes of integer pairs (p,q), q nonzero, under (p,q) ~ (r,s) iff ps = qr.",
+      "level": 1
+    },
+    {
+      "id": "prime-number",
+      "name": "Prime Number",
+      "territory": "number-theory",
+      "intuition_gloss": "The atoms of the integers — numbers that refuse to be broken into smaller factors.",
+      "formal_gloss": "An integer greater than 1 whose only positive divisors are 1 and itself; every integer greater than 1 factors uniquely into primes.",
+      "level": 1
+    },
+    {
+      "id": "modular-arithmetic",
+      "name": "Modular Arithmetic",
+      "territory": "number-theory",
+      "intuition_gloss": "Clock arithmetic — numbers wrap around after reaching a fixed modulus.",
+      "formal_gloss": "Arithmetic on the equivalence classes of integers under congruence mod n, forming the ring Z/nZ.",
+      "level": 3
+    },
+    {
+      "id": "complex-numbers",
+      "name": "Complex Numbers (C)",
+      "territory": "algebra",
+      "intuition_gloss": "Numbers living in a plane rather than on a line, where multiplication rotates and scales.",
+      "formal_gloss": "The algebraically closed field R[i] with i^2 = -1; pairs of reals with (a,b)(c,d) = (ac-bd, ad+bc).",
+      "level": 3
+    },
+    {
+      "id": "polynomial",
+      "name": "Polynomial",
+      "territory": "algebra",
+      "intuition_gloss": "An expression built from variables using only addition and multiplication — the simplest interesting functions.",
+      "formal_gloss": "A finite formal sum of terms c_k x^k with coefficients in a ring, forming the polynomial ring R[x].",
+      "level": 2
+    },
+    {
+      "id": "group",
+      "name": "Group",
+      "territory": "algebra",
+      "intuition_gloss": "The algebra of reversible actions — any collection of moves you can compose and undo.",
+      "formal_gloss": "A set with an associative binary operation, an identity element, and an inverse for every element.",
+      "level": 4
+    },
+    {
+      "id": "ring",
+      "name": "Ring",
+      "territory": "algebra",
+      "intuition_gloss": "A number-system-like world where you can add, subtract, and multiply, but maybe not divide.",
+      "formal_gloss": "An abelian group under addition equipped with an associative multiplication that distributes over addition.",
+      "level": 5
+    },
+    {
+      "id": "field",
+      "name": "Field",
+      "territory": "algebra",
+      "intuition_gloss": "A number system with all four operations working: add, subtract, multiply, and divide by anything nonzero.",
+      "formal_gloss": "A commutative ring in which every nonzero element has a multiplicative inverse.",
+      "level": 5
+    },
+    {
+      "id": "isomorphism",
+      "name": "Isomorphism",
+      "territory": "algebra",
+      "intuition_gloss": "A perfect relabeling showing two structures are the same thing wearing different costumes.",
+      "formal_gloss": "A structure-preserving bijection between two objects whose inverse also preserves structure.",
+      "level": 4
+    },
+    {
+      "id": "vector",
+      "name": "Vector",
+      "territory": "linear-algebra",
+      "intuition_gloss": "An arrow with length and direction — or equally, a list of numbers acting as one object.",
+      "formal_gloss": "An element of a vector space; concretely in R^n, an ordered n-tuple of real numbers.",
+      "level": 2
+    },
+    {
+      "id": "matrix",
+      "name": "Matrix",
+      "territory": "linear-algebra",
+      "intuition_gloss": "A grid of numbers that acts on vectors, encoding a linear transformation as data.",
+      "formal_gloss": "A rectangular array over a field with entrywise addition and row-by-column multiplication, representing a linear map in chosen bases.",
+      "level": 2
+    },
+    {
+      "id": "vector-space",
+      "name": "Vector Space",
+      "territory": "linear-algebra",
+      "intuition_gloss": "Any world where things can be added together and scaled, like arrows, polynomials, or signals.",
+      "formal_gloss": "An abelian group with a scalar multiplication by a field satisfying compatibility and distributivity axioms.",
+      "level": 4
+    },
+    {
+      "id": "linear-transformation",
+      "name": "Linear Transformation",
+      "territory": "linear-algebra",
+      "intuition_gloss": "A map that keeps grid lines parallel and evenly spaced — no bending, only stretching, rotating, shearing.",
+      "formal_gloss": "A map T between vector spaces with T(u+v) = T(u)+T(v) and T(cv) = cT(v).",
+      "level": 4
+    },
+    {
+      "id": "eigenvalue-eigenvector",
+      "name": "Eigenvalue & Eigenvector",
+      "territory": "linear-algebra",
+      "intuition_gloss": "The special directions a transformation merely stretches, and the stretch factors — its hidden skeleton.",
+      "formal_gloss": "A nonzero vector v and scalar λ with Tv = λv for a linear operator T.",
+      "level": 5
+    },
+    {
+      "id": "coordinate-system",
+      "name": "Coordinate System",
+      "territory": "geometry",
+      "intuition_gloss": "An addressing scheme that turns points in space into lists of numbers, marrying geometry to algebra.",
+      "formal_gloss": "A bijection between points of a space and tuples of numbers, e.g. Cartesian coordinates identifying the plane with R^2.",
+      "level": 1
+    },
+    {
+      "id": "symmetry",
+      "name": "Symmetry & Transformation",
+      "territory": "geometry",
+      "intuition_gloss": "A move you can make that leaves an object looking exactly as it was.",
+      "formal_gloss": "An invertible structure-preserving map from an object to itself; the symmetries of an object form a group.",
+      "level": 2
+    },
+    {
+      "id": "manifold",
+      "name": "Manifold",
+      "territory": "geometry",
+      "intuition_gloss": "A possibly-curved space that looks flat if you zoom in far enough, like the Earth's surface.",
+      "formal_gloss": "A topological space locally homeomorphic to R^n, usually with smooth transition maps between overlapping charts.",
+      "level": 7
+    },
+    {
+      "id": "metric-space",
+      "name": "Metric Space",
+      "territory": "topology",
+      "intuition_gloss": "Any world equipped with a sensible notion of distance between its points.",
+      "formal_gloss": "A set with a function d satisfying nonnegativity, identity of indiscernibles, symmetry, and the triangle inequality.",
+      "level": 5
+    },
+    {
+      "id": "topological-space",
+      "name": "Topological Space",
+      "territory": "topology",
+      "intuition_gloss": "A space where 'nearness' is defined without any ruler, by declaring which sets count as open neighborhoods.",
+      "formal_gloss": "A set with a collection of open subsets closed under arbitrary unions and finite intersections, containing the empty set and the whole space.",
+      "level": 6
+    },
+    {
+      "id": "real-numbers",
+      "name": "Real Numbers (R)",
+      "territory": "analysis",
+      "intuition_gloss": "The complete number line with no gaps — every point you can approach is actually there.",
+      "formal_gloss": "The unique complete ordered field; constructed as Dedekind cuts or equivalence classes of Cauchy sequences of rationals.",
+      "level": 2
+    },
+    {
+      "id": "sequence",
+      "name": "Sequence",
+      "territory": "analysis",
+      "intuition_gloss": "An infinite ordered list of numbers, often marching toward a destination.",
+      "formal_gloss": "A function from N to a set, written (a_n); the basic carrier of limiting processes.",
+      "level": 2
+    },
+    {
+      "id": "limit",
+      "name": "Limit",
+      "territory": "analysis",
+      "intuition_gloss": "The value a process homes in on — as close as you like, if you go far enough.",
+      "formal_gloss": "L is the limit of a_n if for every ε > 0 there exists N such that |a_n - L| < ε for all n > N.",
+      "level": 3
+    },
+    {
+      "id": "continuity",
+      "name": "Continuity",
+      "territory": "analysis",
+      "intuition_gloss": "A function you can draw without lifting your pen — small input nudges cause only small output nudges.",
+      "formal_gloss": "f is continuous at a if for every ε > 0 there is δ > 0 with |f(x) - f(a)| < ε whenever |x - a| < δ; topologically, preimages of open sets are open.",
+      "level": 3
+    },
+    {
+      "id": "derivative",
+      "name": "Derivative",
+      "territory": "analysis",
+      "intuition_gloss": "The instantaneous rate of change — the slope of the best straight-line stand-in at a point.",
+      "formal_gloss": "f'(a) = lim as h→0 of (f(a+h) - f(a))/h, when the limit exists; the linear map best approximating f near a.",
+      "level": 3
+    },
+    {
+      "id": "integral",
+      "name": "Integral",
+      "territory": "analysis",
+      "intuition_gloss": "Total accumulation — the area under a curve, built by summing infinitely many infinitesimal slivers.",
+      "formal_gloss": "The limit of Riemann sums of f over ever-finer partitions of [a,b]; the antiderivative evaluated at the endpoints, by the fundamental theorem of calculus.",
+      "level": 3
+    },
+    {
+      "id": "differential-equation",
+      "name": "Differential Equation",
+      "territory": "dynamics-differential-equations",
+      "intuition_gloss": "A rule stating how something changes from moment to moment; solving it reveals the whole trajectory.",
+      "formal_gloss": "An equation relating an unknown function to its derivatives; a solution is a function satisfying it on a domain.",
+      "level": 4
+    },
+    {
+      "id": "probability-space",
+      "name": "Probability Space",
+      "territory": "probability-statistics",
+      "intuition_gloss": "The complete universe of possible outcomes of an experiment, with a weight assigned to every event.",
+      "formal_gloss": "A triple (Ω, F, P) of a sample space, a σ-algebra of events, and a measure P with P(Ω) = 1.",
+      "level": 5
+    },
+    {
+      "id": "random-variable",
+      "name": "Random Variable",
+      "territory": "probability-statistics",
+      "intuition_gloss": "A number whose value is decided by chance, like the sum showing on two dice.",
+      "formal_gloss": "A measurable function from a probability space to the reals, inducing a distribution on R.",
+      "level": 4
+    },
+    {
+      "id": "expectation",
+      "name": "Expectation",
+      "territory": "probability-statistics",
+      "intuition_gloss": "The long-run average value of a random quantity over many repetitions.",
+      "formal_gloss": "E[X] = integral of X with respect to the probability measure; for discrete X, the probability-weighted sum of its values.",
+      "level": 4
+    },
+    {
+      "id": "statistical-inference",
+      "name": "Statistical Inference",
+      "territory": "probability-statistics",
+      "intuition_gloss": "Reasoning backwards from a sample you saw to the process that produced it, with honest error bars.",
+      "formal_gloss": "The framework of estimating parameters and testing hypotheses about a distribution from observed data, with quantified uncertainty.",
+      "level": 4
+    },
+    {
+      "id": "counting-principles",
+      "name": "Counting Principles",
+      "territory": "discrete-combinatorics",
+      "intuition_gloss": "Systematic ways to count arrangements without listing them — multiply choices, then correct for overcounting.",
+      "formal_gloss": "The product and sum rules with permutations n!/(n-k)! and combinations n-choose-k as canonical consequences.",
+      "level": 1
+    },
+    {
+      "id": "graph",
+      "name": "Graph",
+      "territory": "discrete-combinatorics",
+      "intuition_gloss": "Dots joined by lines — the universal picture of any network of relationships.",
+      "formal_gloss": "A pair (V, E) of a vertex set and a set of edges, each edge an unordered (or ordered) pair of vertices.",
+      "level": 2
+    },
+    {
+      "id": "algorithm",
+      "name": "Algorithm",
+      "territory": "applied-computational",
+      "intuition_gloss": "A recipe precise enough that a machine can follow it — finitely many steps, guaranteed to finish.",
+      "formal_gloss": "A finite, effective procedure for computing a function, formalizable as a Turing machine.",
+      "level": 2
+    },
+    {
+      "id": "optimization",
+      "name": "Optimization",
+      "territory": "applied-computational",
+      "intuition_gloss": "Finding the best option — the highest peak or lowest valley — subject to the constraints you must respect.",
+      "formal_gloss": "The problem of finding x in a feasible set minimizing (or maximizing) an objective function f(x).",
+      "level": 4
+    },
+    {
+      "id": "mathematical-model",
+      "name": "Mathematical Model",
+      "territory": "applied-computational",
+      "intuition_gloss": "A deliberately simplified mathematical portrait of a real system, built to predict or explain.",
+      "formal_gloss": "A formal structure (equations, graphs, probability distributions) whose variables and relations are mapped to features of a real-world system.",
+      "level": 3
+    },
+    {
+      "id": "proof",
+      "name": "Proof",
+      "territory": "mathematical-practice",
+      "intuition_gloss": "An airtight chain of reasoning that forces agreement — each link checkable by anyone.",
+      "formal_gloss": "A finite sequence of statements, each an axiom, hypothesis, or consequence of earlier statements by valid inference, ending at the theorem.",
+      "level": 2
+    },
+    {
+      "id": "induction",
+      "name": "Mathematical Induction",
+      "territory": "mathematical-practice",
+      "intuition_gloss": "The domino argument: knock over the first, show each knocks over the next, and infinitely many fall.",
+      "formal_gloss": "If P(0) holds and P(n) implies P(n+1) for all n, then P(n) holds for every natural number n.",
+      "level": 3
+    },
+    {
+      "id": "proof-by-contradiction",
+      "name": "Proof by Contradiction",
+      "territory": "mathematical-practice",
+      "intuition_gloss": "Assume the opposite of what you want, follow the logic until the world breaks, and conclude you were right.",
+      "formal_gloss": "To prove P, derive a contradiction from ¬P; since ¬P leads to absurdity, P holds.",
+      "level": 3
+    }
+  ]
+}

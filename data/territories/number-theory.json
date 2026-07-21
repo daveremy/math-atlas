@@ -1,0 +1,657 @@
+{
+  "territory": "number-theory",
+  "concepts": [
+    {
+      "id": "divisibility",
+      "name": "Divisibility",
+      "aka": ["divides relation", "factors and multiples"],
+      "intuition_gloss": "One number fits into another a whole number of times, with nothing left over.",
+      "formal_gloss": "For integers a and b, a divides b (written a | b) iff there exists an integer k with b = ak; divisibility is a partial order on the positive integers.",
+      "level": 1,
+      "prereqs": ["integers"],
+      "cross_links": ["prime-number", "greatest-common-divisor"],
+      "resources": [
+        {
+          "title": "Divisibility — Wikipedia (Divisor)",
+          "url": "https://en.wikipedia.org/wiki/Divisor",
+          "type": "text"
+        },
+        {
+          "title": "Burton, Elementary Number Theory, ch. 2",
+          "url": "https://en.wikipedia.org/wiki/David_M._Burton",
+          "type": "text"
+        }
+      ],
+      "sources": ["Burton Elementary Number Theory ch. 2", "standard elementary NT syllabi (first topic)", "MSC 11A"]
+    },
+    {
+      "id": "division-algorithm",
+      "name": "Division Algorithm",
+      "aka": ["quotient-remainder theorem", "Euclidean division"],
+      "intuition_gloss": "Any division of whole numbers leaves a unique quotient and a remainder strictly smaller than the divisor.",
+      "formal_gloss": "For integers a and b with b > 0, there exist unique integers q and r with a = bq + r and 0 <= r < b.",
+      "level": 1,
+      "prereqs": ["integers", "divisibility"],
+      "cross_links": ["euclidean-algorithm", "modular-arithmetic"],
+      "resources": [
+        {
+          "title": "Euclidean division — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Euclidean_division",
+          "type": "text"
+        }
+      ],
+      "sources": ["Hardy & Wright ch. 1", "Burton ch. 2", "grounds both the Euclidean algorithm and congruence — high leverage"]
+    },
+    {
+      "id": "greatest-common-divisor",
+      "name": "Greatest Common Divisor & LCM",
+      "aka": ["gcd", "highest common factor", "lcm"],
+      "intuition_gloss": "The largest number that fits evenly into two given numbers — and its mirror, the smallest number both fit into.",
+      "formal_gloss": "gcd(a,b) is the largest positive integer dividing both a and b; lcm(a,b) is the smallest positive common multiple, with gcd(a,b) * lcm(a,b) = |ab|.",
+      "level": 1,
+      "prereqs": ["divisibility"],
+      "cross_links": ["euclidean-algorithm", "bezout-identity", "rational-numbers"],
+      "resources": [
+        {
+          "title": "Greatest common divisor — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Greatest_common_divisor",
+          "type": "text"
+        },
+        {
+          "title": "Khan Academy: GCF and LCM",
+          "url": "https://www.khanacademy.org/math/cc-sixth-grade-math/cc-6th-factors-and-multiples",
+          "type": "video"
+        }
+      ],
+      "sources": ["Burton ch. 2", "Khan Academy knowledge map (grade 6 factors/multiples)", "MSC 11A05"]
+    },
+    {
+      "id": "euclidean-algorithm",
+      "name": "Euclidean Algorithm",
+      "aka": [],
+      "intuition_gloss": "Repeatedly divide and keep the remainder, and the last nonzero remainder is the gcd — one of the oldest algorithms still in daily use.",
+      "formal_gloss": "The iteration gcd(a,b) = gcd(b, a mod b) terminating at gcd(a,0) = a, computing the gcd in O(log min(a,b)) division steps.",
+      "level": 2,
+      "prereqs": ["division-algorithm", "greatest-common-divisor"],
+      "cross_links": ["algorithm", "bezout-identity", "continued-fractions"],
+      "resources": [
+        {
+          "title": "Euclidean algorithm — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Euclidean_algorithm",
+          "type": "text"
+        },
+        {
+          "title": "Khan Academy: The Euclidean algorithm",
+          "url": "https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/the-euclidean-algorithm",
+          "type": "text"
+        }
+      ],
+      "sources": ["Euclid Elements VII", "Burton ch. 2", "CLRS §31 (computational placement)"]
+    },
+    {
+      "id": "bezout-identity",
+      "name": "Bézout's Identity",
+      "aka": ["extended Euclidean algorithm", "linear Diophantine equations"],
+      "intuition_gloss": "The gcd of two numbers can always be built by adding and subtracting whole-number multiples of them.",
+      "formal_gloss": "For integers a and b, there exist integers x and y with ax + by = gcd(a,b); ax + by = c is solvable iff gcd(a,b) divides c.",
+      "level": 3,
+      "prereqs": ["euclidean-algorithm"],
+      "cross_links": ["chinese-remainder-theorem", "diophantine-equation", "algebra:ideal"],
+      "resources": [
+        {
+          "title": "Bézout's identity — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/B%C3%A9zout%27s_identity",
+          "type": "text"
+        }
+      ],
+      "sources": ["Burton ch. 2", "key lemma for FTA and modular inverses — high leverage in mathlib dependency structure"]
+    },
+    {
+      "id": "fundamental-theorem-of-arithmetic",
+      "name": "Fundamental Theorem of Arithmetic",
+      "aka": ["unique prime factorization"],
+      "intuition_gloss": "Every whole number is built from primes in exactly one way, like a chemical compound from its elements.",
+      "formal_gloss": "Every integer greater than 1 is a product of primes, and this factorization is unique up to the order of the factors.",
+      "level": 2,
+      "prereqs": ["prime-number", "divisibility", "bezout-identity", "induction"],
+      "cross_links": ["arithmetic-functions", "algebraic-number-field", "algebra:unique-factorization-domain"],
+      "resources": [
+        {
+          "title": "Fundamental theorem of arithmetic — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Fundamental_theorem_of_arithmetic",
+          "type": "text"
+        },
+        {
+          "title": "Hardy & Wright, An Introduction to the Theory of Numbers, ch. 1-2",
+          "url": "https://en.wikipedia.org/wiki/An_Introduction_to_the_Theory_of_Numbers",
+          "type": "text"
+        }
+      ],
+      "sources": ["Hardy & Wright ch. 1-2", "Princeton Companion (arithmetic foundations)", "its failure in general rings motivates algebraic number theory"]
+    },
+    {
+      "id": "sieve-of-eratosthenes",
+      "name": "Sieve of Eratosthenes",
+      "aka": ["sieve methods (entry point)"],
+      "intuition_gloss": "Cross out every multiple of each prime in turn, and the numbers left standing are the primes.",
+      "formal_gloss": "An algorithm listing all primes up to N by iteratively marking multiples of each prime p <= sqrt(N), in O(N log log N) operations; the prototype for analytic sieve methods.",
+      "level": 1,
+      "prereqs": ["prime-number", "divisibility"],
+      "cross_links": ["algorithm", "prime-distribution", "primality-testing"],
+      "resources": [
+        {
+          "title": "Sieve of Eratosthenes — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes",
+          "type": "text"
+        },
+        {
+          "title": "OEIS A000040 — the prime numbers",
+          "url": "https://oeis.org/A000040",
+          "type": "tool"
+        }
+      ],
+      "sources": ["standard school/olympiad curricula", "gateway to sieve theory (Princeton Companion IV.2 Analytic Number Theory)"]
+    },
+    {
+      "id": "fermats-little-theorem",
+      "name": "Fermat's Little Theorem",
+      "aka": [],
+      "intuition_gloss": "Raise any number to a prime power on a clock with a prime number of hours, and it cycles back to where it started.",
+      "formal_gloss": "If p is prime and p does not divide a, then a^(p-1) ≡ 1 (mod p); equivalently a^p ≡ a (mod p) for all integers a.",
+      "level": 3,
+      "prereqs": ["modular-arithmetic", "prime-number"],
+      "cross_links": ["eulers-totient-function", "primality-testing", "group"],
+      "resources": [
+        {
+          "title": "Fermat's little theorem — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Fermat%27s_little_theorem",
+          "type": "text"
+        },
+        {
+          "title": "Silverman, A Friendly Introduction to Number Theory (free chapters)",
+          "url": "https://www.math.brown.edu/johsilve/frint.html",
+          "type": "text"
+        }
+      ],
+      "sources": ["Silverman Friendly Introduction ch. 9", "Burton ch. 5", "special case of Lagrange's theorem — bridge to group theory"]
+    },
+    {
+      "id": "eulers-totient-function",
+      "name": "Euler's Totient & Euler's Theorem",
+      "aka": ["phi function", "Euler's phi"],
+      "intuition_gloss": "Count how many numbers below n share no factor with n — that count controls how powers cycle on the mod-n clock.",
+      "formal_gloss": "φ(n) = |{1 <= k <= n : gcd(k,n) = 1}| = |(Z/nZ)*|; Euler's theorem states a^φ(n) ≡ 1 (mod n) whenever gcd(a,n) = 1.",
+      "level": 4,
+      "prereqs": ["fermats-little-theorem", "greatest-common-divisor", "modular-arithmetic"],
+      "cross_links": ["rsa-cryptosystem", "arithmetic-functions", "group"],
+      "resources": [
+        {
+          "title": "Euler's totient function — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Euler%27s_totient_function",
+          "type": "text"
+        },
+        {
+          "title": "Khan Academy: Euler's totient function",
+          "url": "https://www.khanacademy.org/computing/computer-science/cryptography/modern-crypt/v/euler-s-totient-function-phi-function",
+          "type": "video"
+        }
+      ],
+      "sources": ["Burton ch. 7", "Hardy & Wright ch. 5", "load-bearing for RSA and for arithmetic-function theory"]
+    },
+    {
+      "id": "chinese-remainder-theorem",
+      "name": "Chinese Remainder Theorem",
+      "aka": ["CRT"],
+      "intuition_gloss": "If clocks of coprime sizes each show a chosen time, exactly one number on the combined mega-clock matches them all.",
+      "formal_gloss": "For pairwise coprime moduli n1..nk, the ring Z/(n1...nk)Z is isomorphic to the product of the rings Z/niZ, so any system x ≡ ai (mod ni) has a unique solution mod the product.",
+      "level": 4,
+      "prereqs": ["modular-arithmetic", "bezout-identity"],
+      "cross_links": ["ring", "isomorphism", "rsa-cryptosystem"],
+      "resources": [
+        {
+          "title": "Chinese remainder theorem — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Chinese_remainder_theorem",
+          "type": "text"
+        }
+      ],
+      "sources": ["Sunzi Suanjing (historical)", "Burton ch. 4", "undergrad NT and abstract algebra syllabi (ring-product form)"]
+    },
+    {
+      "id": "multiplicative-order",
+      "name": "Multiplicative Order & Primitive Roots",
+      "aka": ["primitive root modulo n", "discrete logarithm (setting)"],
+      "intuition_gloss": "Keep multiplying a number by itself on the mod-n clock and watch how long before it first returns to 1 — some special numbers take the longest possible tour.",
+      "formal_gloss": "The order of a modulo n is the least k >= 1 with a^k ≡ 1 (mod n); a primitive root is an element of order φ(n), i.e., a generator of the cyclic group (Z/nZ)*.",
+      "level": 4,
+      "prereqs": ["eulers-totient-function", "modular-arithmetic"],
+      "cross_links": ["group", "rsa-cryptosystem", "quadratic-reciprocity"],
+      "resources": [
+        {
+          "title": "Primitive root modulo n — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Primitive_root_modulo_n",
+          "type": "text"
+        }
+      ],
+      "sources": ["Burton ch. 8", "Ireland & Rosen ch. 4", "underlies Diffie-Hellman and the discrete-log problem"]
+    },
+    {
+      "id": "quadratic-reciprocity",
+      "name": "Quadratic Residues & Reciprocity",
+      "aka": ["Legendre symbol", "law of quadratic reciprocity"],
+      "intuition_gloss": "Whether p is a perfect square on q's clock and whether q is one on p's clock turn out to be secretly linked — Gauss's 'golden theorem'.",
+      "formal_gloss": "For odd primes p and q, the Legendre symbols satisfy (p/q)(q/p) = (-1)^((p-1)/2 * (q-1)/2), governing solvability of x^2 ≡ a (mod p).",
+      "level": 5,
+      "prereqs": ["modular-arithmetic", "fermats-little-theorem", "multiplicative-order"],
+      "cross_links": ["algebraic-number-field", "modular-forms"],
+      "resources": [
+        {
+          "title": "Quadratic reciprocity — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Quadratic_reciprocity",
+          "type": "text"
+        },
+        {
+          "title": "Ireland & Rosen, A Classical Introduction to Modern Number Theory, ch. 5",
+          "url": "https://en.wikipedia.org/wiki/A_Classical_Introduction_to_Modern_Number_Theory",
+          "type": "text"
+        }
+      ],
+      "sources": ["Gauss Disquisitiones Arithmeticae", "Ireland & Rosen ch. 5", "Princeton Companion — first step toward class field theory and Langlands"]
+    },
+    {
+      "id": "arithmetic-functions",
+      "name": "Arithmetic Functions & Möbius Inversion",
+      "aka": ["multiplicative functions", "Möbius function", "Dirichlet convolution"],
+      "intuition_gloss": "Functions defined on the whole numbers — like 'count the divisors' or 'sum them' — that inherit the primes' multiplication structure and can be un-summed by a clever inversion.",
+      "formal_gloss": "Functions f: N → C, with the multiplicative ones determined by prime-power values; under Dirichlet convolution they form a ring in which Möbius inversion recovers f from g(n) = Σ_{d|n} f(d).",
+      "level": 5,
+      "prereqs": ["fundamental-theorem-of-arithmetic", "eulers-totient-function", "function"],
+      "cross_links": ["riemann-zeta-function", "discrete-combinatorics:inclusion-exclusion"],
+      "resources": [
+        {
+          "title": "Arithmetic function — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Arithmetic_function",
+          "type": "text"
+        },
+        {
+          "title": "Apostol, Introduction to Analytic Number Theory, ch. 2",
+          "url": "https://en.wikipedia.org/wiki/Introduction_to_Analytic_Number_Theory",
+          "type": "text"
+        }
+      ],
+      "sources": ["Apostol ch. 2", "Hardy & Wright ch. 16-17", "the algebraic front end of analytic number theory"]
+    },
+    {
+      "id": "diophantine-equation",
+      "name": "Diophantine Equations",
+      "aka": ["integer solutions of polynomial equations"],
+      "intuition_gloss": "Equations where only whole-number answers count — a tiny change of rules that turns easy algebra into some of the hardest problems ever posed.",
+      "formal_gloss": "Polynomial equations over Z whose integer (or rational) solutions are sought; Hilbert's tenth problem — a general decision algorithm — is unsolvable (Matiyasevich, 1970).",
+      "level": 3,
+      "prereqs": ["integers", "polynomial", "divisibility"],
+      "cross_links": ["pythagorean-triples", "pell-equation", "fermats-last-theorem", "elliptic-curve", "foundations:computability"],
+      "resources": [
+        {
+          "title": "Diophantine equation — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Diophantine_equation",
+          "type": "text"
+        }
+      ],
+      "sources": ["Diophantus Arithmetica (historical)", "Princeton Companion — arithmetic geometry framing", "MSC 11D"]
+    },
+    {
+      "id": "pythagorean-triples",
+      "name": "Pythagorean Triples",
+      "aka": [],
+      "intuition_gloss": "Whole-number right triangles like 3-4-5 — and a complete recipe that generates every one of them.",
+      "formal_gloss": "Integer solutions of a^2 + b^2 = c^2; every primitive triple is (m^2 - n^2, 2mn, m^2 + n^2) for coprime m > n of opposite parity.",
+      "level": 2,
+      "prereqs": ["diophantine-equation", "greatest-common-divisor"],
+      "cross_links": ["geometry:pythagorean-theorem", "fermats-last-theorem", "gaussian-integers"],
+      "resources": [
+        {
+          "title": "Pythagorean triple — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Pythagorean_triple",
+          "type": "text"
+        },
+        {
+          "title": "Silverman, A Friendly Introduction to Number Theory, ch. 2-3 (free)",
+          "url": "https://www.math.brown.edu/johsilve/frint.html",
+          "type": "text"
+        }
+      ],
+      "sources": ["Silverman ch. 2-3 (his opening example)", "Plimpton 322 (historical)", "the prototype of a completely solved Diophantine problem"]
+    },
+    {
+      "id": "pell-equation",
+      "name": "Pell's Equation",
+      "aka": ["Pell-Fermat equation"],
+      "intuition_gloss": "Hunting whole-number points on the hyperbola x² − D·y² = 1 — the solutions form an endless ladder generated by a single fundamental step.",
+      "formal_gloss": "The equation x^2 - Dy^2 = 1 for nonsquare D, whose solutions form an infinite cyclic group generated by the fundamental solution, found via the continued fraction of sqrt(D).",
+      "level": 5,
+      "prereqs": ["diophantine-equation", "continued-fractions"],
+      "cross_links": ["algebraic-number-field", "irrationality-transcendence"],
+      "resources": [
+        {
+          "title": "Pell's equation — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Pell%27s_equation",
+          "type": "text"
+        }
+      ],
+      "sources": ["Hardy & Wright ch. 10-14", "units of real quadratic fields — bridge to Dirichlet's unit theorem"]
+    },
+    {
+      "id": "continued-fractions",
+      "name": "Continued Fractions",
+      "aka": [],
+      "intuition_gloss": "Write a number as a nested staircase of fractions, and each landing is the best possible fraction approximation so far.",
+      "formal_gloss": "Expressions a0 + 1/(a1 + 1/(a2 + ...)); the convergents p_n/q_n give best rational approximations, and the expansion is eventually periodic iff the number is a quadratic irrational.",
+      "level": 4,
+      "prereqs": ["euclidean-algorithm", "rational-numbers", "sequence"],
+      "cross_links": ["pell-equation", "irrationality-transcendence", "limit", "dynamics-differential-equations:ergodic-theory"],
+      "resources": [
+        {
+          "title": "Continued fraction — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Continued_fraction",
+          "type": "text"
+        },
+        {
+          "title": "Khinchin, Continued Fractions",
+          "url": "https://en.wikipedia.org/wiki/Aleksandr_Khinchin",
+          "type": "text"
+        }
+      ],
+      "sources": ["Hardy & Wright ch. 10", "Khinchin's classic monograph", "core of Diophantine approximation (MSC 11J)"]
+    },
+    {
+      "id": "irrationality-transcendence",
+      "name": "Irrationality & Transcendence",
+      "aka": ["irrational numbers", "transcendental numbers"],
+      "intuition_gloss": "Some numbers, like √2, can never be written as fractions — and some, like π and e, can't even be captured by any polynomial equation.",
+      "formal_gloss": "A real number is irrational if it lies outside Q, and transcendental if it is a root of no nonzero polynomial with rational coefficients; algebraic numbers are countable, so almost all reals are transcendental.",
+      "level": 4,
+      "prereqs": ["rational-numbers", "real-numbers", "proof-by-contradiction", "polynomial"],
+      "cross_links": ["cardinality", "continued-fractions", "algebraic-number-field"],
+      "resources": [
+        {
+          "title": "Transcendental number — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Transcendental_number",
+          "type": "text"
+        },
+        {
+          "title": "Square root of 2 is irrational — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Square_root_of_2",
+          "type": "text"
+        }
+      ],
+      "sources": ["Hardy & Wright ch. 4 & 11", "the √2 proof is the canonical first contradiction proof", "MSC 11J81"]
+    },
+    {
+      "id": "fermats-last-theorem",
+      "name": "Fermat's Last Theorem",
+      "aka": ["FLT", "Wiles' theorem"],
+      "intuition_gloss": "No cube splits into two cubes, and likewise for every higher power — a margin note that took 358 years and a whole new bridge of mathematics to prove.",
+      "formal_gloss": "For n >= 3, x^n + y^n = z^n has no positive integer solutions; proved by Wiles (1995) via the modularity of semistable elliptic curves.",
+      "level": 5,
+      "prereqs": ["diophantine-equation", "pythagorean-triples"],
+      "cross_links": ["elliptic-curve", "modular-forms", "algebraic-number-field"],
+      "resources": [
+        {
+          "title": "Fermat's Last Theorem — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Fermat%27s_Last_Theorem",
+          "type": "text"
+        },
+        {
+          "title": "BBC Horizon: Fermat's Last Theorem (Simon Singh documentary)",
+          "url": "https://en.wikipedia.org/wiki/Fermat%27s_Last_Theorem_(book)",
+          "type": "video"
+        }
+      ],
+      "sources": ["Wiles 1995 Annals paper (historical anchor)", "Princeton Companion V — theorem as landmark", "statement is elementary; placement reflects its role connecting territories"]
+    },
+    {
+      "id": "prime-distribution",
+      "name": "Distribution of Primes",
+      "aka": ["prime number theorem", "prime counting function", "Dirichlet's theorem"],
+      "intuition_gloss": "Primes look random up close but obey a smooth global law — near N, roughly one number in every ln(N) is prime.",
+      "formal_gloss": "π(x) ~ x/ln(x) (the prime number theorem, Hadamard & de la Vallée Poussin 1896); Dirichlet's theorem gives infinitely many primes in every arithmetic progression a mod n with gcd(a,n) = 1.",
+      "level": 5,
+      "prereqs": ["prime-number", "sieve-of-eratosthenes", "limit"],
+      "cross_links": ["riemann-zeta-function", "arithmetic-functions", "probability-statistics:probabilistic-heuristics"],
+      "resources": [
+        {
+          "title": "Prime number theorem — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Prime_number_theorem",
+          "type": "text"
+        },
+        {
+          "title": "The Prime Pages (t5k.org)",
+          "url": "https://t5k.org/",
+          "type": "tool"
+        }
+      ],
+      "sources": ["Princeton Companion IV.2 Analytic Number Theory", "Apostol ch. 4", "Euclid's infinitude proof is the level-2 on-ramp; PNT sets the level"]
+    },
+    {
+      "id": "riemann-zeta-function",
+      "name": "Riemann Zeta Function & the Riemann Hypothesis",
+      "aka": ["zeta function", "RH", "Euler product"],
+      "intuition_gloss": "A single smooth function whose hidden zeros conduct the rhythm of the primes — and the million-dollar conjecture that they all line up on one vertical line.",
+      "formal_gloss": "ζ(s) = Σ n^(-s) = Π_p (1 - p^(-s))^(-1) for Re(s) > 1, continued analytically to C \\ {1}; the Riemann hypothesis asserts all nontrivial zeros have real part 1/2.",
+      "level": 7,
+      "prereqs": ["prime-distribution", "arithmetic-functions", "analysis:complex-analysis", "analysis:infinite-series"],
+      "cross_links": ["complex-numbers", "probability-statistics:random-matrix-theory", "modular-forms"],
+      "resources": [
+        {
+          "title": "3Blue1Brown: Visualizing the Riemann zeta function and analytic continuation",
+          "url": "https://www.youtube.com/watch?v=sD0NjbwqlYw",
+          "type": "video"
+        },
+        {
+          "title": "Riemann hypothesis — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Riemann_hypothesis",
+          "type": "text"
+        },
+        {
+          "title": "LMFDB — L-functions and Modular Forms Database",
+          "url": "https://www.lmfdb.org/",
+          "type": "tool"
+        }
+      ],
+      "sources": ["Riemann 1859 memoir", "Princeton Companion IV.2 & V (RH as open problem)", "Clay Millennium Problem listing"]
+    },
+    {
+      "id": "primality-testing",
+      "name": "Primality Testing",
+      "aka": ["Miller-Rabin", "AKS", "pseudoprimes"],
+      "intuition_gloss": "Deciding whether a huge number is prime without trying to factor it — fast randomized tests make 600-digit verdicts routine.",
+      "formal_gloss": "Algorithms deciding primality: Fermat/Miller-Rabin probabilistic tests based on a^(n-1) mod n, and the deterministic polynomial-time AKS algorithm (2002) placing PRIMES in P.",
+      "level": 4,
+      "prereqs": ["fermats-little-theorem", "modular-arithmetic", "algorithm"],
+      "cross_links": ["integer-factorization", "rsa-cryptosystem", "applied-computational:computational-complexity"],
+      "resources": [
+        {
+          "title": "Miller-Rabin primality test — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test",
+          "type": "text"
+        },
+        {
+          "title": "The Prime Pages: primality proving",
+          "url": "https://t5k.org/prove/",
+          "type": "tool"
+        }
+      ],
+      "sources": ["CLRS §31.8", "Crandall & Pomerance, Prime Numbers: A Computational Perspective", "AKS 2002 'PRIMES is in P'"]
+    },
+    {
+      "id": "integer-factorization",
+      "name": "Integer Factorization Problem",
+      "aka": ["factoring", "RSA problem (related)"],
+      "intuition_gloss": "Multiplying two big primes is instant; recovering them from the product seems to need astronomical time — an asymmetry the digital world leans on.",
+      "formal_gloss": "The problem of computing the prime factorization of n; best known classical algorithms (general number field sieve) are subexponential, while Shor's quantum algorithm factors in polynomial time.",
+      "level": 4,
+      "prereqs": ["fundamental-theorem-of-arithmetic", "primality-testing"],
+      "cross_links": ["rsa-cryptosystem", "applied-computational:computational-complexity", "applied-computational:quantum-computing"],
+      "resources": [
+        {
+          "title": "Integer factorization — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Integer_factorization",
+          "type": "text"
+        }
+      ],
+      "sources": ["Crandall & Pomerance", "cryptographic hardness assumption framing (Katz & Lindell)", "MSC 11Y05"]
+    },
+    {
+      "id": "rsa-cryptosystem",
+      "name": "RSA & Number-Theoretic Cryptography",
+      "aka": ["public-key cryptography (number-theoretic)", "Diffie-Hellman"],
+      "intuition_gloss": "Euler's 250-year-old clock theorem, run in reverse with a secret key, lets strangers exchange locked messages over open channels.",
+      "formal_gloss": "RSA encrypts by c = m^e mod n for n = pq and decrypts by m = c^d mod n where ed ≡ 1 (mod φ(n)); security rests on the hardness of factoring n, and Diffie-Hellman analogously on discrete logarithms.",
+      "level": 4,
+      "prereqs": ["eulers-totient-function", "chinese-remainder-theorem", "integer-factorization"],
+      "cross_links": ["multiplicative-order", "elliptic-curve", "applied-computational:cryptography"],
+      "resources": [
+        {
+          "title": "Khan Academy: Cryptography (Journey into cryptography)",
+          "url": "https://www.khanacademy.org/computing/computer-science/cryptography",
+          "type": "video"
+        },
+        {
+          "title": "RSA (cryptosystem) — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/RSA_(cryptosystem)",
+          "type": "text"
+        }
+      ],
+      "sources": ["Rivest-Shamir-Adleman 1978", "the standard 'why number theory matters' payoff in modern curricula", "MSC 11T71/94A60"]
+    },
+    {
+      "id": "gaussian-integers",
+      "name": "Gaussian Integers",
+      "aka": ["Z[i]"],
+      "intuition_gloss": "Whole numbers spread out on a grid in the complex plane, where 5 stops being prime because it splits as (2+i)(2−i).",
+      "formal_gloss": "The ring Z[i] = {a + bi : a,b in Z}, a Euclidean domain with unique factorization; an odd prime p splits in Z[i] iff p ≡ 1 (mod 4), yielding Fermat's two-squares theorem.",
+      "level": 5,
+      "prereqs": ["complex-numbers", "fundamental-theorem-of-arithmetic", "ring"],
+      "cross_links": ["algebraic-number-field", "pythagorean-triples", "quadratic-reciprocity"],
+      "resources": [
+        {
+          "title": "Gaussian integer — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Gaussian_integer",
+          "type": "text"
+        },
+        {
+          "title": "Ireland & Rosen, ch. 1 (unique factorization in Z[i])",
+          "url": "https://en.wikipedia.org/wiki/A_Classical_Introduction_to_Modern_Number_Theory",
+          "type": "text"
+        }
+      ],
+      "sources": ["Gauss (biquadratic reciprocity work)", "Ireland & Rosen ch. 1", "the canonical first example of extending arithmetic beyond Z"]
+    },
+    {
+      "id": "algebraic-number-field",
+      "name": "Algebraic Number Fields & Ideal Factorization",
+      "aka": ["algebraic number theory", "ring of integers", "class number"],
+      "intuition_gloss": "Enlarge the whole numbers with roots of polynomials; unique factorization can break, but it is rescued by factoring 'ideal' numbers instead.",
+      "formal_gloss": "A number field is a finite extension K/Q with ring of integers O_K, a Dedekind domain in which every nonzero ideal factors uniquely into prime ideals; the class group measures the failure of unique element factorization.",
+      "level": 7,
+      "prereqs": ["gaussian-integers", "field", "ring", "algebra:field-extension", "algebra:ideal"],
+      "cross_links": ["fermats-last-theorem", "quadratic-reciprocity", "pell-equation", "p-adic-numbers"],
+      "resources": [
+        {
+          "title": "Algebraic number theory — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Algebraic_number_theory",
+          "type": "text"
+        },
+        {
+          "title": "Milne, Algebraic Number Theory (free course notes)",
+          "url": "https://www.jmilne.org/math/CourseNotes/ant.html",
+          "type": "text"
+        },
+        {
+          "title": "LMFDB: number fields",
+          "url": "https://www.lmfdb.org/NumberField/",
+          "type": "tool"
+        }
+      ],
+      "sources": ["Princeton Companion IV.1 Algebraic Numbers (Granville/Mazur treatment)", "Kummer/Dedekind (historical)", "MSC 11R"]
+    },
+    {
+      "id": "p-adic-numbers",
+      "name": "p-adic Numbers",
+      "aka": ["Qp", "p-adic valuation", "local fields"],
+      "intuition_gloss": "A parallel universe of numbers where two integers are 'close' when their difference is divisible by a high power of p — completing the rationals in a totally different direction from the reals.",
+      "formal_gloss": "Q_p is the completion of Q under the p-adic absolute value |x|_p = p^(-v_p(x)); Ostrowski's theorem says R and the Q_p are the only completions of Q, and Hensel's lemma lifts solutions mod p to Z_p.",
+      "level": 7,
+      "prereqs": ["modular-arithmetic", "limit", "metric-space", "rational-numbers"],
+      "cross_links": ["algebraic-number-field", "elliptic-curve", "real-numbers", "diophantine-equation"],
+      "resources": [
+        {
+          "title": "p-adic number — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/P-adic_number",
+          "type": "text"
+        },
+        {
+          "title": "Gouvêa, p-adic Numbers: An Introduction",
+          "url": "https://link.springer.com/book/10.1007/978-3-030-47295-5",
+          "type": "text"
+        }
+      ],
+      "sources": ["Gouvêa's standard introduction", "Princeton Companion III (local-global principle)", "Hasse-Minkowski as motivating payoff"]
+    },
+    {
+      "id": "elliptic-curve",
+      "name": "Elliptic Curves",
+      "aka": ["Mordell-Weil", "BSD conjecture (context)", "elliptic curve cryptography"],
+      "intuition_gloss": "A cubic curve where a chord-and-tangent game turns the points into an addition system — the meeting point of geometry, arithmetic, and cryptography.",
+      "formal_gloss": "A smooth projective curve y^2 = x^3 + ax + b (char ≠ 2,3) with a marked point, whose points over any field form an abelian group; over Q the group is finitely generated (Mordell-Weil).",
+      "level": 7,
+      "prereqs": ["diophantine-equation", "group", "field", "geometry:projective-geometry"],
+      "cross_links": ["fermats-last-theorem", "modular-forms", "rsa-cryptosystem", "p-adic-numbers", "geometry:algebraic-geometry"],
+      "resources": [
+        {
+          "title": "Elliptic curve — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Elliptic_curve",
+          "type": "text"
+        },
+        {
+          "title": "Silverman, The Arithmetic of Elliptic Curves",
+          "url": "https://link.springer.com/book/10.1007/978-0-387-09494-6",
+          "type": "text"
+        },
+        {
+          "title": "LMFDB: elliptic curves over Q",
+          "url": "https://www.lmfdb.org/EllipticCurve/Q/",
+          "type": "tool"
+        }
+      ],
+      "sources": ["Silverman AEC (the standard reference)", "Princeton Companion III.21 & IV Arithmetic Geometry", "BSD is a Clay Millennium Problem"]
+    },
+    {
+      "id": "modular-forms",
+      "name": "Modular Forms",
+      "aka": ["automorphic forms (entry point)", "modularity theorem", "Langlands program (gateway)"],
+      "intuition_gloss": "Functions on the upper half-plane with an outrageous amount of symmetry, whose coefficient sequences mysteriously encode deep arithmetic — the 'fifth operation of arithmetic'.",
+      "formal_gloss": "Holomorphic functions f on the upper half-plane satisfying f((az+b)/(cz+d)) = (cz+d)^k f(z) for matrices in a congruence subgroup of SL2(Z), plus growth conditions; the modularity theorem attaches one to every rational elliptic curve.",
+      "level": 8,
+      "prereqs": ["elliptic-curve", "analysis:complex-analysis", "group"],
+      "cross_links": ["fermats-last-theorem", "riemann-zeta-function", "algebraic-number-field", "algebra:representation-theory"],
+      "resources": [
+        {
+          "title": "Modular form — Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Modular_form",
+          "type": "text"
+        },
+        {
+          "title": "Diamond & Shurman, A First Course in Modular Forms",
+          "url": "https://link.springer.com/book/10.1007/978-0-387-27226-9",
+          "type": "text"
+        },
+        {
+          "title": "LMFDB: classical modular forms",
+          "url": "https://www.lmfdb.org/ModularForm/GL2/Q/holomorphic/",
+          "type": "tool"
+        }
+      ],
+      "sources": ["Diamond & Shurman (standard graduate text)", "Princeton Companion IV (Langlands program framing)", "Eichler's 'fifth operation' quip; research-edge placement"]
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "territories": [
+    {
+      "id": "foundations",
+      "name": "Foundations: Logic & Set Theory",
+      "tagline": "The bedrock — what mathematical objects are, and what counts as valid reasoning about them."
+    },
+    {
+      "id": "number-theory",
+      "name": "Number Theory",
+      "tagline": "The deep behavior of whole numbers: primes, divisibility, and patterns hiding in plain sight."
+    },
+    {
+      "id": "algebra",
+      "name": "Algebra",
+      "tagline": "Structure and symmetry — operations on symbols, equations, and the abstract systems they generate."
+    },
+    {
+      "id": "linear-algebra",
+      "name": "Linear Algebra",
+      "tagline": "Vectors, matrices, and flat spaces — the mathematics of proportional change, and the workhorse of computation."
+    },
+    {
+      "id": "geometry",
+      "name": "Geometry",
+      "tagline": "Shape, size, and space — from triangles and coordinates to curved surfaces and higher dimensions."
+    },
+    {
+      "id": "topology",
+      "name": "Topology",
+      "tagline": "What survives stretching: the qualitative shape of spaces, ignoring distance and angle."
+    },
+    {
+      "id": "analysis",
+      "name": "Analysis & Calculus",
+      "tagline": "The mathematics of change and the infinitely small — limits, derivatives, integrals, and the real line under a microscope."
+    },
+    {
+      "id": "dynamics-differential-equations",
+      "name": "Dynamics & Differential Equations",
+      "tagline": "Systems evolving in time: flows, feedback, stability, and long-run behavior from simple local rules."
+    },
+    {
+      "id": "probability-statistics",
+      "name": "Probability & Statistics",
+      "tagline": "Reasoning under uncertainty — quantifying chance, and drawing honest conclusions from data."
+    },
+    {
+      "id": "discrete-combinatorics",
+      "name": "Discrete Math & Combinatorics",
+      "tagline": "Counting, arranging, and connecting finite structures — including the graphs that model networks everywhere."
+    },
+    {
+      "id": "applied-computational",
+      "name": "Applied & Computational Mathematics",
+      "tagline": "Mathematics meeting the world: models, algorithms, optimization, and computation at scale."
+    },
+    {
+      "id": "mathematical-practice",
+      "name": "Mathematical Practice",
+      "tagline": "How mathematics is actually done — proof techniques, problem-solving strategies, and the art of abstraction."
+    }
+  ]
+}

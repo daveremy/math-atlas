@@ -1,0 +1,360 @@
+{
+  "territory": "algebra",
+  "concepts": [
+    {
+      "id": "variable",
+      "name": "Variable & Expression",
+      "aka": ["unknown", "algebraic expression", "literal symbol"],
+      "intuition_gloss": "A letter standing in for a number you don't know yet, letting you write one sentence that covers infinitely many arithmetic facts at once.",
+      "formal_gloss": "A symbol denoting an arbitrary or unknown element of a set, combined with constants and operations to form well-formed algebraic expressions.",
+      "level": 0,
+      "prereqs": ["natural-numbers"],
+      "cross_links": ["function", "polynomial"],
+      "resources": [
+        {"title": "Khan Academy: Algebra Basics", "url": "https://www.khanacademy.org/math/algebra-basics", "type": "course"}
+      ],
+      "sources": ["Common Core 6.EE (expressions with variables)", "Khan Academy knowledge map: pre-algebra → algebra basics"]
+    },
+    {
+      "id": "equation",
+      "name": "Equation & Solving",
+      "aka": ["solving for x", "balance method"],
+      "intuition_gloss": "A balanced scale of two expressions; solving means doing the same legal move to both sides until the unknown stands alone.",
+      "formal_gloss": "An assertion that two expressions denote the same value; its solution set is the set of assignments to the variables making the assertion true, found by applying equivalence-preserving operations.",
+      "level": 1,
+      "prereqs": ["variable"],
+      "cross_links": ["inequality", "proof"],
+      "resources": [
+        {"title": "Khan Academy: Algebra 1", "url": "https://www.khanacademy.org/math/algebra", "type": "course"},
+        {"title": "Paul's Online Notes: Algebra", "url": "https://tutorial.math.lamar.edu/Classes/Alg/Alg.aspx", "type": "text"}
+      ],
+      "sources": ["Common Core 8.EE / HSA-REI (reasoning with equations)", "Khan Academy Algebra 1 unit structure"]
+    },
+    {
+      "id": "linear-equation",
+      "name": "Linear Equation & Graph",
+      "aka": ["line", "slope-intercept form", "y = mx + b"],
+      "intuition_gloss": "The equation of steady, proportional change — its picture is always a straight line whose slope is the constant rate.",
+      "formal_gloss": "An equation of the form a1x1 + ... + anxn = b, degree one in each variable; in two variables its solution set is a line in the coordinate plane.",
+      "level": 1,
+      "prereqs": ["equation", "coordinate-system"],
+      "cross_links": ["linear-transformation", "linear-algebra:system-of-linear-equations", "derivative"],
+      "resources": [
+        {"title": "Desmos Graphing Calculator", "url": "https://www.desmos.com/calculator", "type": "tool"},
+        {"title": "Khan Academy: Algebra 1", "url": "https://www.khanacademy.org/math/algebra", "type": "course"}
+      ],
+      "sources": ["Common Core 8.EE / HSA-CED", "Khan Academy Algebra 1"]
+    },
+    {
+      "id": "inequality",
+      "name": "Inequality",
+      "aka": ["order relation", "solving inequalities"],
+      "intuition_gloss": "An equation's looser cousin: instead of pinning a value down exactly, it fences off a whole region where the answer must live.",
+      "formal_gloss": "A relation asserting one expression is less than (or at most) another under the order on the reals; solution sets are intervals or regions, and multiplying by negatives reverses the relation.",
+      "level": 1,
+      "prereqs": ["equation", "real-numbers"],
+      "cross_links": ["optimization", "analysis:triangle-inequality"],
+      "resources": [
+        {"title": "Paul's Online Notes: Algebra", "url": "https://tutorial.math.lamar.edu/Classes/Alg/Alg.aspx", "type": "text"}
+      ],
+      "sources": ["Common Core HSA-REI.B", "Paul's Online Notes syllabus"]
+    },
+    {
+      "id": "quadratic-equation",
+      "name": "Quadratic Equation",
+      "aka": ["quadratic formula", "completing the square", "parabola"],
+      "intuition_gloss": "The first equation with a curve in it — a parabola — whose solutions are captured once and for all by a single closed formula.",
+      "formal_gloss": "An equation ax^2 + bx + c = 0 with a nonzero, solved by completing the square to give x = (-b ± sqrt(b^2 - 4ac)) / 2a, with the discriminant governing the nature of the roots.",
+      "level": 2,
+      "prereqs": ["linear-equation", "polynomial"],
+      "cross_links": ["complex-numbers", "galois-theory", "optimization"],
+      "resources": [
+        {"title": "Khan Academy: Quadratics (Algebra 1)", "url": "https://www.khanacademy.org/math/algebra", "type": "course"},
+        {"title": "Desmos Graphing Calculator", "url": "https://www.desmos.com/calculator", "type": "tool"}
+      ],
+      "sources": ["Common Core HSA-REI.4", "Princeton Companion I.4 (solving equations narrative)"]
+    },
+    {
+      "id": "exponential-and-logarithm",
+      "name": "Exponentials & Logarithms",
+      "aka": ["exponent rules", "log laws"],
+      "intuition_gloss": "Repeated multiplication grown up into a smooth machine for explosive growth, and its inverse, which converts multiplication into addition.",
+      "formal_gloss": "The functions b^x, extended from integer exponents to the reals by the laws b^(x+y) = b^x b^y, and log_b as their inverse, satisfying log(xy) = log x + log y.",
+      "level": 2,
+      "prereqs": ["variable", "function", "rational-numbers"],
+      "cross_links": ["analysis:exponential-function", "homomorphism", "applied-computational:logarithmic-scale"],
+      "resources": [
+        {"title": "Khan Academy: Algebra 2", "url": "https://www.khanacademy.org/math/algebra2", "type": "course"}
+      ],
+      "sources": ["Common Core HSF-LE", "Khan Academy Algebra 2 unit structure"]
+    },
+    {
+      "id": "polynomial-factorization",
+      "name": "Factoring & Roots of Polynomials",
+      "aka": ["factor theorem", "roots", "zeros"],
+      "intuition_gloss": "Breaking a polynomial into simpler multiplied pieces, where each piece points to a place the graph crosses zero.",
+      "formal_gloss": "Expressing a polynomial as a product of lower-degree polynomials; by the factor theorem, r is a root of p iff (x - r) divides p, so a degree-n polynomial has at most n roots.",
+      "level": 2,
+      "prereqs": ["polynomial", "quadratic-equation"],
+      "cross_links": ["prime-number", "unique-factorization", "fundamental-theorem-of-algebra"],
+      "resources": [
+        {"title": "Paul's Online Notes: Algebra", "url": "https://tutorial.math.lamar.edu/Classes/Alg/Alg.aspx", "type": "text"},
+        {"title": "WolframAlpha", "url": "https://www.wolframalpha.com/", "type": "tool"}
+      ],
+      "sources": ["Common Core HSA-APR", "Princeton Companion I.4"]
+    },
+    {
+      "id": "fundamental-theorem-of-algebra",
+      "name": "Fundamental Theorem of Algebra",
+      "aka": ["FTA", "algebraic closure of C"],
+      "intuition_gloss": "Once you allow numbers in the plane, no polynomial equation is unsolvable — every one of degree n has exactly n roots, counted with repeats.",
+      "formal_gloss": "Every nonconstant polynomial with complex coefficients has a root in C; equivalently, C is algebraically closed, so every degree-n complex polynomial splits into n linear factors.",
+      "level": 3,
+      "prereqs": ["polynomial-factorization", "complex-numbers"],
+      "cross_links": ["continuity", "topology:winding-number", "field-extension"],
+      "resources": [
+        {"title": "Fundamental Theorem of Algebra — Numberphile (David Eisenbud)", "url": "https://www.youtube.com/watch?v=shEk8sz1oOw", "type": "video"}
+      ],
+      "sources": ["Princeton Companion V.13 (The Fundamental Theorem of Algebra)", "MSC 12D / 30C15"]
+    },
+    {
+      "id": "binary-operation",
+      "name": "Binary Operation & Algebraic Structure",
+      "aka": ["closure", "associativity", "commutativity", "identity", "inverse"],
+      "intuition_gloss": "Step back from numbers and ask what 'combining two things to get a third' can be in general — then classify worlds by which rules (associative, commutative, invertible) their combining obeys.",
+      "formal_gloss": "A function from S × S to S; an algebraic structure is a set with one or more such operations satisfying specified axioms, the abstraction underlying groups, rings, and fields.",
+      "level": 3,
+      "prereqs": ["set", "function", "axiom"],
+      "cross_links": ["group", "ring", "field", "foundations:universal-algebra"],
+      "resources": [
+        {"title": "Wikipedia: Binary operation", "url": "https://en.wikipedia.org/wiki/Binary_operation", "type": "text"},
+        {"title": "Abstract Algebra: Theory and Applications (Judson, free text)", "url": "https://judsonbooks.org/", "type": "text"}
+      ],
+      "sources": ["Judson AATA ch. 3 lead-in", "Princeton Companion I.3 (algebraic structures)"]
+    },
+    {
+      "id": "subgroup",
+      "name": "Subgroup & Lagrange's Theorem",
+      "aka": ["coset", "index", "Lagrange's theorem"],
+      "intuition_gloss": "A self-contained club of moves inside a bigger group, whose translated copies tile the whole group evenly — so the club's size must divide the total.",
+      "formal_gloss": "A subset of a group closed under the operation and inverses; its cosets partition the group, whence Lagrange's theorem: the order of a subgroup divides the order of a finite group.",
+      "level": 4,
+      "prereqs": ["group", "set"],
+      "cross_links": ["equivalence-relation", "cyclic-group", "quotient-group", "prime-number"],
+      "resources": [
+        {"title": "Socratica: Abstract Algebra (playlist)", "url": "https://www.youtube.com/playlist?list=PLi01XoE8jYoi3SgnnGorR_XOW3IcK-TP6", "type": "video"},
+        {"title": "Abstract Algebra: Theory and Applications (Judson, free text)", "url": "https://judsonbooks.org/", "type": "text"}
+      ],
+      "sources": ["Dummit & Foote ch. 2-3", "Judson AATA ch. 4-6", "MSC 20"]
+    },
+    {
+      "id": "homomorphism",
+      "name": "Homomorphism",
+      "aka": ["structure-preserving map", "group homomorphism", "ring homomorphism"],
+      "intuition_gloss": "A translation between two algebraic worlds that respects their grammar — combine then translate, or translate then combine, and you land in the same place.",
+      "formal_gloss": "A map f between structures of the same signature with f(x * y) = f(x) * f(y) for each operation; kernels and images measure exactly what the map collapses and reaches.",
+      "level": 4,
+      "prereqs": ["group", "function", "binary-operation"],
+      "cross_links": ["isomorphism", "quotient-group", "foundations:category-theory", "linear-transformation"],
+      "resources": [
+        {"title": "Socratica: Abstract Algebra (playlist)", "url": "https://www.youtube.com/playlist?list=PLi01XoE8jYoi3SgnnGorR_XOW3IcK-TP6", "type": "video"},
+        {"title": "An Infinitely Large Napkin (Evan Chen)", "url": "https://web.evanchen.cc/napkin.html", "type": "text"}
+      ],
+      "sources": ["Dummit & Foote ch. 3", "Princeton Companion I.3", "Metacademy prerequisite graph (group homomorphism)"]
+    },
+    {
+      "id": "cyclic-group",
+      "name": "Cyclic Group",
+      "aka": ["generator", "order of an element", "Z/nZ"],
+      "intuition_gloss": "A group cranked out by one repeating move — like the hour hand's twelve positions — the simplest engine of symmetry there is.",
+      "formal_gloss": "A group generated by a single element, isomorphic to Z if infinite or to Z/nZ if of order n; every subgroup of a cyclic group is cyclic.",
+      "level": 4,
+      "prereqs": ["group", "subgroup", "modular-arithmetic"],
+      "cross_links": ["applied-computational:public-key-cryptography", "number-theory:primitive-root", "integers"],
+      "resources": [
+        {"title": "Socratica: Abstract Algebra (playlist)", "url": "https://www.youtube.com/playlist?list=PLi01XoE8jYoi3SgnnGorR_XOW3IcK-TP6", "type": "video"},
+        {"title": "Abstract Algebra: Theory and Applications (Judson, free text)", "url": "https://judsonbooks.org/", "type": "text"}
+      ],
+      "sources": ["Judson AATA ch. 4", "Dummit & Foote ch. 2", "MSC 20K"]
+    },
+    {
+      "id": "permutation-group",
+      "name": "Permutation & the Symmetric Group",
+      "aka": ["symmetric group S_n", "cycle notation", "parity of a permutation"],
+      "intuition_gloss": "All the ways to shuffle n objects, composed one after another — and secretly the mother of all groups, since every group is a group of shuffles in disguise.",
+      "formal_gloss": "The group S_n of bijections of an n-element set under composition, of order n!; Cayley's theorem embeds every group in some symmetric group, and each permutation has a well-defined sign.",
+      "level": 4,
+      "prereqs": ["group", "function", "counting-principles"],
+      "cross_links": ["symmetry", "linear-algebra:determinant", "galois-theory", "discrete-combinatorics:permutation-enumeration"],
+      "resources": [
+        {"title": "Socratica: Abstract Algebra (playlist)", "url": "https://www.youtube.com/playlist?list=PLi01XoE8jYoi3SgnnGorR_XOW3IcK-TP6", "type": "video"},
+        {"title": "GAP — Groups, Algorithms, Programming", "url": "https://www.gap-system.org/", "type": "tool"}
+      ],
+      "sources": ["Dummit & Foote ch. 1.3, 4.2 (Cayley)", "Judson AATA ch. 5", "MSC 20B"]
+    },
+    {
+      "id": "quotient-group",
+      "name": "Normal Subgroup & Quotient Group",
+      "aka": ["factor group", "first isomorphism theorem", "G/N"],
+      "intuition_gloss": "Deliberately blur a group by declaring a whole subgroup to count as 'nothing', and a smaller, coarser group emerges from the blur.",
+      "formal_gloss": "For a subgroup N invariant under conjugation, the cosets of N form the group G/N; the first isomorphism theorem identifies G/ker(f) with the image of any homomorphism f.",
+      "level": 5,
+      "prereqs": ["subgroup", "homomorphism", "equivalence-relation"],
+      "cross_links": ["modular-arithmetic", "simple-group", "topology:quotient-space"],
+      "resources": [
+        {"title": "Socratica: Abstract Algebra (playlist)", "url": "https://www.youtube.com/playlist?list=PLi01XoE8jYoi3SgnnGorR_XOW3IcK-TP6", "type": "video"},
+        {"title": "An Infinitely Large Napkin (Evan Chen)", "url": "https://web.evanchen.cc/napkin.html", "type": "text"}
+      ],
+      "sources": ["Dummit & Foote ch. 3", "Judson AATA ch. 10-11", "Metacademy (quotient group)"]
+    },
+    {
+      "id": "group-action",
+      "name": "Group Action",
+      "aka": ["orbit", "stabilizer", "orbit-stabilizer theorem"],
+      "intuition_gloss": "A group put to work moving the points of some object around; watching the orbits it carves out is how symmetry becomes a counting and classifying tool.",
+      "formal_gloss": "A homomorphism from a group G to the permutations of a set X, written g·x; orbits partition X and the orbit-stabilizer theorem gives |orbit(x)| · |stab(x)| = |G|.",
+      "level": 5,
+      "prereqs": ["group", "permutation-group", "function"],
+      "cross_links": ["symmetry", "discrete-combinatorics:burnside-counting", "geometry:isometry-group", "group-representation"],
+      "resources": [
+        {"title": "Wikipedia: Group action", "url": "https://en.wikipedia.org/wiki/Group_action", "type": "text"},
+        {"title": "GAP — Groups, Algorithms, Programming", "url": "https://www.gap-system.org/", "type": "tool"}
+      ],
+      "sources": ["Dummit & Foote ch. 4", "Princeton Companion I.3 & II (symmetry essays)", "MSC 20B/20D"]
+    },
+    {
+      "id": "ideal",
+      "name": "Ideal & Quotient Ring",
+      "aka": ["prime ideal", "maximal ideal", "R/I"],
+      "intuition_gloss": "The ring-world analogue of 'multiples of n': a subset that swallows multiplication, so you can mod out by it and do arithmetic with the remainders.",
+      "formal_gloss": "An additive subgroup I of a ring R with rI ⊆ I for all r in R; the cosets form the quotient ring R/I, with I prime iff R/I is a domain and maximal iff R/I is a field.",
+      "level": 5,
+      "prereqs": ["ring", "subgroup", "equivalence-relation"],
+      "cross_links": ["modular-arithmetic", "prime-number", "geometry:algebraic-variety", "unique-factorization"],
+      "resources": [
+        {"title": "Wikipedia: Ideal (ring theory)", "url": "https://en.wikipedia.org/wiki/Ideal_(ring_theory)", "type": "text"},
+        {"title": "Abstract Algebra: Theory and Applications (Judson, free text)", "url": "https://judsonbooks.org/", "type": "text"}
+      ],
+      "sources": ["Dummit & Foote ch. 7", "Judson AATA ch. 16", "MSC 13 (commutative algebra)"]
+    },
+    {
+      "id": "unique-factorization",
+      "name": "Factorization in Rings (Euclidean, PID, UFD)",
+      "aka": ["unique factorization domain", "principal ideal domain", "Euclidean domain"],
+      "intuition_gloss": "Asking which number-worlds keep the 'every number breaks uniquely into primes' promise — and meeting the famous worlds where the promise fails.",
+      "formal_gloss": "The hierarchy Euclidean domain ⊂ principal ideal domain ⊂ unique factorization domain ⊂ integral domain, classifying rings by whether division, single-generator ideals, and unique irreducible factorization survive.",
+      "level": 6,
+      "prereqs": ["ring", "ideal", "prime-number"],
+      "cross_links": ["integers", "polynomial-factorization", "number-theory:algebraic-number-theory", "number-theory:fermats-last-theorem"],
+      "resources": [
+        {"title": "Wikipedia: Unique factorization domain", "url": "https://en.wikipedia.org/wiki/Unique_factorization_domain", "type": "text"},
+        {"title": "An Infinitely Large Napkin (Evan Chen)", "url": "https://web.evanchen.cc/napkin.html", "type": "text"}
+      ],
+      "sources": ["Dummit & Foote ch. 8-9", "Princeton Companion (ideal-class narrative, IV.1)", "MSC 13F"]
+    },
+    {
+      "id": "field-extension",
+      "name": "Field Extension",
+      "aka": ["algebraic extension", "degree of an extension", "splitting field"],
+      "intuition_gloss": "Growing a number system just enough to house a root it was missing — like adjoining sqrt(2) to the rationals — and measuring how much bigger the world got.",
+      "formal_gloss": "A field K containing a field F, viewed as an F-vector space whose dimension [K:F] is the degree; elements algebraic over F have minimal polynomials, and splitting fields adjoin all roots of a given polynomial.",
+      "level": 6,
+      "prereqs": ["field", "polynomial", "vector-space"],
+      "cross_links": ["complex-numbers", "geometry:compass-straightedge-construction", "galois-theory", "fundamental-theorem-of-algebra"],
+      "resources": [
+        {"title": "Wikipedia: Field extension", "url": "https://en.wikipedia.org/wiki/Field_extension", "type": "text"},
+        {"title": "Abstract Algebra: Theory and Applications (Judson, free text)", "url": "https://judsonbooks.org/", "type": "text"}
+      ],
+      "sources": ["Dummit & Foote ch. 13", "Judson AATA ch. 21", "MSC 12F"]
+    },
+    {
+      "id": "module",
+      "name": "Module",
+      "aka": ["module over a ring", "structure theorem for finitely generated modules"],
+      "intuition_gloss": "A vector space whose scalars come from a mere ring instead of a field — a rougher, torsion-prone habitat that unifies abelian groups and linear operators in one frame.",
+      "formal_gloss": "An abelian group M with a ring action R × M → M satisfying the vector-space axioms over R; over a PID, finitely generated modules decompose into cyclic pieces, yielding both the classification of finite abelian groups and Jordan normal form.",
+      "level": 6,
+      "prereqs": ["ring", "vector-space", "quotient-group"],
+      "cross_links": ["linear-algebra:jordan-normal-form", "unique-factorization", "homological-algebra", "group-representation"],
+      "resources": [
+        {"title": "Wikipedia: Module (mathematics)", "url": "https://en.wikipedia.org/wiki/Module_(mathematics)", "type": "text"},
+        {"title": "An Infinitely Large Napkin (Evan Chen)", "url": "https://web.evanchen.cc/napkin.html", "type": "text"}
+      ],
+      "sources": ["Dummit & Foote ch. 10, 12", "Princeton Companion III.81 (modules)", "MSC 13C/16D"]
+    },
+    {
+      "id": "simple-group",
+      "name": "Simple Groups & the Classification",
+      "aka": ["classification of finite simple groups", "sporadic groups", "the Monster"],
+      "intuition_gloss": "The unsplittable atoms of symmetry — and the century-long census that found them all, ending in eighteen orderly families plus twenty-six bizarre outliers crowned by the Monster.",
+      "formal_gloss": "A group whose only normal subgroups are trivial; the classification theorem states every finite simple group is cyclic of prime order, alternating, of Lie type, or one of 26 sporadic groups.",
+      "level": 6,
+      "prereqs": ["quotient-group", "permutation-group"],
+      "cross_links": ["prime-number", "galois-theory", "group-representation"],
+      "resources": [
+        {"title": "3Blue1Brown: Group theory, abstraction, and the 196,883-dimensional monster", "url": "https://www.youtube.com/watch?v=mH0oCDa74tE", "type": "video"},
+        {"title": "Wikipedia: Classification of finite simple groups", "url": "https://en.wikipedia.org/wiki/Classification_of_finite_simple_groups", "type": "text"},
+        {"title": "GAP — Groups, Algorithms, Programming", "url": "https://www.gap-system.org/", "type": "tool"}
+      ],
+      "sources": ["Princeton Companion V.7 (Classification of Finite Simple Groups)", "MSC 20D05"]
+    },
+    {
+      "id": "galois-theory",
+      "name": "Galois Theory",
+      "aka": ["Galois group", "Galois correspondence", "solvability by radicals"],
+      "intuition_gloss": "Attach to each equation the group of ways its roots can be shuffled without breaking any algebraic relation — and read off from that group's shape why the quintic has no formula.",
+      "formal_gloss": "The correspondence between intermediate fields of a Galois extension and subgroups of its automorphism group; a polynomial is solvable by radicals iff its Galois group is a solvable group.",
+      "level": 7,
+      "prereqs": ["field-extension", "quotient-group", "permutation-group"],
+      "cross_links": ["quadratic-equation", "simple-group", "geometry:compass-straightedge-construction", "number-theory:algebraic-number-theory"],
+      "resources": [
+        {"title": "Wikipedia: Galois theory", "url": "https://en.wikipedia.org/wiki/Galois_theory", "type": "text"},
+        {"title": "Abstract Algebra: Theory and Applications (Judson, free text)", "url": "https://judsonbooks.org/", "type": "text"}
+      ],
+      "sources": ["Princeton Companion V.21 (insolubility of the quintic)", "Dummit & Foote ch. 14", "MSC 12F10"]
+    },
+    {
+      "id": "group-representation",
+      "name": "Representation Theory",
+      "aka": ["linear representation", "character theory", "irreducible representation"],
+      "intuition_gloss": "Turn every abstract symmetry into a concrete matrix, so the whole machinery of linear algebra can X-ray a group's internal anatomy.",
+      "formal_gloss": "A homomorphism from a group to the invertible linear maps of a vector space; over C every finite-group representation decomposes into irreducibles, which characters classify completely.",
+      "level": 7,
+      "prereqs": ["group", "vector-space", "matrix", "homomorphism"],
+      "cross_links": ["analysis:fourier-analysis", "eigenvalue-eigenvector", "simple-group", "applied-computational:quantum-mechanics"],
+      "resources": [
+        {"title": "Introduction to Representation Theory (Etingof et al., MIT notes)", "url": "https://math.mit.edu/~etingof/replect.pdf", "type": "text"},
+        {"title": "Wikipedia: Representation theory", "url": "https://en.wikipedia.org/wiki/Representation_theory", "type": "text"}
+      ],
+      "sources": ["Princeton Companion IV.9 (Representation Theory)", "MSC 20C"]
+    },
+    {
+      "id": "lie-algebra",
+      "name": "Lie Groups & Lie Algebras",
+      "aka": ["continuous symmetry", "infinitesimal generator", "matrix Lie group"],
+      "intuition_gloss": "Symmetries that vary smoothly, like all rotations of a sphere — studied by zooming in on the infinitesimal nudges near 'do nothing', which form an algebra of their own.",
+      "formal_gloss": "A Lie group is a smooth manifold with smooth group operations; its tangent space at the identity carries a bilinear bracket [x,y] satisfying antisymmetry and the Jacobi identity, forming its Lie algebra.",
+      "level": 7,
+      "prereqs": ["group", "manifold", "vector-space", "derivative"],
+      "cross_links": ["symmetry", "group-representation", "differential-equation", "geometry:riemannian-geometry", "applied-computational:physics-gauge-theory"],
+      "resources": [
+        {"title": "Wikipedia: Lie group", "url": "https://en.wikipedia.org/wiki/Lie_group", "type": "text"}
+      ],
+      "sources": ["Princeton Companion III.48 (Lie theory)", "MSC 17B / 22E"]
+    },
+    {
+      "id": "homological-algebra",
+      "name": "Homological Algebra",
+      "aka": ["chain complex", "exact sequence", "Ext and Tor", "derived functor"],
+      "intuition_gloss": "A bookkeeping machine of linked maps whose failures to compose to zero-perfectly measure the hidden holes and obstructions in an algebraic situation.",
+      "formal_gloss": "The study of chain complexes and exact sequences of modules, extracting invariants like homology, Ext, and Tor via derived functors in an abelian category.",
+      "level": 8,
+      "prereqs": ["module", "homomorphism", "foundations:category-theory"],
+      "cross_links": ["topology:homology", "geometry:sheaf-cohomology", "ideal"],
+      "resources": [
+        {"title": "Wikipedia: Homological algebra", "url": "https://en.wikipedia.org/wiki/Homological_algebra", "type": "text"}
+      ],
+      "sources": ["Princeton Companion (algebraic topology & modern algebra essays, IV.6)", "MSC 18G", "Weibel, An Introduction to Homological Algebra (reference placement)"]
+    }
+  ]
+}

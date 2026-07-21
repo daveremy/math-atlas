@@ -1,0 +1,333 @@
+{
+  "territory": "topology",
+  "concepts": [
+    {
+      "id": "topological-invariant",
+      "name": "Topological Invariant",
+      "aka": ["topological property", "rubber-sheet property"],
+      "intuition_gloss": "A feature of a shape — like its number of holes — that no amount of stretching or bending can change, which is why a coffee mug 'equals' a donut.",
+      "formal_gloss": "A property or quantity preserved by homeomorphism, so that any two homeomorphic spaces share it; invariants distinguish spaces that cannot be deformed into one another.",
+      "level": 3,
+      "prereqs": ["set", "function"],
+      "cross_links": ["isomorphism", "euler-characteristic", "fundamental-group", "homology"],
+      "resources": [
+        {"title": "Wikipedia: Topological property", "url": "https://en.wikipedia.org/wiki/Topological_property", "type": "reference"},
+        {"title": "3Blue1Brown — Who cares about topology? (Inscribed rectangle problem)", "url": "https://www.youtube.com/watch?v=AmgkSdhK4K8", "type": "video"}
+      ],
+      "sources": ["Princeton Companion to Mathematics I.3 & IV.6 (invariants as topology's organizing idea)", "standard first-lecture framing in Munkres and Armstrong"]
+    },
+    {
+      "id": "open-closed-sets",
+      "name": "Open & Closed Sets",
+      "aka": ["open set", "closed set", "neighborhood"],
+      "intuition_gloss": "An open set is a region with no skin — every point has breathing room around it — while a closed set contains its own edge.",
+      "formal_gloss": "In a metric or topological space, an open set contains an open ball (or basic neighborhood) around each of its points, and a closed set is the complement of an open set, equivalently one containing all its limit points.",
+      "level": 4,
+      "prereqs": ["set", "real-numbers", "metric-space"],
+      "cross_links": ["topological-space", "continuity", "limit"],
+      "resources": [
+        {"title": "Topology Without Tears (Sidney Morris) — Ch. 1-2", "url": "https://www.topologywithouttears.net/", "type": "text"},
+        {"title": "Wikipedia: Open set", "url": "https://en.wikipedia.org/wiki/Open_set", "type": "reference"}
+      ],
+      "sources": ["Munkres 'Topology' Ch. 2 ordering", "MSC 54A (general topology basics)", "standard real-analysis-to-topology bridge in undergraduate curricula"]
+    },
+    {
+      "id": "closure-interior-boundary",
+      "name": "Closure, Interior & Boundary",
+      "aka": ["limit point", "frontier", "dense set"],
+      "intuition_gloss": "Every region of a space splits into its solid inside, its skin, and everything it can touch — the boundary is exactly where a set meets its outside.",
+      "formal_gloss": "For a subset A of a topological space, the interior is the largest open set inside A, the closure is the smallest closed set containing A, and the boundary is the closure minus the interior.",
+      "level": 5,
+      "prereqs": ["open-closed-sets", "topological-space"],
+      "cross_links": ["limit", "sequence", "connectedness"],
+      "resources": [
+        {"title": "Topology Without Tears (Sidney Morris) — Ch. 3", "url": "https://www.topologywithouttears.net/", "type": "text"},
+        {"title": "Wikipedia: Closure (topology)", "url": "https://en.wikipedia.org/wiki/Closure_(topology)", "type": "reference"}
+      ],
+      "sources": ["Munkres 'Topology' §17", "MSC 54A05 (topological spaces: closure, interior)"]
+    },
+    {
+      "id": "homeomorphism",
+      "name": "Homeomorphism",
+      "aka": ["topological equivalence", "bicontinuous map"],
+      "intuition_gloss": "A perfect rubber-sheet deformation between two spaces — bend and stretch all you like, but never cut or glue — making them the same shape topologically.",
+      "formal_gloss": "A continuous bijection between topological spaces whose inverse is also continuous; homeomorphic spaces are indistinguishable by any topological property.",
+      "level": 6,
+      "prereqs": ["topological-space", "continuity", "function"],
+      "cross_links": ["isomorphism", "topological-invariant", "manifold"],
+      "resources": [
+        {"title": "Wikipedia: Homeomorphism", "url": "https://en.wikipedia.org/wiki/Homeomorphism", "type": "reference"},
+        {"title": "Topology Without Tears (Sidney Morris) — Ch. 4", "url": "https://www.topologywithouttears.net/", "type": "text"}
+      ],
+      "sources": ["Munkres 'Topology' §18", "Princeton Companion I.3 (equivalence as the defining move of each field)", "MSC 54C (maps between spaces)"]
+    },
+    {
+      "id": "hausdorff-space",
+      "name": "Hausdorff Space & Separation Axioms",
+      "aka": ["T2 space", "separation axioms"],
+      "intuition_gloss": "A space where any two distinct points can be fenced off from each other in their own non-overlapping neighborhoods, so points can't blur together.",
+      "formal_gloss": "A topological space in which any two distinct points have disjoint open neighborhoods; the T2 condition in the hierarchy of separation axioms (T0 through T4 and beyond).",
+      "level": 6,
+      "prereqs": ["topological-space", "open-closed-sets"],
+      "cross_links": ["metric-space", "limit", "quotient-space"],
+      "resources": [
+        {"title": "Wikipedia: Hausdorff space", "url": "https://en.wikipedia.org/wiki/Hausdorff_space", "type": "reference"},
+        {"title": "Topology Without Tears (Sidney Morris)", "url": "https://www.topologywithouttears.net/", "type": "text"}
+      ],
+      "sources": ["Munkres 'Topology' §31 (separation axioms)", "MSC 54D10-15 (separation)"]
+    },
+    {
+      "id": "compactness",
+      "name": "Compactness",
+      "aka": ["compact space", "Heine-Borel property", "open cover"],
+      "intuition_gloss": "A space that is 'small' in a deep sense — you can never sneak off to infinity or to a missing edge, and any infinite scattering of points must pile up somewhere.",
+      "formal_gloss": "A space is compact if every open cover has a finite subcover; in R^n this coincides with being closed and bounded (Heine-Borel), and continuous images of compact spaces are compact.",
+      "level": 6,
+      "prereqs": ["topological-space", "open-closed-sets", "sequence"],
+      "cross_links": ["limit", "continuity", "optimization", "real-numbers"],
+      "resources": [
+        {"title": "Wikipedia: Compact space", "url": "https://en.wikipedia.org/wiki/Compact_space", "type": "reference"},
+        {"title": "Topology Without Tears (Sidney Morris) — Ch. 7", "url": "https://www.topologywithouttears.net/", "type": "text"}
+      ],
+      "sources": ["Munkres 'Topology' Ch. 3", "Princeton Companion III.9 'Compactness and Compactification'", "MSC 54D30"]
+    },
+    {
+      "id": "connectedness",
+      "name": "Connectedness & Path-Connectedness",
+      "aka": ["connected space", "path-connected", "connected component"],
+      "intuition_gloss": "A space is connected if it comes in one unbroken piece — you cannot split it into two separated chunks, and in the path version you can walk between any two points.",
+      "formal_gloss": "A space is connected if it is not the union of two disjoint nonempty open sets, and path-connected if any two points are joined by a continuous path; components partition the space into maximal connected pieces.",
+      "level": 6,
+      "prereqs": ["topological-space", "open-closed-sets", "continuity"],
+      "cross_links": ["graph", "analysis:intermediate-value-theorem", "fundamental-group"],
+      "resources": [
+        {"title": "Wikipedia: Connected space", "url": "https://en.wikipedia.org/wiki/Connected_space", "type": "reference"},
+        {"title": "Topology Without Tears (Sidney Morris) — Ch. 5", "url": "https://www.topologywithouttears.net/", "type": "text"}
+      ],
+      "sources": ["Munkres 'Topology' Ch. 3", "MSC 54D05 (connectedness)", "intermediate value theorem as motivating result in standard curricula"]
+    },
+    {
+      "id": "product-topology",
+      "name": "Product & Subspace Topologies",
+      "aka": ["product space", "subspace topology", "Tychonoff theorem"],
+      "intuition_gloss": "Standard recipes for building new spaces from old: slice a piece out of a space, or multiply spaces together the way a line times a line gives a plane.",
+      "formal_gloss": "The subspace topology restricts open sets to a subset, and the product topology on a product of spaces is the coarsest topology making all projections continuous; Tychonoff's theorem says arbitrary products of compact spaces are compact.",
+      "level": 6,
+      "prereqs": ["topological-space", "open-closed-sets", "function"],
+      "cross_links": ["compactness", "vector-space", "quotient-space"],
+      "resources": [
+        {"title": "Wikipedia: Product topology", "url": "https://en.wikipedia.org/wiki/Product_topology", "type": "reference"},
+        {"title": "Topology Without Tears (Sidney Morris) — Ch. 8-10", "url": "https://www.topologywithouttears.net/", "type": "text"}
+      ],
+      "sources": ["Munkres 'Topology' §15-16, §19", "MSC 54B10 (product spaces)"]
+    },
+    {
+      "id": "quotient-space",
+      "name": "Quotient Space (Gluing)",
+      "aka": ["identification space", "quotient topology"],
+      "intuition_gloss": "Make new shapes by gluing: tape two edges of a paper strip to get a cylinder, add a twist first and you get a Möbius band.",
+      "formal_gloss": "Given an equivalence relation on a space X, the quotient X/~ carries the finest topology making the projection continuous; standard constructions (torus, Möbius band, projective plane) arise by identifying boundary points.",
+      "level": 6,
+      "prereqs": ["topological-space", "equivalence-relation", "continuity"],
+      "cross_links": ["surface", "orientability", "group"],
+      "resources": [
+        {"title": "Wikipedia: Quotient space (topology)", "url": "https://en.wikipedia.org/wiki/Quotient_space_(topology)", "type": "reference"},
+        {"title": "Hatcher, Algebraic Topology — Ch. 0 (free text)", "url": "https://pi.math.cornell.edu/~hatcher/AT/ATpage.html", "type": "text"}
+      ],
+      "sources": ["Munkres 'Topology' §22", "Hatcher Ch. 0 (cell complexes and identifications)", "MSC 54B15"]
+    },
+    {
+      "id": "surface",
+      "name": "Surfaces (Torus, Möbius Band, Klein Bottle)",
+      "aka": ["2-manifold", "closed surface"],
+      "intuition_gloss": "The two-dimensional zoo of topology — spheres, donuts with any number of holes, one-sided bands and bottles — each a world that looks flat up close.",
+      "formal_gloss": "A surface is a 2-dimensional topological manifold; classic examples are the sphere, the n-holed torus, the Möbius band, the Klein bottle, and the real projective plane.",
+      "level": 4,
+      "prereqs": ["topological-invariant", "quotient-space"],
+      "cross_links": ["manifold", "orientability", "euler-characteristic", "geometry:curvature"],
+      "resources": [
+        {"title": "Wikipedia: Surface (topology)", "url": "https://en.wikipedia.org/wiki/Surface_(topology)", "type": "reference"},
+        {"title": "Hatcher, Algebraic Topology — Ch. 0 (free text)", "url": "https://pi.math.cornell.edu/~hatcher/AT/ATpage.html", "type": "text"}
+      ],
+      "sources": ["Princeton Companion III (Differential topology entries)", "MSC 57K20 / 57M (low-dimensional topology)", "standard intuitive entry point in popular and undergraduate treatments"]
+    },
+    {
+      "id": "orientability",
+      "name": "Orientability",
+      "aka": ["one-sided vs two-sided", "orientation"],
+      "intuition_gloss": "Whether a space has a consistent 'clockwise' everywhere — on a Möbius band an ant walking the loop comes back mirror-reversed, so it doesn't.",
+      "formal_gloss": "A manifold is orientable if it admits a consistent choice of local orientation (an atlas whose transition maps preserve orientation); non-orientable surfaces contain an embedded Möbius band.",
+      "level": 5,
+      "prereqs": ["surface", "quotient-space"],
+      "cross_links": ["manifold", "homology", "integral"],
+      "resources": [
+        {"title": "Wikipedia: Orientability", "url": "https://en.wikipedia.org/wiki/Orientability", "type": "reference"}
+      ],
+      "sources": ["Massey 'Algebraic Topology: An Introduction' Ch. 1", "MSC 57 (manifolds)", "classification of surfaces requires the orientable/non-orientable split"]
+    },
+    {
+      "id": "euler-characteristic",
+      "name": "Euler Characteristic",
+      "aka": ["V - E + F", "Euler number"],
+      "intuition_gloss": "Count vertices minus edges plus faces of any honest drawing on a shape and you always get the same number — 2 for a sphere, 0 for a donut — no matter how you draw it.",
+      "formal_gloss": "The alternating sum of the number of cells in each dimension of a CW or simplicial decomposition, χ = Σ(-1)^k c_k, a homotopy invariant equal to the alternating sum of Betti numbers.",
+      "level": 3,
+      "prereqs": ["topological-invariant", "graph"],
+      "cross_links": ["surface", "simplicial-complex", "homology", "geometry:gauss-bonnet-theorem"],
+      "resources": [
+        {"title": "Wikipedia: Euler characteristic", "url": "https://en.wikipedia.org/wiki/Euler_characteristic", "type": "reference"},
+        {"title": "Hatcher, Algebraic Topology (free text)", "url": "https://pi.math.cornell.edu/~hatcher/AT/ATpage.html", "type": "text"}
+      ],
+      "sources": ["Euler's polyhedron formula as classical entry point (Lakatos 'Proofs and Refutations')", "Princeton Companion IV.6", "MSC 57M15"]
+    },
+    {
+      "id": "classification-of-surfaces",
+      "name": "Classification of Surfaces",
+      "aka": ["classification theorem for closed surfaces"],
+      "intuition_gloss": "The complete map of all possible closed surfaces: every one is a sphere, a donut with some number of holes, or a sphere with some number of Möbius-style cross-caps — nothing else exists.",
+      "formal_gloss": "Every compact connected surface without boundary is homeomorphic to a sphere, a connected sum of g tori, or a connected sum of k projective planes, and these are distinguished by orientability and Euler characteristic.",
+      "level": 6,
+      "prereqs": ["surface", "orientability", "euler-characteristic", "compactness", "connectedness"],
+      "cross_links": ["manifold", "homeomorphism", "fundamental-group"],
+      "resources": [
+        {"title": "Wikipedia: Surface (topology) — classification", "url": "https://en.wikipedia.org/wiki/Surface_(topology)", "type": "reference"},
+        {"title": "Topology Without Tears (Sidney Morris)", "url": "https://www.topologywithouttears.net/", "type": "text"}
+      ],
+      "sources": ["Massey Ch. 1 (canonical treatment)", "Princeton Companion V (theorems section)", "flagship 'complete classification' example in topology curricula"]
+    },
+    {
+      "id": "jordan-curve-theorem",
+      "name": "Jordan Curve Theorem",
+      "aka": ["Jordan-Schoenflies theorem"],
+      "intuition_gloss": "Any loop drawn in the plane without crossing itself has an inside and an outside — obvious to the eye, famously slippery to prove.",
+      "formal_gloss": "Every simple closed curve in the plane separates it into exactly two connected components, one bounded and one unbounded, with the curve as their common boundary.",
+      "level": 5,
+      "prereqs": ["connectedness", "continuity", "topological-space"],
+      "cross_links": ["proof", "graph", "homology"],
+      "resources": [
+        {"title": "Wikipedia: Jordan curve theorem", "url": "https://en.wikipedia.org/wiki/Jordan_curve_theorem", "type": "reference"}
+      ],
+      "sources": ["Princeton Companion V.10-ish theorem entries", "standard example of intuition vs. rigor gap (formalized early in proof assistants)", "MSC 57M (planar topology)"]
+    },
+    {
+      "id": "homotopy",
+      "name": "Homotopy",
+      "aka": ["continuous deformation", "homotopy equivalence", "deformation retract"],
+      "intuition_gloss": "Two maps or loops are homotopic if one can be continuously morphed into the other — a movie of intermediate shapes with no jumps or tearing.",
+      "formal_gloss": "A homotopy between maps f, g : X → Y is a continuous H : X × [0,1] → Y with H(·,0) = f and H(·,1) = g; spaces are homotopy equivalent if maps between them compose to maps homotopic to identities.",
+      "level": 6,
+      "prereqs": ["topological-space", "continuity", "product-topology"],
+      "cross_links": ["homeomorphism", "fundamental-group", "homology", "equivalence-relation"],
+      "resources": [
+        {"title": "Hatcher, Algebraic Topology — Ch. 0-1 (free text)", "url": "https://pi.math.cornell.edu/~hatcher/AT/ATpage.html", "type": "text"},
+        {"title": "Wikipedia: Homotopy", "url": "https://en.wikipedia.org/wiki/Homotopy", "type": "reference"}
+      ],
+      "sources": ["Hatcher Ch. 0 (the coarser equivalence that powers algebraic topology)", "Princeton Companion IV.6 'Algebraic Topology'", "MSC 55P (homotopy theory)"]
+    },
+    {
+      "id": "fundamental-group",
+      "name": "Fundamental Group",
+      "aka": ["first homotopy group", "π1", "loop group"],
+      "intuition_gloss": "Catalog the essentially different ways to lasso a loop from a basepoint and back — loops around a hole can't be shrunk away, and composing loops forms a group that counts the space's holes.",
+      "formal_gloss": "π1(X, x0) is the group of homotopy classes of loops based at x0 under concatenation; it is a homotopy invariant, trivial for simply connected spaces and Z for the circle.",
+      "level": 7,
+      "prereqs": ["homotopy", "group", "connectedness"],
+      "cross_links": ["covering-space", "knot-theory", "topological-invariant", "isomorphism"],
+      "resources": [
+        {"title": "Hatcher, Algebraic Topology — Ch. 1 (free text)", "url": "https://pi.math.cornell.edu/~hatcher/AT/ATpage.html", "type": "text"},
+        {"title": "Wikipedia: Fundamental group", "url": "https://en.wikipedia.org/wiki/Fundamental_group", "type": "reference"}
+      ],
+      "sources": ["Hatcher Ch. 1 (canonical treatment)", "Princeton Companion IV.6", "MSC 55Q (homotopy groups)"]
+    },
+    {
+      "id": "covering-space",
+      "name": "Covering Space",
+      "aka": ["covering map", "universal cover", "deck transformation"],
+      "intuition_gloss": "A space that lies over another like an unrolled spiral over a circle — many identical sheets projecting down, unwinding the loops below.",
+      "formal_gloss": "A map p : X̃ → X where every point of X has a neighborhood whose preimage is a disjoint union of homeomorphic copies; covering spaces of a nice space correspond to subgroups of its fundamental group (Galois correspondence).",
+      "level": 7,
+      "prereqs": ["fundamental-group", "homeomorphism", "topological-space"],
+      "cross_links": ["group", "symmetry", "algebra:galois-theory", "complex-numbers"],
+      "resources": [
+        {"title": "Hatcher, Algebraic Topology — Ch. 1.3 (free text)", "url": "https://pi.math.cornell.edu/~hatcher/AT/ATpage.html", "type": "text"},
+        {"title": "Wikipedia: Covering space", "url": "https://en.wikipedia.org/wiki/Covering_space", "type": "reference"}
+      ],
+      "sources": ["Hatcher §1.3", "Princeton Companion IV.6 (covering-space/Galois analogy)", "MSC 57M10"]
+    },
+    {
+      "id": "brouwer-fixed-point",
+      "name": "Brouwer Fixed-Point Theorem",
+      "aka": ["fixed-point theorems", "no-retraction theorem"],
+      "intuition_gloss": "Stir a cup of coffee however you like: some point of the liquid ends up exactly where it started — any continuous self-map of a disk must fix a point.",
+      "formal_gloss": "Every continuous map from a closed n-ball to itself has a fixed point; equivalently, there is no continuous retraction of the ball onto its boundary sphere.",
+      "level": 6,
+      "prereqs": ["continuity", "compactness", "topological-invariant"],
+      "cross_links": ["fundamental-group", "homology", "applied-computational:nash-equilibrium", "differential-equation"],
+      "resources": [
+        {"title": "Wikipedia: Brouwer fixed-point theorem", "url": "https://en.wikipedia.org/wiki/Brouwer_fixed-point_theorem", "type": "reference"},
+        {"title": "Hatcher, Algebraic Topology (free text)", "url": "https://pi.math.cornell.edu/~hatcher/AT/ATpage.html", "type": "text"}
+      ],
+      "sources": ["Hatcher Ch. 1 (application of π1) and Ch. 2 (via homology)", "Princeton Companion V (famous theorems)", "canonical bridge to economics/game theory (Nash)"]
+    },
+    {
+      "id": "simplicial-complex",
+      "name": "Simplicial Complex & Triangulation",
+      "aka": ["triangulation", "CW complex", "cell complex"],
+      "intuition_gloss": "Build any shape out of standardized LEGO — points, segments, triangles, tetrahedra glued face-to-face — turning floppy geometry into finite, computable data.",
+      "formal_gloss": "A collection of simplices glued along faces such that every face of a simplex is in the collection and intersections are common faces; a triangulation is a homeomorphism from such a complex to a space.",
+      "level": 6,
+      "prereqs": ["topological-space", "quotient-space", "graph"],
+      "cross_links": ["homology", "euler-characteristic", "algorithm", "applied-computational:topological-data-analysis"],
+      "resources": [
+        {"title": "Wikipedia: Simplicial complex", "url": "https://en.wikipedia.org/wiki/Simplicial_complex", "type": "reference"},
+        {"title": "Hatcher, Algebraic Topology — Ch. 0 & 2 (free text)", "url": "https://pi.math.cornell.edu/~hatcher/AT/ATpage.html", "type": "text"}
+      ],
+      "sources": ["Hatcher Ch. 0 (CW complexes) and Ch. 2 (simplicial homology)", "MSC 55U (applied homological algebra)", "combinatorial topology tradition (Poincaré)"]
+    },
+    {
+      "id": "homology",
+      "name": "Homology",
+      "aka": ["simplicial homology", "singular homology", "Betti numbers"],
+      "intuition_gloss": "A systematic hole-detector: it counts the independent loops, cavities, and higher-dimensional voids of a space by tracking which cycles fail to be boundaries.",
+      "formal_gloss": "The sequence of abelian groups H_n(X) = ker ∂_n / im ∂_{n+1} of a chain complex built from the space; their ranks are the Betti numbers, and homology is a functorial homotopy invariant.",
+      "level": 7,
+      "prereqs": ["simplicial-complex", "group", "homotopy"],
+      "cross_links": ["euler-characteristic", "fundamental-group", "vector-space", "applied-computational:topological-data-analysis", "geometry:de-rham-cohomology"],
+      "resources": [
+        {"title": "Hatcher, Algebraic Topology — Ch. 2 (free text)", "url": "https://pi.math.cornell.edu/~hatcher/AT/ATpage.html", "type": "text"},
+        {"title": "Wikipedia: Homology (mathematics)", "url": "https://en.wikipedia.org/wiki/Homology_(mathematics)", "type": "reference"}
+      ],
+      "sources": ["Hatcher Ch. 2 (canonical treatment)", "Princeton Companion IV.6", "MSC 55N (homology and cohomology theories)"]
+    },
+    {
+      "id": "knot-theory",
+      "name": "Knot Theory",
+      "aka": ["knot", "link", "knot invariant", "Jones polynomial"],
+      "intuition_gloss": "Take a tangled loop of string with the ends fused and ask: is it truly knotted, or can wiggling untie it — and how do you prove two tangles are different?",
+      "formal_gloss": "The study of embeddings of the circle in 3-space up to ambient isotopy, with invariants such as tricolorability, the knot group, and polynomial invariants (Alexander, Jones) distinguishing knot types.",
+      "level": 5,
+      "prereqs": ["topological-invariant", "homeomorphism"],
+      "cross_links": ["fundamental-group", "polynomial", "group", "applied-computational:dna-topology"],
+      "resources": [
+        {"title": "Wikipedia: Knot theory", "url": "https://en.wikipedia.org/wiki/Knot_theory", "type": "reference"},
+        {"title": "The Knot Atlas", "url": "http://katlas.org/", "type": "tool"}
+      ],
+      "sources": ["Princeton Companion III (knot polynomials entry)", "MSC 57K10 (knot theory)", "Adams 'The Knot Book' as standard accessible text"]
+    },
+    {
+      "id": "fiber-bundle",
+      "name": "Fiber Bundle",
+      "aka": ["fibration", "vector bundle", "principal bundle", "Hopf fibration"],
+      "intuition_gloss": "A space built by attaching a copy of the same fiber over every point of a base — like the hairs on a scalp — where the global twisting (as in the Möbius band over the circle) is the interesting part.",
+      "formal_gloss": "A map E → B locally trivial in the sense that every point of B has a neighborhood U with E over U homeomorphic to U × F respecting projection; global twisting is measured by characteristic classes.",
+      "level": 8,
+      "prereqs": ["product-topology", "quotient-space", "manifold", "covering-space"],
+      "cross_links": ["vector-space", "group", "geometry:gauge-theory", "homology"],
+      "resources": [
+        {"title": "Wikipedia: Fiber bundle", "url": "https://en.wikipedia.org/wiki/Fiber_bundle", "type": "reference"},
+        {"title": "Hatcher, Algebraic Topology — Ch. 4 (free text)", "url": "https://pi.math.cornell.edu/~hatcher/AT/ATpage.html", "type": "text"}
+      ],
+      "sources": ["Steenrod 'The Topology of Fibre Bundles'", "Princeton Companion IV (differential topology / gauge theory connections)", "MSC 55R (fiber spaces and bundles)"]
+    }
+  ]
+}

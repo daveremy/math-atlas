@@ -1,0 +1,388 @@
+{
+  "territory": "mathematical-practice",
+  "concepts": [
+    {
+      "id": "mathematical-definition",
+      "name": "Mathematical Definition",
+      "aka": ["Precise definition", "Definition-unpacking"],
+      "intuition_gloss": "The exact wording of what a term means is the whole game — a definition is a contract you must be able to unfold on demand.",
+      "formal_gloss": "A stipulation introducing a new term as an abbreviation for a precise condition, so every use of the term can be replaced by that condition in proofs.",
+      "level": 2,
+      "prereqs": ["set", "axiom"],
+      "cross_links": ["proof", "generalization-abstraction", "mathematical-notation"],
+      "resources": [
+        {"title": "Book of Proof (Hammack) — free text", "url": "https://richardhammack.github.io/BookOfProof/", "type": "text"},
+        {"title": "Theorem — Wikipedia (terminology of definitions, theorems, proofs)", "url": "https://en.wikipedia.org/wiki/Theorem", "type": "text"}
+      ],
+      "sources": ["standard transition-to-proof curricula (Book of Proof, Velleman's How to Prove It)", "Princeton Companion I.3 (Some Fundamental Mathematical Definitions)"]
+    },
+    {
+      "id": "conjecture",
+      "name": "Conjecture",
+      "aka": ["Hypothesis", "Open problem", "Educated guess"],
+      "intuition_gloss": "A pattern you've spotted and believe is always true, stated precisely and put on trial — mathematics grows by making and testing such guesses.",
+      "formal_gloss": "A precisely stated proposition believed true on the basis of evidence or heuristics but not yet proved; it becomes a theorem when proved or is refuted by counterexample.",
+      "level": 2,
+      "prereqs": ["mathematical-definition"],
+      "cross_links": ["counterexample", "specialization-small-cases", "proof", "prime-number"],
+      "resources": [
+        {"title": "Conjecture — Wikipedia", "url": "https://en.wikipedia.org/wiki/Conjecture", "type": "text"},
+        {"title": "Mathematics and Plausible Reasoning (Polya) — Wikipedia overview", "url": "https://en.wikipedia.org/wiki/Mathematics_and_Plausible_Reasoning", "type": "text"}
+      ],
+      "sources": ["Polya, Mathematics and Plausible Reasoning", "Princeton Companion VIII (advice/practice essays)"]
+    },
+    {
+      "id": "counterexample",
+      "name": "Counterexample",
+      "aka": ["Refutation by example", "Disproof"],
+      "intuition_gloss": "One black swan kills 'all swans are white' — a single well-chosen example demolishes a universal claim for good.",
+      "formal_gloss": "An object satisfying the hypotheses of a universally quantified statement but violating its conclusion, thereby disproving the statement.",
+      "level": 2,
+      "prereqs": ["mathematical-definition", "conjecture"],
+      "cross_links": ["foundations:first-order-logic", "specialization-small-cases", "proof-by-contradiction"],
+      "resources": [
+        {"title": "Counterexample — Wikipedia", "url": "https://en.wikipedia.org/wiki/Counterexample", "type": "text"},
+        {"title": "Book of Proof (Hammack), ch. on disproof", "url": "https://richardhammack.github.io/BookOfProof/", "type": "text"}
+      ],
+      "sources": ["Book of Proof ch. 9 (Disproof)", "Lakatos, Proofs and Refutations (counterexample-driven concept refinement)"]
+    },
+    {
+      "id": "theorem-lemma-corollary",
+      "name": "Theorem, Lemma & Corollary",
+      "aka": ["Anatomy of a theorem", "Hypothesis and conclusion", "Statement structure"],
+      "intuition_gloss": "Mathematical knowledge comes packaged as if-then statements of different sizes: workhorse lemmas feed headline theorems, which drop corollaries for free.",
+      "formal_gloss": "A theorem is a proved statement, typically of the form hypotheses imply conclusion; a lemma is a proved auxiliary step, and a corollary a near-immediate consequence.",
+      "level": 2,
+      "prereqs": ["mathematical-definition", "proof"],
+      "cross_links": ["foundations:first-order-logic", "reading-writing-proofs", "problem-reduction"],
+      "resources": [
+        {"title": "Theorem — Wikipedia", "url": "https://en.wikipedia.org/wiki/Theorem", "type": "text"}
+      ],
+      "sources": ["standard transition-to-proof curricula", "Princeton Companion I.2 (The Language and Grammar of Mathematics)"]
+    },
+    {
+      "id": "direct-proof",
+      "name": "Direct Proof",
+      "aka": ["Forward reasoning", "Proof from definitions"],
+      "intuition_gloss": "The straight road: start from what you're given, unfold the definitions, and walk step by logical step until you arrive at the claim.",
+      "formal_gloss": "A derivation of a conditional P implies Q by assuming P and reaching Q through a chain of valid inferences from definitions, axioms, and prior results.",
+      "level": 3,
+      "prereqs": ["proof", "theorem-lemma-corollary", "foundations:propositional-logic"],
+      "cross_links": ["proof-by-contrapositive", "reading-writing-proofs"],
+      "resources": [
+        {"title": "Direct proof — Wikipedia", "url": "https://en.wikipedia.org/wiki/Direct_proof", "type": "text"},
+        {"title": "Book of Proof (Hammack), ch. 4", "url": "https://richardhammack.github.io/BookOfProof/", "type": "text"}
+      ],
+      "sources": ["Book of Proof ch. 4", "Velleman, How to Prove It"]
+    },
+    {
+      "id": "proof-by-contrapositive",
+      "name": "Proof by Contrapositive",
+      "aka": ["Contraposition", "Indirect proof"],
+      "intuition_gloss": "Instead of proving 'if it rains, the ground gets wet', prove 'if the ground is dry, it didn't rain' — the same claim attacked from the other end.",
+      "formal_gloss": "A proof of P implies Q obtained by directly proving the logically equivalent statement not-Q implies not-P.",
+      "level": 3,
+      "prereqs": ["direct-proof", "foundations:propositional-logic"],
+      "cross_links": ["proof-by-contradiction", "working-backwards"],
+      "resources": [
+        {"title": "Proof by contrapositive — Wikipedia", "url": "https://en.wikipedia.org/wiki/Proof_by_contrapositive", "type": "text"},
+        {"title": "Book of Proof (Hammack), ch. 5", "url": "https://richardhammack.github.io/BookOfProof/", "type": "text"}
+      ],
+      "sources": ["Book of Proof ch. 5", "standard transition-to-proof curricula"]
+    },
+    {
+      "id": "proof-by-cases",
+      "name": "Proof by Cases",
+      "aka": ["Case analysis", "Proof by exhaustion", "Casework"],
+      "intuition_gloss": "Split the world into a complete set of scenarios — even or odd, positive or negative — and win each battle separately to win the war.",
+      "formal_gloss": "A proof that establishes a statement by partitioning all possibilities into finitely many exhaustive cases and proving the statement in each case.",
+      "level": 3,
+      "prereqs": ["direct-proof"],
+      "cross_links": ["without-loss-of-generality", "modular-arithmetic", "algorithm"],
+      "resources": [
+        {"title": "Proof by exhaustion — Wikipedia", "url": "https://en.wikipedia.org/wiki/Proof_by_exhaustion", "type": "text"},
+        {"title": "Book of Proof (Hammack)", "url": "https://richardhammack.github.io/BookOfProof/", "type": "text"}
+      ],
+      "sources": ["Book of Proof ch. 4 (cases)", "four-color theorem as canonical large-scale exemplar"]
+    },
+    {
+      "id": "constructive-nonconstructive-proof",
+      "name": "Constructive vs. Non-constructive Proof",
+      "aka": ["Existence proof", "Proof by construction", "Pure existence proof"],
+      "intuition_gloss": "You can prove treasure exists by digging it up, or by showing the map forces it to be somewhere — only the first hands you the treasure.",
+      "formal_gloss": "A constructive proof of an existential statement exhibits or algorithmically produces a witness; a non-constructive proof establishes existence without providing one, often via contradiction or counting.",
+      "level": 4,
+      "prereqs": ["direct-proof", "proof-by-contradiction"],
+      "cross_links": ["algorithm", "proof-formalization", "cardinality", "counting-principles"],
+      "resources": [
+        {"title": "Constructive proof — Wikipedia", "url": "https://en.wikipedia.org/wiki/Constructive_proof", "type": "text"}
+      ],
+      "sources": ["MSC 2020 03F (constructive mathematics)", "standard proof-techniques curricula", "Princeton Companion IV.22 (Logic and Model Theory context)"]
+    },
+    {
+      "id": "without-loss-of-generality",
+      "name": "Without Loss of Generality",
+      "aka": ["WLOG", "Symmetry reduction in proofs"],
+      "intuition_gloss": "When several scenarios are mirror images of each other, prove just one and let symmetry stamp the result onto the rest.",
+      "formal_gloss": "A proof step restricting attention to one case among several that are equivalent under a symmetry of the problem, the other cases following by the same argument mutatis mutandis.",
+      "level": 4,
+      "prereqs": ["proof-by-cases"],
+      "cross_links": ["symmetry", "exploiting-symmetry", "reading-writing-proofs"],
+      "resources": [
+        {"title": "Without loss of generality — Wikipedia", "url": "https://en.wikipedia.org/wiki/Without_loss_of_generality", "type": "text"}
+      ],
+      "sources": ["standard proof-writing conventions (Velleman, Book of Proof)"]
+    },
+    {
+      "id": "polya-problem-solving",
+      "name": "Polya's Problem-Solving Cycle",
+      "aka": ["How to Solve It", "Understand-Plan-Execute-Review", "Heuristics"],
+      "intuition_gloss": "Polya's four-beat rhythm for any hard problem: truly understand it, devise a plan, carry the plan out, then look back at what worked.",
+      "formal_gloss": "Polya's framework of heuristic phases — understanding the problem, devising a plan, carrying out the plan, and looking back — with named heuristics (analogy, specialization, auxiliary problems) attached to each phase.",
+      "level": 1,
+      "prereqs": [],
+      "cross_links": ["working-backwards", "specialization-small-cases", "reasoning-by-analogy", "metacognitive-monitoring"],
+      "resources": [
+        {"title": "How to Solve It (Polya) — Wikipedia", "url": "https://en.wikipedia.org/wiki/How_to_Solve_It", "type": "text"},
+        {"title": "Art of Problem Solving", "url": "https://artofproblemsolving.com/", "type": "tool"}
+      ],
+      "sources": ["Polya, How to Solve It (1945)", "Schoenfeld, Mathematical Problem Solving (1985)"]
+    },
+    {
+      "id": "working-backwards",
+      "name": "Working Backwards",
+      "aka": ["Backward reasoning", "Analysis-synthesis", "Goal-directed search"],
+      "intuition_gloss": "Stand at the finish line and ask 'what would get me here?', walking the maze in reverse until you meet the entrance.",
+      "formal_gloss": "The heuristic of reasoning from the desired conclusion to sufficient intermediate conditions until reaching the given hypotheses, then presenting the argument in forward order.",
+      "level": 1,
+      "prereqs": ["polya-problem-solving"],
+      "cross_links": ["proof-by-contrapositive", "problem-reduction", "algorithm"],
+      "resources": [
+        {"title": "How to Solve It (Polya) — Wikipedia", "url": "https://en.wikipedia.org/wiki/How_to_Solve_It", "type": "text"}
+      ],
+      "sources": ["Polya, How to Solve It (working backwards / Pappus's analysis)", "AoPS problem-solving curricula"]
+    },
+    {
+      "id": "specialization-small-cases",
+      "name": "Trying Small Cases",
+      "aka": ["Specialization", "Experimentation", "Pattern spotting"],
+      "intuition_gloss": "Before wrestling the general beast, play with the tiniest examples — n equals 1, 2, 3 — and let the pattern introduce itself.",
+      "formal_gloss": "The heuristic of instantiating a general problem at small or extreme parameter values to generate data, form conjectures, and reveal structure that guides the general argument.",
+      "level": 1,
+      "prereqs": ["polya-problem-solving"],
+      "cross_links": ["conjecture", "counterexample", "induction", "generalization-abstraction"],
+      "resources": [
+        {"title": "How to Solve It (Polya) — Wikipedia", "url": "https://en.wikipedia.org/wiki/How_to_Solve_It", "type": "text"},
+        {"title": "Art of Problem Solving", "url": "https://artofproblemsolving.com/", "type": "tool"}
+      ],
+      "sources": ["Polya, How to Solve It (specialization)", "Engel, Problem-Solving Strategies", "AoPS curricula"]
+    },
+    {
+      "id": "generalization-abstraction",
+      "name": "Generalization & Abstraction",
+      "aka": ["The art of abstraction", "Axiomatization"],
+      "intuition_gloss": "Strip away what's incidental until different problems reveal the same skeleton — then solve the skeleton once, everywhere.",
+      "formal_gloss": "The process of extracting the essential structure common to specific instances into a general definition or axiom system whose theorems apply to every instance at once.",
+      "level": 4,
+      "prereqs": ["mathematical-definition", "specialization-small-cases"],
+      "cross_links": ["group", "vector-space", "topological-space", "isomorphism", "axiom"],
+      "resources": [
+        {"title": "Abstraction (mathematics) — Wikipedia", "url": "https://en.wikipedia.org/wiki/Abstraction_(mathematics)", "type": "text"},
+        {"title": "The Princeton Companion to Mathematics — I.4 The General Goals of Mathematical Research", "url": "https://press.princeton.edu/books/hardcover/9780691118802/the-princeton-companion-to-mathematics", "type": "text"}
+      ],
+      "sources": ["Princeton Companion I.1 & I.4", "territory tagline ('the art of abstraction')", "history of the axiomatic method (Hilbert, Bourbaki)"]
+    },
+    {
+      "id": "reasoning-by-analogy",
+      "name": "Reasoning by Analogy",
+      "aka": ["Analogical transfer", "Plausible reasoning"],
+      "intuition_gloss": "Borrow the shape of a solved problem to attack an unsolved one — spheres are to space what circles are to the plane.",
+      "formal_gloss": "The heuristic of transferring conjectures, methods, or structures between domains that share partial structural correspondence, generating plausible but unproven claims to be verified.",
+      "level": 2,
+      "prereqs": ["polya-problem-solving"],
+      "cross_links": ["isomorphism", "generalization-abstraction", "conjecture"],
+      "resources": [
+        {"title": "Mathematics and Plausible Reasoning (Polya) — Wikipedia", "url": "https://en.wikipedia.org/wiki/Mathematics_and_Plausible_Reasoning", "type": "text"}
+      ],
+      "sources": ["Polya, Mathematics and Plausible Reasoning vol. 1 (Induction and Analogy in Mathematics)"]
+    },
+    {
+      "id": "problem-reduction",
+      "name": "Reduction to a Known Problem",
+      "aka": ["Transformation", "Auxiliary problem", "Reformulation"],
+      "intuition_gloss": "The mathematician's oldest trick: don't solve the problem in front of you — turn it into one somebody already solved.",
+      "formal_gloss": "Solving problem A by exhibiting a transformation carrying instances of A to instances of an already-solved problem B and mapping B's solutions back to A.",
+      "level": 3,
+      "prereqs": ["polya-problem-solving", "function"],
+      "cross_links": ["algorithm", "isomorphism", "coordinate-system", "multiple-representations"],
+      "resources": [
+        {"title": "Reduction (mathematics) — Wikipedia", "url": "https://en.wikipedia.org/wiki/Reduction_(mathematics)", "type": "text"},
+        {"title": "How to Solve It (Polya) — Wikipedia", "url": "https://en.wikipedia.org/wiki/How_to_Solve_It", "type": "text"}
+      ],
+      "sources": ["Polya, How to Solve It (auxiliary problems)", "computational reduction as formal analogue (MSC 68Q)"]
+    },
+    {
+      "id": "invariant",
+      "name": "Invariants & Monovariants",
+      "aka": ["Invariance principle", "Conserved quantity", "Monovariant"],
+      "intuition_gloss": "Find something the allowed moves can never change — if the goal state has a different value of it, the goal is provably unreachable.",
+      "formal_gloss": "A quantity or property preserved (invariant) or monotonically changed (monovariant) by every permitted operation, used to prove impossibility or termination.",
+      "level": 3,
+      "prereqs": ["direct-proof", "function"],
+      "cross_links": ["induction", "symmetry", "modular-arithmetic", "graph"],
+      "resources": [
+        {"title": "Invariant (mathematics) — Wikipedia", "url": "https://en.wikipedia.org/wiki/Invariant_(mathematics)", "type": "text"},
+        {"title": "Problem-Solving Strategies (Engel), ch. 1: The Invariance Principle", "url": "https://link.springer.com/book/10.1007/b97682", "type": "text"}
+      ],
+      "sources": ["Engel, Problem-Solving Strategies ch. 1", "olympiad training canon"]
+    },
+    {
+      "id": "extremal-principle",
+      "name": "Extremal Principle",
+      "aka": ["Extreme principle", "Consider the largest/smallest"],
+      "intuition_gloss": "Grab the biggest, smallest, or closest object in the problem — extremes are cornered animals, and their special position forces conclusions.",
+      "formal_gloss": "The heuristic of examining an element that is extremal with respect to some ordering, whose maximality or minimality yields constraints, often combined with well-ordering or contradiction.",
+      "level": 4,
+      "prereqs": ["proof-by-contradiction", "invariant"],
+      "cross_links": ["foundations:well-ordering", "optimization", "induction"],
+      "resources": [
+        {"title": "Problem-Solving Strategies (Engel), ch. 3: The Extremal Principle", "url": "https://link.springer.com/book/10.1007/b97682", "type": "text"}
+      ],
+      "sources": ["Engel, Problem-Solving Strategies ch. 3", "olympiad training canon", "well-ordering principle connection"]
+    },
+    {
+      "id": "exploiting-symmetry",
+      "name": "Exploiting Symmetry",
+      "aka": ["Symmetry arguments", "Symmetrization"],
+      "intuition_gloss": "When a problem looks the same after a swap, rotation, or relabeling, that sameness is free information — use it to halve the work or force equalities.",
+      "formal_gloss": "The strategy of using a problem's automorphisms — transformations preserving its data — to reduce cases, constrain solutions, or average over orbits.",
+      "level": 3,
+      "prereqs": ["polya-problem-solving"],
+      "cross_links": ["symmetry", "group", "without-loss-of-generality", "invariant"],
+      "resources": [
+        {"title": "How to Solve It (Polya) — Wikipedia", "url": "https://en.wikipedia.org/wiki/How_to_Solve_It", "type": "text"},
+        {"title": "Problem-Solving Strategies (Engel)", "url": "https://link.springer.com/book/10.1007/b97682", "type": "text"}
+      ],
+      "sources": ["Polya, How to Solve It (symmetry heuristic)", "Engel, Problem-Solving Strategies", "Weyl, Symmetry"]
+    },
+    {
+      "id": "multiple-representations",
+      "name": "Multiple Representations",
+      "aka": ["Representational fluency", "Translating between forms"],
+      "intuition_gloss": "The same idea can be a picture, a formula, a table, or a story — power comes from hopping to whichever view makes the problem easy.",
+      "formal_gloss": "The skill of encoding one mathematical object in several equivalent registers (symbolic, graphical, numerical, verbal) and translating between them to expose different affordances.",
+      "level": 2,
+      "prereqs": ["function", "coordinate-system"],
+      "cross_links": ["visual-reasoning", "problem-reduction", "matrix", "graph"],
+      "resources": [
+        {"title": "Multiple representations (mathematics education) — Wikipedia", "url": "https://en.wikipedia.org/wiki/Multiple_representations_(mathematics_education)", "type": "text"},
+        {"title": "3Blue1Brown", "url": "https://www.3blue1brown.com/", "type": "video"}
+      ],
+      "sources": ["mathematics-education research (Lesh, Duval on registers of representation)", "task brief: mental-representation skills"]
+    },
+    {
+      "id": "visual-reasoning",
+      "name": "Visual & Diagrammatic Reasoning",
+      "aka": ["Proofs without words", "Geometric intuition", "Diagram-drawing"],
+      "intuition_gloss": "Draw the thing — a good picture can carry an entire argument, turning an algebraic identity into something you simply see.",
+      "formal_gloss": "The use of diagrams and spatial structure as cognitive scaffolding for conjecture and proof, from proofs-without-words to commutative diagrams, with the obligation that pictures be backed by rigorous argument.",
+      "level": 2,
+      "prereqs": ["multiple-representations"],
+      "cross_links": ["coordinate-system", "graph", "rigor-and-intuition", "manifold"],
+      "resources": [
+        {"title": "Proof without words — Wikipedia", "url": "https://en.wikipedia.org/wiki/Proof_without_words", "type": "text"},
+        {"title": "3Blue1Brown", "url": "https://www.3blue1brown.com/", "type": "video"}
+      ],
+      "sources": ["Nelsen, Proofs Without Words", "Princeton Companion emphasis on visualization", "3Blue1Brown as canonical pedagogical exemplar"]
+    },
+    {
+      "id": "estimation-sanity-checking",
+      "name": "Estimation & Sanity Checking",
+      "aka": ["Fermi estimation", "Order-of-magnitude reasoning", "Plausibility checks"],
+      "intuition_gloss": "Before trusting an answer, weigh it on rough scales — check units, extreme cases, and orders of magnitude to catch nonsense early.",
+      "formal_gloss": "The practice of bounding a quantity by decomposing it into estimable factors and testing results against limiting cases, dimensional constraints, and known benchmarks.",
+      "level": 1,
+      "prereqs": [],
+      "cross_links": ["mathematical-model", "specialization-small-cases", "expectation", "optimization"],
+      "resources": [
+        {"title": "Fermi problem — Wikipedia", "url": "https://en.wikipedia.org/wiki/Fermi_problem", "type": "text"}
+      ],
+      "sources": ["Fermi-problem tradition", "Polya's 'check the result' phase", "Street-Fighting Mathematics (Mahajan) tradition"]
+    },
+    {
+      "id": "mathematical-notation",
+      "name": "Mathematical Notation",
+      "aka": ["Symbolism", "Choosing good notation"],
+      "intuition_gloss": "Good notation is a lever: it packs an idea into marks that think for you, the way positional digits made arithmetic easy.",
+      "formal_gloss": "The system of conventional symbols and syntax for denoting mathematical objects and operations, whose design (compactness, suggestiveness, unambiguity) materially affects reasoning.",
+      "level": 1,
+      "prereqs": [],
+      "cross_links": ["mathematical-definition", "multiple-representations", "proof-formalization", "polynomial"],
+      "resources": [
+        {"title": "Mathematical notation — Wikipedia", "url": "https://en.wikipedia.org/wiki/Mathematical_notation", "type": "text"}
+      ],
+      "sources": ["history of notation (Cajori)", "Princeton Companion I.2 (The Language and Grammar of Mathematics)"]
+    },
+    {
+      "id": "reading-writing-proofs",
+      "name": "Reading & Writing Proofs",
+      "aka": ["Mathematical writing", "Proof communication", "Mathematical literacy"],
+      "intuition_gloss": "A proof is a piece of writing aimed at a human reader — learning to read one slowly and write one clearly is a craft of its own.",
+      "formal_gloss": "The conventions for communicating proofs — statement-proof structure, quantifier discipline, appropriate granularity of steps — and the skill of verifying and reconstructing others' arguments.",
+      "level": 3,
+      "prereqs": ["direct-proof", "theorem-lemma-corollary"],
+      "cross_links": ["mathematical-notation", "metacognitive-monitoring", "proof-formalization"],
+      "resources": [
+        {"title": "Mathematical Writing (Knuth, Larrabee, Roberts) — course notes", "url": "https://jmlr.csail.mit.edu/reviewing-papers/knuth_mathematical_writing.pdf", "type": "text"},
+        {"title": "On writing — Terence Tao's advice pages", "url": "https://terrytao.wordpress.com/advice-on-writing-papers/", "type": "text"}
+      ],
+      "sources": ["Knuth et al., Mathematical Writing", "Halmos, How to Write Mathematics", "transition-to-proof curricula"]
+    },
+    {
+      "id": "metacognitive-monitoring",
+      "name": "Metacognitive Monitoring",
+      "aka": ["Knowing what you know", "Self-monitoring", "Being stuck productively"],
+      "intuition_gloss": "The inner supervisor who asks 'is this approach working? do I actually understand this step?' — expert problem solvers audit themselves constantly.",
+      "formal_gloss": "The executive-control component of problem solving — planning, progress monitoring, and strategy switching — identified by Schoenfeld as a chief determinant of problem-solving success beyond resource knowledge.",
+      "level": 3,
+      "prereqs": ["polya-problem-solving"],
+      "cross_links": ["reading-writing-proofs", "estimation-sanity-checking", "rigor-and-intuition"],
+      "resources": [
+        {"title": "Metacognition — Wikipedia", "url": "https://en.wikipedia.org/wiki/Metacognition", "type": "text"},
+        {"title": "How to Solve It (Polya) — Wikipedia ('looking back')", "url": "https://en.wikipedia.org/wiki/How_to_Solve_It", "type": "text"}
+      ],
+      "sources": ["Schoenfeld, Mathematical Problem Solving (1985)", "task brief: metacognitive practices"]
+    },
+    {
+      "id": "rigor-and-intuition",
+      "name": "Rigor & Intuition",
+      "aka": ["Pre-rigorous/rigorous/post-rigorous", "Formal vs. informal reasoning"],
+      "intuition_gloss": "Mathematicians run on fast intuition checked by slow rigor — mastery is when the two agree, and your gut speaks fluent epsilon-delta.",
+      "formal_gloss": "The interplay between informal heuristic understanding and formal deductive verification, often described as Tao's three stages: pre-rigorous, rigorous, and post-rigorous practice.",
+      "level": 4,
+      "prereqs": ["reading-writing-proofs", "visual-reasoning"],
+      "cross_links": ["limit", "proof-formalization", "metacognitive-monitoring", "generalization-abstraction"],
+      "resources": [
+        {"title": "There's more to mathematics than rigour and proofs — Terence Tao", "url": "https://terrytao.wordpress.com/career-advice/theres-more-to-mathematics-than-rigour-and-proofs/", "type": "text"},
+        {"title": "On Proof and Progress in Mathematics — W. Thurston (arXiv)", "url": "https://arxiv.org/abs/math/9404236", "type": "text"}
+      ],
+      "sources": ["Tao's three-stages essay", "Thurston, On Proof and Progress in Mathematics (1994)", "Princeton Companion VIII.2"]
+    },
+    {
+      "id": "proof-formalization",
+      "name": "Formalization & Proof Assistants",
+      "aka": ["Machine-checked proof", "Interactive theorem proving", "Lean/Coq/Isabelle"],
+      "intuition_gloss": "Write a proof so precisely that a computer can verify every step — turning mathematical certainty into a compile check.",
+      "formal_gloss": "The translation of informal proofs into a formal logical calculus checked by software (proof assistants such as Lean, Coq, Isabelle), with libraries like mathlib formalizing large bodies of mathematics.",
+      "level": 6,
+      "prereqs": ["reading-writing-proofs", "foundations:first-order-logic", "algorithm"],
+      "cross_links": ["constructive-nonconstructive-proof", "rigor-and-intuition", "axiom", "mathematical-notation"],
+      "resources": [
+        {"title": "Proof assistant — Wikipedia", "url": "https://en.wikipedia.org/wiki/Proof_assistant", "type": "text"},
+        {"title": "Lean community / mathlib", "url": "https://leanprover-community.github.io/", "type": "tool"},
+        {"title": "The Natural Number Game", "url": "https://adam.math.hhu.de/", "type": "tool"}
+      ],
+      "sources": ["Lean mathlib project (atlas primary source)", "MSC 2020 03B35 / 68V (formalized mathematics)", "atlas maintenance principle 5 (formalization at scale)"]
+    }
+  ]
+}
